@@ -1,0 +1,39 @@
+{
+    "code": 1,
+    "msg": "success",
+    "time": "1581070766",
+    "data": [
+        {
+            "shop_id": 1,
+            "shop_name": "棒",
+            "goods_list": [
+                {
+                    "id": 30,
+                    "goods_num": 1,
+                    "goods_id": 1,
+                    "item_id": 0,
+                    "key_name": "",
+                    "goods_name": "蒙牛牛奶",
+                    "image": "http://api.srx.test/uploads/20200205/6e41a17294738d04d5ad9163c87b04c6.jpg",
+                    "price": "1.00",
+                    "is_show": true,
+                    "status": true,
+                    "expire": false
+                },
+                {
+                    "id": 31,
+                    "goods_num": 2,
+                    "goods_id": 2,
+                    "item_id": 3,
+                    "key_name": "容量:1000ml 香味:柠檬",
+                    "goods_name": "飘柔去屑洗发露",
+                    "image": "http://api.srx.test/uploads/20200206/6e41a17294738d04d5ad9163c87b04c6.jpg",
+                    "price": "22.00",
+                    "is_show": true,
+                    "status": true,
+                    "expire": false
+                }
+            ]
+        }
+    ]
+}

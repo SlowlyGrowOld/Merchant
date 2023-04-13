@@ -1,0 +1,63 @@
+//
+//  PrefixHeader.pch
+//  SeaStarVoice
+//
+//  Created by 薛静鹏 on 2019/9/10.
+//  Copyright © 2019 薛静鹏. All rights reserved.
+
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//全局宏
+#import "UtilsMacros.h"
+#import "URLMacros.h"
+#import "FontAndColorMacros.h"
+#import "ThirdMacros.h"
+#import "CommonMacros.h"
+#import "ConfigurationFile.h"
+
+//基础类
+#import "AppDelegate.h"
+#import "AppDelegate+AppService.h"
+#import "RootViewController.h"
+#import "RootNavigationController.h"
+#import "AppManager.h"
+#import "ShareManager.h"
+#import "UserManager.h"
+#import "UserAccount.h"
+#import "SRXBaseTableViewCell.h"
+#import "AppHandyMethods.h"
+#import "JHWebSocketManager.h"
+
+//第三方
+#import <YYKit.h>
+#import <Masonry.h>
+#import "UIImageView+JKImageView.h"
+
+#import <SVProgressHUD.h>
+#import "MBProgressHUD+XY.h"
+#import <UIButton+LXMImagePosition.h>
+#import <MJExtension/MJExtension.h>
+#import <SDCycleScrollView/SDCycleScrollView.h>
+#import <UIImageView+WebCache.h>
+#import <MJRefresh/MJRefresh.h>
+#import <ReactiveObjC.h>
+#import <Reachability.h>
+
+//类扩展
+#import "JXLayoutButton.h"
+#import "UIImage+Gradient.h"
+#import "UIButton+Gradient.h"
+#import "UIView+SettingLayer.h"
+#import "UIButton+Category.h"
+#import "NSString+JHExt.h"
+#import "UIView+MJExtension.h"
+#import "UIScrollView+MJExtension.h"
+#import "UIView+LZRViewLayer.h"
+#import "UIViewController+JKViewController.h"
+#import "LCUtils.h"
+#import "IMBaseKit.h"
+#import "UIViewController+AlertViewAndActionSheet.h"
+#import "NSMutableAttributedString+JHExt.h"
+#endif /* PrefixHeader_pch */
