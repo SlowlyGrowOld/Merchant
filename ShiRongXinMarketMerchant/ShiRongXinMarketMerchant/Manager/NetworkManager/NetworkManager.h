@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
+
+typedef void (^JHNetworkRequestSuccessArray)(NSArray * modelList);
+typedef void (^JHNetworkRequestSuccessContent)(NSDictionary * content);
+typedef void (^JHNetworkRequestSuccessVoid)(NSString * message);
+typedef void (^JHNetworkRequestFailure)(NSString * message);
+
 @interface NetworkManager : AFHTTPSessionManager
 
 + (instancetype)sharedClient;

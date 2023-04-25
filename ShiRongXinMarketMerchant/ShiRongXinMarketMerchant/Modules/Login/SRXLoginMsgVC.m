@@ -10,6 +10,8 @@
 #import "HWTFCodeView.h"
 #import "SRXLoginShopListVC.h"
 
+#import "NetworkManager+Login.h"
+
 @interface SRXLoginMsgVC ()
 @property (weak, nonatomic) IBOutlet UIView *codeView;
 @property (weak, nonatomic) IBOutlet UIButton *sendMsgBtn;
@@ -48,10 +50,17 @@
 }
 
 - (void)verifyPsdWith:(NSString *)code {
-    NSLog(@"code:%@",code);
-    UIStoryboard *login = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-    SRXLoginShopListVC *vc = [login instantiateViewControllerWithIdentifier:@"SRXLoginShopListVC"];
-    [self.navigationController pushViewController:vc animated:YES];
+    [NetworkManager loginSMSWithMobile:self.mobile code:code success:^(NSString *message) {
+        if ([UserManager sharedUserManager].curUserInfo.shops_num>0) {
+            UIStoryboard *login = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+            SRXLoginShopListVC *vc = [login instantiateViewControllerWithIdentifier:@"SRXLoginShopListVC"];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            [AppHandyMethods switchWindowToMainScene];
+        }
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (void)startTimer {

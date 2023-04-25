@@ -33,10 +33,13 @@
     }
     //加载个人信息
     NSString *loginModelJsonString = [kUserDefaults stringForKey:UserDefaultkeyLoginModel];
-//    if (loginModelJsonString) [AppHandyMethods saveUserWithLoginMode:[UserModelLogin mj_objectWithKeyValues:loginModelJsonString]];
-    [AppHandyMethods switchWindowToMainScene];
-//    [AppHandyMethods switchWindowToLoginScene];
-    
+    if (loginModelJsonString) [UserManager saveUserWithLoginMode:[UserInfo mj_objectWithKeyValues:loginModelJsonString]];
+    if ([UserManager sharedUserManager].curUserInfo.access_token.length>0) {
+        [AppHandyMethods switchWindowToMainScene];
+    } else {
+        [AppHandyMethods switchWindowToLoginScene];
+    }
+
     //展示FPS
     [AppManager showFPS];
     [SVProgressHUD setMinimumDismissTimeInterval:1.0];

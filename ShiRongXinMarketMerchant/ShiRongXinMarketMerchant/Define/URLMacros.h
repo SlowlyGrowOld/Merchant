@@ -12,7 +12,7 @@
 //测试服务器
 //#define TestBaseURL @"http://srx.mrye.xin/"
 
-#define TestBaseURL @"http://api.go-easy.cn/"
+#define TestBaseURL @"https://webman.go-easy.cn/"
 
 
 //聊天接口

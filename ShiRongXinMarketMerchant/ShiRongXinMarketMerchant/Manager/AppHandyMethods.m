@@ -11,24 +11,8 @@
 
 #import "YBImageBrowser.h"
 #import "YBIBVideoData.h"
-#import <JPUSHService.h>
 
 @implementation AppHandyMethods
-
-//+ (void)saveUserWithLoginMode:(UserModelLogin *)loginModel {
-//    [UserManager sharedUserManager].curUserLoginModel = loginModel;
-//    [kUserDefaults setValue:loginModel.mj_JSONString forKey:UserDefaultkeyLoginModel];
-//    [kUserDefaults synchronize];
-//}
-
-//+ (void)clearUser {
-//    [UserManager sharedUserManager].curUserLoginModel = nil;
-//    [kUserDefaults setValue:nil forKey:UserDefaultkeyLoginModel];
-//    [kUserDefaults synchronize];
-//    [JPUSHService deleteAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
-//        DLog(@"deleteAlias");
-//    } seq:1];
-//}
 
 + (void)switchWindowToMainScene {
     kAppDelegate.mainTabBar = [[MainTabBarController alloc] init];
@@ -216,7 +200,7 @@
                                                        handler:^(UIAlertAction * action) {
             
         canPush = NO;
-        [AppHandyMethods clearUser];
+        [UserManager clearUser];
         SRXLoginHelloVC *vc = [[SRXLoginHelloVC alloc] initWithNibName:@"SRXLoginVC" bundle:nil];
         [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:YES completion:^{
                     
@@ -231,7 +215,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (canPush) {
             [alert dismissViewControllerAnimated:YES completion:^{
-                [AppHandyMethods clearUser];
+                [UserManager clearUser];
 //                SRXLoginVC *vc = [[NewLoginVC alloc] initWithNibName:@"SRXLoginVC" bundle:nil];
 //                vc.backToLast = YES;
 //                [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:YES completion:^{

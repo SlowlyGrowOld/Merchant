@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UserInfo.h"
+#import "SRXShopDataItem.h"
 
 typedef NS_ENUM(NSInteger, UserLoginType){
     kUserLoginTypeUnKnow = 0,//未知
@@ -26,9 +28,8 @@ SINGLETON_FOR_HEADER(UserManager)
 
 //当前用户
 @property (nonatomic, assign) UserLoginType loginType;
-//@property (strong, nonatomic) UserModelLogin *curUserLoginModel;
-//@property (nonatomic, strong) UserInfo *curUserInfo;
-//@property (nonatomic, strong) MyInfoModel *myInfoModel;
+@property (nonatomic, strong) UserInfo *curUserInfo;
+@property (nonatomic, strong) SRXShopDataItem *currentShop;
 @property (nonatomic, assign) BOOL isLogined;
 
 #pragma mark - ——————— 登录相关 ————————
@@ -71,4 +72,10 @@ SINGLETON_FOR_HEADER(UserManager)
  */
 -(BOOL)loadUserInfo;
 
+//保存登录信息
++ (void)saveUserWithLoginMode:(UserInfo *)loginModel;
+//清除登录信息
++ (void)clearUser;
+//当前门店
++ (void)saveCurrentShop:(SRXShopDataItem *)currentShop;
 @end

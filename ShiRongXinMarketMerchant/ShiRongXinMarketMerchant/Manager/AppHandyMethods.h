@@ -12,8 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @interface AppHandyMethods : NSObject
-//+ (void)saveUserWithLoginMode:(UserModelLogin *)loginModel;//保存用户信息
-+ (void)clearUser;//清除用户信息
 + (void)switchWindowToMainScene;//切换到主界面
 + (void)switchWindowToBindPhoneScene;//切换到绑定手机号界面
 + (void)switchWindowToLoginScene;//切换到登录界面

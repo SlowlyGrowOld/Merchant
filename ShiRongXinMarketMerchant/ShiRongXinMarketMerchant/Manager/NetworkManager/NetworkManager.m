@@ -176,8 +176,8 @@
 
 #pragma mark - 请求和结果处理
 - (void)prepareRequestNeedSVP:(BOOL)needSVP url:(NSString *)url parameters:(NSDictionary *)parameters {
-//    NSLog(@"token:%@ url:%@ ,参数：%@", [[UserManager sharedUserManager] curUserLoginModel].token,url ,parameters);
-//    [self.requestSerializer setValue:[[UserManager sharedUserManager] curUserLoginModel].token forHTTPHeaderField:@"token"];
+    NSLog(@"token:%@ url:%@ ,参数：%@", [[UserManager sharedUserManager] curUserInfo].access_token,url ,parameters);
+    [self.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[[UserManager sharedUserManager] curUserInfo].access_token] forHTTPHeaderField:@"Authorization"];
     if (needSVP) {
         [SVProgressHUD show];
     }
@@ -206,7 +206,7 @@
         UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定"
                                                              style:UIAlertActionStyleDefault
                                                            handler:^(UIAlertAction * action) {
-            [AppHandyMethods clearUser];
+            [UserManager clearUser];
             [AppHandyMethods switchWindowToLoginScene];
             
         }];

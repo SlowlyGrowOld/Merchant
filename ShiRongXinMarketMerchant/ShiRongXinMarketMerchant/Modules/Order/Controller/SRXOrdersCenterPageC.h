@@ -1,8 +1,8 @@
 //
-//  SRXOrdersVC.h
+//  SRXOrdersCenterPageC.h
 //  ShiRongXinMarketMerchant
 //
-//  Created by 王先生 on 2023/4/12.
+//  Created by 王先生 on 2023/4/20.
 //  Copyright © 2023 Alucardulad. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SRXOrdersVC : RootViewController
+@interface SRXOrdersCenterPageC : RootViewController
 
 @end
 

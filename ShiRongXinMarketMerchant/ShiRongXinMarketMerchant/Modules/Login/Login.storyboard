@@ -527,6 +527,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="bgView" destination="7UJ-Qo-abS" id="Euo-AM-Axb"/>
+                                            <outlet property="infoLb" destination="Fuo-gx-VLw" id="Sa1-uh-Bfp"/>
+                                            <outlet property="shop_image" destination="pRU-go-tGb" id="LcM-PF-Q8l"/>
+                                            <outlet property="shop_name" destination="mIi-MC-Ik7" id="3ec-GF-r5C"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

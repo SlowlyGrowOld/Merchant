@@ -7,6 +7,7 @@
 //
 
 #import "UserManager.h"
+#import <JPUSHService.h>
 
 @implementation UserManager
 
@@ -114,6 +115,35 @@ SINGLETON_FOR_CLASS(UserManager);
 //        KPostNotification(KNotificationLoginStateChange, @NO);
 //    }
     
+}
++ (void)saveUserWithLoginMode:(UserInfo *)loginModel {
+    [UserManager sharedUserManager].curUserInfo = loginModel;
+    [kUserDefaults setValue:loginModel.mj_JSONString forKey:UserDefaultkeyLoginModel];
+    [kUserDefaults synchronize];
+}
+
++ (void)clearUser {
+    [UserManager sharedUserManager].curUserInfo = nil;
+    [kUserDefaults setValue:nil forKey:UserDefaultkeyLoginModel];
+    [kUserDefaults synchronize];
+    [JPUSHService deleteAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        DLog(@"deleteAlias");
+    } seq:1];
+}
+
++ (void)saveCurrentShop:(SRXShopDataItem *)currentShop {
+    [UserManager sharedUserManager].currentShop = currentShop;
+    [kUserDefaults setValue:currentShop.mj_JSONString forKey:@"currentShop"];
+    [kUserDefaults synchronize];
+}
+
+- (SRXShopDataItem *)currentShop {
+    NSString *jsonString = [kUserDefaults stringForKey:@"currentShop"];
+    if (jsonString) {
+        return [SRXShopDataItem mj_objectWithKeyValues:jsonString];
+    }else {
+        return nil;
+    }
 }
 //#pragma mark ————— 储存用户信息 —————
 //-(void)saveUserInfo{

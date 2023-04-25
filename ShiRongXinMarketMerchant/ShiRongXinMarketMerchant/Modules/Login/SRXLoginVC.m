@@ -11,6 +11,8 @@
 #import "SRXLoginProtocolVC.h"
 #import "SRXLoginMsgVC.h"
 
+#import "NetworkManager+Login.h"
+
 @interface SRXLoginVC ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *psdView;
 @property (weak, nonatomic) IBOutlet UILabel *login_type;
@@ -94,13 +96,34 @@
         };
         [self presentViewController:vc animated:NO completion:nil];
     } else {
+        if (self.type == SRXLoginTypePhoneMsg || self.type == SRXLoginTypePhonePsd) {
+            if (self.accountTF.text.length != 11) {
+                [SVProgressHUD showInfoWithStatus:@"手机号码输入错误"];
+                return;
+            }
+        }
+        [SVProgressHUD show];
         UIStoryboard *login = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
         if (self.type == SRXLoginTypePhoneMsg) {
-            SRXLoginMsgVC *vc = [login instantiateViewControllerWithIdentifier:@"SRXLoginMsgVC"];
-            [self.navigationController pushViewController:vc animated:YES];
+            [NetworkManager sendSMSWithMobile:self.accountTF.text sms_event:@"login" success:^(NSString *message) {
+                SRXLoginMsgVC *vc = [login instantiateViewControllerWithIdentifier:@"SRXLoginMsgVC"];
+                vc.mobile = self.accountTF.text;
+                [self.navigationController pushViewController:vc animated:YES];
+            } failure:^(NSString *message) {
+                
+            }];
         } else {
-            SRXLoginShopListVC *vc = [login instantiateViewControllerWithIdentifier:@"SRXLoginShopListVC"];
-            [self.navigationController pushViewController:vc animated:YES];
+            [NetworkManager loginAccountWithUsername:self.accountTF.text password:self.psdTF.text login_type:self.type==SRXLoginTypePhonePsd?@"2":@"1" success:^(NSString *message) {
+                if ([UserManager sharedUserManager].curUserInfo.shops_num>0) {
+                    UIStoryboard *login = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+                    SRXLoginShopListVC *vc = [login instantiateViewControllerWithIdentifier:@"SRXLoginShopListVC"];
+                    [self.navigationController pushViewController:vc animated:YES];
+                } else {
+                    [AppHandyMethods switchWindowToMainScene];
+                }
+            } failure:^(NSString *message) {
+                
+            }];
         }
     }
 }

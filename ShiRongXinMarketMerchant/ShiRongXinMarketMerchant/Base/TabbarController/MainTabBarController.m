@@ -12,7 +12,7 @@
 
 #import "SRXHomeVC.h"
 #import "SRXMeVC.h"
-#import "SRXOrdersVC.h"
+#import "SRXOrdersCenterPageC.h"
 
 @interface MainTabBarController ()<UITabBarControllerDelegate>
 
@@ -60,7 +60,9 @@
     SRXMeVC *vc2 = [[SRXMeVC alloc] init];
     [self setupChildViewController:vc2 title:@"消息" imageName:@"tabbar_message" seleceImageName:@"tabbar_message_select"];
     
-    SRXOrdersVC *vc3 = [[SRXOrdersVC alloc] init];
+    UIStoryboard *order = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
+    SRXOrdersCenterPageC *vc3 =[order instantiateViewControllerWithIdentifier:@"SRXOrdersCenterPageC"];
+//    SRXOrdersCenterPageC *vc3 = [SRXOrdersCenterPageC new];
     [self setupChildViewController:vc3 title:@"订单" imageName:@"tabbar_order" seleceImageName:@"tabbar_order_select"];
     
     SRXHomeVC *vc4 = [[SRXHomeVC alloc] init];
