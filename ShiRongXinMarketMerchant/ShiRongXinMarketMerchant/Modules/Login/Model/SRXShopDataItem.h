@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXShopDataItem : SRXBaseModel
-@property (nonatomic , assign) NSInteger              shop_id;
+@property (nonatomic , copy) NSString              * shop_id;
 @property (nonatomic , copy) NSString              * shop_name;
 @property (nonatomic , copy) NSString              * shop_img;
 @property (nonatomic , assign) NSInteger              fans_num;

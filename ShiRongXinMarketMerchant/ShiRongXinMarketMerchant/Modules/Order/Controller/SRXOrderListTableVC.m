@@ -63,7 +63,7 @@
 }
 
 - (void)requestTableData {
-    [self requestTableDataSuccessWithArray:@[@"",@"",@"",@"",@"",@""]];
+    [self requestTableDataSuccessWithArray:@[]];
 }
 
 #pragma mark - tableview data

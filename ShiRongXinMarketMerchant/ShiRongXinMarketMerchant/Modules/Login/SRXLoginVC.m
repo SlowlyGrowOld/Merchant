@@ -10,7 +10,7 @@
 #import "SRXLoginShopListVC.h"
 #import "SRXLoginProtocolVC.h"
 #import "SRXLoginMsgVC.h"
-
+#import "SRXProtocolHtmlVC.h"
 #import "NetworkManager+Login.h"
 
 @interface SRXLoginVC ()<UITextViewDelegate>
@@ -146,11 +146,15 @@
 
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction {
     if ([URL.scheme isEqualToString:@"clickprotocol"]) {
-        NSLog(@"protocol click");
+        SRXProtocolHtmlVC *vc = [[SRXProtocolHtmlVC alloc] init];
+        vc.type = SRXProtocolHtmlTypeUserProtocol;
+        [self.navigationController pushViewController:vc animated:YES];
         return NO;
     }
     if ([URL.scheme isEqualToString:@"clickprivacy"]) {
-        NSLog(@"privacy click");
+        SRXProtocolHtmlVC *vc = [[SRXProtocolHtmlVC alloc] init];
+        vc.type = SRXProtocolHtmlTypePrivacyPolicy;
+        [self.navigationController pushViewController:vc animated:YES];
         return NO;
     }
     return YES;

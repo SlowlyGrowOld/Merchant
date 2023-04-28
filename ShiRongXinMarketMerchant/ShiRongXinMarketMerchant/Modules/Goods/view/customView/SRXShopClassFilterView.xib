@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="3XK-PC-BFP" customClass="SRXShopClassFilterView">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MlL-Bb-PSb">
+                    <rect key="frame" x="0.0" y="59" width="393" height="182"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iuW-So-udS">
+                            <rect key="frame" x="15" y="0.0" width="363" height="1"/>
+                            <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="COu-y6-5Eu"/>
+                            </constraints>
+                        </view>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Nx6-Pn-UzR">
+                            <rect key="frame" x="0.0" y="17" width="393" height="76"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="76" id="xo4-MH-w66"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FbT-iG-M3N">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-Hf-FaW">
+                            <rect key="frame" x="38" y="128" width="317" height="34"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVU-RN-rH0">
+                                    <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="34"/>
+                                    <color key="backgroundColor" red="0.0" green="0.78823529410000004" blue="0.71372549019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="重置"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="resetBtnClick:" destination="3XK-PC-BFP" eventType="touchUpInside" id="1Fh-Y8-uP7"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7TQ-jM-myv">
+                                    <rect key="frame" x="162.66666666666663" y="0.0" width="154.33333333333337" height="34"/>
+                                    <color key="backgroundColor" red="0.26274509800000001" green="0.72156862749999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="确定"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="10"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="sureBtnClick:" destination="3XK-PC-BFP" eventType="touchUpInside" id="e4z-WX-ZKu"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="SlD-zT-wJk"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="iuW-So-udS" secondAttribute="trailing" constant="15" id="4Cg-jb-SV1"/>
+                        <constraint firstItem="Nx6-Pn-UzR" firstAttribute="top" secondItem="iuW-So-udS" secondAttribute="bottom" constant="16" id="60a-O2-nVU"/>
+                        <constraint firstItem="iuW-So-udS" firstAttribute="top" secondItem="MlL-Bb-PSb" secondAttribute="top" id="7dN-6T-cZS"/>
+                        <constraint firstItem="aAq-Hf-FaW" firstAttribute="top" secondItem="Nx6-Pn-UzR" secondAttribute="bottom" constant="35" id="FSj-wS-h6W"/>
+                        <constraint firstItem="iuW-So-udS" firstAttribute="leading" secondItem="MlL-Bb-PSb" secondAttribute="leading" constant="15" id="YxR-Xb-pCs"/>
+                        <constraint firstItem="aAq-Hf-FaW" firstAttribute="leading" secondItem="MlL-Bb-PSb" secondAttribute="leading" constant="38" id="bh3-N3-k5q"/>
+                        <constraint firstAttribute="trailing" secondItem="aAq-Hf-FaW" secondAttribute="trailing" constant="38" id="cBt-gj-b2r"/>
+                        <constraint firstAttribute="bottom" secondItem="aAq-Hf-FaW" secondAttribute="bottom" constant="20" id="h7z-nv-3MR"/>
+                        <constraint firstItem="Nx6-Pn-UzR" firstAttribute="leading" secondItem="MlL-Bb-PSb" secondAttribute="leading" id="iY4-WP-sfb"/>
+                        <constraint firstAttribute="trailing" secondItem="Nx6-Pn-UzR" secondAttribute="trailing" id="oFL-uC-V1w"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="zBe-S7-kbm"/>
+            <color key="backgroundColor" white="0.0" alpha="0.30310947849999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="MlL-Bb-PSb" firstAttribute="trailing" secondItem="zBe-S7-kbm" secondAttribute="trailing" id="0Au-As-Tnv"/>
+                <constraint firstItem="MlL-Bb-PSb" firstAttribute="top" secondItem="zBe-S7-kbm" secondAttribute="top" id="1WH-Ko-77H"/>
+                <constraint firstItem="MlL-Bb-PSb" firstAttribute="leading" secondItem="zBe-S7-kbm" secondAttribute="leading" id="HOt-80-Byz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="MlL-Bb-PSb" id="ZqV-GC-YCN"/>
+                <outlet property="collectionView" destination="Nx6-Pn-UzR" id="Tnn-sg-sIm"/>
+                <outlet property="collectionViewConsH" destination="xo4-MH-w66" id="OwN-VR-ijU"/>
+            </connections>
+            <point key="canvasLocation" x="-40.458015267175568" y="-1.4084507042253522"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

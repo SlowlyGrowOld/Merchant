@@ -17,6 +17,10 @@
 
 @implementation SRXOrderRefundDetailsPicsTableCell
 
+- (void)dealloc {
+    [self.collectionView removeObserver:self forKeyPath:@"contentSize"];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

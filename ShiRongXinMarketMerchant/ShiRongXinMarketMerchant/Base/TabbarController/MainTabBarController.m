@@ -10,7 +10,7 @@
 #import "UITabBar+CustomBadge.h"
 #import "XYTabBar.h"
 
-#import "SRXHomeVC.h"
+#import "SRXGoodsListPageVC.h"
 #import "SRXMeVC.h"
 #import "SRXOrdersCenterPageC.h"
 
@@ -65,7 +65,8 @@
 //    SRXOrdersCenterPageC *vc3 = [SRXOrdersCenterPageC new];
     [self setupChildViewController:vc3 title:@"订单" imageName:@"tabbar_order" seleceImageName:@"tabbar_order_select"];
     
-    SRXHomeVC *vc4 = [[SRXHomeVC alloc] init];
+    UIStoryboard *goods = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
+    SRXGoodsListPageVC *vc4 = [goods instantiateViewControllerWithIdentifier:@"SRXGoodsListPageVC"];
     [self setupChildViewController:vc4 title:@"商品" imageName:@"tabbar_me" seleceImageName:@"tabbar_me_select"];
     self.viewControllers = _VCS;
 }
