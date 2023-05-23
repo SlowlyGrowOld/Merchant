@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SRXOrderDeliveryModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderLogisticsListTableCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *titleLb;
+@property (nonatomic, strong) SRXOrderDeliveryModel *model;
 @end
 
 NS_ASSUME_NONNULL_END

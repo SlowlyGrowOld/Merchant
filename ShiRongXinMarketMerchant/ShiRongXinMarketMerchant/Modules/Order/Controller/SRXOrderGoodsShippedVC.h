@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderGoodsShippedVC : RootViewController
+@property (nonatomic, copy) NSString *order_id;
 
+@property (nonatomic, assign) BOOL is_distribute;
 @end
 
 NS_ASSUME_NONNULL_END

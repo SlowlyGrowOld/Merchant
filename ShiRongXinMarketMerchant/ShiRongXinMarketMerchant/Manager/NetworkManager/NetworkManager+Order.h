@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
                                      express_sn:(NSString *)express_sn
                                      order_type:(NSString *)order_type
                                 order_return_id:(NSString *)order_return_id
-                                     success:(void(^)(SRXDeliveryDetailsTraces *details))success
+                                     success:(void(^)(SRXDeliveryDetailsData *details))success
                                      failure:(JHNetworkRequestFailure)failure;
 
 
@@ -89,6 +89,54 @@ NS_ASSUME_NONNULL_BEGIN
                            refuse_msg:(NSString *)refuse_msg
                 success:(JHNetworkRequestSuccessVoid)success
                   failure:(JHNetworkRequestFailure)failure;
+
+
+/// 售后详情-确认退款
+/// @param order_return_id 列表的order_return_id
++ (void)sureOrderAfterSaleRefundWithID:(NSString *)order_return_id
+                success:(JHNetworkRequestSuccessVoid)success
+                  failure:(JHNetworkRequestFailure)failure;
+
+
+/// 发货-自提
+/// @param order_id 订单id
++ (void)sendGoodsBySelfLiftingWithID:(NSString *)order_id
+                             success:(JHNetworkRequestSuccessVoid)success
+                               failure:(JHNetworkRequestFailure)failure;
+
+/// 发货-获取物流公司
+/// @param shop_id 店铺id
++ (void)get_express_listWithSuccess:(JHNetworkRequestSuccessArray)success
+                            failure:(JHNetworkRequestFailure)failure;
+
+
+/// 按订单发货
+/// @param order_id 订单id
+/// @param express_sn 物流单号
+/// @param express_id 物流公司id
++ (void)sendOrderGoodsWithOrderID:(NSString *)order_id
+                       express_sn:(NSString *)express_sn
+                       express_id:(NSString *)express_id
+                             success:(JHNetworkRequestSuccessVoid)success
+                               failure:(JHNetworkRequestFailure)failure;
+
+/// 按商品包裹发货
+/// @param order_goods_id 商品订单id，多个用逗号隔开
+/// @param order_id 订单id
+/// @param express_sn 物流单号
+/// @param express_id 物流公司id
++ (void)sendOrderGoodsWithGoodsID:(NSString *)order_goods_id
+                         order_id:(NSString *)order_id
+                       express_sn:(NSString *)express_sn
+                       express_id:(NSString *)express_id
+                             success:(JHNetworkRequestSuccessVoid)success
+                               failure:(JHNetworkRequestFailure)failure;
+
+/// 按商品包裹发货 - 获取商品
+/// @param order_id 订单id
++ (void)getOrderDeliveryGoodsWithOrder_id:(NSString *)order_id
+                             success:(JHNetworkRequestSuccessArray)success
+                               failure:(JHNetworkRequestFailure)failure;
 @end
 
 NS_ASSUME_NONNULL_END

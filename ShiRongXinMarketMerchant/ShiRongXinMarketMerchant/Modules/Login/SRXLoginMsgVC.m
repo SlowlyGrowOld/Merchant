@@ -13,6 +13,7 @@
 #import "NetworkManager+Login.h"
 
 @interface SRXLoginMsgVC ()
+@property (weak, nonatomic) IBOutlet UILabel *mobile_desc;
 @property (weak, nonatomic) IBOutlet UIView *codeView;
 @property (weak, nonatomic) IBOutlet UIButton *sendMsgBtn;
 @property (nonatomic, strong) HWTFCodeView *code1View;
@@ -27,6 +28,7 @@
     // Do any additional setup after loading the view.
     self.isHidenNaviBar = YES;
     
+    _mobile_desc.text = [NSString stringWithFormat:@"短信验证码已发送至%@",self.mobile];
     _code1View = [[HWTFCodeView alloc] initWithCount:6 margin:12];
     _code1View.frame = CGRectMake(0, 0, kScreenWidth-88, 50);
     MJWeakSelf;

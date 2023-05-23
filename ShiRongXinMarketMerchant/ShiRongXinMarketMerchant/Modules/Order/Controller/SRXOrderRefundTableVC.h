@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) BOOL canScroll;
 @property (nonatomic,assign) BOOL isPullDown;//父视图scrollview是否置顶，用来列表下拉操作问题
 @property (nonatomic,assign) BOOL scrollTop;//切换菜单，列表置顶
+
+@property (nonatomic, copy) NSString *search_word;
 @end
 
 NS_ASSUME_NONNULL_END

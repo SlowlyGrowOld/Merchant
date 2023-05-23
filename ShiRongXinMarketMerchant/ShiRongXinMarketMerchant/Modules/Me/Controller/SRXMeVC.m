@@ -8,6 +8,7 @@
 
 #import "SRXMeVC.h"
 #import "SRXMeCollectionView.h"
+#import "NetworkManager+Me.h"
 
 @interface SRXMeVC ()
 @property (weak, nonatomic) IBOutlet SRXMeCollectionView *orderCollectionView;
@@ -39,6 +40,26 @@
     self.incomeCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"积分抵扣" content:@"0"],[SRXMeCollectionModel configWithTitle:@"微信支付" content:@"0"],[SRXMeCollectionModel configWithTitle:@"支付宝" content:@"0"],[SRXMeCollectionModel configWithTitle:@"余额" content:@"0"],[SRXMeCollectionModel configWithTitle:@"优惠卷" content:@"0"],[SRXMeCollectionModel configWithTitle:@"运费" content:@"0"]];
     self.otherCollectionView.type = SRXMeCollectionTypeImage;
     self.otherCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"商品管理" content:@"me_goods_manage"],[SRXMeCollectionModel configWithTitle:@"订单管理" content:@"me_order_manage"]];
+    
+    [self requestData];
+}
+
+- (void)requestData {
+    
+    [NetworkManager getShopInfoWithShop_id:[UserManager sharedUserManager].curUserInfo.shop_id success:^(SRXShopInfoModel * _Nonnull info) {
+        self.nameLb.text = info.shop_info.shop_user_nickname;
+        [self.avatar sd_setImageWithURL:[NSURL URLWithString:info.shop_info.shop_user_avatar]];
+        self.shop_name.text = info.shop_info.shop_img;
+        self.shopCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"订单总数" content:@(info.order_num_info.all_order_num).stringValue],[SRXMeCollectionModel configWithTitle:@"昨日订单" content:@(info.order_num_info.yesterday_order_num).stringValue]];
+    } failure:^(NSString *message) {
+        
+    }];
+    
+    [NetworkManager getIncomeInfoWithShop_id:[UserManager sharedUserManager].curUserInfo.shop_id start_date:nil end_date:nil success:^(SRXIncomeInfo * _Nonnull info) {
+        self.incomeCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"积分抵扣" content:info.integral_num],[SRXMeCollectionModel configWithTitle:@"微信支付" content:info.wechat_pay],[SRXMeCollectionModel configWithTitle:@"支付宝" content:info.ali_pay],[SRXMeCollectionModel configWithTitle:@"余额" content:info.balance_pay],[SRXMeCollectionModel configWithTitle:@"优惠卷" content:info.coupon_pay],[SRXMeCollectionModel configWithTitle:@"运费" content:info.shipping_pay]];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 #pragma mark - Table view data source

@@ -9,12 +9,6 @@
 #import "SRXOrderLogisticsDetailsTableCell.h"
 
 @interface SRXOrderLogisticsDetailsTableCell ()
-@property (weak, nonatomic) IBOutlet UILabel *statusLb;
-@property (weak, nonatomic) IBOutlet UILabel *infoLb;
-@property (weak, nonatomic) IBOutlet UILabel *hourLb;
-@property (weak, nonatomic) IBOutlet UILabel *monthLb;
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
-
 @end
 
 @implementation SRXOrderLogisticsDetailsTableCell

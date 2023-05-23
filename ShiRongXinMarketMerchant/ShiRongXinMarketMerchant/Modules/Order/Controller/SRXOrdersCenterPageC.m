@@ -13,7 +13,7 @@
 #import "SRXOrderListTableVC.h"
 #import "SRXOrderRefundTableVC.h"
 
-@interface SRXOrdersCenterPageC ()<UIScrollViewDelegate>
+@interface SRXOrdersCenterPageC ()<UIScrollViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet JKScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *menuBgView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -64,6 +64,7 @@
     self.currentVC.isPullDown = NO;
 }
 
+#pragma mark = UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 //    NSLog(@"scrollView=====滚动==%.2F",scrollView.contentOffset.y);
     /*
@@ -103,6 +104,19 @@
         self.searchView.frame = CGRectMake(15 + 82/25.0*scrollView.contentOffset.y, TopHeight + 4 - scrollView.contentOffset.y, kScreenWidth - 30 - 82/25.0*scrollView.contentOffset.y, 30);
     } else {
         self.searchView.frame = CGRectMake(15 + 82, TopHeight - 21 - 16/36.0*scrollView.contentOffset.y, kScreenWidth - 30 - 82, 30);
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (![self.currentVC.search_word isEqualToString:textField.text]) {
+        self.currentVC.search_word = textField.text;
     }
 }
 
@@ -154,9 +168,13 @@
     if (_vcs==nil) {
         _vcs = [NSMutableArray array];
         SRXOrderListTableVC *vc1 = [[SRXOrderListTableVC alloc] init];
+        vc1.order_type = @"1";
         SRXOrderListTableVC *vc2 = [[SRXOrderListTableVC alloc] init];
+        vc2.order_type = @"2";
         SRXOrderListTableVC *vc3 = [[SRXOrderListTableVC alloc] init];
+        vc3.order_type = @"3";
         SRXOrderListTableVC *vc4 = [[SRXOrderListTableVC alloc] init];
+        vc4.order_type = @"4";
         SRXOrderRefundTableVC *vc5 = [[SRXOrderRefundTableVC alloc] init];
         self.currentVC = vc1;
         _vcs = @[vc1,vc2,vc3,vc4,vc5].modelCopy;
@@ -167,7 +185,7 @@
 -(NSMutableArray *)titles {
     if (_titles==nil) {
         _titles = [NSMutableArray array];
-        _titles = @[@"待发货",@"待收货",@"待付款",@"已完成",@"售后管理"].modelCopy;
+        _titles = @[@"待发货",@"待付款",@"待收货",@"已完成",@"售后管理"].modelCopy;
     }
     return _titles;
 }
@@ -177,7 +195,7 @@
         _titleLb = [[UILabel alloc] initWithFrame:CGRectMake((kScreenWidth - 96)/2, StatusBarHeight, 96, 44)];
         _titleLb.text = @"订单中心";
         _titleLb.textColor = CNavBgFontColor;
-        _titleLb.font = [UIFont systemFontOfSize:16];
+        _titleLb.font = [UIFont boldSystemFontOfSize:16];
         _titleLb.textAlignment = NSTextAlignmentCenter;
     }
     return _titleLb;
@@ -201,7 +219,9 @@
         _searchTF = [[UITextField alloc] initWithFrame:CGRectMake(33, 0, kScreenWidth - 30 - 50, 30)];
         _searchTF.placeholder = @"请输入商品信息";
         _searchTF.font = [UIFont systemFontOfSize:13];
-        _searchTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+//        _searchTF.clearButtonMode = UITextFieldViewModeWhileEditing;
+        _searchTF.returnKeyType = UIReturnKeySearch;
+        _searchTF.delegate = self;
     }
     return _searchTF;
 }

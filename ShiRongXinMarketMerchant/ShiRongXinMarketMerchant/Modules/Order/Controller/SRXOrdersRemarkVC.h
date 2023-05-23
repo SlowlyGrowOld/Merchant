@@ -7,11 +7,12 @@
 //
 
 #import "RootPresentViewController.h"
+#import "SRXOrderListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrdersRemarkVC : RootPresentViewController
-
+@property (nonatomic, strong) SRXOrderListModel *model;
 @end
 
 NS_ASSUME_NONNULL_END

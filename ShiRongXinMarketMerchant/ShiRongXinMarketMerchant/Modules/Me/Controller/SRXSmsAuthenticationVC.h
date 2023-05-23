@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXSmsAuthenticationVC : RootViewController
 @property (nonatomic, assign) SRXSetInfoUpdateSuccessType type;
+@property (nonatomic, copy) NSString *mobile;
+@property (nonatomic, copy) NSString *pwd;
+@property (nonatomic, copy) NSString *re_pwd;
 @end
 
 NS_ASSUME_NONNULL_END

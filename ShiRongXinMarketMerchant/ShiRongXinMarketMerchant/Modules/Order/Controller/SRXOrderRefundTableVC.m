@@ -9,6 +9,7 @@
 #import "SRXOrderRefundTableVC.h"
 #import "SRXOrderRefundTableCell.h"
 #import "SRXOrderRefundDetailsVC.h"
+#import "NetworkManager+Order.h"
 
 @interface SRXOrderRefundTableVC ()<UIScrollViewDelegate>
 
@@ -63,7 +64,12 @@
 }
 
 - (void)requestTableData {
-    [self requestTableDataSuccessWithArray:@[@"",@"",@"",@"",@"",@""]];
+    
+    [NetworkManager getOrderAfterSaleListWithSearchWord:self.search_word page:self.pageNo page_size:self.pageSize success:^(NSArray *modelList) {
+        [self requestTableDataSuccessWithArray:modelList];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 #pragma mark - tableview data
@@ -77,12 +83,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXOrderRefundTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrderRefundTableCell" forIndexPath:indexPath];
+    cell.model = self.dataSources[indexPath.section];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
     SRXOrderRefundDetailsVC *vc = [sb instantiateViewControllerWithIdentifier:@"SRXOrderRefundDetailsVC"];
+    SRXOrderAfterSaleListModel *model = self.dataSources[indexPath.section];
+    vc.order_return_id = model.order_return_id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

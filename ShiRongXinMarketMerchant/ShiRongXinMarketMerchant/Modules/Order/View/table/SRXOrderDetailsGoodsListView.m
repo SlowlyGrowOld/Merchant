@@ -8,6 +8,7 @@
 
 #import "SRXOrderDetailsGoodsListView.h"
 #import "SRXOrderDetailsGoodsListCell.h"
+#import "SRXOrderDetailsModel.h"
 
 @interface SRXOrderDetailsGoodsListView ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -45,6 +46,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXOrderDetailsGoodsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrderDetailsGoodsListCell" forIndexPath:indexPath];
+    cell.item = self.datas[indexPath.row];
     return cell;
 }
 

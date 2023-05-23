@@ -29,9 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * image;
 @property (nonatomic , assign) NSInteger              goods_num;
 @property (nonatomic , copy) NSString              * spec_key_name;
-@property (nonatomic , copy) NSString              * shipping_amount;
-@property (nonatomic , copy) NSString              * total_amount;
-
+@property (nonatomic , assign) CGFloat              shipping_amount;
+@property (nonatomic , assign) CGFloat              total_amount;
+@property (nonatomic , assign) NSInteger              order_delivery_id;
 @end
 
 
@@ -55,6 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface SRXOrderDetailsModel :NSObject
+/**1=待发货 2=待付款 3=待收货 4=已完成*/
 @property (nonatomic , assign) NSInteger              progress_num;
 @property (nonatomic , strong) SRXOrderDUser_info              * user_info;
 @property (nonatomic , strong) NSArray <SRXOrderDGoods_infoItem *>              * goods_info;
@@ -67,10 +68,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SRXOrderDReturn_info : NSObject
 @property (nonatomic , assign) NSInteger              refund_integral;
 @property (nonatomic , copy) NSString              * pay_type;
-@property (nonatomic , copy) NSString              * pay_amount;
+@property (nonatomic , assign) CGFloat               pay_amount;
 @property (nonatomic , copy) NSString              * shipping_amount;
 @property (nonatomic , assign) NSInteger              refund_type;
-@property (nonatomic , copy) NSString              * refund_goods_status;
+@property (nonatomic , assign) NSInteger              refund_goods_status;
 @property (nonatomic , copy) NSString              * create_time;
 @property (nonatomic , copy) NSString              * reason;
 @end

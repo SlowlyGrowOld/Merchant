@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * shop_img;
 @property (nonatomic , assign) NSInteger              fans_num;
 @property (nonatomic , assign) NSInteger              on_sale_num;
+@property (nonatomic , assign) NSInteger              wait_pay_num;
+@property (nonatomic , assign) NSInteger              wait_delivery_num;
+@property (nonatomic , assign) NSInteger              after_sale_num;
+@property (nonatomic , assign) NSInteger              is_login;
 
 @end
 

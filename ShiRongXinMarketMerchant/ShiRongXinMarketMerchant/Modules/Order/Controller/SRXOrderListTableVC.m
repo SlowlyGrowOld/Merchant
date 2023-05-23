@@ -9,6 +9,7 @@
 #import "SRXOrderListTableVC.h"
 #import "SRXOrdersListTableCell.h"
 #import "SRXOrderDetailsVC.h"
+#import "NetworkManager+Order.h"
 
 @interface SRXOrderListTableVC ()<UIScrollViewDelegate>
 
@@ -16,12 +17,39 @@
 
 @implementation SRXOrderListTableVC
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXOrdersListTableCell" bundle:nil] forCellReuseIdentifier:@"SRXOrdersListTableCell"];
     [self requestTableData];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderChange:) name:KNotificationOrderStatusChange object:nil];
+}
+
+- (void)orderChange:(NSNotification *)noti {
+    NSDictionary *dic = noti.userInfo;
+    if ([dic[@"info"] isKindOfClass:[SRXOrderListModel class]]) {
+        SRXOrderListModel *model = dic[@"info"];
+        for (int i=0; i<self.dataSources.count; i++) {
+            SRXOrderListModel *m = self.dataSources[i];
+            if ([m.order_id isEqualToString:model.order_id]) {
+                [self.dataSources replaceObjectAtIndex:i withObject:model];
+                [self.tableView reloadRow:0 inSection:i withRowAnimation:UITableViewRowAnimationNone];
+                return;
+            }
+        }
+    } else {
+        NSString *string = dic[@"info"];
+        if ([string isEqualToString:@"refresh"]) {
+            [self.tableView.mj_header beginRefreshing];
+        } else {
+            
+        }
+    }
 }
 
 - (void)setCanScroll:(BOOL)canScroll {
@@ -63,7 +91,23 @@
 }
 
 - (void)requestTableData {
-    [self requestTableDataSuccessWithArray:@[]];
+    
+    [NetworkManager getOrderListWithSearchWord:self.search_word order_type:self.order_type page:self.pageNo page_size:self.pageSize success:^(NSArray *modelList) {
+        [self requestTableDataSuccessWithArray:modelList];
+    } failure:^(NSString *message) {
+        
+    }];
+}
+
+- (void)setSearch_word:(NSString *)search_word {
+    _search_word = search_word;
+    [self removeNoDataImage];
+    self.tableView.mj_footer.hidden = YES;
+    [self.tableView.mj_footer resetNoMoreData];
+    self.pageNo = 1;
+    self.loadMore = NO;
+    [SVProgressHUD show];
+    [self requestTableData];
 }
 
 #pragma mark - tableview data
@@ -77,12 +121,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXOrdersListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrdersListTableCell" forIndexPath:indexPath];
+    cell.model = self.dataSources[indexPath.section];
+    cell.order_type = self.order_type.integerValue;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
     SRXOrderDetailsVC *vc = [sb instantiateViewControllerWithIdentifier:@"SRXOrderDetailsVC"];
+    SRXOrderListModel *model = self.dataSources[indexPath.section];
+    vc.order_id = model.order_id;
     [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 

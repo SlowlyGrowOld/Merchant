@@ -8,6 +8,10 @@
 
 #import "SRXOrderDeliveryModel.h"
 
+@implementation SRXExpressListModel
+        
+@end
+
 @implementation SRXOrderDeliveryModel
 
 + (NSDictionary *)mj_objectClassInArray {
@@ -21,7 +25,16 @@
 @end
 
 @implementation SRXDeliveryDetailsTraces
-+ (NSDictionary *)mj_objectClassInArray {
-    return @{@"traces":@"SRXDeliveryDetailsTracesItem"};
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"_signed" : @"signed"};
 }
+
++ (NSDictionary *)mj_objectClassInArray {
+    return @{@"_signed":@"SRXDeliveryDetailsTracesItem",@"in_delivery":@"SRXDeliveryDetailsTracesItem",@"in_transit":@"SRXDeliveryDetailsTracesItem",@"contract":@"SRXDeliveryDetailsTracesItem"};
+}
+@end
+
+@implementation SRXDeliveryDetailsData
+
 @end

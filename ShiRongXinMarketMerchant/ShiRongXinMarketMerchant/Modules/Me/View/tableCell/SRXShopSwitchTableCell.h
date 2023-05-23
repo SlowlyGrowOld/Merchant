@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SRXShopDataItem.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXShopSwitchTableCell : UITableViewCell
-
+@property (nonatomic, strong) SRXShopDataItem *item;
 @end
 
 NS_ASSUME_NONNULL_END

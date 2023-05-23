@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderRefundDetailsFlowTableCell : UITableViewCell
-
+- (void)setProcessWithProcess_num:(NSInteger)process_num now_process:(NSInteger)now_process;
 @end
 
 NS_ASSUME_NONNULL_END

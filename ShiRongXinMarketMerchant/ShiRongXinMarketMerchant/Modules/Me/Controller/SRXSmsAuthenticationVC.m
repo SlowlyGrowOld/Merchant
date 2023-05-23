@@ -10,6 +10,8 @@
 #import "HWTFCodeView.h"
 #import "SRXSetInfoUpdateSuccessVC.h"
 
+#import "NetworkManager+Me.h"
+
 @interface SRXSmsAuthenticationVC ()
 @property (weak, nonatomic) IBOutlet UILabel *numberLb;
 @property (weak, nonatomic) IBOutlet UIView *codeView;
@@ -50,10 +52,26 @@
 
 - (void)verifyPsdWith:(NSString *)code {
     NSLog(@"code:%@",code);
-    UIStoryboard *Me = [UIStoryboard storyboardWithName:@"Me" bundle:nil];
-    SRXSetInfoUpdateSuccessVC *vc = [Me instantiateViewControllerWithIdentifier:@"SRXSetInfoUpdateSuccessVC"];
-    vc.type = self.type;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if (self.type == SRXSetInfoUpdateSuccessTypePhone) {
+        [NetworkManager changePhoneWithMobile:self.mobile code:code success:^(NSString *message) {
+            UIStoryboard *Me = [UIStoryboard storyboardWithName:@"Me" bundle:nil];
+            SRXSetInfoUpdateSuccessVC *vc = [Me instantiateViewControllerWithIdentifier:@"SRXSetInfoUpdateSuccessVC"];
+            vc.type = self.type;
+            [self.navigationController pushViewController:vc animated:YES];
+        } failure:^(NSString *message) {
+            
+        }];
+    }else {
+        [NetworkManager changePasswordWithPwd:self.pwd re_pwd:self.re_pwd code:code success:^(NSString *message) {
+            UIStoryboard *Me = [UIStoryboard storyboardWithName:@"Me" bundle:nil];
+            SRXSetInfoUpdateSuccessVC *vc = [Me instantiateViewControllerWithIdentifier:@"SRXSetInfoUpdateSuccessVC"];
+            vc.type = self.type;
+            [self.navigationController pushViewController:vc animated:YES];
+        } failure:^(NSString *message) {
+            
+        }];
+    }
 }
 
 - (void)startTimer {

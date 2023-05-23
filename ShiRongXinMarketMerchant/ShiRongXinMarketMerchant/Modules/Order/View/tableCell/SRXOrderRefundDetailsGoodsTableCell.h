@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SRXOrderDetailsModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderRefundDetailsGoodsTableCell : UITableViewCell
-
+@property (nonatomic , strong) SRXOrderDGoods_infoItem              * goods_info;
 @end
 
 NS_ASSUME_NONNULL_END

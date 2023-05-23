@@ -51,16 +51,22 @@
     // Configure the view for the selected state
 }
 
+- (void)setDatas:(NSArray *)datas {
+    _datas = datas;
+    [self.collectionView reloadData];
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.datas.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SRXOrderRefundDetailsPicsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SRXOrderRefundDetailsPicsCollectionCell" forIndexPath:indexPath];
+    [cell.imgView sd_setImageWithURL:[NSURL URLWithString:self.datas[indexPath.item]]];
     return cell;
 }
 

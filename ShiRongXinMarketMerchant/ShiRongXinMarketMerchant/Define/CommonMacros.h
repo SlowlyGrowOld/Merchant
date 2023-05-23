@@ -71,6 +71,9 @@
 #define KSignInRemind @"KSign_in_remind"
 
 
+#define KNotificationOrderStatusChange @"KNotificationOrderStatusChange"
+
+
 #pragma mark - ——————— 网络状态相关 ————————
 
 //网络状态变化

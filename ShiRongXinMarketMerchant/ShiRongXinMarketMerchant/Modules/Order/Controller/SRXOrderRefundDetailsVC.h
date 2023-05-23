@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderRefundDetailsVC : RootViewController
-
+@property (nonatomic, copy) NSString *order_return_id;
 @end
 
 NS_ASSUME_NONNULL_END

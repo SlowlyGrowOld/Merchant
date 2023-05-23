@@ -10,6 +10,8 @@
 #import "SRXOrderLogisticsListTableCell.h"
 #import "SRXOrderLogisticsDetailsVC.h"
 
+#import "NetworkManager+Order.h"
+
 @interface SRXOrderLogisticsListVC ()
 
 @end
@@ -22,11 +24,17 @@
     self.title = @"查看物流";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXOrderLogisticsListTableCell" bundle:nil] forCellReuseIdentifier:@"SRXOrderLogisticsListTableCell"];
+    self.tableView.mj_footer.hidden = YES;
     [self requestTableData];
 }
 
 - (void)requestTableData {
-    [self requestTableDataSuccessWithArray:@[@"",@""]];
+    
+    [NetworkManager getOrderGoodsDeliveryListWithOrderID:self.order_id success:^(NSArray *modelList) {
+        [self requestTableDataSuccessWithArray:modelList];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -39,6 +47,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXOrderLogisticsListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrderLogisticsListTableCell" forIndexPath:indexPath];
+    cell.model = self.dataSources[indexPath.section];
+    cell.titleLb.text = [NSString stringWithFormat:@"包裹%zd",indexPath.section+1];
     return cell;
 }
 

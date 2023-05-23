@@ -51,7 +51,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DLog(@"点击了");
-    [UserManager saveCurrentShop:self.datas[indexPath.row]];
+    SRXShopDataItem *item = self.datas[indexPath.row];
+    [UserManager sharedUserManager].curUserInfo.shop_id = item.shop_id;
+    [UserManager saveUserWithLoginMode:[UserManager sharedUserManager].curUserInfo];
     [AppHandyMethods switchWindowToMainScene];
 }
 

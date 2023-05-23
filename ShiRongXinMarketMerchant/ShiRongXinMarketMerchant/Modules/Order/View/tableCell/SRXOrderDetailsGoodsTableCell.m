@@ -20,14 +20,18 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.tableViewConsH.constant = 115*2;
-    self.tableView.datas = @[@"",@""];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setDatas:(NSArray *)datas {
+    _datas = datas;
+    self.tableViewConsH.constant = 115*datas.count;
+    self.tableView.datas = datas;
 }
 
 @end

@@ -227,6 +227,9 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="不想要了不想要了不想要了不想要了不想要了不想 要了不想要了" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DgI-Jy-83l">
                                                 <rect key="frame" x="80" y="5" width="210" height="42"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="8V4-ZH-ggV"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -270,6 +273,16 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="create_time" destination="qGh-Hp-pw4" id="X6M-XE-874"/>
+                <outlet property="pay_amount" destination="fX4-EE-q0A" id="lHX-bC-GbR"/>
+                <outlet property="pay_type" destination="rPS-Pr-NP2" id="jzt-gG-WY6"/>
+                <outlet property="reason" destination="DgI-Jy-83l" id="S3l-hb-agw"/>
+                <outlet property="refund_goods_status" destination="iLs-B9-wV7" id="WVw-Cm-ipd"/>
+                <outlet property="refund_integral" destination="zTG-AV-Bda" id="6zP-wh-wTx"/>
+                <outlet property="refund_type" destination="iwv-Ts-EhS" id="eWI-jc-EaN"/>
+                <outlet property="shipping_amount" destination="SC5-f8-A8D" id="xuS-3S-i4A"/>
+            </connections>
             <point key="canvasLocation" x="68.702290076335871" y="132.74647887323945"/>
         </tableViewCell>
     </objects>

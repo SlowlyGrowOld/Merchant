@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderDetailsGoodsTableCell : UITableViewCell
-
+@property (nonatomic, strong) NSArray *datas;
 @end
 
 NS_ASSUME_NONNULL_END

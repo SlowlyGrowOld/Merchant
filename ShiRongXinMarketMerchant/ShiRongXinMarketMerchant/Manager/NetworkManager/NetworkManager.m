@@ -42,6 +42,9 @@
 
 - (void)postWithURLString:(NSString *)URLString parameters:(NSDictionary *)parameters isNeedSVP:(BOOL)isNeedSVP success:(void (^)(NSDictionary *))success failure:(void (^)(NSString *))failure {
     kWeakSelf;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    dic[@"shop_id"] = [UserManager sharedUserManager].curUserInfo.shop_id;
+    parameters = dic.copy;
     [self prepareRequestNeedSVP:isNeedSVP url:URLString parameters:parameters];
     [self POST:URLString parameters:parameters headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [weakSelf handleResponse:(NSDictionary *)responseObject success:success failure:failure];
@@ -69,6 +72,9 @@
                  success:(void(^)(NSDictionary *messageDic))success
                  failure:(void (^)(NSString *))failure {
     kWeakSelf;
+    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    dic[@"shop_id"] = [UserManager sharedUserManager].curUserInfo.shop_id;
+    parameters = dic.copy;
     [self prepareRequestNeedSVP:isNeedSVP url:URLString parameters:parameters];
     [self GET:URLString parameters:parameters headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [weakSelf handleResponse:(NSDictionary *)responseObject success:success failure:failure];

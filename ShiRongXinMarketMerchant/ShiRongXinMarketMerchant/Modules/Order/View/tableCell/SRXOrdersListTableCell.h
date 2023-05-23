@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SRXOrderListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrdersListTableCell : UITableViewCell
-
+@property (nonatomic, strong) SRXOrderListModel *model;
+@property (nonatomic, assign)  NSInteger order_type;
 @end
 
 NS_ASSUME_NONNULL_END

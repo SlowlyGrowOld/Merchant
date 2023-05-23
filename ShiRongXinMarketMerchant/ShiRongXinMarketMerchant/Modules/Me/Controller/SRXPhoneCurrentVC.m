@@ -9,6 +9,7 @@
 #import "SRXPhoneCurrentVC.h"
 
 @interface SRXPhoneCurrentVC ()
+@property (weak, nonatomic) IBOutlet UILabel *current_mobile;
 
 @end
 
@@ -18,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"当前手机号";
+    
+    self.current_mobile.text = self.mobile;
 }
 
 /*

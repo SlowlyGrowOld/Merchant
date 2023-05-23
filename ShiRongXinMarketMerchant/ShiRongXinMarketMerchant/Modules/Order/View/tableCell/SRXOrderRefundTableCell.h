@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SRXOrderListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderRefundTableCell : UITableViewCell
-
+@property (nonatomic, strong) SRXOrderAfterSaleListModel *model;
 @end
 
 NS_ASSUME_NONNULL_END

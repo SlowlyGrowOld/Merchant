@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SRXOrderListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrdersListGoodsTableCell : UITableViewCell
-
+@property (nonatomic, strong) SRXOrderGoodsItem *item;
+@property (nonatomic, assign) NSInteger goods_count;
 @end
 
 NS_ASSUME_NONNULL_END

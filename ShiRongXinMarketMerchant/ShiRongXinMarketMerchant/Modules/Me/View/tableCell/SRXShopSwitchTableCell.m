@@ -32,4 +32,14 @@
     // Configure the view for the selected state
 }
 
+- (void)setItem:(SRXShopDataItem *)item {
+    _item = item;
+    _shop_name.text = item.shop_name;
+    [_shop_image sd_setImageWithURL:[NSURL URLWithString:item.shop_img]];
+    _unpaid_number.text = @(item.wait_pay_num).stringValue;
+    _unSend_number.text = @(item.wait_delivery_num).stringValue;
+    _return_number.text = @(item.after_sale_num).stringValue;
+    _tagLb.hidden = item.is_login?NO:YES;
+}
+
 @end

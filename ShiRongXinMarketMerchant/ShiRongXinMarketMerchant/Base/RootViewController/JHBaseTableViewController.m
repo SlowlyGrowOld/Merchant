@@ -38,7 +38,7 @@ static NSString *cellID = @"JHBaseTableViewCell";
     [super viewDidLoad];
     
     _pageNo = 1;
-    _pageSize = 50;
+    _pageSize = 20;
     _loadMore = NO;
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];

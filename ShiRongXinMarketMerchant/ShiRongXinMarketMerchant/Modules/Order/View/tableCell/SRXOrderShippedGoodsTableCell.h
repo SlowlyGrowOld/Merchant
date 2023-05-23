@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderShippedGoodsTableCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *goods_img;
+@property (weak, nonatomic) IBOutlet UILabel *goods_name;
+@property (weak, nonatomic) IBOutlet UIView *selectView;
 
 @end
 

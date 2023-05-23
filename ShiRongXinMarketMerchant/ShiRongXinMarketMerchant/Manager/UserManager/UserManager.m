@@ -131,20 +131,6 @@ SINGLETON_FOR_CLASS(UserManager);
     } seq:1];
 }
 
-+ (void)saveCurrentShop:(SRXShopDataItem *)currentShop {
-    [UserManager sharedUserManager].currentShop = currentShop;
-    [kUserDefaults setValue:currentShop.mj_JSONString forKey:@"currentShop"];
-    [kUserDefaults synchronize];
-}
-
-- (SRXShopDataItem *)currentShop {
-    NSString *jsonString = [kUserDefaults stringForKey:@"currentShop"];
-    if (jsonString) {
-        return [SRXShopDataItem mj_objectWithKeyValues:jsonString];
-    }else {
-        return nil;
-    }
-}
 //#pragma mark ————— 储存用户信息 —————
 //-(void)saveUserInfo{
 //    if (self.curUserInfo) {
