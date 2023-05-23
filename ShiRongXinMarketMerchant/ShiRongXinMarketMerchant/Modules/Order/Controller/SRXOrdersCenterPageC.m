@@ -11,7 +11,6 @@
 #import "QiPageMenuView.h"
 #import "JKScrollView.h"
 #import "SRXOrderListTableVC.h"
-#import "SRXOrderRefundTableVC.h"
 
 @interface SRXOrdersCenterPageC ()<UIScrollViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet JKScrollView *scrollView;
@@ -175,7 +174,8 @@
         vc3.order_type = @"3";
         SRXOrderListTableVC *vc4 = [[SRXOrderListTableVC alloc] init];
         vc4.order_type = @"4";
-        SRXOrderRefundTableVC *vc5 = [[SRXOrderRefundTableVC alloc] init];
+        SRXOrderListTableVC *vc5 = [[SRXOrderListTableVC alloc] init];
+        vc5.type = SRXOrderListTypeReturn;
         self.currentVC = vc1;
         _vcs = @[vc1,vc2,vc3,vc4,vc5].modelCopy;
     }

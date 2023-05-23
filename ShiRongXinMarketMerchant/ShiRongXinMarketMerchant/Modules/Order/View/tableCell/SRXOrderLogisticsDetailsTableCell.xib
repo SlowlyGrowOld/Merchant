@@ -61,7 +61,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已揽件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqx-Yc-Ucl">
                                         <rect key="frame" x="0.0" y="0.0" width="206.33333333333334" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -71,6 +71,13 @@
                                         <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p98-Ma-7jY">
+                                        <rect key="frame" x="0.0" y="66" width="206.33333333333334" height="20"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="hZT-TJ-OTt"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05-09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAK-dG-m5L">
@@ -80,8 +87,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:47" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUB-ZQ-IGb">
-                                <rect key="frame" x="13.333333333333334" y="36.333333333333336" width="29.333333333333329" height="14.333333333333336"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <rect key="frame" x="15.666666666666668" y="34.333333333333336" width="25.000000000000004" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -100,7 +107,7 @@
                             <constraint firstItem="rAK-dG-m5L" firstAttribute="centerY" secondItem="S76-Xf-agM" secondAttribute="centerY" id="f2t-j3-kJO"/>
                             <constraint firstItem="Vr9-dZ-wtn" firstAttribute="top" secondItem="WcY-fV-aH8" secondAttribute="top" constant="16" id="hHW-cG-oLF"/>
                             <constraint firstItem="S76-Xf-agM" firstAttribute="centerX" secondItem="K20-I4-d5X" secondAttribute="centerX" id="lJw-cr-K17"/>
-                            <constraint firstItem="EUB-ZQ-IGb" firstAttribute="top" secondItem="rAK-dG-m5L" secondAttribute="bottom" constant="5" id="on2-Ke-exI"/>
+                            <constraint firstItem="EUB-ZQ-IGb" firstAttribute="top" secondItem="rAK-dG-m5L" secondAttribute="bottom" constant="3" id="on2-Ke-exI"/>
                             <constraint firstAttribute="bottom" secondItem="yjF-9F-rq8" secondAttribute="bottom" id="t93-Tv-BL5"/>
                             <constraint firstItem="rAK-dG-m5L" firstAttribute="leading" secondItem="WcY-fV-aH8" secondAttribute="leading" constant="10" id="uh2-yg-w6l"/>
                             <constraint firstAttribute="bottom" secondItem="Vr9-dZ-wtn" secondAttribute="bottom" constant="15" id="wR0-EF-ELh"/>
@@ -125,6 +132,7 @@
                 <outlet property="imgView" destination="Xbb-XS-3OF" id="Zk6-do-B2U"/>
                 <outlet property="infoLb" destination="YBw-hL-0ce" id="BsN-IH-XMl"/>
                 <outlet property="monthLb" destination="rAK-dG-m5L" id="Bz8-cv-esi"/>
+                <outlet property="safeView" destination="p98-Ma-7jY" id="u35-09-cwa"/>
                 <outlet property="statusLb" destination="bqx-Yc-Ucl" id="i44-4a-nh8"/>
             </connections>
             <point key="canvasLocation" x="-87.022900763358777" y="38.380281690140848"/>

@@ -147,7 +147,6 @@
 		11DE69A829F2828100730EF9 /* SRXOrderDetailsGoodsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DE69A729F2828100730EF9 /* SRXOrderDetailsGoodsListView.m */; };
 		11DE69AC29F282D600730EF9 /* SRXOrderDetailsGoodsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DE69AA29F282D600730EF9 /* SRXOrderDetailsGoodsListCell.m */; };
 		11DE69AD29F282D600730EF9 /* SRXOrderDetailsGoodsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11DE69AB29F282D600730EF9 /* SRXOrderDetailsGoodsListCell.xib */; };
-		11DF66EE29F61EC0004557DE /* SRXOrderRefundTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DF66ED29F61EC0004557DE /* SRXOrderRefundTableVC.m */; };
 		11DF66F229F61F0B004557DE /* SRXOrderRefundTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DF66F029F61F0B004557DE /* SRXOrderRefundTableCell.m */; };
 		11DF66F329F61F0B004557DE /* SRXOrderRefundTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11DF66F129F61F0B004557DE /* SRXOrderRefundTableCell.xib */; };
 		11DF66F729F6607C004557DE /* SRXOrderRefundDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DF66F529F6607C004557DE /* SRXOrderRefundDetailsVC.m */; };
@@ -710,8 +709,6 @@
 		11DE69A929F282D600730EF9 /* SRXOrderDetailsGoodsListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXOrderDetailsGoodsListCell.h; sourceTree = "<group>"; };
 		11DE69AA29F282D600730EF9 /* SRXOrderDetailsGoodsListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXOrderDetailsGoodsListCell.m; sourceTree = "<group>"; };
 		11DE69AB29F282D600730EF9 /* SRXOrderDetailsGoodsListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXOrderDetailsGoodsListCell.xib; sourceTree = "<group>"; };
-		11DF66EC29F61EC0004557DE /* SRXOrderRefundTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXOrderRefundTableVC.h; sourceTree = "<group>"; };
-		11DF66ED29F61EC0004557DE /* SRXOrderRefundTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXOrderRefundTableVC.m; sourceTree = "<group>"; };
 		11DF66EF29F61F0B004557DE /* SRXOrderRefundTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXOrderRefundTableCell.h; sourceTree = "<group>"; };
 		11DF66F029F61F0B004557DE /* SRXOrderRefundTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXOrderRefundTableCell.m; sourceTree = "<group>"; };
 		11DF66F129F61F0B004557DE /* SRXOrderRefundTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXOrderRefundTableCell.xib; sourceTree = "<group>"; };
@@ -1771,8 +1768,6 @@
 				1118AEE129F0E6CF003C994A /* SRXOrdersCenterPageC.m */,
 				11EEE2A029F0E0A5005A07E7 /* SRXOrderListTableVC.h */,
 				11EEE2A129F0E0A5005A07E7 /* SRXOrderListTableVC.m */,
-				11DF66EC29F61EC0004557DE /* SRXOrderRefundTableVC.h */,
-				11DF66ED29F61EC0004557DE /* SRXOrderRefundTableVC.m */,
 				11DE698129F22B7600730EF9 /* SRXOrdersRemarkVC.h */,
 				11DE698229F22B7600730EF9 /* SRXOrdersRemarkVC.m */,
 				11DE698329F22B7600730EF9 /* SRXOrdersRemarkVC.xib */,
@@ -3589,7 +3584,6 @@
 				11D7E5DE28894CB400FA19F5 /* YBIBVideoCell.m in Sources */,
 				62DCF1D7275DEEA800B8C734 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				18CCFE4023C6F5120009732E /* GBIndicatorView.m in Sources */,
-				11DF66EE29F61EC0004557DE /* SRXOrderRefundTableVC.m in Sources */,
 				5DD013E423FE943A00FC4060 /* NSString+JKRegex.m in Sources */,
 				11D7E5C728894C9500FA19F5 /* YBIBDataMediator.m in Sources */,
 				805A7E0924B5B36800D99F39 /* XHLaunchAdConst.m in Sources */,

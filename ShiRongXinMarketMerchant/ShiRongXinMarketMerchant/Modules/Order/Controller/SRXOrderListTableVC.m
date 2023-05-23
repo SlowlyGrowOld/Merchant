@@ -8,7 +8,9 @@
 
 #import "SRXOrderListTableVC.h"
 #import "SRXOrdersListTableCell.h"
+#import "SRXOrderRefundTableCell.h"
 #import "SRXOrderDetailsVC.h"
+#import "SRXOrderRefundDetailsVC.h"
 #import "NetworkManager+Order.h"
 
 @interface SRXOrderListTableVC ()<UIScrollViewDelegate>
@@ -26,8 +28,11 @@
     // Do any additional setup after loading the view.
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXOrdersListTableCell" bundle:nil] forCellReuseIdentifier:@"SRXOrdersListTableCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SRXOrderRefundTableCell" bundle:nil] forCellReuseIdentifier:@"SRXOrderRefundTableCell"];
     [self requestTableData];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderChange:) name:KNotificationOrderStatusChange object:nil];
+    if (self.type == SRXOrderListTypeNomal) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderChange:) name:KNotificationOrderStatusChange object:nil];
+    }
 }
 
 - (void)orderChange:(NSNotification *)noti {
@@ -91,12 +96,19 @@
 }
 
 - (void)requestTableData {
-    
-    [NetworkManager getOrderListWithSearchWord:self.search_word order_type:self.order_type page:self.pageNo page_size:self.pageSize success:^(NSArray *modelList) {
-        [self requestTableDataSuccessWithArray:modelList];
-    } failure:^(NSString *message) {
-        
-    }];
+    if (self.type == SRXOrderListTypeNomal) {
+        [NetworkManager getOrderListWithSearchWord:self.search_word order_type:self.order_type page:self.pageNo page_size:self.pageSize success:^(NSArray *modelList) {
+            [self requestTableDataSuccessWithArray:modelList];
+        } failure:^(NSString *message) {
+            
+        }];
+    } else {
+        [NetworkManager getOrderAfterSaleListWithSearchWord:self.search_word page:self.pageNo page_size:self.pageSize success:^(NSArray *modelList) {
+            [self requestTableDataSuccessWithArray:modelList];
+        } failure:^(NSString *message) {
+            
+        }];
+    }
 }
 
 - (void)setSearch_word:(NSString *)search_word {
@@ -120,18 +132,36 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    SRXOrdersListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrdersListTableCell" forIndexPath:indexPath];
-    cell.model = self.dataSources[indexPath.section];
-    cell.order_type = self.order_type.integerValue;
-    return cell;
+    if (self.type == SRXOrderListTypeNomal) {
+        SRXOrdersListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrdersListTableCell" forIndexPath:indexPath];
+        cell.model = self.dataSources[indexPath.section];
+        cell.order_type = self.order_type.integerValue;
+        return cell;
+    } else {
+        SRXOrderRefundTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrderRefundTableCell" forIndexPath:indexPath];
+        cell.model = self.dataSources[indexPath.section];
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
-    SRXOrderDetailsVC *vc = [sb instantiateViewControllerWithIdentifier:@"SRXOrderDetailsVC"];
-    SRXOrderListModel *model = self.dataSources[indexPath.section];
-    vc.order_id = model.order_id;
-    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+    if (self.type == SRXOrderListTypeNomal) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
+        SRXOrderDetailsVC *vc = [sb instantiateViewControllerWithIdentifier:@"SRXOrderDetailsVC"];
+        SRXOrderListModel *model = self.dataSources[indexPath.section];
+        vc.order_id = model.order_id;
+        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+    } else {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
+        SRXOrderRefundDetailsVC *vc = [sb instantiateViewControllerWithIdentifier:@"SRXOrderRefundDetailsVC"];
+        SRXOrderAfterSaleListModel *model = self.dataSources[indexPath.section];
+        vc.order_return_id = model.order_return_id;
+        MJWeakSelf;
+        vc.refreshBlock = ^{
+            [weakSelf.tableView.mj_header beginRefreshing];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

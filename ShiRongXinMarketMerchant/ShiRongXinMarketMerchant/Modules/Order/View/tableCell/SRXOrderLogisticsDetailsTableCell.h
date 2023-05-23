@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *infoLb;
 @property (weak, nonatomic) IBOutlet UILabel *hourLb;
 @property (weak, nonatomic) IBOutlet UILabel *monthLb;
+@property (weak, nonatomic) IBOutlet UIView *safeView;
 
 @end
 

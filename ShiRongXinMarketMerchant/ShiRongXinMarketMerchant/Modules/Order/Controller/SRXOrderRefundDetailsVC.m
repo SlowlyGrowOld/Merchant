@@ -45,42 +45,50 @@
 
 - (IBAction)rejectBtnClick:(id)sender {
     if ([self.rejectBtn.titleLabel.text isEqualToString:@"查看物流"]) {
-        //    if (self.model.goods_count>1) {
-        //        SRXOrderLogisticsListVC *vc = [[SRXOrderLogisticsListVC alloc] init];
-        //        vc.order_id = self.model.order_id;
-        //        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
-        //    } else {
-        //        SRXOrderLogisticsDetailsVC *vc = [[SRXOrderLogisticsDetailsVC alloc] init];
-        //        vc.order_id = self.model.order_id;
-        //        vc.express_sn = self.model.express_sn;
-        //        vc.order_type = @"1";
-        //        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
-        //    }
-            SRXOrderLogisticsListVC *vc = [[SRXOrderLogisticsListVC alloc] init];
-//            vc.order_id = self.model.order_id;
-            [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+        SRXOrderLogisticsDetailsVC *vc = [[SRXOrderLogisticsDetailsVC alloc] init];
+        vc.order_return_id = self.order_return_id;
+        vc.order_type = @"2";
+        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     } else {
-        [NetworkManager setOrderAfterSaleStatusWithID:self.order_return_id operate_type:@"2" refuse_msg:@"" success:^(NSString *message) {
-            
-        } failure:^(NSString *message) {
-            
-        }];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否拒绝申请？" preferredStyle:UIAlertControllerStyleAlert];
+        [alertC addAction: [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alertC addAction: [UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [NetworkManager setOrderAfterSaleStatusWithID:self.order_return_id operate_type:@"2" refuse_msg:@"" success:^(NSString *message) {
+                [self requestData];
+                if (self.refreshBlock){self.refreshBlock();}
+            } failure:^(NSString *message) {
+                
+            }];
+        }]];
+        [self presentViewController:alertC animated:YES completion:nil];
     }
 }
 
 - (IBAction)agreeBtnClick:(id)sender {
     if ([self.agreeBtn.titleLabel.text isEqualToString:@"确认退款"]) {
-        [NetworkManager sureOrderAfterSaleRefundWithID:self.order_return_id success:^(NSString *message) {
-            [self requestData];
-        } failure:^(NSString *message) {
-            
-        }];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否确认退款？" preferredStyle:UIAlertControllerStyleAlert];
+        [alertC addAction: [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alertC addAction: [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [NetworkManager sureOrderAfterSaleRefundWithID:self.order_return_id success:^(NSString *message) {
+                [self requestData];
+                if (self.refreshBlock){self.refreshBlock();}
+            } failure:^(NSString *message) {
+                
+            }];
+        }]];
+        [self presentViewController:alertC animated:YES completion:nil];
     } else {
-        [NetworkManager setOrderAfterSaleStatusWithID:self.order_return_id operate_type:@"1" refuse_msg:@"" success:^(NSString *message) {
-            [self requestData];
-        } failure:^(NSString *message) {
-            
-        }];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否同意申请？" preferredStyle:UIAlertControllerStyleAlert];
+        [alertC addAction: [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+        [alertC addAction: [UIAlertAction actionWithTitle:@"同意" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [NetworkManager setOrderAfterSaleStatusWithID:self.order_return_id operate_type:@"1" refuse_msg:@"" success:^(NSString *message) {
+                [self requestData];
+                if (self.refreshBlock){self.refreshBlock();}
+            } failure:^(NSString *message) {
+                
+            }];
+        }]];
+        [self presentViewController:alertC animated:YES completion:nil];
     }
 }
 
