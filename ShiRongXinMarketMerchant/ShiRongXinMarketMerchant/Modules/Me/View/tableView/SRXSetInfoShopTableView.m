@@ -8,6 +8,7 @@
 
 #import "SRXSetInfoShopTableView.h"
 #import "SRXSetInfoShopTableCell.h"
+#import "SRXMeInfo.h"
 
 @interface SRXSetInfoShopTableView ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -45,6 +46,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXSetInfoShopTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXSetInfoShopTableCell" forIndexPath:indexPath];
+    SRXMeShopItem *item = self.datas[indexPath.row];
+    [cell.shop_image sd_setImageWithURL:[NSURL URLWithString:item.shop_img]];
+    cell.shop_name.text = item.shop_name;
     return cell;
 }
 

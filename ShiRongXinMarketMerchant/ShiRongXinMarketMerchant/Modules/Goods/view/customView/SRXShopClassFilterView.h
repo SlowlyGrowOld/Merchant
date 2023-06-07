@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SRXGoodsListModel.h"
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^SRXShopClassFilterBlock)(SRXGoodsListParameter*__nullable parameters);
 @interface SRXShopClassFilterView : UIView
-@property (nonatomic, copy) dispatch_block_t removeBlock;
+@property (nonatomic, strong) SRXGoodsListParameter *parameters;
+@property (nonatomic, copy) SRXShopClassFilterBlock closeBlock;
 - (void)dismiss;
 @end
 

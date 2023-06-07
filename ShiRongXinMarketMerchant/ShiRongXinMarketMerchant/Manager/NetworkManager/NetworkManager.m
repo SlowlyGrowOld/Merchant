@@ -169,8 +169,8 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"yyyyMMddHHmmss";
         NSString *str = [formatter stringFromDate:[NSDate date]];
-        NSString *fileName = [NSString stringWithFormat:@"%@.%@", str,type==1?@"mp4":@"acc"];
-        [formData appendPartWithFileData:videoData name:@"file[]" fileName:fileName mimeType:type==1?@"video/mp4":@"amr/mp3/acc"];
+        NSString *fileName = [NSString stringWithFormat:@"%@.%@", str,type==1?@"mp4":(type==2?@"acc":@"gif")];
+        [formData appendPartWithFileData:videoData name:@"file[]" fileName:fileName mimeType:type==1?@"video/mp4":(type==2?@"amr/mp3/acc":@"image/gif")];
     } progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [weakSelf handleResponse:(NSDictionary *)responseObject success:success failure:failure];

@@ -148,6 +148,7 @@
         [weakSelf.pageContentView setPageContentShouldScrollToIndex:clickedIndex beforIndex:beforeIndex];
         weakSelf.currentVC.scrollTop = YES;
         weakSelf.currentVC = weakSelf.vcs[clickedIndex];
+        weakSelf.currentVC.search_word = weakSelf.searchTF.text;
     };
     [self.menuBgView addSubview:self.menuView];
     
@@ -155,13 +156,29 @@
     self.pageContentView.canScroll = NO;
     self.pageContentView.canAnimated = NO;
     [self.containerView addSubview:self.pageContentView];
-    self.menuView.pageScrolledIndex = 0;
-    [self.pageContentView setPageContentShouldScrollToIndex:0 beforIndex:0];
     self.pageContentView.pageContentViewDidScroll = ^(NSInteger currentIndex, NSInteger beforeIndex, QiPageContentView * _Nonnull pageView) {
         weakSelf.menuView.pageScrolledIndex = currentIndex;
     };
+    if (self.pageIndex != 0) {
+        [self.pageContentView setPageContentShouldScrollToIndex:self.pageIndex beforIndex:self.menuView.pageScrolledIndex];
+        self.menuView.pageScrolledIndex = self.pageIndex;
+        self.currentVC.scrollTop = YES;
+        self.currentVC = self.vcs[self.pageIndex];
+    }else {
+        self.menuView.pageScrolledIndex = 0;
+        [self.pageContentView setPageContentShouldScrollToIndex:0 beforIndex:0];
+    }
 }
 
+- (void)setPageIndex:(NSInteger)pageIndex {
+    _pageIndex = pageIndex;
+    if (self.pageContentView) {
+        [self.pageContentView setPageContentShouldScrollToIndex:pageIndex beforIndex:self.menuView.pageScrolledIndex];
+        self.menuView.pageScrolledIndex = pageIndex;
+        self.currentVC.scrollTop = YES;
+        self.currentVC = self.vcs[pageIndex];
+    }
+}
 
 -(NSMutableArray *)vcs {
     if (_vcs==nil) {

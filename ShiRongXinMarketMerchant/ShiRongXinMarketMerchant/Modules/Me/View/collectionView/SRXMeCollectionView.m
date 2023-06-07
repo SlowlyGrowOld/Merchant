@@ -9,6 +9,7 @@
 #import "SRXMeCollectionView.h"
 #import "SRXMeImageCollectionCell.h"
 #import "SRXMeTextCollectionCell.h"
+#import "SRXOrdersCenterPageC.h"
 
 @implementation SRXMeCollectionModel
 + (SRXMeCollectionModel *)configWithTitle:(NSString *)title content:(NSString *)content {
@@ -72,7 +73,22 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-
+    if (self.jumpType == SRXMeCollectionJumpTypeMyOrder) {
+        kAppDelegate.mainTabBar.selectedIndex = 2;
+        RootNavigationController *nav = kAppDelegate.mainTabBar.viewControllers[2];
+        SRXOrdersCenterPageC *vc = nav.viewControllers.firstObject;
+        if (indexPath.item==0) {
+            vc.pageIndex = 1;
+        } else if (indexPath.item==1) {
+            vc.pageIndex = 0;
+        } else if (indexPath.item==2) {
+            vc.pageIndex = 2;
+        } else{
+            vc.pageIndex = 4;
+        }
+    } else if (self.jumpType == SRXMeCollectionJumpTypeOther) {
+        kAppDelegate.mainTabBar.selectedIndex = indexPath.row==0?3:2;
+    }
 }
 
 @end

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrdersCenterPageC : RootViewController
-
+@property (nonatomic, assign) NSInteger pageIndex;
 @end
 
 NS_ASSUME_NONNULL_END

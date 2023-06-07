@@ -93,4 +93,16 @@
         success(messageDic[@"msg"]);
     } failure:failure];
 }
+
++ (void)changeUserInfoWithTarget_value:(NSString *)target_value
+                           target_type:(NSString *)target_type
+                               success:(JHNetworkRequestSuccessVoid)success
+                               failure:(JHNetworkRequestFailure)failure {
+    NSMutableDictionary *mDic = [NSMutableDictionary dictionary];
+    mDic[@"target_value"] = target_value;
+    mDic[@"target_type"] = target_type;
+    [[NetworkManager sharedClient] postWithURLString:@"shop/change_shop_user_info" parameters:mDic.copy isNeedSVP:YES success:^(NSDictionary *messageDic) {
+        success(messageDic[@"msg"]);
+    } failure:failure];
+}
 @end

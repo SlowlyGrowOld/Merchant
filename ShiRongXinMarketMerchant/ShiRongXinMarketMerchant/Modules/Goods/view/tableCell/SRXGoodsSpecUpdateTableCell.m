@@ -9,10 +9,6 @@
 #import "SRXGoodsSpecUpdateTableCell.h"
 
 @interface SRXGoodsSpecUpdateTableCell ()
-@property (weak, nonatomic) IBOutlet UILabel *titleLb;
-@property (weak, nonatomic) IBOutlet UILabel *integral;
-@property (weak, nonatomic) IBOutlet UITextField *priceTF;
-@property (weak, nonatomic) IBOutlet UITextField *integralTF;
 
 @end
 

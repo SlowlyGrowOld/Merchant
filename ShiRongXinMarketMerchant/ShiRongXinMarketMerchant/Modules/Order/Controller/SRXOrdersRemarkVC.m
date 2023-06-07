@@ -17,6 +17,10 @@
 
 @implementation SRXOrdersRemarkVC
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -59,9 +63,14 @@
     NSDictionary *userInfo = [notification userInfo];
     CGFloat duration = [[userInfo objectForKey:@"UIKeyboardAnimationDurationUserInfoKey"] doubleValue];
     CGRect rect = [[userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"]CGRectValue];
- 
+    CGFloat offsetY = 0.0;
+    if ((kScreenHeight/2.0+85-rect.origin.y)>=0) {
+        offsetY = kScreenHeight/2.0+85-rect.origin.y;
+    }else {
+        offsetY = 0;
+    }
     [UIView animateWithDuration:duration animations:^{
-        self.view.transform = CGAffineTransformMakeTranslation(0, -(kScreenHeight/2.0+85-rect.origin.y));
+        self.view.transform = CGAffineTransformMakeTranslation(0, -offsetY);
     }];
 }
 

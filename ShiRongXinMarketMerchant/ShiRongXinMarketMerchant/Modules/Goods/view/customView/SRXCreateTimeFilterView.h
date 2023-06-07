@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SRXGoodsListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXCreateTimeFilterView : UIView
+@property (nonatomic, strong) SRXGoodsListParameter *parameters;
 @property (nonatomic, copy) dispatch_block_t removeBlock;
 - (void)dismiss;
 @end

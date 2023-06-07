@@ -10,11 +10,15 @@
 #import "SRXSetInfoShopTableView.h"
 #import "SRXPhoneCurrentVC.h"
 #import "SRXPasswordUpdateVC.h"
+#import "SRXTextFieldAlertVC.h"
 #import "NetworkManager+Me.h"
+#import "TZImagePickerController.h"
+#import "NetworkManager+Common.h"
 
 @interface SRXSetInfoTableVC ()
 @property (weak, nonatomic) IBOutlet SRXSetInfoShopTableView *shopTableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *shopTableConsH;
+@property (weak, nonatomic) IBOutlet UIView *avatarView;
 @property (weak, nonatomic) IBOutlet UIView *nameView;
 @property (weak, nonatomic) IBOutlet UIView *phoneView;
 @property (weak, nonatomic) IBOutlet UIView *psdView;
@@ -44,6 +48,35 @@
         UIStoryboard *me = [UIStoryboard storyboardWithName:@"Me" bundle:nil];
         SRXPasswordUpdateVC *vc = [me instantiateViewControllerWithIdentifier:@"SRXPasswordUpdateVC"];
         [weakSelf.navigationController pushViewController:vc animated:YES];
+    }];
+    [self.nameView jk_addTapActionWithBlock:^(UITapGestureRecognizer * _Nonnull gestureRecoginzer) {
+        SRXTextFieldAlertVC *vc = [[SRXTextFieldAlertVC alloc] init];
+        vc.textField.text = weakSelf.meInfo.shop_user_info.nickname;
+        vc.placeholder = @"请输入昵称";
+        vc.block = ^(NSString * _Nonnull nickname) {
+            weakSelf.nickname.text = nickname;
+            [weakSelf requestData];
+        };
+        [[UIViewController jk_currentViewController] presentViewController:vc animated:YES completion:nil];
+    }];
+    [self.avatarView jk_addTapActionWithBlock:^(UITapGestureRecognizer * _Nonnull gestureRecoginzer) {
+        kWeakSelf;
+        TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+        [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+            [NetworkManager commonUploadsImages:photos
+                                      isNeedHUD:YES
+                                        success:^(NSDictionary * _Nonnull messageDic) {
+                [NetworkManager changeUserInfoWithTarget_value:messageDic[@"data"] target_type:@"1" success:^(NSString *message) {
+                    weakSelf.meInfo.shop_user_info.avatar = messageDic[@"data"];
+                    weakSelf.avatar.image = photos.firstObject;
+                } failure:^(NSString *message) {
+                    
+                }];
+            }failure:^(NSString * _Nonnull error) {
+                
+            }];
+        }];
+        [self presentViewController:imagePickerVc animated:YES completion:nil];
     }];
     
     [self requestData];

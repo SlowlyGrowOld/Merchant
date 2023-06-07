@@ -73,6 +73,8 @@
 
 #define KNotificationOrderStatusChange @"KNotificationOrderStatusChange"
 
+#define KNotificationGoodsInfoChange @"KNotificationGoodsInfoChange"
+
 
 #pragma mark - ——————— 网络状态相关 ————————
 

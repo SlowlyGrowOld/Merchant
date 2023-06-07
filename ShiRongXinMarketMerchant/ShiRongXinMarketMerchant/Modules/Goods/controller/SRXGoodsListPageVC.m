@@ -11,12 +11,16 @@
 #import "JKScrollView.h"
 #import "SRXGoodsListTableVC.h"
 #import "SRXShopSwitchTableViewController.h"
+#import "SRXGoodsInfoEditPageVC.h"
 
 #import "SRXGoodsMoreFilterView.h"
 #import "SRXShopClassFilterView.h"
 #import "SRXCreateTimeFilterView.h"
+#import "SRXGoodsListEditBottomView.h"
+#import "SRXGoodsListModel.h"
+#import "NetworkManager+Goods.h"
 
-@interface SRXGoodsListPageVC ()<UIScrollViewDelegate>
+@interface SRXGoodsListPageVC ()<UIScrollViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet JKScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headViewConsH;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -48,6 +52,10 @@
 @property (nonatomic,strong) SRXCreateTimeFilterView *timeFilter;
 @property (nonatomic,strong) SRXGoodsMoreFilterView *moreFilter;
 @property (nonatomic,strong) SRXShopClassFilterView *classFilter;
+@property (nonatomic, strong) SRXGoodsListEditBottomView *bottomView;
+
+@property (nonatomic, strong) SRXGoodsListParameter *parameters;
+@property (nonatomic, copy) NSString *select_good_id;
 @end
 
 @implementation SRXGoodsListPageVC
@@ -69,11 +77,14 @@
     self.menuViewTopOffset = 100;
     self.canScroll = YES;
     self.pageScrolledIndex = 0;
+    self.parameters = [SRXGoodsListParameter new];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeStatus) name:@"goods_leaveTop" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(goodsListEditchange:) name:@"KNotificationEditChange" object:nil];
 }
 
 - (IBAction)switchMenuViewBtnClick:(UIButton *)sender {
     self.currentVC.isEdit = NO;
+    [self setBatchStatus];
     if (sender == self.saleBtn) {[self sliderViewWith:0];}
     if (sender == self.editBtn) {[self sliderViewWith:1];}
     if (sender == self.auditBtn) {[self sliderViewWith:2];}
@@ -84,6 +95,8 @@
     [self.pageContentView setPageContentShouldScrollToIndex:index beforIndex:self.pageScrolledIndex];
     self.currentVC.scrollTop = YES;
     self.currentVC = self.vcs[index];
+    self.currentVC.search_word = self.searchTF.text;
+    self.parameters = self.currentVC.parameters?:[SRXGoodsListParameter new];
     CGFloat x = (kScreenWidth-30)/4;
     self.pageScrolledIndex = index;
     self.selectBtn.selected = !self.selectBtn.isSelected;
@@ -91,16 +104,32 @@
     if (index == 1) {x = x; self.editBtn.selected = YES; self.selectBtn = self.editBtn;}
     if (index == 2) {x = x*2; self.auditBtn.selected = YES; self.selectBtn = self.auditBtn;}
     if (index == 3) {x = x*3-2; self.outBtn.selected = YES; self.selectBtn = self.outBtn;}
+    self.batchBtn.hidden = index==0?NO:YES;
     self.slider.transform = CGAffineTransformMakeTranslation(x,0);
 }
 
 - (IBAction)batchBtnClick:(id)sender {
     [self clearFilterBtnSelect];
     self.currentVC.isEdit = !self.currentVC.isEdit;
+    [self setBatchStatus];
+}
+
+- (void)setBatchStatus {
+    if (self.currentVC.isEdit) {
+        [self.batchBtn setTitleColor:C43B8F6 forState:UIControlStateNormal];
+        self.batchBtn.layer.borderColor = C43B8F6.CGColor;
+        [self.view addSubview:self.bottomView];
+    } else {
+        [self.batchBtn setTitleColor:CFont99 forState:UIControlStateNormal];
+        self.batchBtn.layer.borderColor = CFont99.CGColor;
+        [self.bottomView removeFromSuperview];
+    }
 }
 
 - (IBAction)addGoodsBtnClick:(id)sender {
     [self clearFilterBtnSelect];
+    SRXGoodsInfoEditPageVC *vc = [[SRXGoodsInfoEditPageVC alloc] init];
+    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 
 - (IBAction)creatTimeBtnClick:(id)sender {
@@ -160,12 +189,15 @@
         [self.scrollView setContentOffset:CGPointMake(0, self.menuViewTopOffset) animated:NO];
     } completion:^(BOOL finished) {
         if (sender == self.shopClass) {
+            self.classFilter.parameters = self.parameters;
             [[UIApplication sharedApplication].keyWindow addSubview:self.classFilter];
             self.shopClass.selected = YES;
         } else if (sender == self.filterBtn) {
+            self.moreFilter.parameters = self.parameters;
             [[UIApplication sharedApplication].keyWindow addSubview:self.moreFilter];
             self.filterBtn.selected = YES;
         }else {
+            self.timeFilter.parameters = self.parameters;
             [[UIApplication sharedApplication].keyWindow addSubview:self.timeFilter];
             self.createTime.selected = YES;
         }
@@ -178,13 +210,23 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)goodsListEditchange:(NSNotification *)info {
+    NSDictionary *dic = info.userInfo[@"info"];
+    BOOL isAll = [dic[@"isAll"] boolValue];
+    self.bottomView.allBtn.selected = isAll;
+    self.bottomView.select_num.text = dic[@"select_num"];
+    NSString *select_num = dic[@"select_num"];
+    if (select_num.intValue==0){self.bottomView.batchBtn.alpha = 0.3;self.bottomView.batchBtn.enabled = NO;}else {self.bottomView.batchBtn.alpha = 1;self.bottomView.batchBtn.enabled = YES;}
+    self.select_good_id = dic[@"good_id"];
+}
+
 -(void)changeStatus{
     
     self.canScroll = YES;
     self.currentVC.canScroll = NO;
     self.currentVC.isPullDown = NO;
 }
-
+#pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSLog(@"scrollView=====滚动==%.2F",scrollView.contentOffset.y);
     /*
@@ -217,6 +259,19 @@
     }
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if (![self.currentVC.search_word isEqualToString:textField.text]) {
+        self.currentVC.search_word = textField.text;
+    }
+}
+
 -(void)initMenuView {
     
     self.pageContentView = [[QiPageContentView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, kScreenHeight - TopHeight - TabbarHeight) childViewController:self.vcs];
@@ -235,9 +290,13 @@
     if (_vcs==nil) {
         _vcs = [NSMutableArray array];
         SRXGoodsListTableVC *vc1 = [[SRXGoodsListTableVC alloc] init];
+        vc1.goods_status = @"1";
         SRXGoodsListTableVC *vc2 = [[SRXGoodsListTableVC alloc] init];
+        vc2.goods_status = @"2";
         SRXGoodsListTableVC *vc3 = [[SRXGoodsListTableVC alloc] init];
+        vc3.goods_status = @"3";
         SRXGoodsListTableVC *vc4 = [[SRXGoodsListTableVC alloc] init];
+        vc4.goods_status = @"4";
         self.currentVC = vc1;
         _vcs = @[vc1,vc2,vc3,vc4].modelCopy;
     }
@@ -249,8 +308,12 @@
         _moreFilter = [[NSBundle mainBundle] loadNibNamed:@"SRXGoodsMoreFilterView" owner:nil options:nil].firstObject;
         _moreFilter.frame = CGRectMake(0, StatusBarHeight+44, kScreenWidth, kScreenHeight - StatusBarHeight-44);
         MJWeakSelf;
-        _moreFilter.removeBlock = ^{
+        _moreFilter.closeBlock = ^(SRXGoodsListParameter * _Nullable parameters) {
             weakSelf.filterBtn.selected = NO;
+            if(parameters){
+                weakSelf.parameters = parameters;
+                weakSelf.currentVC.parameters = parameters;
+            }
         };
     }
     return _moreFilter;
@@ -261,8 +324,12 @@
         _classFilter = [[NSBundle mainBundle] loadNibNamed:@"SRXShopClassFilterView" owner:nil options:nil].firstObject;
         _classFilter.frame = CGRectMake(0, StatusBarHeight+44, kScreenWidth, kScreenHeight - StatusBarHeight-44);
         MJWeakSelf;
-        _classFilter.removeBlock = ^{
+        _classFilter.closeBlock = ^(SRXGoodsListParameter * _Nullable parameters) {
             weakSelf.shopClass.selected = NO;
+            if(parameters){
+                weakSelf.parameters = parameters;
+                weakSelf.currentVC.parameters = parameters;
+            }
         };
     }
     return _classFilter;
@@ -278,5 +345,31 @@
         };
     }
     return _timeFilter;
+}
+
+
+- (SRXGoodsListEditBottomView *)bottomView {
+    if (!_bottomView) {
+        _bottomView = [[NSBundle mainBundle] loadNibNamed:@"SRXGoodsListEditBottomView" owner:nil options:nil].firstObject;
+        _bottomView.frame = CGRectMake(0, kScreenHeight - TabbarHeight - 52, kScreenWidth, 52);
+        MJWeakSelf;
+        [_bottomView.allBtn addCallBackAction:^(UIButton *button) {
+            button.selected = !button.isSelected;
+            weakSelf.currentVC.isAllEdit = button.isSelected;
+        }];
+        [_bottomView.batchBtn addCallBackAction:^(UIButton *button) {
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否批量下架？" preferredStyle:UIAlertControllerStyleAlert];
+            [alertC addAction: [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+            [alertC addAction: [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [NetworkManager batchGoodsTakeOffWithIDS:weakSelf.select_good_id success:^(NSString *message) {
+                    [weakSelf.currentVC.tableView.mj_header beginRefreshing];
+                } failure:^(NSString *message) {
+                    
+                }];
+            }]];
+            [self presentViewController:alertC animated:YES completion:nil];
+        }];
+    }
+    return _bottomView;
 }
 @end

@@ -71,6 +71,14 @@ NS_ASSUME_NONNULL_BEGIN
                          code:(NSString *)code
                       success:(JHNetworkRequestSuccessVoid)success
                       failure:(JHNetworkRequestFailure)failure;
+
+/// 修改头像，昵称
+/// @param target_value 头像地址或者昵称
+/// @param target_type 1=头像，2=昵称
++ (void)changeUserInfoWithTarget_value:(NSString *)target_value
+                           target_type:(NSString *)target_type
+                               success:(JHNetworkRequestSuccessVoid)success
+                               failure:(JHNetworkRequestFailure)failure;
 @end
 
 NS_ASSUME_NONNULL_END

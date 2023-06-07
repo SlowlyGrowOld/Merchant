@@ -8,6 +8,7 @@
 
 #import "SRXShopClassFilterView.h"
 #import "SRXTextCollectionCell.h"
+#import "NetworkManager+GoodUpdate.h"
 
 @interface SRXShopClassFilterView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -33,8 +34,8 @@
 
 - (void)dismiss {
     [self removeFromSuperview];
-    if (self.removeBlock) {
-        self.removeBlock();
+    if (self.closeBlock) {
+        self.closeBlock(nil);
     }
 }
 
@@ -44,9 +45,9 @@
     self.collectionView.dataSource = self;
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 15, 0, 15);
     [self.collectionView registerNib:[UINib nibWithNibName:@"SRXTextCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"SRXTextCollectionCell"];
-    self.datas = @[@"订单",@"啥啥啥",@"发发发",@"佛山市地方"];
     [self.collectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
-    [self.collectionView reloadData];
+    
+    [self requestShopClassify];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -63,11 +64,47 @@
 }
 
 - (IBAction)resetBtnClick:(id)sender {
-    [self dismiss];
+    for (SRXShop_PlatClassifyItem *model in self.datas) {
+        model.isSelect = NO;
+    }
+    self.parameters.extend_cat_id = @"";
+    [self removeFromSuperview];
+    if (self.closeBlock) {
+        self.closeBlock(self.parameters);
+    }
 }
 
 - (IBAction)sureBtnClick:(id)sender {
-    [self dismiss];
+    for (SRXShop_PlatClassifyItem *model in self.datas) {
+        if(model.isSelect) {
+            self.parameters.extend_cat_id = model._id;
+        }
+    }
+    [self removeFromSuperview];
+    if (self.closeBlock) {
+        self.closeBlock(self.parameters);
+    }
+}
+
+- (void)setParameters:(SRXGoodsListParameter *)parameters {
+    _parameters = parameters;
+    for (SRXShop_PlatClassifyItem *model in self.datas) {
+        if ([model._id isEqualToString:parameters.extend_cat_id]) {
+            model.isSelect = YES;
+        } else {
+            model.isSelect = NO;
+        }
+    }
+    [self.collectionView reloadData];
+}
+
+- (void)requestShopClassify {
+    [NetworkManager getShopClassifyListWithSearch_word:@"" page:0 pageSize:0 success:^(NSArray *modelList) {
+        self.datas = modelList;
+        [self.collectionView reloadData];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 
@@ -81,13 +118,21 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SRXTextCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SRXTextCollectionCell" forIndexPath:indexPath];
-    cell.titleLb.backgroundColor = CViewBgColor;
-    cell.titleLb.text = self.datas[indexPath.row];
+    SRXShop_PlatClassifyItem *item = self.datas[indexPath.row];
+    cell.titleLb.text = item.name;
+    if (item.isSelect) {
+        cell.titleLb.textColor = UIColor.whiteColor;
+        cell.titleLb.backgroundColor = C43B8F6;
+    } else {
+        cell.titleLb.textColor = CFont66;
+        cell.titleLb.backgroundColor = CViewBgColor;
+    }
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize size = [self.datas[indexPath.item] sizeForFont:[UIFont systemFontOfSize:14] size:CGSizeMake(kScreenWidth - 30 - 40, 28) mode:NSLineBreakByWordWrapping];
+    SRXShop_PlatClassifyItem *item = self.datas[indexPath.row];
+    CGSize size = [item.name sizeForFont:[UIFont systemFontOfSize:14] size:CGSizeMake(kScreenWidth - 30 - 40, 28) mode:NSLineBreakByWordWrapping];
     return CGSizeMake(size.width + 40, 28);
 }
 
@@ -101,6 +146,14 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    SRXShop_PlatClassifyItem *item = self.datas[indexPath.row];
+    for (SRXShop_PlatClassifyItem *model in self.datas) {
+        if ([model._id isEqualToString:item._id]) {
+            item.isSelect = !item.isSelect;
+        } else {
+            model.isSelect = NO;
+        }
+    }
+    [self.collectionView reloadData];
 }
 @end

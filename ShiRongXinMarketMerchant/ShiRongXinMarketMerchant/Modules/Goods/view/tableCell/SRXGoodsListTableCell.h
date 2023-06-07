@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SRXGoodsListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXGoodsListTableCell : UITableViewCell
-
+@property (nonatomic, strong) SRXGoodsListModel *model;
+/**默认1。1=出售中，2=编辑中，3=审核中，4=已下架*/
+@property (nonatomic , copy) NSString              * goods_status;
 @end
 
 NS_ASSUME_NONNULL_END

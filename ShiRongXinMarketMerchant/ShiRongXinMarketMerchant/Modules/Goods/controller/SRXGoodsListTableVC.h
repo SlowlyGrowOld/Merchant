@@ -7,7 +7,7 @@
 //
 
 #import "JHBaseTableViewController.h"
-
+#import "SRXGoodsListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXGoodsListTableVC : JHBaseTableViewController
@@ -16,6 +16,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) BOOL scrollTop;//切换菜单，列表置顶
 
 @property (nonatomic,assign) BOOL isEdit;//编辑
+@property (nonatomic,assign) BOOL isAllEdit;//全选编辑
+
+/**默认1。1=出售中，2=编辑中，3=审核中，4=已下架*/
+@property (nonatomic , copy) NSString              * goods_status;
+/**搜索词*/
+@property (nonatomic , copy) NSString              * search_word;
+
+@property (nonatomic, strong) SRXGoodsListParameter *parameters;
 @end
 
 NS_ASSUME_NONNULL_END

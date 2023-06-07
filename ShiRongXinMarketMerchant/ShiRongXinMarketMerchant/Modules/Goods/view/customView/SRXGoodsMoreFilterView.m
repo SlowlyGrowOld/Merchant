@@ -32,17 +32,59 @@
 }
 
 - (IBAction)resetBtnClick:(id)sender {
-    [self dismiss];
+    self.min_sale.text = nil;
+    self.max_sale.text = nil;
+    self.min_price.text = nil;
+    self.max_price.text = nil;
+    self.min_store.text = nil;
+    self.max_store.text = nil;
+    self.min_profit.text = nil;
+    self.max_profit.text = nil;
+    self.parameters.sale_num_low = nil;
+    self.parameters.sale_num_high = nil;
+    self.parameters.price_low = nil;
+    self.parameters.price_high = nil;
+    self.parameters.profit_low = nil;
+    self.parameters.profit_high = nil;
+    self.parameters.store_count_low = nil;
+    self.parameters.store_count_high = nil;
+    [self removeFromSuperview];
+    if (self.closeBlock) {
+        self.closeBlock(self.parameters);
+    }
 }
 
 - (IBAction)sureBtnClick:(id)sender {
-    [self dismiss];
+    self.parameters.sale_num_low = self.min_sale.text;
+    self.parameters.sale_num_high = self.max_sale.text;
+    self.parameters.price_low = self.min_price.text;
+    self.parameters.price_high = self.max_price.text;
+    self.parameters.profit_low = self.min_profit.text;
+    self.parameters.profit_high = self.max_profit.text;
+    self.parameters.store_count_low = self.min_store.text;
+    self.parameters.store_count_high = self.max_store.text;
+    [self removeFromSuperview];
+    if (self.closeBlock) {
+        self.closeBlock(self.parameters);
+    }
+}
+
+- (void)setParameters:(SRXGoodsListParameter *)parameters {
+    _parameters = parameters;
+    self.min_sale.text = self.parameters.sale_num_low;
+    self.max_sale.text = self.parameters.sale_num_high;
+    self.min_price.text = self.parameters.price_low;
+    self.max_price.text = self.parameters.price_high;
+    self.min_store.text = self.parameters.store_count_low;
+    self.max_store.text = self.parameters.store_count_high;
+    self.min_profit.text = self.parameters.profit_low;
+    self.max_profit.text = self.parameters.profit_high;
 }
 
 - (void)dismiss {
     [self removeFromSuperview];
-    if (self.removeBlock) {
-        self.removeBlock();
+    if (self.closeBlock) {
+        self.closeBlock(nil);
     }
 }
 @end

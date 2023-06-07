@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SRXGoodsListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXGoodsListEditTableCell : UITableViewCell
-
+@property (nonatomic, strong) SRXGoodsListModel *model;
 @end
 
 NS_ASSUME_NONNULL_END

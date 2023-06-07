@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXGoodsSpecUpdateTableCell : UITableViewCell
 @property (nonatomic, assign) BOOL isStore;
+@property (weak, nonatomic) IBOutlet UILabel *titleLb;
+@property (weak, nonatomic) IBOutlet UILabel *integral;
+@property (weak, nonatomic) IBOutlet UITextField *priceTF;
+@property (weak, nonatomic) IBOutlet UITextField *integralTF;
 @end
 
 NS_ASSUME_NONNULL_END

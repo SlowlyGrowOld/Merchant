@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cd7-vo-Cxc">
                         <rect key="frame" x="5" y="0.0" width="310" height="175"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zWi-id-ZZL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zWi-id-ZZL">
                                 <rect key="frame" x="20" y="25" width="84" height="84"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -36,7 +36,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="千图冬季米白色派克服男女款毛领大衣棉服... 拷贝" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyx-e2-wVi">
                                 <rect key="frame" x="116" y="28.999999999999996" width="179" height="33.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -190,6 +190,7 @@
                 <outlet property="goods_image" destination="zWi-id-ZZL" id="ywm-u3-aSc"/>
                 <outlet property="goods_name" destination="Zyx-e2-wVi" id="ZUt-TV-bgf"/>
                 <outlet property="goods_salenum" destination="g05-gM-CDY" id="Khh-Fa-Dqa"/>
+                <outlet property="moreBtn" destination="CHF-Tq-qXH" id="Twi-gu-KzF"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="-17.95774647887324"/>
         </tableViewCell>

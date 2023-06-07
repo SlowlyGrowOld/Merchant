@@ -12,6 +12,11 @@ typedef enum : NSUInteger {
     SRXMeCollectionTypeImage,
     SRXMeCollectionTypeText,
 } SRXMeCollectionType;
+
+typedef enum : NSUInteger {
+    SRXMeCollectionJumpTypeMyOrder,
+    SRXMeCollectionJumpTypeOther,
+} SRXMeCollectionJumpType;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXMeCollectionModel : NSObject
@@ -23,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SRXMeCollectionView : UICollectionView
 @property (nonatomic, strong) NSArray *datas;
 @property (nonatomic, assign) SRXMeCollectionType type;
+@property (nonatomic, assign) SRXMeCollectionJumpType jumpType;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,12 +9,18 @@
 #import "SRXGoodsListTableVC.h"
 #import "SRXGoodsListTableCell.h"
 #import "SRXGoodsListEditTableCell.h"
+#import "NetworkManager+Goods.h"
+
 
 @interface SRXGoodsListTableVC ()<UIScrollViewDelegate>
 
 @end
 
 @implementation SRXGoodsListTableVC
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,15 +30,65 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXGoodsListTableCell" bundle:nil] forCellReuseIdentifier:@"SRXGoodsListTableCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXGoodsListEditTableCell" bundle:nil] forCellReuseIdentifier:@"SRXGoodsListEditTableCell"];
     [self requestTableData];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(goodsInfoChange:) name:KNotificationGoodsInfoChange object:nil];
+}
+
+- (void)goodsInfoChange:(NSNotification *)noti {
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)requestTableData {
-    [self requestTableDataSuccessWithArray:@[@"",@""]];
+    [NetworkManager getGoodsListWithDic:[self.parameters mj_keyValues] goods_status:self.goods_status search_word:self.search_word page:self.pageNo pageSize:self.pageSize success:^(NSArray *modelList) {
+        [self requestTableDataSuccessWithArray:modelList];
+        [self notificationEditBottomData];
+    } failure:^(NSString *message) {
+        
+    }];
+}
+
+- (void)setSearch_word:(NSString *)search_word {
+    _search_word = search_word;
+    [self.tableView.mj_header beginRefreshing];
+}
+
+- (void)setParameters:(SRXGoodsListParameter *)parameters {
+    _parameters = parameters;
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)setIsEdit:(BOOL)isEdit {
     _isEdit = isEdit;
+    if (!isEdit) {
+        for (SRXGoodsListModel *model in self.dataSources) {
+            model.is_select = NO;
+        }
+    }
     [self.tableView reloadData];
+    [self notificationEditBottomData];
+}
+
+- (void)setIsAllEdit:(BOOL)isAllEdit {
+    _isAllEdit = isAllEdit;
+    for (SRXGoodsListModel *model in self.dataSources) {
+        model.is_select = isAllEdit;
+    }
+    [self.tableView reloadData];
+    [self notificationEditBottomData];
+}
+
+- (void)notificationEditBottomData {
+    NSInteger select_num = 0;
+    NSMutableArray *array = [NSMutableArray array];
+    for (SRXGoodsListModel *model in self.dataSources) {
+        if (model.is_select) {
+            select_num ++;
+            [array addObject:model.goods_id];
+        }
+    }
+    NSString *isAll = self.dataSources.count == select_num?@"1":@"0";
+    NSString *good_id = [array componentsJoinedByString:@","];
+    KPostNotificationInfo(@"KNotificationEditChange", nil, (@{@"select_num":@(select_num).stringValue,@"isAll":isAll,@"good_id":good_id}));
 }
 
 #pragma mark - tableview data
@@ -47,15 +103,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.isEdit) {
         SRXGoodsListEditTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXGoodsListEditTableCell" forIndexPath:indexPath];
+        cell.model = self.dataSources[indexPath.section];
         return cell;
     } else {
         SRXGoodsListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXGoodsListTableCell" forIndexPath:indexPath];
+        cell.model = self.dataSources[indexPath.section];
+        cell.goods_status = self.goods_status;
         return cell;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    if (self.isEdit) {
+        SRXGoodsListModel *model = self.dataSources[indexPath.section];
+        model.is_select = !model.is_select;
+        [self.tableView reloadData];
+        [self notificationEditBottomData];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
