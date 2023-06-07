@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWr-PS-AEh">
-                    <rect key="frame" x="0.0" y="59" width="393" height="288"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="256"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZ0-79-Vdb">
                             <rect key="frame" x="15" y="0.0" width="363" height="1"/>
@@ -29,11 +29,11 @@
                             <rect key="frame" x="0.0" y="1" width="393" height="200"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="8Oa-v5-vm7"/>
+                                <constraint firstAttribute="height" constant="200" id="Yrq-5w-IoA"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vXV-iV-gGX">
-                            <rect key="frame" x="38" y="234" width="317" height="34"/>
+                            <rect key="frame" x="38" y="202" width="317" height="34"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9I-qn-9T1">
                                     <rect key="frame" x="0.0" y="0.0" width="154.66666666666666" height="34"/>
@@ -75,7 +75,7 @@
                     <constraints>
                         <constraint firstItem="6ud-dg-Dys" firstAttribute="top" secondItem="nZ0-79-Vdb" secondAttribute="bottom" id="5Rr-C9-cHR"/>
                         <constraint firstAttribute="trailing" secondItem="6ud-dg-Dys" secondAttribute="trailing" id="8FK-MV-dfb"/>
-                        <constraint firstItem="vXV-iV-gGX" firstAttribute="top" secondItem="6ud-dg-Dys" secondAttribute="bottom" constant="33" id="JF3-AO-xFg"/>
+                        <constraint firstItem="vXV-iV-gGX" firstAttribute="top" secondItem="6ud-dg-Dys" secondAttribute="bottom" constant="1" id="JF3-AO-xFg"/>
                         <constraint firstAttribute="bottom" secondItem="vXV-iV-gGX" secondAttribute="bottom" constant="20" id="Kee-Dp-K03"/>
                         <constraint firstItem="vXV-iV-gGX" firstAttribute="leading" secondItem="yWr-PS-AEh" secondAttribute="leading" constant="38" id="Khm-9j-4C1"/>
                         <constraint firstAttribute="trailing" secondItem="nZ0-79-Vdb" secondAttribute="trailing" constant="15" id="KiI-W6-9Ab"/>
@@ -96,6 +96,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bgView" destination="yWr-PS-AEh" id="ouf-zf-V0L"/>
+                <outlet property="contentView" destination="6ud-dg-Dys" id="UvW-uh-dBw"/>
+                <outlet property="contentViewConsH" destination="Yrq-5w-IoA" id="HNS-zw-AhX"/>
             </connections>
             <point key="canvasLocation" x="-40.458015267175568" y="-1.4084507042253522"/>
         </view>

@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SRXGoodsListModel.h"
 NS_ASSUME_NONNULL_BEGIN
-
+typedef void(^SRXShopClassFilterBlock)(SRXGoodsListParameter*__nullable parameters);
 @interface SRXCreateTimeFilterView : UIView
 @property (nonatomic, strong) SRXGoodsListParameter *parameters;
-@property (nonatomic, copy) dispatch_block_t removeBlock;
+@property (nonatomic, copy) SRXShopClassFilterBlock closeBlock;
 - (void)dismiss;
 @end
 

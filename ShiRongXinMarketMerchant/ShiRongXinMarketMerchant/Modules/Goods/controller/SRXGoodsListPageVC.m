@@ -340,8 +340,12 @@
         _timeFilter = [[NSBundle mainBundle] loadNibNamed:@"SRXCreateTimeFilterView" owner:nil options:nil].firstObject;
         _timeFilter.frame = CGRectMake(0, StatusBarHeight+44, kScreenWidth, kScreenHeight - StatusBarHeight-44);
         MJWeakSelf;
-        _timeFilter.removeBlock = ^{
+        _timeFilter.closeBlock = ^(SRXGoodsListParameter * _Nullable parameters) {
             weakSelf.createTime.selected = NO;
+            if(parameters){
+                weakSelf.parameters = parameters;
+                weakSelf.currentVC.parameters = parameters;
+            }
         };
     }
     return _timeFilter;
