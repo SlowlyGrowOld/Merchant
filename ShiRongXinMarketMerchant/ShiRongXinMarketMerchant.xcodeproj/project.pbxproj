@@ -111,6 +111,8 @@
 		11CDC6292A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11CDC6272A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.xib */; };
 		11CF6CF72A3019B300712C43 /* SRXCalendarPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CF6CF62A3019B300712C43 /* SRXCalendarPickerView.m */; };
 		11CF6CFA2A301C1F00712C43 /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CF6CF82A301C1F00712C43 /* NSDate+Formatter.m */; };
+		11CF6CFD2A306C4600712C43 /* SRXGoodsSpecGroupTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CF6CFC2A306C4600712C43 /* SRXGoodsSpecGroupTableVC.m */; };
+		11CF6D002A306F0000712C43 /* SRXGoodsSpecGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CF6CFF2A306F0000712C43 /* SRXGoodsSpecGroupCell.m */; };
 		11D7E57428894C5B00FA19F5 /* YBIBDefaultWebImageMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7E57328894C5A00FA19F5 /* YBIBDefaultWebImageMediator.m */; };
 		11D7E57B28894C6200FA19F5 /* YBIBToolViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7E57828894C6200FA19F5 /* YBIBToolViewHandler.m */; };
 		11D7E57C28894C6200FA19F5 /* YBIBSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D7E57928894C6200FA19F5 /* YBIBSheetView.m */; };
@@ -667,6 +669,10 @@
 		11CF6CF62A3019B300712C43 /* SRXCalendarPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXCalendarPickerView.m; sourceTree = "<group>"; };
 		11CF6CF82A301C1F00712C43 /* NSDate+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
 		11CF6CF92A301C1F00712C43 /* NSDate+Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatter.h"; sourceTree = "<group>"; };
+		11CF6CFB2A306C4600712C43 /* SRXGoodsSpecGroupTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsSpecGroupTableVC.h; sourceTree = "<group>"; };
+		11CF6CFC2A306C4600712C43 /* SRXGoodsSpecGroupTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsSpecGroupTableVC.m; sourceTree = "<group>"; };
+		11CF6CFE2A306F0000712C43 /* SRXGoodsSpecGroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsSpecGroupCell.h; sourceTree = "<group>"; };
+		11CF6CFF2A306F0000712C43 /* SRXGoodsSpecGroupCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsSpecGroupCell.m; sourceTree = "<group>"; };
 		11D7E57128894C5A00FA19F5 /* YBIBWebImageMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBIBWebImageMediator.h; sourceTree = "<group>"; };
 		11D7E57228894C5A00FA19F5 /* YBIBDefaultWebImageMediator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YBIBDefaultWebImageMediator.h; sourceTree = "<group>"; };
 		11D7E57328894C5A00FA19F5 /* YBIBDefaultWebImageMediator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YBIBDefaultWebImageMediator.m; sourceTree = "<group>"; };
@@ -1640,6 +1646,8 @@
 				11F6FBC929FB5DC000519293 /* SRXGoodsSpecUpdateVC.m */,
 				11EE165C2A208BB1008BE57F /* SRXGoodsSpecSetTableVC.h */,
 				11EE165D2A208BB1008BE57F /* SRXGoodsSpecSetTableVC.m */,
+				11CF6CFB2A306C4600712C43 /* SRXGoodsSpecGroupTableVC.h */,
+				11CF6CFC2A306C4600712C43 /* SRXGoodsSpecGroupTableVC.m */,
 				11E10CB02A21D57800255988 /* SRXGoodsSpecInfoEditVC.h */,
 				11E10CB12A21D57800255988 /* SRXGoodsSpecInfoEditVC.m */,
 				11E10CB22A21D57800255988 /* SRXGoodsSpecInfoEditVC.xib */,
@@ -1844,6 +1852,8 @@
 				11EE16682A20A25E008BE57F /* SRXGoodsSpecTableCell.h */,
 				11EE16692A20A25E008BE57F /* SRXGoodsSpecTableCell.m */,
 				11EE166A2A20A25E008BE57F /* SRXGoodsSpecTableCell.xib */,
+				11CF6CFE2A306F0000712C43 /* SRXGoodsSpecGroupCell.h */,
+				11CF6CFF2A306F0000712C43 /* SRXGoodsSpecGroupCell.m */,
 				11ECD86E2A25900000AF7B82 /* SRXGoodsInfoEditBasicInfoTableCell.h */,
 				11ECD86F2A25900000AF7B82 /* SRXGoodsInfoEditBasicInfoTableCell.m */,
 			);
@@ -3738,6 +3748,7 @@
 				5DD013EB23FE943A00FC4060 /* NSString+JKRemoveEmoji.m in Sources */,
 				805A7E0C24B5B36800D99F39 /* XHLaunchAdDownloader.m in Sources */,
 				18CCFE2623C6F5120009732E /* UserInfo.m in Sources */,
+				11CF6D002A306F0000712C43 /* SRXGoodsSpecGroupCell.m in Sources */,
 				805A7E0524B5B36800D99F39 /* FLAnimatedImageView.m in Sources */,
 				11E55EAB29E93C6100B34C18 /* SRXLoginMsgVC.m in Sources */,
 				5DD0140D23FE943A00FC4060 /* JKQRCode.m in Sources */,
@@ -3818,6 +3829,7 @@
 				1122614B2A1AF9EA0023FC8C /* SRXIncomeInfo.m in Sources */,
 				5DD013F723FE943A00FC4060 /* UIResponder+JKExtension.m in Sources */,
 				5DD013E623FE943A00FC4060 /* NSString+JKContains.m in Sources */,
+				11CF6CFD2A306C4600712C43 /* SRXGoodsSpecGroupTableVC.m in Sources */,
 				5DD013F523FE943A00FC4060 /* UIView+JKLayout.m in Sources */,
 				18652EE823F4457F005E8EEB /* NSString+LCSandBox.m in Sources */,
 				18CCFE2823C6F5120009732E /* NetworkManager.m in Sources */,

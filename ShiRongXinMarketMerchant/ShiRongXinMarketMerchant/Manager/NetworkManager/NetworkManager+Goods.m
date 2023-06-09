@@ -27,10 +27,12 @@
     } failure:failure];
 }
 
-+ (void)getGoodsListNumSuccess:(JHNetworkRequestSuccessContent)success
++ (void)getGoodsListNumSuccess:(void (^)(SRXGoodsListNumber * _Nonnull))success
                        failure:(JHNetworkRequestFailure)failure {
     [[NetworkManager sharedClient] getWithURLString:@"shop/goods_list_num" parameters:nil isNeedSVP:NO success:^(NSDictionary *messageDic) {
-        success(messageDic[@"data"]);
+        
+        SRXGoodsListNumber *number = [SRXGoodsListNumber mj_objectWithKeyValues:messageDic[@"data"]];
+        success(number);
     } failure:failure];
 }
 

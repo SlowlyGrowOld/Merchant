@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXGoodsEditQuitAlertVC : RootPresentViewController
 @property (nonatomic, copy) dispatch_block_t quitBlock;
+@property (nonatomic, copy) NSString *alert_title;
+@property (nonatomic, copy) NSString *alert_desc;
 @end
 
 NS_ASSUME_NONNULL_END

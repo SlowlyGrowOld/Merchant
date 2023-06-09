@@ -40,6 +40,7 @@
 + (NSDate *)dateWithString:(NSString *)dateString withDateFormat:(NSString *)format;
 //Other
 - (NSString *)mmddByLineWithDate;
+- (NSString *)yyyyMMChineseWithDate;
 - (NSString *)yyyyMMByLineWithDate;
 - (NSString *)yyyyMMddByLineWithDate;
 - (NSString *)mmddChineseWithDate;

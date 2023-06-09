@@ -10,6 +10,8 @@
 
 @interface SRXGoodsEditQuitAlertVC ()
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLb;
+@property (weak, nonatomic) IBOutlet UILabel *descLb;
 
 @end
 
@@ -20,7 +22,15 @@
     // Do any additional setup after loading the view from its nib.
     self.isBgClose = YES;
     [self.contentView settingRadius:20 corner:UIRectCornerTopLeft|UIRectCornerTopRight];
+    
+    if (self.alert_title) {
+        _titleLb.text = self.alert_title;
+    }
+    if (self.alert_desc) {
+        _descLb.text = self.alert_desc;
+    }
 }
+
 - (IBAction)continueEditBtnClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

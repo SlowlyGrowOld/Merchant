@@ -42,7 +42,7 @@
 
     //展示FPS
     [AppManager showFPS];
-    [SVProgressHUD setMinimumDismissTimeInterval:1.0];
+    [SVProgressHUD setMinimumDismissTimeInterval:2.0];
     [SVProgressHUD setMaximumDismissTimeInterval:3.0];
     [SVProgressHUD setBackgroundColor:kHRGBAlpha(0, 0, 0, .6)];
     [SVProgressHUD setForegroundColor:UIColor.whiteColor];

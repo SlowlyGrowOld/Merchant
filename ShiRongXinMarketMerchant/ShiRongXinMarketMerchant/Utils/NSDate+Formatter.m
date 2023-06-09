@@ -173,6 +173,12 @@
     return [formatter stringFromDate:self];
 }
 
+- (NSString *)yyyyMMChineseWithDate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy年MM月"];
+    return [formatter stringFromDate:self];
+}
+
 - (NSString *)mmddByLineWithDate{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MM-dd"];

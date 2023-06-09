@@ -45,7 +45,6 @@
             NSLog(@"%f",self.collectionView.contentSize.height);
             self.contentSizeHeight = self.collectionView.contentSize.height;
             self.collectionViewConsH.constant = self.contentSizeHeight;
-            self.item.contentSizeHeight = self.contentSizeHeight;
             if(self.refreshBlock){self.refreshBlock();}
         }
     }
@@ -67,16 +66,30 @@
 }
 
 - (void)addSpecValueWithValue:(NSString *)value {
+    for (SRXGoodsSpecItemsItem *m in self.item.spec_items) {
+        if ([m.spec_value isEqualToString:value]) {
+            [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"规格值\"%@\"已存在",value]];
+            return;
+        }
+    }
     [NetworkManager addGoodsSpecValueWithSpec_id:self.item.group_id spec_value_name:value success:^(NSString *message) {
         NSMutableArray *mArr = [NSMutableArray arrayWithArray:self.item.spec_items];
         SRXGoodsSpecItemsItem *item = [SRXGoodsSpecItemsItem new];
-        item.item_id = [message integerValue];
         item.spec_value = value;
-        [mArr addObject:item];
-        self.item.spec_items = mArr.copy;
-        [self.collectionView reloadData];
+        item.item_id = message;
+        for (SRXGoodsSpecItemsItem *m in self.item.spec_items) {
+            if ([m.spec_value isEqualToString:value]) {
+                item = nil;
+            }
+        }
+        if (item) {
+            [mArr addObject:item];
+            self.item.spec_items = mArr.copy;
+            [self.collectionView reloadData];
+        }
+        if(self.changeBlock){self.changeBlock();}
     } failure:^(NSString *message) {
-        
+
     }];
 }
 
@@ -108,12 +121,13 @@
         [cell.deleteBtn addCallBackAction:^(UIButton *button) {
             NSMutableArray *mArr = [NSMutableArray array];
             for (SRXGoodsSpecItemsItem *m in self.item.spec_items) {
-                if (m.item_id != item.item_id) {
+                if (![m.spec_value isEqualToString:item.spec_value]) {
                     [mArr addObject:m];
                 }
             }
             self.item.spec_items = mArr.copy;
             [self.collectionView reloadData];
+            if(self.changeBlock){self.changeBlock();}
         }];
         return cell;
     }
@@ -131,13 +145,13 @@
     } else {
         SRXGoodsSpecItemsItem *item = self.item.spec_items[indexPath.item];
         for (SRXGoodsSpecItemsItem *m in self.item.spec_items) {
-            if (item.item_id == m.item_id) {
+            if ([m.spec_value isEqualToString:item.spec_value]) {
                 m.is_select = !m.is_select;
             } else {
                 m.is_select = NO;
             }
         }
-        if (self.selectBlock){self.selectBlock();}
+//        if (self.selectBlock){self.selectBlock();}
         [self.collectionView reloadData];
     }
 }

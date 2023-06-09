@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *goods_name;
 @property (weak, nonatomic) IBOutlet UILabel *goods_salenum;
 @property (weak, nonatomic) IBOutlet UIButton *moreBtn;
+@property (weak, nonatomic) IBOutlet UIStackView *btnStack;
 @property (nonatomic, strong) NSArray *moreArray;
 @end
 
@@ -45,6 +46,7 @@
 - (void)setGoods_status:(NSString *)goods_status {
     _goods_status = goods_status;
     _moreBtn.hidden = NO;
+    _btnStack.hidden = NO;
     if (goods_status.intValue == 1) {
         self.moreArray = @[@"下架"];
     } else if (goods_status.intValue == 2) {
@@ -54,6 +56,7 @@
     } else {
         self.moreArray = @[];
         _moreBtn.hidden = YES;
+        _btnStack.hidden = YES;
     }
 }
 

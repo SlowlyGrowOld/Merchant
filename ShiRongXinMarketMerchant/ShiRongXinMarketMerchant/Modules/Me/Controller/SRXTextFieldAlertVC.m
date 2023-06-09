@@ -28,6 +28,12 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     self.textField.placeholder = self.placeholder;
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.textField becomeFirstResponder];
+}
+
 - (IBAction)cancelBtnClick:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -37,14 +43,8 @@
         [SVProgressHUD showInfoWithStatus:self.placeholder];
         return;
     }
-    [NetworkManager changeUserInfoWithTarget_value:self.textField.text target_type:@"2" success:^(NSString *message) {
-        if(self.block){self.block(self.textField.text);}
-        [self dismissViewControllerAnimated:YES completion:^{
-            [SVProgressHUD showSuccessWithStatus:@"修改成功"];
-        }];
-    } failure:^(NSString *message) {
-        
-    }];
+    if(self.block){self.block(self.textField.text);}
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

@@ -25,7 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tableView.rowHeight = 160;
     self.tableView.backgroundColor = CViewBgColor;
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXGoodsListTableCell" bundle:nil] forCellReuseIdentifier:@"SRXGoodsListTableCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXGoodsListEditTableCell" bundle:nil] forCellReuseIdentifier:@"SRXGoodsListEditTableCell"];
@@ -88,7 +87,7 @@
     }
     NSString *isAll = self.dataSources.count == select_num?@"1":@"0";
     NSString *good_id = [array componentsJoinedByString:@","];
-    KPostNotificationInfo(@"KNotificationEditChange", nil, (@{@"select_num":@(select_num).stringValue,@"isAll":isAll,@"good_id":good_id}));
+    KPostNotificationInfo(@"KNotificationGoodsListBatchStateChange", nil, (@{@"select_num":@(select_num).stringValue,@"isAll":isAll,@"good_id":good_id}));
 }
 
 #pragma mark - tableview data
@@ -123,7 +122,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.isEdit?126:160;
+    return self.isEdit?126:(self.goods_status.intValue==3?130:160);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

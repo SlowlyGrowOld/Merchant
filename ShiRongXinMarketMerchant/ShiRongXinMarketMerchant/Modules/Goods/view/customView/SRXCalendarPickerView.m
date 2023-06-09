@@ -43,7 +43,7 @@
     self.lowDate = nil;
     self.highDate = nil;
     [self congifArrayData];
-    self.dateLabel.text = self.tempDate.yyyyMMByLineWithDate;
+    self.dateLabel.text = self.tempDate.yyyyMMChineseWithDate;
     [self getDataDayModel:self.tempDate];
 
 //    [self.collectionView reloadData];
@@ -90,19 +90,19 @@
     }];
     [self addSubview:self.collectionView];
     self.tempDate = [NSDate date];
-    self.dateLabel.text = self.tempDate.yyyyMMByLineWithDate;
+    self.dateLabel.text = self.tempDate.yyyyMMChineseWithDate;
     [self getDataDayModel:self.tempDate];
 }
 
 - (void)lastBtnClick {
     self.tempDate = [self getLastMonth:self.tempDate];
-    self.dateLabel.text = self.tempDate.yyyyMMByLineWithDate;
+    self.dateLabel.text = self.tempDate.yyyyMMChineseWithDate;
     [self getDataDayModel:self.tempDate];
 }
 
 - (void)nextBtnClick {
     self.tempDate = [self getNextMonth:self.tempDate];
-    self.dateLabel.text = self.tempDate.yyyyMMByLineWithDate;
+    self.dateLabel.text = self.tempDate.yyyyMMChineseWithDate;
     [self getDataDayModel:self.tempDate];
 }
 

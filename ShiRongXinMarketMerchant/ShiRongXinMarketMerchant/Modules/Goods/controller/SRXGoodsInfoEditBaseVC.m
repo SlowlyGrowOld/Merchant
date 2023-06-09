@@ -128,19 +128,17 @@
     self.parameters[@"hupun_storage_id"] = self.editInfo.hupun_storage_id;
     self.parameters[@"hupun_storage_name"] = self.editInfo.hupun_storage_name;
     
-    NSMutableArray *titles = [NSMutableArray array];
-    NSMutableArray *descs = [NSMutableArray array];
+    NSMutableArray *mArr = [NSMutableArray array];
     for (int i=0; i<self.datas.count; i++) {
         SRXGoodsInfoEditBasicInfoTableCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
         if (cell.titleLb.text.stringByTrim.length!=0){
-            [titles addObject:cell.titleLb.text];
-            [descs addObject:cell.contentLb.text.length==0?@"":cell.contentLb.text];
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            dic[@"title"] = cell.titleLb.text;
+            dic[@"desc"] = cell.contentLb.text.length==0?@"":cell.contentLb.text;
+            [mArr addObject:dic];
         }
     }
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    dic[@"title"] = titles;
-    dic[@"desc"] = descs;
-    self.parameters[@"basic_info"] = dic.copy;
+    self.parameters[@"basic_info"] = mArr.copy;
     DLog(@"基本信息：%@",self.parameters);
 }
 

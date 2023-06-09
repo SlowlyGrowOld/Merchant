@@ -54,8 +54,12 @@
         vc.textField.text = weakSelf.meInfo.shop_user_info.nickname;
         vc.placeholder = @"请输入昵称";
         vc.block = ^(NSString * _Nonnull nickname) {
-            weakSelf.nickname.text = nickname;
-            [weakSelf requestData];
+            [NetworkManager changeUserInfoWithTarget_value:nickname target_type:@"2" success:^(NSString *message) {
+                weakSelf.nickname.text = nickname;
+                [weakSelf requestData];
+            } failure:^(NSString *message) {
+                
+            }];
         };
         [[UIViewController jk_currentViewController] presentViewController:vc animated:YES completion:nil];
     }];

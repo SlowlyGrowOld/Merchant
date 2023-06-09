@@ -77,11 +77,11 @@ NS_ASSUME_NONNULL_BEGIN
                                success:(JHNetworkRequestSuccessArray)success
                                failure:(JHNetworkRequestFailure)failure;
 
-/// 规格数据
+/// 获取规格数据
 + (void)getGoodsSpecListWithGoods_id:(NSString*)goods_id
                              success:(void(^)(SRXGoodsSpecListData *data))success
                              failure:(JHNetworkRequestFailure)failure;
-/// 新增规格
+/// 新增规格名
 + (void)addGoodsSpecKeyWithGoods_id:(NSString*)goods_id
                           spec_name:(NSString*)spec_name
                              success:(JHNetworkRequestSuccessVoid)success
@@ -91,8 +91,9 @@ NS_ASSUME_NONNULL_BEGIN
                      spec_value_name:(NSString*)spec_value_name
                              success:(JHNetworkRequestSuccessVoid)success
                              failure:(JHNetworkRequestFailure)failure;
-
-+ (void)editGoodsSpecWithSpec_id:(NSString*)spec_key_id
+/// 保存规格数据
++ (void)saveGoodsSpecInfoWithGoods_id:(NSString*)goods_id
+                       parameters:(NSDictionary *)parameters
                              success:(JHNetworkRequestSuccessVoid)success
                              failure:(JHNetworkRequestFailure)failure;
 @end

@@ -41,6 +41,22 @@
     return AttributedStr;
 }
 
++ (NSMutableAttributedString *)attributedStingWithString:(NSString *)string textColor:(UIColor *)textColor fonts:(nonnull NSArray<UIFont *> *)fonts lenght:(nonnull NSArray *)lenghts {
+    NSMutableAttributedString *AttributedStr = [[NSMutableAttributedString alloc] initWithString:string];
+    NSInteger location = 0;
+    for (int i=0; i<lenghts.count; i++) {
+        NSNumber *lenght = lenghts[i];
+        [AttributedStr addAttribute:NSFontAttributeName
+                              value:fonts[i]
+                              range:NSMakeRange(location, lenght.integerValue)];
+        location = location + lenght.integerValue;
+    }
+    [AttributedStr addAttribute:NSForegroundColorAttributeName
+                          value:textColor
+                          range:NSMakeRange(0, string.length)];
+    return AttributedStr;
+}
+
 + (NSMutableAttributedString *)attributedStingWithString:(NSString *)string font:(UIFont *)font textColor:(UIColor *)color lineSpacing:(CGFloat)lineSpacing {
     
     return [self attributedStingWithString:string font:font textColor:color lineSpacing:lineSpacing alignment:NSTextAlignmentLeft];

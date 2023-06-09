@@ -13,7 +13,7 @@ typedef void(^SRXGoodsSpecBlock)(void);
 @interface SRXGoodsSpecTableCell : UITableViewCell
 @property (nonatomic, strong) SRXGoodsSpecAttrItem *item;
 @property (nonatomic, copy) dispatch_block_t refreshBlock;
-@property (nonatomic, copy) SRXGoodsSpecBlock selectBlock;
+@property (nonatomic, copy) SRXGoodsSpecBlock changeBlock;
 @property (nonatomic, copy) SRXGoodsSpecBlock deleteBlock;
 @end
 

@@ -50,4 +50,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) BOOL              is_select;
 @end
 
+
+@interface SRXGoodsListNumber : NSObject
+@property (nonatomic , assign) NSUInteger              sale_count_num;
+@property (nonatomic , assign) NSUInteger              edit_count_num;
+@property (nonatomic , assign) NSUInteger              audit_count_num;
+@property (nonatomic , assign) NSUInteger              off_count_num;
+@end
+
 NS_ASSUME_NONNULL_END

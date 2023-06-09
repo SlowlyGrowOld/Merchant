@@ -8,6 +8,10 @@
 
 #import "SRXGoodsSpecModel.h"
 
+@implementation SRXGoodsSpecFormBatch
+
+@end
+
 @implementation SRXGoodsSpecItemsItem
 
 @end

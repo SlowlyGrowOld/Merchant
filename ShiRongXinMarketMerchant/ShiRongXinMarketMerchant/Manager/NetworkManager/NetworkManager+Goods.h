@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
                   failure:(JHNetworkRequestFailure)failure;
 
 /// 商品列表数量
-+ (void)getGoodsListNumSuccess:(JHNetworkRequestSuccessContent)success
++ (void)getGoodsListNumSuccess:(void(^)(SRXGoodsListNumber *number))success
                        failure:(JHNetworkRequestFailure)failure;
 
 /// 批量下架

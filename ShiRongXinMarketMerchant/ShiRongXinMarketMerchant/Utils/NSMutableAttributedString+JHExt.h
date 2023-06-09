@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 //价格99.88  小数点前后字体大小不一
 +(NSMutableAttributedString *)setPriceText:(NSString *)Text frontFont:(CGFloat)frontFont behindFont:(CGFloat)behindFont textColor:(UIColor *)textColor;
 
++ (NSMutableAttributedString *)attributedStingWithString:(NSString *)string textColor:(UIColor *)textColor fonts:(NSArray <UIFont *>*)fonts lenght:(NSArray*)lenghts;
+
 + (NSMutableAttributedString *)attributedStingWithString:(NSString *)string font:(UIFont *)font textColor:(UIColor *)color lineSpacing:(CGFloat)lineSpacing;
 
 + (NSMutableAttributedString *)attributedStingWithString:(NSString *)string font:(UIFont *)font textColor:(UIColor *)color lineSpacing:(CGFloat)lineSpacing alignment:(NSTextAlignment)alignment;

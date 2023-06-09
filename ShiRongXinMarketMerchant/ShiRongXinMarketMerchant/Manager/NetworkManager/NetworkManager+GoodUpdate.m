@@ -28,7 +28,7 @@
                          failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionaryWithDictionary:parameters];
     mdic[@"goods_id"] = goods_id;
-    [[NetworkManager sharedClient] postWithURLString:@"shop/goods_save" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    [[NetworkManager sharedClient] postWithURLString:@"shop/goods_save" parameters:mdic.copy isNeedSVP:YES success:^(NSDictionary *messageDic) {
         success(messageDic[@"msg"]);
     } failure:failure];
 }
@@ -163,12 +163,13 @@
     } failure:failure];
 }
 
-+ (void)editGoodsSpecWithSpec_id:(NSString*)spec_key_id
-                             success:(JHNetworkRequestSuccessVoid)success
-                             failure:(JHNetworkRequestFailure)failure {
-    NSMutableDictionary *mDic = [NSMutableDictionary dictionary];
-    mDic[@"spec_key_id"] = spec_key_id;
-    [[NetworkManager sharedClient] postWithURLString:@"shop/goods_spec_edit" parameters:mDic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
++ (void)saveGoodsSpecInfoWithGoods_id:(NSString *)goods_id
+                           parameters:(NSDictionary *)parameters
+                              success:(JHNetworkRequestSuccessVoid)success
+                              failure:(JHNetworkRequestFailure)failure {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionaryWithDictionary:parameters];
+    mdic[@"goods_id"] = goods_id;
+    [[NetworkManager sharedClient] postWithURLString:@"shop/goods_spec_edit" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
     } failure:failure];
 }

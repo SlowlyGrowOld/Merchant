@@ -19,6 +19,7 @@
 #import "SRXGoodsListEditBottomView.h"
 #import "SRXGoodsListModel.h"
 #import "NetworkManager+Goods.h"
+#import "NSMutableAttributedString+JHExt.h"
 
 @interface SRXGoodsListPageVC ()<UIScrollViewDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet JKScrollView *scrollView;
@@ -31,7 +32,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *saleBtn;
 @property (weak, nonatomic) IBOutlet UIButton *editBtn;
 @property (weak, nonatomic) IBOutlet UIButton *auditBtn;
-@property (weak, nonatomic) IBOutlet UIButton *outBtn;
+@property (weak, nonatomic) IBOutlet UIButton *offBtn;
 @property (weak, nonatomic) IBOutlet UIButton *createTime;
 @property (weak, nonatomic) IBOutlet UIButton *shopClass;
 @property (weak, nonatomic) IBOutlet UIButton *filterBtn;
@@ -66,6 +67,10 @@
     
     self.isHidenNaviBar = YES;
     [self initMenuView];
+    self.saleBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.editBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.auditBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
+    self.offBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
     [self.addBtn.superview settingRadius:10 corner:UIRectCornerTopLeft|UIRectCornerTopRight];
     [self.switch_shop setImagePosition:LXMImagePositionRight spacing:5];
     [self.createTime setImagePosition:LXMImagePositionRight spacing:5];
@@ -79,16 +84,58 @@
     self.pageScrolledIndex = 0;
     self.parameters = [SRXGoodsListParameter new];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeStatus) name:@"goods_leaveTop" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(goodsListEditchange:) name:@"KNotificationEditChange" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(goodsListBatchStateChange:) name:@"KNotificationGoodsListBatchStateChange" object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self requestGoodsNumber];
+}
+
+#pragma mark - 商品列表数量
+- (void)requestGoodsNumber {
+    [NetworkManager getGoodsListNumSuccess:^(SRXGoodsListNumber * _Nonnull number) {
+        if (number.sale_count_num>0) {
+            NSString *sale = [NSString stringWithFormat:@"出售中(%zd)",number.sale_count_num];
+            NSMutableAttributedString *att = [NSMutableAttributedString attributedStingWithString:sale textColor:UIColor.whiteColor fonts:@[[UIFont systemFontOfSize:16 weight:UIFontWeightMedium],[UIFont systemFontOfSize:10 weight:UIFontWeightMedium]] lenght:@[@3,@(sale.length-3)]];
+            NSMutableAttributedString *selectAtt = [NSMutableAttributedString attributedStingWithString:sale textColor:C43B8F6 fonts:@[[UIFont systemFontOfSize:16 weight:UIFontWeightMedium],[UIFont systemFontOfSize:10 weight:UIFontWeightMedium]] lenght:@[@3,@(sale.length-3)]];
+            [self.saleBtn setAttributedTitle:att forState:UIControlStateNormal];
+            [self.saleBtn setAttributedTitle:selectAtt forState:UIControlStateSelected];
+        }
+        if (number.edit_count_num>0) {
+            NSString *edit = [NSString stringWithFormat:@"编辑中(%zd)",number.edit_count_num];
+            NSMutableAttributedString *att = [NSMutableAttributedString attributedStingWithString:edit textColor:UIColor.whiteColor fonts:@[[UIFont systemFontOfSize:16 weight:UIFontWeightMedium],[UIFont systemFontOfSize:10 weight:UIFontWeightMedium]] lenght:@[@3,@(edit.length-3)]];
+            NSMutableAttributedString *selectAtt = [NSMutableAttributedString attributedStingWithString:edit textColor:C43B8F6 fonts:@[[UIFont systemFontOfSize:16 weight:UIFontWeightMedium],[UIFont systemFontOfSize:10 weight:UIFontWeightMedium]] lenght:@[@3,@(edit.length-3)]];
+            [self.editBtn setAttributedTitle:att forState:UIControlStateNormal];
+            [self.editBtn setAttributedTitle:selectAtt forState:UIControlStateSelected];
+        }
+        if (number.audit_count_num>0) {
+            NSString *audit = [NSString stringWithFormat:@"审核中(%zd)",number.audit_count_num];
+            NSMutableAttributedString *att = [NSMutableAttributedString attributedStingWithString:audit textColor:UIColor.whiteColor fonts:@[[UIFont systemFontOfSize:16 weight:UIFontWeightMedium],[UIFont systemFontOfSize:10 weight:UIFontWeightMedium]] lenght:@[@3,@(audit.length-3)]];
+            NSMutableAttributedString *selectAtt = [NSMutableAttributedString attributedStingWithString:audit textColor:C43B8F6 fonts:@[[UIFont systemFontOfSize:16 weight:UIFontWeightMedium],[UIFont systemFontOfSize:10 weight:UIFontWeightMedium]] lenght:@[@3,@(audit.length-3)]];
+            [self.auditBtn setAttributedTitle:att forState:UIControlStateNormal];
+            [self.auditBtn setAttributedTitle:selectAtt forState:UIControlStateSelected];
+        }
+        if (number.off_count_num>0) {
+            NSString *off = [NSString stringWithFormat:@"已下架(%zd)",number.off_count_num];
+            NSMutableAttributedString *att = [NSMutableAttributedString attributedStingWithString:off textColor:UIColor.whiteColor fonts:@[[UIFont systemFontOfSize:16 weight:UIFontWeightMedium],[UIFont systemFontOfSize:10 weight:UIFontWeightMedium]] lenght:@[@3,@(off.length-3)]];
+            NSMutableAttributedString *selectAtt = [NSMutableAttributedString attributedStingWithString:off textColor:C43B8F6 fonts:@[[UIFont systemFontOfSize:16 weight:UIFontWeightMedium],[UIFont systemFontOfSize:10 weight:UIFontWeightMedium]] lenght:@[@3,@(off.length-3)]];
+            [self.offBtn setAttributedTitle:att forState:UIControlStateNormal];
+            [self.offBtn setAttributedTitle:selectAtt forState:UIControlStateSelected];
+        }
+    } failure:^(NSString *message) {
+        
+    }];
+}
+
+#pragma mark - 菜单栏按钮切换
 - (IBAction)switchMenuViewBtnClick:(UIButton *)sender {
     self.currentVC.isEdit = NO;
     [self setBatchStatus];
     if (sender == self.saleBtn) {[self sliderViewWith:0];}
     if (sender == self.editBtn) {[self sliderViewWith:1];}
     if (sender == self.auditBtn) {[self sliderViewWith:2];}
-    if (sender == self.outBtn) {[self sliderViewWith:3];}
+    if (sender == self.offBtn) {[self sliderViewWith:3];}
 }
 
 - (void)sliderViewWith:(NSInteger)index {
@@ -103,11 +150,12 @@
     if (index == 0) {x = 1; self.saleBtn.selected = YES; self.selectBtn = self.saleBtn;}
     if (index == 1) {x = x; self.editBtn.selected = YES; self.selectBtn = self.editBtn;}
     if (index == 2) {x = x*2; self.auditBtn.selected = YES; self.selectBtn = self.auditBtn;}
-    if (index == 3) {x = x*3-2; self.outBtn.selected = YES; self.selectBtn = self.outBtn;}
+    if (index == 3) {x = x*3-2; self.offBtn.selected = YES; self.selectBtn = self.offBtn;}
     self.batchBtn.hidden = index==0?NO:YES;
     self.slider.transform = CGAffineTransformMakeTranslation(x,0);
 }
 
+#pragma mark - 批量操作
 - (IBAction)batchBtnClick:(id)sender {
     [self clearFilterBtnSelect];
     self.currentVC.isEdit = !self.currentVC.isEdit;
@@ -125,13 +173,25 @@
         [self.bottomView removeFromSuperview];
     }
 }
+#pragma mark - 批量操作选中通知
+- (void)goodsListBatchStateChange:(NSNotification *)info {
+    NSDictionary *dic = info.userInfo[@"info"];
+    BOOL isAll = [dic[@"isAll"] boolValue];
+    self.bottomView.allBtn.selected = isAll;
+    self.bottomView.select_num.text = dic[@"select_num"];
+    NSString *select_num = dic[@"select_num"];
+    if (select_num.intValue==0){self.bottomView.batchBtn.alpha = 0.3;self.bottomView.batchBtn.enabled = NO;}else {self.bottomView.batchBtn.alpha = 1;self.bottomView.batchBtn.enabled = YES;}
+    self.select_good_id = dic[@"good_id"];
+}
 
+#pragma mark - 新增商品
 - (IBAction)addGoodsBtnClick:(id)sender {
     [self clearFilterBtnSelect];
     SRXGoodsInfoEditPageVC *vc = [[SRXGoodsInfoEditPageVC alloc] init];
     [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 
+#pragma mark - 筛选
 - (IBAction)creatTimeBtnClick:(id)sender {
     [self switchFilterView:self.createTime];
 }
@@ -210,22 +270,6 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)goodsListEditchange:(NSNotification *)info {
-    NSDictionary *dic = info.userInfo[@"info"];
-    BOOL isAll = [dic[@"isAll"] boolValue];
-    self.bottomView.allBtn.selected = isAll;
-    self.bottomView.select_num.text = dic[@"select_num"];
-    NSString *select_num = dic[@"select_num"];
-    if (select_num.intValue==0){self.bottomView.batchBtn.alpha = 0.3;self.bottomView.batchBtn.enabled = NO;}else {self.bottomView.batchBtn.alpha = 1;self.bottomView.batchBtn.enabled = YES;}
-    self.select_good_id = dic[@"good_id"];
-}
-
--(void)changeStatus{
-    
-    self.canScroll = YES;
-    self.currentVC.canScroll = NO;
-    self.currentVC.isPullDown = NO;
-}
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSLog(@"scrollView=====滚动==%.2F",scrollView.contentOffset.y);
@@ -259,8 +303,14 @@
     }
 }
 
-#pragma mark - UITextFieldDelegate
+-(void)changeStatus{
+    
+    self.canScroll = YES;
+    self.currentVC.canScroll = NO;
+    self.currentVC.isPullDown = NO;
+}
 
+#pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField endEditing:YES];
     return YES;
@@ -271,7 +321,7 @@
         self.currentVC.search_word = textField.text;
     }
 }
-
+#pragma mark - init
 -(void)initMenuView {
     
     self.pageContentView = [[QiPageContentView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, kScreenHeight - TopHeight - TabbarHeight) childViewController:self.vcs];
@@ -367,6 +417,7 @@
             [alertC addAction: [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [NetworkManager batchGoodsTakeOffWithIDS:weakSelf.select_good_id success:^(NSString *message) {
                     [weakSelf.currentVC.tableView.mj_header beginRefreshing];
+                    [weakSelf requestGoodsNumber];
                 } failure:^(NSString *message) {
                     
                 }];

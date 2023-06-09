@@ -187,6 +187,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="btnStack" destination="nRD-9X-8kK" id="PMd-HP-hbW"/>
                 <outlet property="goods_image" destination="zWi-id-ZZL" id="ywm-u3-aSc"/>
                 <outlet property="goods_name" destination="Zyx-e2-wVi" id="ZUt-TV-bgf"/>
                 <outlet property="goods_salenum" destination="g05-gM-CDY" id="Khh-Fa-Dqa"/>

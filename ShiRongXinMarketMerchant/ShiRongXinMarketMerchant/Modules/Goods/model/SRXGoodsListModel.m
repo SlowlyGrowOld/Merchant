@@ -15,3 +15,7 @@
 @implementation SRXGoodsListModel
 
 @end
+
+@implementation SRXGoodsListNumber
+
+@end
