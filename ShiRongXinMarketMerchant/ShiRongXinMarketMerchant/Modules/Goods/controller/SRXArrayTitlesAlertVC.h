@@ -11,10 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    SRXArrayTitlesTypePlat,
-    SRXArrayTitlesTypeShop,
-    SRXArrayTitlesTypeSupplier,
-    SRXArrayTitlesTypeDelivery,
+    SRXArrayTitlesTypePlat,//平台
+    SRXArrayTitlesTypeShop,//店铺
+    SRXArrayTitlesTypeSupplier,//供应商
+    SRXArrayTitlesTypeDelivery,//快递
+    SRXArrayTitlesTypeGroup,//快速回复分组名称
 } SRXArrayTitlesType;
 
 

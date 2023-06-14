@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="SRXChatTagsTableCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOy-Eb-0zl">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Tst-hC-yuZ"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="checkbox_nomal"/>
+                        <state key="selected" image="checkbox_blue_selected"/>
+                        <connections>
+                            <action selector="selectBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="foo-S5-S8G"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVW-vT-UxV">
+                        <rect key="frame" x="49.999999999999993" y="9" width="102.33333333333331" height="26"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_yellow" translatesAutoresizingMaskIntoConstraints="NO" id="GZm-Gv-0zu">
+                                <rect key="frame" x="14" y="6" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="Lsp-6y-bN5"/>
+                                    <constraint firstAttribute="width" constant="14" id="NF3-jH-s6K"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QaQ-Op-upB">
+                                <rect key="frame" x="33" y="4.6666666666666661" width="57.333333333333343" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="0.15239548841059603" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GZm-Gv-0zu" firstAttribute="centerY" secondItem="EVW-vT-UxV" secondAttribute="centerY" id="1zS-ud-2uR"/>
+                            <constraint firstItem="QaQ-Op-upB" firstAttribute="centerY" secondItem="EVW-vT-UxV" secondAttribute="centerY" id="Cek-Cr-Zhj"/>
+                            <constraint firstItem="GZm-Gv-0zu" firstAttribute="leading" secondItem="EVW-vT-UxV" secondAttribute="leading" constant="14" id="d1Z-U9-Vh9"/>
+                            <constraint firstItem="QaQ-Op-upB" firstAttribute="leading" secondItem="GZm-Gv-0zu" secondAttribute="trailing" constant="5" id="hUY-qX-HDf"/>
+                            <constraint firstAttribute="trailing" secondItem="QaQ-Op-upB" secondAttribute="trailing" constant="12" id="rCD-pp-Woo"/>
+                            <constraint firstAttribute="height" constant="26" id="x0p-vH-SpL"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SS0-4a-jta">
+                        <rect key="frame" x="230" y="0.0" width="90" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="ZhJ-Xe-UPt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="编辑">
+                            <color key="titleColor" red="0.26274509800000001" green="0.72156862749999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EVW-vT-UxV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="41H-ym-vHS"/>
+                    <constraint firstItem="SS0-4a-jta" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ddr-CP-yJ3"/>
+                    <constraint firstAttribute="bottom" secondItem="SS0-4a-jta" secondAttribute="bottom" id="GJ6-lt-MbX"/>
+                    <constraint firstItem="yOy-Eb-0zl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aTe-5E-5eb"/>
+                    <constraint firstItem="EVW-vT-UxV" firstAttribute="leading" secondItem="yOy-Eb-0zl" secondAttribute="trailing" id="hbi-ED-iWA"/>
+                    <constraint firstItem="yOy-Eb-0zl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jO8-qL-RCL"/>
+                    <constraint firstAttribute="trailing" secondItem="SS0-4a-jta" secondAttribute="trailing" id="pSB-27-dss"/>
+                    <constraint firstAttribute="bottom" secondItem="yOy-Eb-0zl" secondAttribute="bottom" id="pcq-w6-MFx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="editBtn" destination="SS0-4a-jta" id="ka5-TO-4b7"/>
+                <outlet property="selectBtn" destination="yOy-Eb-0zl" id="kVv-VR-IHl"/>
+                <outlet property="star_image" destination="GZm-Gv-0zu" id="UGK-3y-lqF"/>
+                <outlet property="tag_name" destination="QaQ-Op-upB" id="Q8V-dK-MSI"/>
+            </connections>
+            <point key="canvasLocation" x="51.908396946564885" y="19.718309859154932"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkbox_blue_selected" width="17" height="17"/>
+        <image name="checkbox_nomal" width="20" height="20"/>
+        <image name="star_yellow" width="14" height="14"/>
+    </resources>
+</document>

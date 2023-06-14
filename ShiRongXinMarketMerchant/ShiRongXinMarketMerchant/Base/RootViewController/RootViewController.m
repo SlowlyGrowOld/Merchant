@@ -108,7 +108,7 @@
     }];
     [view addSubview:self.noDataLabel];
     [self.noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerX.equalTo(view.mas_centerX);
         make.top.equalTo(self.noDataView.mas_bottom).offset(15);
     }];
 }

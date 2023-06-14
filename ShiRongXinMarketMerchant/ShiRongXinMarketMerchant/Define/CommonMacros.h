@@ -70,10 +70,12 @@
 //我的-弹窗去签到提示
 #define KSignInRemind @"KSign_in_remind"
 
-
+//订单-状态改变
 #define KNotificationOrderStatusChange @"KNotificationOrderStatusChange"
-
+//商品-信息改变
 #define KNotificationGoodsInfoChange @"KNotificationGoodsInfoChange"
+//消息-全部已读
+#define KNotificationMsgAllRead @"KNotificationMsgAllRead"
 
 
 #pragma mark - ——————— 网络状态相关 ————————

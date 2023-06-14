@@ -27,6 +27,19 @@
 		110ABCB229EE8275002D562C /* SRXSmsAuthenticationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 110ABCB129EE8275002D562C /* SRXSmsAuthenticationVC.m */; };
 		110BD8A329EF8BF700540D57 /* SRXShopSwitchTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 110BD8A229EF8BF700540D57 /* SRXShopSwitchTableCell.m */; };
 		110BD8A629EF8C3E00540D57 /* SRXShopSwitchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110BD8A529EF8C3E00540D57 /* SRXShopSwitchTableViewController.m */; };
+		111314B12A36BAC0001A77B7 /* SRXMessageSetTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314B02A36BAC0001A77B7 /* SRXMessageSetTableVC.m */; };
+		111314B42A36E69F001A77B7 /* SRXChatRecommentGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314B32A36E69F001A77B7 /* SRXChatRecommentGoodsVC.m */; };
+		111314B72A36E6BF001A77B7 /* SRXChatCheckOrdersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314B62A36E6BF001A77B7 /* SRXChatCheckOrdersVC.m */; };
+		111314BB2A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314B92A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.m */; };
+		111314BC2A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111314BA2A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.xib */; };
+		111314C02A36E771001A77B7 /* SRXChatCheckOrdersTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314BE2A36E771001A77B7 /* SRXChatCheckOrdersTableCell.m */; };
+		111314C12A36E771001A77B7 /* SRXChatCheckOrdersTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111314BF2A36E771001A77B7 /* SRXChatCheckOrdersTableCell.xib */; };
+		111314C52A36F540001A77B7 /* SRXChatStateSwitchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314C32A36F540001A77B7 /* SRXChatStateSwitchVC.m */; };
+		111314C62A36F540001A77B7 /* SRXChatStateSwitchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111314C42A36F540001A77B7 /* SRXChatStateSwitchVC.xib */; };
+		111314CA2A36F623001A77B7 /* SRXMsgSetAllReadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314C82A36F623001A77B7 /* SRXMsgSetAllReadVC.m */; };
+		111314CB2A36F623001A77B7 /* SRXMsgSetAllReadVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111314C92A36F623001A77B7 /* SRXMsgSetAllReadVC.xib */; };
+		111314CE2A36F8EC001A77B7 /* SRXChatFastTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314CD2A36F8EC001A77B7 /* SRXChatFastTextVC.m */; };
+		111314D12A370D92001A77B7 /* SRXMessageSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314D02A370D92001A77B7 /* SRXMessageSetModel.m */; };
 		1118AEDE29F0E356003C994A /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1118AEDD29F0E356003C994A /* Order.storyboard */; };
 		1118AEE229F0E6CF003C994A /* SRXOrdersCenterPageC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1118AEE129F0E6CF003C994A /* SRXOrdersCenterPageC.m */; };
 		1118AEE629F1308D003C994A /* SRXOrdersListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1118AEE429F1308D003C994A /* SRXOrdersListTableCell.m */; };
@@ -42,6 +55,60 @@
 		11240AFD2A1DF92F00F1475E /* NetworkManager+GoodUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11240AFC2A1DF92F00F1475E /* NetworkManager+GoodUpdate.m */; };
 		11240B002A1DF9A800F1475E /* SRXGoodsEditInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11240AFF2A1DF9A800F1475E /* SRXGoodsEditInfoModel.m */; };
 		1164568E28E2E0E400F5A2FE /* new_gift.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1164568D28E2E0E300F5A2FE /* new_gift.gif */; };
+		116642E42A39645800F846B2 /* SRXMsgChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 116642E22A39645800F846B2 /* SRXMsgChatVC.m */; };
+		116642E52A39645800F846B2 /* SRXMsgChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116642E32A39645800F846B2 /* SRXMsgChatVC.xib */; };
+		1166437C2A39649E00F846B2 /* SRXMsgChatTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643772A39649E00F846B2 /* SRXMsgChatTableView.m */; };
+		116643812A3964E900F846B2 /* SRXMsgChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643802A3964E900F846B2 /* SRXMsgChatModel.m */; };
+		116643842A3965DF00F846B2 /* SRXMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643832A3965DF00F846B2 /* SRXMessage.m */; };
+		1166438F2A39663400F846B2 /* JYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643862A39663400F846B2 /* JYTextView.m */; };
+		116643902A39663400F846B2 /* SRXMsgChatQuoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643882A39663400F846B2 /* SRXMsgChatQuoteView.m */; };
+		116643912A39663400F846B2 /* JYBubbleMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1166438A2A39663400F846B2 /* JYBubbleMenuView.m */; };
+		116643922A39663400F846B2 /* SRXMsgChatQuoteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166438D2A39663400F846B2 /* SRXMsgChatQuoteView.xib */; };
+		116643932A39663400F846B2 /* JYBubbleButtonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1166438E2A39663400F846B2 /* JYBubbleButtonModel.m */; };
+		116643DA2A39971600F846B2 /* SRXMsgShopOrderTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1166439B2A39971000F846B2 /* SRXMsgShopOrderTableCell.m */; };
+		116643DB2A39971600F846B2 /* SRXMsgShopTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166439D2A39971000F846B2 /* SRXMsgShopTextTableCell.xib */; };
+		116643DC2A39971600F846B2 /* SRXMsgShopImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166439E2A39971000F846B2 /* SRXMsgShopImageTableCell.xib */; };
+		116643DD2A39971600F846B2 /* SRXMsgUserChargeOrderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166439F2A39971000F846B2 /* SRXMsgUserChargeOrderTableCell.xib */; };
+		116643E12A39971600F846B2 /* SRXMsgShopAddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643A62A39971100F846B2 /* SRXMsgShopAddressTableCell.m */; };
+		116643E32A39971600F846B2 /* SRXMsgShopGoodsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643A82A39971100F846B2 /* SRXMsgShopGoodsTableCell.xib */; };
+		116643E52A39971600F846B2 /* SRXMsgUserGoodsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643AA2A39971100F846B2 /* SRXMsgUserGoodsTableCell.m */; };
+		116643E72A39971600F846B2 /* SRXMsgShopOrderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643AC2A39971200F846B2 /* SRXMsgShopOrderTableCell.xib */; };
+		116643E92A39971600F846B2 /* SRXMsgUserOrderTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643AE2A39971200F846B2 /* SRXMsgUserOrderTableCell.m */; };
+		116643EA2A39971600F846B2 /* SRXMsgShopAudioTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643B12A39971200F846B2 /* SRXMsgShopAudioTableCell.xib */; };
+		116643EB2A39971600F846B2 /* SRXMsgUserImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643B22A39971200F846B2 /* SRXMsgUserImageTableCell.xib */; };
+		116643ED2A39971600F846B2 /* SRXMsgUserTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643B52A39971300F846B2 /* SRXMsgUserTextTableCell.xib */; };
+		116643EE2A39971600F846B2 /* SRXMsgShopImageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643B62A39971300F846B2 /* SRXMsgShopImageTableCell.m */; };
+		116643F12A39971600F846B2 /* SRXMsgTimeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643BB2A39971300F846B2 /* SRXMsgTimeTableCell.m */; };
+		116643F22A39971600F846B2 /* SRXMsgUserAudioTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643BD2A39971300F846B2 /* SRXMsgUserAudioTableCell.xib */; };
+		116643F32A39971600F846B2 /* SRXMsgUserGoodsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643BE2A39971300F846B2 /* SRXMsgUserGoodsTableCell.xib */; };
+		116643F42A39971600F846B2 /* SRXMsgUserImageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643BF2A39971400F846B2 /* SRXMsgUserImageTableCell.m */; };
+		116643F52A39971600F846B2 /* SRXMsgTimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643C02A39971400F846B2 /* SRXMsgTimeTableCell.xib */; };
+		116643F82A39971600F846B2 /* SRXMsgShopTextTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643C62A39971400F846B2 /* SRXMsgShopTextTableCell.m */; };
+		116643F92A39971600F846B2 /* SRXMsgUserOrderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643C82A39971400F846B2 /* SRXMsgUserOrderTableCell.xib */; };
+		116643FA2A39971600F846B2 /* SRXMsgShopAudioTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643CA2A39971500F846B2 /* SRXMsgShopAudioTableCell.m */; };
+		116643FB2A39971600F846B2 /* SRXMsgUserAudioTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643CC2A39971500F846B2 /* SRXMsgUserAudioTableCell.m */; };
+		116643FC2A39971600F846B2 /* SRXMsgShopAddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643CE2A39971500F846B2 /* SRXMsgShopAddressTableCell.xib */; };
+		116643FE2A39971600F846B2 /* SRXMsgUserChargeOrderTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643D22A39971500F846B2 /* SRXMsgUserChargeOrderTableCell.m */; };
+		116643FF2A39971600F846B2 /* SRXMsgUserTextTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643D32A39971500F846B2 /* SRXMsgUserTextTableCell.m */; };
+		116644002A39971600F846B2 /* SRXMsgShopGoodsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643D52A39971600F846B2 /* SRXMsgShopGoodsTableCell.m */; };
+		116644182A39988400F846B2 /* SHMessageVoiceHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644032A39988200F846B2 /* SHMessageVoiceHUD.m */; };
+		116644192A39988400F846B2 /* SHShareMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644042A39988200F846B2 /* SHShareMenuView.m */; };
+		1166441A2A39988400F846B2 /* SHShareMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644062A39988200F846B2 /* SHShareMenuItem.m */; };
+		1166441B2A39988400F846B2 /* SHAudioRecordHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644072A39988200F846B2 /* SHAudioRecordHelper.m */; };
+		1166441C2A39988400F846B2 /* SHFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1166440E2A39988300F846B2 /* SHFileHelper.m */; };
+		1166441D2A39988400F846B2 /* SHAudioPlayerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1166440F2A39988300F846B2 /* SHAudioPlayerHelper.m */; };
+		1166441E2A39988400F846B2 /* SHTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644102A39988300F846B2 /* SHTextView.m */; };
+		1166441F2A39988400F846B2 /* SHMessageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644122A39988300F846B2 /* SHMessageHelper.m */; };
+		116644202A39988400F846B2 /* SHMessageInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644142A39988400F846B2 /* SHMessageInputView.m */; };
+		116644212A39988400F846B2 /* SHActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644172A39988400F846B2 /* SHActivityIndicatorView.m */; };
+		116644242A39991000F846B2 /* SRXMsgOrderGoodsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644232A39990F00F846B2 /* SRXMsgOrderGoodsTableView.m */; };
+		116644282A39992400F846B2 /* SRXMsgOrderGoodsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116644252A39992300F846B2 /* SRXMsgOrderGoodsTableCell.xib */; };
+		116644292A39992400F846B2 /* SRXMsgOrderGoodsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644262A39992400F846B2 /* SRXMsgOrderGoodsTableCell.m */; };
+		116644332A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1166442F2A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.m */; };
+		116644342A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116644302A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.xib */; };
+		116644372A39ABE200F846B2 /* SRXChatCouponListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644362A39ABE100F846B2 /* SRXChatCouponListVC.m */; };
+		1166443B2A39AE9700F846B2 /* SRXChatCouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116644392A39AE9700F846B2 /* SRXChatCouponTableCell.m */; };
+		1166443C2A39AE9700F846B2 /* SRXChatCouponTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166443A2A39AE9700F846B2 /* SRXChatCouponTableCell.xib */; };
 		116E426E29E688350006ECBD /* SRXLoginHelloVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 116E426C29E688350006ECBD /* SRXLoginHelloVC.m */; };
 		116E427129E69B910006ECBD /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116E427029E69B910006ECBD /* Login.storyboard */; };
 		116E427429E6A1660006ECBD /* SRXLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 116E427329E6A1660006ECBD /* SRXLoginVC.m */; };
@@ -105,8 +172,25 @@
 		11C5FFB32A1DAFEB00850951 /* SRXTextFieldAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C5FFB12A1DAFEB00850951 /* SRXTextFieldAlertVC.m */; };
 		11C5FFB72A1DB9B200850951 /* NetworkManager+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C5FFB52A1DB9B100850951 /* NetworkManager+Common.m */; };
 		11C5FFBC2A1DE6C000850951 /* SRXGoodsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C5FFBB2A1DE6C000850951 /* SRXGoodsListModel.m */; };
+		11C6F7DE2A32CC4500CFE28E /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11C6F7DD2A32CC4500CFE28E /* Message.storyboard */; };
+		11C6F7E12A32CEA500CFE28E /* SRXMessagePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F7E02A32CEA500CFE28E /* SRXMessagePageVC.m */; };
+		11C6F7E42A32D00400CFE28E /* SRXMessageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F7E32A32D00400CFE28E /* SRXMessageListVC.m */; };
+		11C6F7E92A32F48100CFE28E /* SRXMessageListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F7E72A32F48100CFE28E /* SRXMessageListTableCell.m */; };
+		11C6F7EA2A32F48100CFE28E /* SRXMessageListTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C6F7E82A32F48100CFE28E /* SRXMessageListTableCell.xib */; };
+		11C6F7EF2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F7ED2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.m */; };
+		11C6F7F02A32F4B100CFE28E /* SRXMessageListShopCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C6F7EE2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.xib */; };
+		11C6F7F42A32F99100CFE28E /* SRXMessageListShopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F7F32A32F99100CFE28E /* SRXMessageListShopView.m */; };
+		11C6F7F62A32F99B00CFE28E /* SRXMessageListShopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C6F7F52A32F99B00CFE28E /* SRXMessageListShopView.xib */; };
+		11C6F7FE2A33051600CFE28E /* SRXMessageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F7FD2A33051600CFE28E /* SRXMessageListModel.m */; };
+		11C6F8012A330BE300CFE28E /* NetworkManager+MsgSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F8002A330BE300CFE28E /* NetworkManager+MsgSet.m */; };
 		11C74430286C23E80036A0C5 /* SRXBasePopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C7442F286C23E80036A0C5 /* SRXBasePopupVC.m */; };
 		11C81D1B285C2C51009A1D98 /* NSString+JHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C81D19285C2C51009A1D98 /* NSString+JHExt.m */; };
+		11CA6D7B2A383C08006672C9 /* SRXChatQuickReplyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CA6D7A2A383C08006672C9 /* SRXChatQuickReplyVC.m */; };
+		11CA6D7F2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CA6D7D2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.m */; };
+		11CA6D802A3840FE006672C9 /* SRXQuickReplyGroupNameTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11CA6D7E2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.xib */; };
+		11CA6D842A384127006672C9 /* SRXQuickReplyPhraseTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CA6D822A384127006672C9 /* SRXQuickReplyPhraseTableCell.m */; };
+		11CA6D852A384127006672C9 /* SRXQuickReplyPhraseTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11CA6D832A384127006672C9 /* SRXQuickReplyPhraseTableCell.xib */; };
+		11CA6D882A38611B006672C9 /* SRXChatTagsEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CA6D872A38611B006672C9 /* SRXChatTagsEditVC.m */; };
 		11CDC6282A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CDC6262A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.m */; };
 		11CDC6292A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11CDC6272A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.xib */; };
 		11CF6CF72A3019B300712C43 /* SRXCalendarPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CF6CF62A3019B300712C43 /* SRXCalendarPickerView.m */; };
@@ -205,6 +289,9 @@
 		11E10CAF2A219E1D00255988 /* SRXGoodsSpecAdd1TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E10CAD2A219E1C00255988 /* SRXGoodsSpecAdd1TableCell.xib */; };
 		11E10CB32A21D57800255988 /* SRXGoodsSpecInfoEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E10CB12A21D57800255988 /* SRXGoodsSpecInfoEditVC.m */; };
 		11E10CB42A21D57800255988 /* SRXGoodsSpecInfoEditVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E10CB22A21D57800255988 /* SRXGoodsSpecInfoEditVC.xib */; };
+		11E14B642A380617005211D1 /* SRXChatTagsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E14B632A380617005211D1 /* SRXChatTagsListVC.m */; };
+		11E14B682A380847005211D1 /* SRXChatTagsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E14B662A380847005211D1 /* SRXChatTagsTableCell.m */; };
+		11E14B692A380847005211D1 /* SRXChatTagsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E14B672A380847005211D1 /* SRXChatTagsTableCell.xib */; };
 		11E2C2E9292CA010007D572E /* SRXHtmlTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E2C2E8292CA010007D572E /* SRXHtmlTextView.m */; };
 		11E55EA129E925F700B34C18 /* SRXLoginShopListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E55EA029E925F700B34C18 /* SRXLoginShopListVC.m */; };
 		11E55EA529E92A4B00B34C18 /* SRXLoginShopListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E55EA429E92A4B00B34C18 /* SRXLoginShopListTableCell.m */; };
@@ -536,6 +623,28 @@
 		110BD8A229EF8BF700540D57 /* SRXShopSwitchTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXShopSwitchTableCell.m; sourceTree = "<group>"; };
 		110BD8A429EF8C3E00540D57 /* SRXShopSwitchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXShopSwitchTableViewController.h; sourceTree = "<group>"; };
 		110BD8A529EF8C3E00540D57 /* SRXShopSwitchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXShopSwitchTableViewController.m; sourceTree = "<group>"; };
+		111314AF2A36BAC0001A77B7 /* SRXMessageSetTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageSetTableVC.h; sourceTree = "<group>"; };
+		111314B02A36BAC0001A77B7 /* SRXMessageSetTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageSetTableVC.m; sourceTree = "<group>"; };
+		111314B22A36E69F001A77B7 /* SRXChatRecommentGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatRecommentGoodsVC.h; sourceTree = "<group>"; };
+		111314B32A36E69F001A77B7 /* SRXChatRecommentGoodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatRecommentGoodsVC.m; sourceTree = "<group>"; };
+		111314B52A36E6BF001A77B7 /* SRXChatCheckOrdersVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatCheckOrdersVC.h; sourceTree = "<group>"; };
+		111314B62A36E6BF001A77B7 /* SRXChatCheckOrdersVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatCheckOrdersVC.m; sourceTree = "<group>"; };
+		111314B82A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatRecommentGoodsTableCell.h; sourceTree = "<group>"; };
+		111314B92A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatRecommentGoodsTableCell.m; sourceTree = "<group>"; };
+		111314BA2A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatRecommentGoodsTableCell.xib; sourceTree = "<group>"; };
+		111314BD2A36E771001A77B7 /* SRXChatCheckOrdersTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatCheckOrdersTableCell.h; sourceTree = "<group>"; };
+		111314BE2A36E771001A77B7 /* SRXChatCheckOrdersTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatCheckOrdersTableCell.m; sourceTree = "<group>"; };
+		111314BF2A36E771001A77B7 /* SRXChatCheckOrdersTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatCheckOrdersTableCell.xib; sourceTree = "<group>"; };
+		111314C22A36F540001A77B7 /* SRXChatStateSwitchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatStateSwitchVC.h; sourceTree = "<group>"; };
+		111314C32A36F540001A77B7 /* SRXChatStateSwitchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatStateSwitchVC.m; sourceTree = "<group>"; };
+		111314C42A36F540001A77B7 /* SRXChatStateSwitchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatStateSwitchVC.xib; sourceTree = "<group>"; };
+		111314C72A36F623001A77B7 /* SRXMsgSetAllReadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMsgSetAllReadVC.h; sourceTree = "<group>"; };
+		111314C82A36F623001A77B7 /* SRXMsgSetAllReadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMsgSetAllReadVC.m; sourceTree = "<group>"; };
+		111314C92A36F623001A77B7 /* SRXMsgSetAllReadVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXMsgSetAllReadVC.xib; sourceTree = "<group>"; };
+		111314CC2A36F8EB001A77B7 /* SRXChatFastTextVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatFastTextVC.h; sourceTree = "<group>"; };
+		111314CD2A36F8EC001A77B7 /* SRXChatFastTextVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatFastTextVC.m; sourceTree = "<group>"; };
+		111314CF2A370D92001A77B7 /* SRXMessageSetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageSetModel.h; sourceTree = "<group>"; };
+		111314D02A370D92001A77B7 /* SRXMessageSetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageSetModel.m; sourceTree = "<group>"; };
 		1118AEDD29F0E356003C994A /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		1118AEE029F0E6CF003C994A /* SRXOrdersCenterPageC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXOrdersCenterPageC.h; sourceTree = "<group>"; };
 		1118AEE129F0E6CF003C994A /* SRXOrdersCenterPageC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXOrdersCenterPageC.m; sourceTree = "<group>"; };
@@ -562,6 +671,97 @@
 		11240AFE2A1DF9A800F1475E /* SRXGoodsEditInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsEditInfoModel.h; sourceTree = "<group>"; };
 		11240AFF2A1DF9A800F1475E /* SRXGoodsEditInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsEditInfoModel.m; sourceTree = "<group>"; };
 		1164568D28E2E0E300F5A2FE /* new_gift.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = new_gift.gif; sourceTree = "<group>"; };
+		116642E12A39645800F846B2 /* SRXMsgChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgChatVC.h; sourceTree = "<group>"; };
+		116642E22A39645800F846B2 /* SRXMsgChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgChatVC.m; sourceTree = "<group>"; };
+		116642E32A39645800F846B2 /* SRXMsgChatVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgChatVC.xib; sourceTree = "<group>"; };
+		116643772A39649E00F846B2 /* SRXMsgChatTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgChatTableView.m; sourceTree = "<group>"; };
+		116643792A39649E00F846B2 /* SRXMsgChatTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgChatTableView.h; sourceTree = "<group>"; };
+		1166437F2A3964E900F846B2 /* SRXMsgChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgChatModel.h; sourceTree = "<group>"; };
+		116643802A3964E900F846B2 /* SRXMsgChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgChatModel.m; sourceTree = "<group>"; };
+		116643822A3965DF00F846B2 /* SRXMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMessage.h; sourceTree = "<group>"; };
+		116643832A3965DF00F846B2 /* SRXMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMessage.m; sourceTree = "<group>"; };
+		116643862A39663400F846B2 /* JYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYTextView.m; sourceTree = "<group>"; };
+		116643872A39663400F846B2 /* JYBubbleMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYBubbleMenuView.h; sourceTree = "<group>"; };
+		116643882A39663400F846B2 /* SRXMsgChatQuoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgChatQuoteView.m; sourceTree = "<group>"; };
+		116643892A39663400F846B2 /* JYBubbleButtonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYBubbleButtonModel.h; sourceTree = "<group>"; };
+		1166438A2A39663400F846B2 /* JYBubbleMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYBubbleMenuView.m; sourceTree = "<group>"; };
+		1166438B2A39663400F846B2 /* JYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYTextView.h; sourceTree = "<group>"; };
+		1166438C2A39663400F846B2 /* SRXMsgChatQuoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgChatQuoteView.h; sourceTree = "<group>"; };
+		1166438D2A39663400F846B2 /* SRXMsgChatQuoteView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgChatQuoteView.xib; sourceTree = "<group>"; };
+		1166438E2A39663400F846B2 /* JYBubbleButtonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYBubbleButtonModel.m; sourceTree = "<group>"; };
+		1166439B2A39971000F846B2 /* SRXMsgShopOrderTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopOrderTableCell.m; sourceTree = "<group>"; };
+		1166439D2A39971000F846B2 /* SRXMsgShopTextTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopTextTableCell.xib; sourceTree = "<group>"; };
+		1166439E2A39971000F846B2 /* SRXMsgShopImageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopImageTableCell.xib; sourceTree = "<group>"; };
+		1166439F2A39971000F846B2 /* SRXMsgUserChargeOrderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserChargeOrderTableCell.xib; sourceTree = "<group>"; };
+		116643A02A39971000F846B2 /* SRXMsgUserOrderTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserOrderTableCell.h; sourceTree = "<group>"; };
+		116643A42A39971100F846B2 /* SRXMsgShopImageTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopImageTableCell.h; sourceTree = "<group>"; };
+		116643A62A39971100F846B2 /* SRXMsgShopAddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopAddressTableCell.m; sourceTree = "<group>"; };
+		116643A82A39971100F846B2 /* SRXMsgShopGoodsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopGoodsTableCell.xib; sourceTree = "<group>"; };
+		116643AA2A39971100F846B2 /* SRXMsgUserGoodsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserGoodsTableCell.m; sourceTree = "<group>"; };
+		116643AC2A39971200F846B2 /* SRXMsgShopOrderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopOrderTableCell.xib; sourceTree = "<group>"; };
+		116643AE2A39971200F846B2 /* SRXMsgUserOrderTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserOrderTableCell.m; sourceTree = "<group>"; };
+		116643AF2A39971200F846B2 /* SRXMsgUserAudioTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserAudioTableCell.h; sourceTree = "<group>"; };
+		116643B02A39971200F846B2 /* SRXMsgShopAudioTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopAudioTableCell.h; sourceTree = "<group>"; };
+		116643B12A39971200F846B2 /* SRXMsgShopAudioTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopAudioTableCell.xib; sourceTree = "<group>"; };
+		116643B22A39971200F846B2 /* SRXMsgUserImageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserImageTableCell.xib; sourceTree = "<group>"; };
+		116643B42A39971200F846B2 /* SRXMsgUserImageTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserImageTableCell.h; sourceTree = "<group>"; };
+		116643B52A39971300F846B2 /* SRXMsgUserTextTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserTextTableCell.xib; sourceTree = "<group>"; };
+		116643B62A39971300F846B2 /* SRXMsgShopImageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopImageTableCell.m; sourceTree = "<group>"; };
+		116643B72A39971300F846B2 /* SRXMsgShopOrderTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopOrderTableCell.h; sourceTree = "<group>"; };
+		116643BA2A39971300F846B2 /* SRXMsgUserGoodsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserGoodsTableCell.h; sourceTree = "<group>"; };
+		116643BB2A39971300F846B2 /* SRXMsgTimeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgTimeTableCell.m; sourceTree = "<group>"; };
+		116643BD2A39971300F846B2 /* SRXMsgUserAudioTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserAudioTableCell.xib; sourceTree = "<group>"; };
+		116643BE2A39971300F846B2 /* SRXMsgUserGoodsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserGoodsTableCell.xib; sourceTree = "<group>"; };
+		116643BF2A39971400F846B2 /* SRXMsgUserImageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserImageTableCell.m; sourceTree = "<group>"; };
+		116643C02A39971400F846B2 /* SRXMsgTimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgTimeTableCell.xib; sourceTree = "<group>"; };
+		116643C12A39971400F846B2 /* SRXMsgShopAddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopAddressTableCell.h; sourceTree = "<group>"; };
+		116643C22A39971400F846B2 /* SRXMsgUserTextTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserTextTableCell.h; sourceTree = "<group>"; };
+		116643C32A39971400F846B2 /* SRXMsgTimeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgTimeTableCell.h; sourceTree = "<group>"; };
+		116643C62A39971400F846B2 /* SRXMsgShopTextTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopTextTableCell.m; sourceTree = "<group>"; };
+		116643C82A39971400F846B2 /* SRXMsgUserOrderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserOrderTableCell.xib; sourceTree = "<group>"; };
+		116643C92A39971400F846B2 /* SRXMsgUserChargeOrderTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserChargeOrderTableCell.h; sourceTree = "<group>"; };
+		116643CA2A39971500F846B2 /* SRXMsgShopAudioTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopAudioTableCell.m; sourceTree = "<group>"; };
+		116643CC2A39971500F846B2 /* SRXMsgUserAudioTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserAudioTableCell.m; sourceTree = "<group>"; };
+		116643CE2A39971500F846B2 /* SRXMsgShopAddressTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopAddressTableCell.xib; sourceTree = "<group>"; };
+		116643CF2A39971500F846B2 /* SRXMsgShopTextTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopTextTableCell.h; sourceTree = "<group>"; };
+		116643D22A39971500F846B2 /* SRXMsgUserChargeOrderTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserChargeOrderTableCell.m; sourceTree = "<group>"; };
+		116643D32A39971500F846B2 /* SRXMsgUserTextTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserTextTableCell.m; sourceTree = "<group>"; };
+		116643D52A39971600F846B2 /* SRXMsgShopGoodsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopGoodsTableCell.m; sourceTree = "<group>"; };
+		116643D82A39971600F846B2 /* SRXMsgShopGoodsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopGoodsTableCell.h; sourceTree = "<group>"; };
+		116644032A39988200F846B2 /* SHMessageVoiceHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageVoiceHUD.m; sourceTree = "<group>"; };
+		116644042A39988200F846B2 /* SHShareMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHShareMenuView.m; sourceTree = "<group>"; };
+		116644052A39988200F846B2 /* SHMessageEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageEnum.h; sourceTree = "<group>"; };
+		116644062A39988200F846B2 /* SHShareMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHShareMenuItem.m; sourceTree = "<group>"; };
+		116644072A39988200F846B2 /* SHAudioRecordHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAudioRecordHelper.m; sourceTree = "<group>"; };
+		116644082A39988200F846B2 /* SHAudioRecordHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAudioRecordHelper.h; sourceTree = "<group>"; };
+		116644092A39988200F846B2 /* SHTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTextView.h; sourceTree = "<group>"; };
+		1166440A2A39988300F846B2 /* SHMessageInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageInputView.h; sourceTree = "<group>"; };
+		1166440B2A39988300F846B2 /* SHAudioPlayerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAudioPlayerHelper.h; sourceTree = "<group>"; };
+		1166440C2A39988300F846B2 /* SHActivityIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHActivityIndicatorView.h; sourceTree = "<group>"; };
+		1166440D2A39988300F846B2 /* SHMessageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageHelper.h; sourceTree = "<group>"; };
+		1166440E2A39988300F846B2 /* SHFileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHFileHelper.m; sourceTree = "<group>"; };
+		1166440F2A39988300F846B2 /* SHAudioPlayerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAudioPlayerHelper.m; sourceTree = "<group>"; };
+		116644102A39988300F846B2 /* SHTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTextView.m; sourceTree = "<group>"; };
+		116644112A39988300F846B2 /* SHMessageVoiceHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMessageVoiceHUD.h; sourceTree = "<group>"; };
+		116644122A39988300F846B2 /* SHMessageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageHelper.m; sourceTree = "<group>"; };
+		116644132A39988400F846B2 /* SHShareMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHShareMenuView.h; sourceTree = "<group>"; };
+		116644142A39988400F846B2 /* SHMessageInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMessageInputView.m; sourceTree = "<group>"; };
+		116644152A39988400F846B2 /* SHShareMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHShareMenuItem.h; sourceTree = "<group>"; };
+		116644162A39988400F846B2 /* SHFileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHFileHelper.h; sourceTree = "<group>"; };
+		116644172A39988400F846B2 /* SHActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHActivityIndicatorView.m; sourceTree = "<group>"; };
+		116644222A39990F00F846B2 /* SRXMsgOrderGoodsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgOrderGoodsTableView.h; sourceTree = "<group>"; };
+		116644232A39990F00F846B2 /* SRXMsgOrderGoodsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgOrderGoodsTableView.m; sourceTree = "<group>"; };
+		116644252A39992300F846B2 /* SRXMsgOrderGoodsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgOrderGoodsTableCell.xib; sourceTree = "<group>"; };
+		116644262A39992400F846B2 /* SRXMsgOrderGoodsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgOrderGoodsTableCell.m; sourceTree = "<group>"; };
+		116644272A39992400F846B2 /* SRXMsgOrderGoodsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgOrderGoodsTableCell.h; sourceTree = "<group>"; };
+		1166442D2A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgGoodsPicsCollectionCell.h; sourceTree = "<group>"; };
+		1166442F2A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgGoodsPicsCollectionCell.m; sourceTree = "<group>"; };
+		116644302A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgGoodsPicsCollectionCell.xib; sourceTree = "<group>"; };
+		116644352A39ABE100F846B2 /* SRXChatCouponListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatCouponListVC.h; sourceTree = "<group>"; };
+		116644362A39ABE100F846B2 /* SRXChatCouponListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatCouponListVC.m; sourceTree = "<group>"; };
+		116644382A39AE9700F846B2 /* SRXChatCouponTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatCouponTableCell.h; sourceTree = "<group>"; };
+		116644392A39AE9700F846B2 /* SRXChatCouponTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatCouponTableCell.m; sourceTree = "<group>"; };
+		1166443A2A39AE9700F846B2 /* SRXChatCouponTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatCouponTableCell.xib; sourceTree = "<group>"; };
 		116E426B29E688350006ECBD /* SRXLoginHelloVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXLoginHelloVC.h; sourceTree = "<group>"; };
 		116E426C29E688350006ECBD /* SRXLoginHelloVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXLoginHelloVC.m; sourceTree = "<group>"; };
 		116E427029E69B910006ECBD /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -658,10 +858,38 @@
 		11C5FFB62A1DB9B100850951 /* NetworkManager+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkManager+Common.h"; sourceTree = "<group>"; };
 		11C5FFBA2A1DE6C000850951 /* SRXGoodsListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsListModel.h; sourceTree = "<group>"; };
 		11C5FFBB2A1DE6C000850951 /* SRXGoodsListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsListModel.m; sourceTree = "<group>"; };
+		11C6F7DD2A32CC4500CFE28E /* Message.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
+		11C6F7DF2A32CEA500CFE28E /* SRXMessagePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessagePageVC.h; sourceTree = "<group>"; };
+		11C6F7E02A32CEA500CFE28E /* SRXMessagePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessagePageVC.m; sourceTree = "<group>"; };
+		11C6F7E22A32D00400CFE28E /* SRXMessageListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageListVC.h; sourceTree = "<group>"; };
+		11C6F7E32A32D00400CFE28E /* SRXMessageListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageListVC.m; sourceTree = "<group>"; };
+		11C6F7E62A32F48100CFE28E /* SRXMessageListTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageListTableCell.h; sourceTree = "<group>"; };
+		11C6F7E72A32F48100CFE28E /* SRXMessageListTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageListTableCell.m; sourceTree = "<group>"; };
+		11C6F7E82A32F48100CFE28E /* SRXMessageListTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXMessageListTableCell.xib; sourceTree = "<group>"; };
+		11C6F7EC2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageListShopCollectionCell.h; sourceTree = "<group>"; };
+		11C6F7ED2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageListShopCollectionCell.m; sourceTree = "<group>"; };
+		11C6F7EE2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXMessageListShopCollectionCell.xib; sourceTree = "<group>"; };
+		11C6F7F22A32F99100CFE28E /* SRXMessageListShopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageListShopView.h; sourceTree = "<group>"; };
+		11C6F7F32A32F99100CFE28E /* SRXMessageListShopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageListShopView.m; sourceTree = "<group>"; };
+		11C6F7F52A32F99B00CFE28E /* SRXMessageListShopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXMessageListShopView.xib; sourceTree = "<group>"; };
+		11C6F7FC2A33051600CFE28E /* SRXMessageListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageListModel.h; sourceTree = "<group>"; };
+		11C6F7FD2A33051600CFE28E /* SRXMessageListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageListModel.m; sourceTree = "<group>"; };
+		11C6F7FF2A330BE300CFE28E /* NetworkManager+MsgSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkManager+MsgSet.h"; sourceTree = "<group>"; };
+		11C6F8002A330BE300CFE28E /* NetworkManager+MsgSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NetworkManager+MsgSet.m"; sourceTree = "<group>"; };
 		11C7442E286C23E80036A0C5 /* SRXBasePopupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXBasePopupVC.h; sourceTree = "<group>"; };
 		11C7442F286C23E80036A0C5 /* SRXBasePopupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXBasePopupVC.m; sourceTree = "<group>"; };
 		11C81D19285C2C51009A1D98 /* NSString+JHExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JHExt.m"; sourceTree = "<group>"; };
 		11C81D1A285C2C51009A1D98 /* NSString+JHExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JHExt.h"; sourceTree = "<group>"; };
+		11CA6D792A383C08006672C9 /* SRXChatQuickReplyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatQuickReplyVC.h; sourceTree = "<group>"; };
+		11CA6D7A2A383C08006672C9 /* SRXChatQuickReplyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatQuickReplyVC.m; sourceTree = "<group>"; };
+		11CA6D7C2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXQuickReplyGroupNameTableCell.h; sourceTree = "<group>"; };
+		11CA6D7D2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXQuickReplyGroupNameTableCell.m; sourceTree = "<group>"; };
+		11CA6D7E2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXQuickReplyGroupNameTableCell.xib; sourceTree = "<group>"; };
+		11CA6D812A384127006672C9 /* SRXQuickReplyPhraseTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXQuickReplyPhraseTableCell.h; sourceTree = "<group>"; };
+		11CA6D822A384127006672C9 /* SRXQuickReplyPhraseTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXQuickReplyPhraseTableCell.m; sourceTree = "<group>"; };
+		11CA6D832A384127006672C9 /* SRXQuickReplyPhraseTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXQuickReplyPhraseTableCell.xib; sourceTree = "<group>"; };
+		11CA6D862A38611B006672C9 /* SRXChatTagsEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatTagsEditVC.h; sourceTree = "<group>"; };
+		11CA6D872A38611B006672C9 /* SRXChatTagsEditVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatTagsEditVC.m; sourceTree = "<group>"; };
 		11CDC6252A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXArrayTitlesAlertVC.h; sourceTree = "<group>"; };
 		11CDC6262A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXArrayTitlesAlertVC.m; sourceTree = "<group>"; };
 		11CDC6272A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXArrayTitlesAlertVC.xib; sourceTree = "<group>"; };
@@ -845,6 +1073,11 @@
 		11E10CB02A21D57800255988 /* SRXGoodsSpecInfoEditVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsSpecInfoEditVC.h; sourceTree = "<group>"; };
 		11E10CB12A21D57800255988 /* SRXGoodsSpecInfoEditVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsSpecInfoEditVC.m; sourceTree = "<group>"; };
 		11E10CB22A21D57800255988 /* SRXGoodsSpecInfoEditVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXGoodsSpecInfoEditVC.xib; sourceTree = "<group>"; };
+		11E14B622A380617005211D1 /* SRXChatTagsListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatTagsListVC.h; sourceTree = "<group>"; };
+		11E14B632A380617005211D1 /* SRXChatTagsListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatTagsListVC.m; sourceTree = "<group>"; };
+		11E14B652A380847005211D1 /* SRXChatTagsTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatTagsTableCell.h; sourceTree = "<group>"; };
+		11E14B662A380847005211D1 /* SRXChatTagsTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatTagsTableCell.m; sourceTree = "<group>"; };
+		11E14B672A380847005211D1 /* SRXChatTagsTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatTagsTableCell.xib; sourceTree = "<group>"; };
 		11E2C2E7292CA010007D572E /* SRXHtmlTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXHtmlTextView.h; sourceTree = "<group>"; };
 		11E2C2E8292CA010007D572E /* SRXHtmlTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXHtmlTextView.m; sourceTree = "<group>"; };
 		11E55E9F29E925F700B34C18 /* SRXLoginShopListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXLoginShopListVC.h; sourceTree = "<group>"; };
@@ -1542,6 +1775,163 @@
 			path = ShiRongXinMarketMerchant/Modules/Me/model;
 			sourceTree = SOURCE_ROOT;
 		};
+		116642DD2A39632F00F846B2 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				116642E02A39644600F846B2 /* model */,
+				116642DF2A39644100F846B2 /* view */,
+				116642DE2A39643500F846B2 /* controller */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		116642DE2A39643500F846B2 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				116642E12A39645800F846B2 /* SRXMsgChatVC.h */,
+				116642E22A39645800F846B2 /* SRXMsgChatVC.m */,
+				116642E32A39645800F846B2 /* SRXMsgChatVC.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		116642DF2A39644100F846B2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				116642E62A39647B00F846B2 /* inputView */,
+				116643852A39663400F846B2 /* customView */,
+				1166442A2A399A5200F846B2 /* collectionCell */,
+				116643752A39649E00F846B2 /* tableView */,
+				116642FC2A39647C00F846B2 /* tableViewCell */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		116642E02A39644600F846B2 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				1166437F2A3964E900F846B2 /* SRXMsgChatModel.h */,
+				116643802A3964E900F846B2 /* SRXMsgChatModel.m */,
+				116643822A3965DF00F846B2 /* SRXMessage.h */,
+				116643832A3965DF00F846B2 /* SRXMessage.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		116642E62A39647B00F846B2 /* inputView */ = {
+			isa = PBXGroup;
+			children = (
+				1166440C2A39988300F846B2 /* SHActivityIndicatorView.h */,
+				116644172A39988400F846B2 /* SHActivityIndicatorView.m */,
+				1166440B2A39988300F846B2 /* SHAudioPlayerHelper.h */,
+				1166440F2A39988300F846B2 /* SHAudioPlayerHelper.m */,
+				116644082A39988200F846B2 /* SHAudioRecordHelper.h */,
+				116644072A39988200F846B2 /* SHAudioRecordHelper.m */,
+				116644162A39988400F846B2 /* SHFileHelper.h */,
+				1166440E2A39988300F846B2 /* SHFileHelper.m */,
+				116644052A39988200F846B2 /* SHMessageEnum.h */,
+				1166440D2A39988300F846B2 /* SHMessageHelper.h */,
+				116644122A39988300F846B2 /* SHMessageHelper.m */,
+				1166440A2A39988300F846B2 /* SHMessageInputView.h */,
+				116644142A39988400F846B2 /* SHMessageInputView.m */,
+				116644112A39988300F846B2 /* SHMessageVoiceHUD.h */,
+				116644032A39988200F846B2 /* SHMessageVoiceHUD.m */,
+				116644152A39988400F846B2 /* SHShareMenuItem.h */,
+				116644062A39988200F846B2 /* SHShareMenuItem.m */,
+				116644132A39988400F846B2 /* SHShareMenuView.h */,
+				116644042A39988200F846B2 /* SHShareMenuView.m */,
+				116644092A39988200F846B2 /* SHTextView.h */,
+				116644102A39988300F846B2 /* SHTextView.m */,
+			);
+			path = inputView;
+			sourceTree = "<group>";
+		};
+		116642FC2A39647C00F846B2 /* tableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				116644272A39992400F846B2 /* SRXMsgOrderGoodsTableCell.h */,
+				116644262A39992400F846B2 /* SRXMsgOrderGoodsTableCell.m */,
+				116644252A39992300F846B2 /* SRXMsgOrderGoodsTableCell.xib */,
+				116643C12A39971400F846B2 /* SRXMsgShopAddressTableCell.h */,
+				116643A62A39971100F846B2 /* SRXMsgShopAddressTableCell.m */,
+				116643CE2A39971500F846B2 /* SRXMsgShopAddressTableCell.xib */,
+				116643B02A39971200F846B2 /* SRXMsgShopAudioTableCell.h */,
+				116643CA2A39971500F846B2 /* SRXMsgShopAudioTableCell.m */,
+				116643B12A39971200F846B2 /* SRXMsgShopAudioTableCell.xib */,
+				116643D82A39971600F846B2 /* SRXMsgShopGoodsTableCell.h */,
+				116643D52A39971600F846B2 /* SRXMsgShopGoodsTableCell.m */,
+				116643A82A39971100F846B2 /* SRXMsgShopGoodsTableCell.xib */,
+				116643A42A39971100F846B2 /* SRXMsgShopImageTableCell.h */,
+				116643B62A39971300F846B2 /* SRXMsgShopImageTableCell.m */,
+				1166439E2A39971000F846B2 /* SRXMsgShopImageTableCell.xib */,
+				116643B72A39971300F846B2 /* SRXMsgShopOrderTableCell.h */,
+				1166439B2A39971000F846B2 /* SRXMsgShopOrderTableCell.m */,
+				116643AC2A39971200F846B2 /* SRXMsgShopOrderTableCell.xib */,
+				116643CF2A39971500F846B2 /* SRXMsgShopTextTableCell.h */,
+				116643C62A39971400F846B2 /* SRXMsgShopTextTableCell.m */,
+				1166439D2A39971000F846B2 /* SRXMsgShopTextTableCell.xib */,
+				116643C32A39971400F846B2 /* SRXMsgTimeTableCell.h */,
+				116643BB2A39971300F846B2 /* SRXMsgTimeTableCell.m */,
+				116643C02A39971400F846B2 /* SRXMsgTimeTableCell.xib */,
+				116643AF2A39971200F846B2 /* SRXMsgUserAudioTableCell.h */,
+				116643CC2A39971500F846B2 /* SRXMsgUserAudioTableCell.m */,
+				116643BD2A39971300F846B2 /* SRXMsgUserAudioTableCell.xib */,
+				116643C92A39971400F846B2 /* SRXMsgUserChargeOrderTableCell.h */,
+				116643D22A39971500F846B2 /* SRXMsgUserChargeOrderTableCell.m */,
+				1166439F2A39971000F846B2 /* SRXMsgUserChargeOrderTableCell.xib */,
+				116643BA2A39971300F846B2 /* SRXMsgUserGoodsTableCell.h */,
+				116643AA2A39971100F846B2 /* SRXMsgUserGoodsTableCell.m */,
+				116643BE2A39971300F846B2 /* SRXMsgUserGoodsTableCell.xib */,
+				116643B42A39971200F846B2 /* SRXMsgUserImageTableCell.h */,
+				116643BF2A39971400F846B2 /* SRXMsgUserImageTableCell.m */,
+				116643B22A39971200F846B2 /* SRXMsgUserImageTableCell.xib */,
+				116643A02A39971000F846B2 /* SRXMsgUserOrderTableCell.h */,
+				116643AE2A39971200F846B2 /* SRXMsgUserOrderTableCell.m */,
+				116643C82A39971400F846B2 /* SRXMsgUserOrderTableCell.xib */,
+				116643C22A39971400F846B2 /* SRXMsgUserTextTableCell.h */,
+				116643D32A39971500F846B2 /* SRXMsgUserTextTableCell.m */,
+				116643B52A39971300F846B2 /* SRXMsgUserTextTableCell.xib */,
+			);
+			path = tableViewCell;
+			sourceTree = "<group>";
+		};
+		116643752A39649E00F846B2 /* tableView */ = {
+			isa = PBXGroup;
+			children = (
+				116643792A39649E00F846B2 /* SRXMsgChatTableView.h */,
+				116643772A39649E00F846B2 /* SRXMsgChatTableView.m */,
+				116644222A39990F00F846B2 /* SRXMsgOrderGoodsTableView.h */,
+				116644232A39990F00F846B2 /* SRXMsgOrderGoodsTableView.m */,
+			);
+			path = tableView;
+			sourceTree = "<group>";
+		};
+		116643852A39663400F846B2 /* customView */ = {
+			isa = PBXGroup;
+			children = (
+				1166438B2A39663400F846B2 /* JYTextView.h */,
+				116643862A39663400F846B2 /* JYTextView.m */,
+				116643872A39663400F846B2 /* JYBubbleMenuView.h */,
+				1166438A2A39663400F846B2 /* JYBubbleMenuView.m */,
+				116643892A39663400F846B2 /* JYBubbleButtonModel.h */,
+				1166438E2A39663400F846B2 /* JYBubbleButtonModel.m */,
+				1166438C2A39663400F846B2 /* SRXMsgChatQuoteView.h */,
+				116643882A39663400F846B2 /* SRXMsgChatQuoteView.m */,
+				1166438D2A39663400F846B2 /* SRXMsgChatQuoteView.xib */,
+			);
+			path = customView;
+			sourceTree = "<group>";
+		};
+		1166442A2A399A5200F846B2 /* collectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				1166442D2A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.h */,
+				1166442F2A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.m */,
+				116644302A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.xib */,
+			);
+			path = collectionCell;
+			sourceTree = "<group>";
+		};
 		116E425E29E687140006ECBD /* Me */ = {
 			isa = PBXGroup;
 			children = (
@@ -1669,6 +2059,119 @@
 				11CDC6272A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.xib */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		11C6F7D92A32CC0300CFE28E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				11C6F7DB2A32CC1100CFE28E /* model */,
+				11C6F7DA2A32CC0B00CFE28E /* view */,
+				11C6F7DC2A32CC1600CFE28E /* controller */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		11C6F7DA2A32CC0B00CFE28E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				11C6F7F12A32F94000CFE28E /* custom */,
+				11C6F7EB2A32F48400CFE28E /* collectionCell */,
+				11C6F7E52A32F46200CFE28E /* tableCell */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		11C6F7DB2A32CC1100CFE28E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				11C6F7FC2A33051600CFE28E /* SRXMessageListModel.h */,
+				11C6F7FD2A33051600CFE28E /* SRXMessageListModel.m */,
+				111314CF2A370D92001A77B7 /* SRXMessageSetModel.h */,
+				111314D02A370D92001A77B7 /* SRXMessageSetModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		11C6F7DC2A32CC1600CFE28E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				11C6F7DD2A32CC4500CFE28E /* Message.storyboard */,
+				11C6F7DF2A32CEA500CFE28E /* SRXMessagePageVC.h */,
+				11C6F7E02A32CEA500CFE28E /* SRXMessagePageVC.m */,
+				11C6F7E22A32D00400CFE28E /* SRXMessageListVC.h */,
+				11C6F7E32A32D00400CFE28E /* SRXMessageListVC.m */,
+				111314B22A36E69F001A77B7 /* SRXChatRecommentGoodsVC.h */,
+				111314B32A36E69F001A77B7 /* SRXChatRecommentGoodsVC.m */,
+				111314B52A36E6BF001A77B7 /* SRXChatCheckOrdersVC.h */,
+				111314B62A36E6BF001A77B7 /* SRXChatCheckOrdersVC.m */,
+				116644352A39ABE100F846B2 /* SRXChatCouponListVC.h */,
+				116644362A39ABE100F846B2 /* SRXChatCouponListVC.m */,
+				111314AF2A36BAC0001A77B7 /* SRXMessageSetTableVC.h */,
+				111314B02A36BAC0001A77B7 /* SRXMessageSetTableVC.m */,
+				111314C22A36F540001A77B7 /* SRXChatStateSwitchVC.h */,
+				111314C32A36F540001A77B7 /* SRXChatStateSwitchVC.m */,
+				111314C42A36F540001A77B7 /* SRXChatStateSwitchVC.xib */,
+				111314C72A36F623001A77B7 /* SRXMsgSetAllReadVC.h */,
+				111314C82A36F623001A77B7 /* SRXMsgSetAllReadVC.m */,
+				111314C92A36F623001A77B7 /* SRXMsgSetAllReadVC.xib */,
+				11E14B622A380617005211D1 /* SRXChatTagsListVC.h */,
+				11E14B632A380617005211D1 /* SRXChatTagsListVC.m */,
+				11CA6D862A38611B006672C9 /* SRXChatTagsEditVC.h */,
+				11CA6D872A38611B006672C9 /* SRXChatTagsEditVC.m */,
+				11CA6D792A383C08006672C9 /* SRXChatQuickReplyVC.h */,
+				11CA6D7A2A383C08006672C9 /* SRXChatQuickReplyVC.m */,
+				111314CC2A36F8EB001A77B7 /* SRXChatFastTextVC.h */,
+				111314CD2A36F8EC001A77B7 /* SRXChatFastTextVC.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		11C6F7E52A32F46200CFE28E /* tableCell */ = {
+			isa = PBXGroup;
+			children = (
+				11C6F7E62A32F48100CFE28E /* SRXMessageListTableCell.h */,
+				11C6F7E72A32F48100CFE28E /* SRXMessageListTableCell.m */,
+				11C6F7E82A32F48100CFE28E /* SRXMessageListTableCell.xib */,
+				111314B82A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.h */,
+				111314B92A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.m */,
+				111314BA2A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.xib */,
+				111314BD2A36E771001A77B7 /* SRXChatCheckOrdersTableCell.h */,
+				111314BE2A36E771001A77B7 /* SRXChatCheckOrdersTableCell.m */,
+				111314BF2A36E771001A77B7 /* SRXChatCheckOrdersTableCell.xib */,
+				116644382A39AE9700F846B2 /* SRXChatCouponTableCell.h */,
+				116644392A39AE9700F846B2 /* SRXChatCouponTableCell.m */,
+				1166443A2A39AE9700F846B2 /* SRXChatCouponTableCell.xib */,
+				11E14B652A380847005211D1 /* SRXChatTagsTableCell.h */,
+				11E14B662A380847005211D1 /* SRXChatTagsTableCell.m */,
+				11E14B672A380847005211D1 /* SRXChatTagsTableCell.xib */,
+				11CA6D7C2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.h */,
+				11CA6D7D2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.m */,
+				11CA6D7E2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.xib */,
+				11CA6D812A384127006672C9 /* SRXQuickReplyPhraseTableCell.h */,
+				11CA6D822A384127006672C9 /* SRXQuickReplyPhraseTableCell.m */,
+				11CA6D832A384127006672C9 /* SRXQuickReplyPhraseTableCell.xib */,
+			);
+			path = tableCell;
+			sourceTree = "<group>";
+		};
+		11C6F7EB2A32F48400CFE28E /* collectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				11C6F7EC2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.h */,
+				11C6F7ED2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.m */,
+				11C6F7EE2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.xib */,
+			);
+			path = collectionCell;
+			sourceTree = "<group>";
+		};
+		11C6F7F12A32F94000CFE28E /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				11C6F7F22A32F99100CFE28E /* SRXMessageListShopView.h */,
+				11C6F7F32A32F99100CFE28E /* SRXMessageListShopView.m */,
+				11C6F7F52A32F99B00CFE28E /* SRXMessageListShopView.xib */,
+			);
+			path = custom;
 			sourceTree = "<group>";
 		};
 		11D7E57028894C3600FA19F5 /* YBImageBrowser */ = {
@@ -2666,6 +3169,8 @@
 		18CCFE5623C7044E0009732E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				116642DD2A39632F00F846B2 /* Chat */,
+				11C6F7D92A32CC0300CFE28E /* Message */,
 				11E0896729FA10FF00335DCC /* Goods */,
 				116E426429E6872E0006ECBD /* Order */,
 				116E425E29E687140006ECBD /* Me */,
@@ -3021,6 +3526,8 @@
 				11240AFC2A1DF92F00F1475E /* NetworkManager+GoodUpdate.m */,
 				1122613E2A1AF9790023FC8C /* NetworkManager+Message.h */,
 				1122613F2A1AF9790023FC8C /* NetworkManager+Message.m */,
+				11C6F7FF2A330BE300CFE28E /* NetworkManager+MsgSet.h */,
+				11C6F8002A330BE300CFE28E /* NetworkManager+MsgSet.m */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -3323,9 +3830,14 @@
 				11C3F8EC2910ACE500E15BB5 /* chat_receive_voice2.png in Resources */,
 				5D6374E62582016D0051B11B /* ShareAlert.xib in Resources */,
 				18CCFE4323C6F5120009732E /* close_icon@2x.png in Resources */,
+				116643FC2A39971600F846B2 /* SRXMsgShopAddressTableCell.xib in Resources */,
+				1166443C2A39AE9700F846B2 /* SRXChatCouponTableCell.xib in Resources */,
+				111314C62A36F540001A77B7 /* SRXChatStateSwitchVC.xib in Resources */,
 				80FF854F24349D56009B96CA /* region.json in Resources */,
+				116643F52A39971600F846B2 /* SRXMsgTimeTableCell.xib in Resources */,
 				11C3F8E82910ACE500E15BB5 /* chat_receive_voice5.png in Resources */,
 				11C3F8EB2910ACE500E15BB5 /* chat_receive_voice3.png in Resources */,
+				116643DB2A39971600F846B2 /* SRXMsgShopTextTableCell.xib in Resources */,
 				18CCFE5023C6F5120009732E /* rain.png in Resources */,
 				5DD0140F23FE943A00FC4060 /* JKBaseKit.bundle in Resources */,
 				11C04A4D290F7407005E5636 /* message_fail.png in Resources */,
@@ -3341,33 +3853,44 @@
 				1104E6F42A1EF0AA006E58FF /* SRXGoodsListEditBottomView.xib in Resources */,
 				18CCFE4E23C6F5120009732E /* DazFire.png in Resources */,
 				11E10CB42A21D57800255988 /* SRXGoodsSpecInfoEditVC.xib in Resources */,
+				116643922A39663400F846B2 /* SRXMsgChatQuoteView.xib in Resources */,
 				18CCFE4F23C6F5120009732E /* back_icon@3x.png in Resources */,
 				11C3F8F42910ACF200E15BB5 /* chat_send_voice4.png in Resources */,
 				110A32EF29ED277900BEE36F /* SRXMeTextCollectionCell.xib in Resources */,
 				11F361082A1C59870084075A /* SRXLogisticsCompanyAlertC.xib in Resources */,
+				111314BC2A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.xib in Resources */,
 				11DF671129F66291004557DE /* SRXOrderRefundDetailsPicsTableCell.xib in Resources */,
+				11CA6D802A3840FE006672C9 /* SRXQuickReplyGroupNameTableCell.xib in Resources */,
 				11A5C796290BBD3200CD7658 /* voice_play_animation_6.png in Resources */,
 				11C4DE2929F4D44900A15C7D /* SRXOrderLogisticsListTableCell.xib in Resources */,
+				11C6F7F02A32F4B100CFE28E /* SRXMessageListShopCollectionCell.xib in Resources */,
+				116643F92A39971600F846B2 /* SRXMsgUserOrderTableCell.xib in Resources */,
 				11E0898C29FA6AF500335DCC /* SRXCreateTimeFilterView.xib in Resources */,
 				11E0898229FA540200335DCC /* SRXGoodsMoreFilterView.xib in Resources */,
 				11DF66FD29F66237004557DE /* SRXOrderRefundDetailsFlowTableCell.xib in Resources */,
 				80341F19242DE54300DED907 /* icon_play@2x.png in Resources */,
+				116643F32A39971600F846B2 /* SRXMsgUserGoodsTableCell.xib in Resources */,
+				116642E52A39645800F846B2 /* SRXMsgChatVC.xib in Resources */,
 				18CCFE4423C6F5120009732E /* snow.png in Resources */,
 				11A5C798290BBD3200CD7658 /* voice_play_animation_3.png in Resources */,
 				11ECD8782A25CB0600AF7B82 /* SRXGoodsMediaCollectionCell.xib in Resources */,
 				112261542A1B67CC0023FC8C /* SRXOrderShippedSelfVC.xib in Resources */,
 				11E0897629FA4BDD00335DCC /* SRXGoodsListTableCell.xib in Resources */,
+				116643E32A39971600F846B2 /* SRXMsgShopGoodsTableCell.xib in Resources */,
 				11CDC6292A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.xib in Resources */,
 				1118AEE729F1308D003C994A /* SRXOrdersListTableCell.xib in Resources */,
 				11E0899129FA727400335DCC /* SRXGoodsListEditTableCell.xib in Resources */,
 				1118AEDE29F0E356003C994A /* Order.storyboard in Resources */,
 				110ABCA029EE68B5002D562C /* SRXSetInfoShopTableCell.xib in Resources */,
+				116643E72A39971600F846B2 /* SRXMsgShopOrderTableCell.xib in Resources */,
 				18CCFD6823C6F2D60009732E /* Assets.xcassets in Resources */,
 				11A5C799290BBD3200CD7658 /* voice_play_animation_7.png in Resources */,
 				11A5C79C290BBD3200CD7658 /* voice_play_animation_5.png in Resources */,
 				18CCFE4523C6F5120009732E /* MBHUD_Success@2x.png in Resources */,
 				11DE699A29F2775D00730EF9 /* SRXOrderDetailsGoodsTableCell.xib in Resources */,
+				116643EB2A39971600F846B2 /* SRXMsgUserImageTableCell.xib in Resources */,
 				18CCFE2B23C6F5120009732E /* JSToOC.html in Resources */,
+				116643DC2A39971600F846B2 /* SRXMsgShopImageTableCell.xib in Resources */,
 				80341F23242DE54300DED907 /* JPVideoPlayer.bundle in Resources */,
 				11ECD87C2A25D01200AF7B82 /* SRXGEPicsCollectionCell.xib in Resources */,
 				18CCFE4C23C6F5120009732E /* MBHUD_Error@3x.png in Resources */,
@@ -3384,6 +3907,9 @@
 				11DE699F29F2777F00730EF9 /* SRXOrderDetailsPayInfoTableCell.xib in Resources */,
 				11A5C78B290BBD1D00CD7658 /* voice_change.png in Resources */,
 				11C3F8F62910ACF200E15BB5 /* chat_send_voice2.png in Resources */,
+				116643DD2A39971600F846B2 /* SRXMsgUserChargeOrderTableCell.xib in Resources */,
+				11E14B692A380847005211D1 /* SRXChatTagsTableCell.xib in Resources */,
+				116643ED2A39971600F846B2 /* SRXMsgUserTextTableCell.xib in Resources */,
 				11D7E5E128894CBF00FA19F5 /* YBImageBrowserVideo.bundle in Resources */,
 				11DE699529F2774500730EF9 /* SRXOrderDetailsBuyerTableCell.xib in Resources */,
 				119992B229F7755300DDEE44 /* SRXOrderLogisticsDetailsTableCell.xib in Resources */,
@@ -3397,23 +3923,33 @@
 				11C4DE3129F5079400A15C7D /* SRXOrderShippedGoodsTableCell.xib in Resources */,
 				11A5C795290BBD3200CD7658 /* voice_play_animation_1.png in Resources */,
 				11E0898429FA630F00335DCC /* SRXShopClassFilterView.xib in Resources */,
+				11C6F7F62A32F99B00CFE28E /* SRXMessageListShopView.xib in Resources */,
+				111314C12A36E771001A77B7 /* SRXChatCheckOrdersTableCell.xib in Resources */,
 				11DF9B7228BC87D10045FD17 /* YYStarView.bundle in Resources */,
+				116643F22A39971600F846B2 /* SRXMsgUserAudioTableCell.xib in Resources */,
 				11DF670C29F6627D004557DE /* SRXOrderRefundDetailsInfoTableCell.xib in Resources */,
 				110A32F429ED278E00BEE36F /* SRXMeImageCollectionCell.xib in Resources */,
 				11E10CA52A2191D700255988 /* SRXSpecValueCollectionCell.xib in Resources */,
 				11E10CAA2A21960600255988 /* SRXSpecValueAddCollectionCell.xib in Resources */,
 				11DE69A429F277CB00730EF9 /* SRXOrderDetailsInfoTableCell.xib in Resources */,
 				11DE698529F22B7600730EF9 /* SRXOrdersRemarkVC.xib in Resources */,
+				111314CB2A36F623001A77B7 /* SRXMsgSetAllReadVC.xib in Resources */,
 				11A5C79A290BBD3200CD7658 /* voice_play_animation_4.png in Resources */,
 				1164568E28E2E0E400F5A2FE /* new_gift.gif in Resources */,
+				11C6F7EA2A32F48100CFE28E /* SRXMessageListTableCell.xib in Resources */,
 				11DE697D29F223C700730EF9 /* SRXOrdersListGoodsTableCell.xib in Resources */,
+				116644342A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.xib in Resources */,
 				11C3F8EA2910ACE500E15BB5 /* chat_receive_voice1.png in Resources */,
 				18CCFE4B23C6F5120009732E /* MBHUD_Warn@2x.png in Resources */,
 				11C3F8ED2910ACE500E15BB5 /* chat_receive_voice4.png in Resources */,
 				18CCFE4A23C6F5120009732E /* MBHUD_Warn@3x.png in Resources */,
 				18CCFE4923C6F5120009732E /* MBHUD_Error@2x.png in Resources */,
 				11E0897129FA11CC00335DCC /* Goods.storyboard in Resources */,
+				116644282A39992400F846B2 /* SRXMsgOrderGoodsTableCell.xib in Resources */,
 				11A5C78C290BBD1D00CD7658 /* voice_failure.png in Resources */,
+				116643EA2A39971600F846B2 /* SRXMsgShopAudioTableCell.xib in Resources */,
+				11CA6D852A384127006672C9 /* SRXQuickReplyPhraseTableCell.xib in Resources */,
+				11C6F7DE2A32CC4500CFE28E /* Message.storyboard in Resources */,
 				11DF670729F66262004557DE /* SRXOrderRefundDetailsBuyerTableCell.xib in Resources */,
 				11A61E002A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.xib in Resources */,
 				11C3F8F52910ACF200E15BB5 /* chat_send_voice3.png in Resources */,
@@ -3603,6 +4139,7 @@
 				18CCFE3223C6F5120009732E /* UITabBar+CustomBadge.m in Sources */,
 				189C7A8B23D6D955001FB8ED /* SRXResultModel.m in Sources */,
 				18652EEC23F4457F005E8EEB /* NSString+LCTime.m in Sources */,
+				111314B12A36BAC0001A77B7 /* SRXMessageSetTableVC.m in Sources */,
 				5DD0140423FE943A00FC4060 /* UITextView+JKExtension.m in Sources */,
 				11C0ACBF28BF31F500D2FA8C /* JHCellCollectionFlowLayout.m in Sources */,
 				110ABCA329EE68CF002D562C /* SRXSetInfoShopTableView.m in Sources */,
@@ -3617,6 +4154,7 @@
 				80341F0E242DE54300DED907 /* SDPhotoBrowser.m in Sources */,
 				11C74430286C23E80036A0C5 /* SRXBasePopupVC.m in Sources */,
 				18CCFE2223C6F5120009732E /* IAPManager.m in Sources */,
+				116643902A39663400F846B2 /* SRXMsgChatQuoteView.m in Sources */,
 				80341F29242DE54300DED907 /* JPGCDExtensions.m in Sources */,
 				18CCFE3F23C6F5120009732E /* GBTopScrollMenuView.m in Sources */,
 				5DD013E523FE943A00FC4060 /* NSString+JKHash.m in Sources */,
@@ -3625,8 +4163,10 @@
 				11C4DE2829F4D44900A15C7D /* SRXOrderLogisticsListTableCell.m in Sources */,
 				11E55EA129E925F700B34C18 /* SRXLoginShopListVC.m in Sources */,
 				11EEE2A229F0E0A5005A07E7 /* SRXOrderListTableVC.m in Sources */,
+				1166437C2A39649E00F846B2 /* SRXMsgChatTableView.m in Sources */,
 				18652EFB23F4457F005E8EEB /* UIDevice+LCBase.m in Sources */,
 				5DD013ED23FE943A00FC4060 /* NSData+JKData.m in Sources */,
+				116643842A3965DF00F846B2 /* SRXMessage.m in Sources */,
 				11DF66F729F6607C004557DE /* SRXOrderRefundDetailsVC.m in Sources */,
 				11E0897D29FA525700335DCC /* SRXCreateTimeFilterView.m in Sources */,
 				11DF9B7328BC87D10045FD17 /* YYStarView.m in Sources */,
@@ -3636,6 +4176,7 @@
 				808467E6243DC95100BA1439 /* UIViewController+AlertViewAndActionSheet.m in Sources */,
 				80FF853A24334BF2009B96CA /* SRXOrderCommonView.m in Sources */,
 				11E0897A29FA524200335DCC /* SRXShopClassFilterView.m in Sources */,
+				116643FF2A39971600F846B2 /* SRXMsgUserTextTableCell.m in Sources */,
 				11DE698829F25F7700730EF9 /* SRXOrderGoodsShippedVC.m in Sources */,
 				11D7E5C528894C9500FA19F5 /* YBIBAnimatedTransition.m in Sources */,
 				11ECD87D2A25D01200AF7B82 /* SRXGEPicsCollectionCell.m in Sources */,
@@ -3643,17 +4184,25 @@
 				110ABCAC29EE8176002D562C /* SRXPhoneBindVC.m in Sources */,
 				80341F22242DE54300DED907 /* JPVideoPlayerControlViews.m in Sources */,
 				18CCFE3423C6F5120009732E /* XYTabBar.m in Sources */,
+				116643932A39663400F846B2 /* JYBubbleButtonModel.m in Sources */,
 				18CCFE1B23C6F5120009732E /* NullSafe.m in Sources */,
 				5DD013E923FE943A00FC4060 /* NSData+JKGzip.m in Sources */,
+				111314D12A370D92001A77B7 /* SRXMessageSetModel.m in Sources */,
 				11F215172863FCCA00CA0981 /* HGPageViewController.m in Sources */,
+				116643FA2A39971600F846B2 /* SRXMsgShopAudioTableCell.m in Sources */,
 				5DD013F123FE943A00FC4060 /* UIViewController+JKViewController.m in Sources */,
 				11DE698429F22B7600730EF9 /* SRXOrdersRemarkVC.m in Sources */,
+				116643912A39663400F846B2 /* JYBubbleMenuView.m in Sources */,
+				116644372A39ABE200F846B2 /* SRXChatCouponListVC.m in Sources */,
 				62AB5660271FAE4100010F0D /* UIView+TouchExtend.m in Sources */,
 				11D7E57D28894C6200FA19F5 /* YBIBTopView.m in Sources */,
 				805A7E0A24B5B36800D99F39 /* XHLaunchAd.m in Sources */,
+				111314CA2A36F623001A77B7 /* SRXMsgSetAllReadVC.m in Sources */,
 				5DD013EA23FE943A00FC4060 /* NSString+JKXML.m in Sources */,
 				80341F28242DE54300DED907 /* UICollectionView+WebVideoCache.m in Sources */,
+				11CA6D882A38611B006672C9 /* SRXChatTagsEditVC.m in Sources */,
 				5DD0140923FE943A00FC4060 /* JKTopWindow.m in Sources */,
+				116643F12A39971600F846B2 /* SRXMsgTimeTableCell.m in Sources */,
 				1197F4CF299489860032DAEF /* PhoneContactManager.m in Sources */,
 				11BB02FF28C1F05F0050768D /* NSURL+JHExt.m in Sources */,
 				11D950432898D0B1006BBEE7 /* HWTextCodeView.m in Sources */,
@@ -3673,6 +4222,7 @@
 				18652EED23F4457F005E8EEB /* NSObject+LCBase.m in Sources */,
 				80341F2D242DE54300DED907 /* UITableViewCell+WebVideoCache.m in Sources */,
 				11D7E5C428894C9500FA19F5 /* YBIBCollectionViewLayout.m in Sources */,
+				116644192A39988400F846B2 /* SHShareMenuView.m in Sources */,
 				1122614A2A1AF9EA0023FC8C /* SRXMeInfo.m in Sources */,
 				11240AFD2A1DF92F00F1475E /* NetworkManager+GoodUpdate.m in Sources */,
 				11E0896C29FA119800335DCC /* SRXGoodsListPageVC.m in Sources */,
@@ -3681,6 +4231,7 @@
 				11ECD8702A25900000AF7B82 /* SRXGoodsInfoEditBasicInfoTableCell.m in Sources */,
 				11C4DE2429F4D42700A15C7D /* SRXOrderLogisticsListVC.m in Sources */,
 				18652EF223F4457F005E8EEB /* UILabel+LCInit.m in Sources */,
+				116643DA2A39971600F846B2 /* SRXMsgShopOrderTableCell.m in Sources */,
 				110BD8A329EF8BF700540D57 /* SRXShopSwitchTableCell.m in Sources */,
 				805A7E0424B5B36800D99F39 /* FLAnimatedImage.m in Sources */,
 				119992BD29F7BEC500DDEE44 /* SRXShopDataItem.m in Sources */,
@@ -3692,8 +4243,10 @@
 				11F6FBCA29FB5DC000519293 /* SRXGoodsSpecUpdateVC.m in Sources */,
 				112261422A1AF97A0023FC8C /* NetworkManager+Message.m in Sources */,
 				11D7E5A728894C8200FA19F5 /* YBIBImageData.m in Sources */,
+				1166441A2A39988400F846B2 /* SHShareMenuItem.m in Sources */,
 				18CCFE1C23C6F5120009732E /* CAAnimation+HCAnimation.m in Sources */,
 				11D7E57C28894C6200FA19F5 /* YBIBSheetView.m in Sources */,
+				116643E12A39971600F846B2 /* SRXMsgShopAddressTableCell.m in Sources */,
 				18CCFE2923C6F5120009732E /* ShareManager.m in Sources */,
 				11C5FFB32A1DAFEB00850951 /* SRXTextFieldAlertVC.m in Sources */,
 				110ABCA629EE7A36002D562C /* SRXSetInfoUpdateSuccessVC.m in Sources */,
@@ -3711,9 +4264,12 @@
 				189C7A7A23D6C840001FB8ED /* SRXBaseVM.m in Sources */,
 				189C7A6823D6A28B001FB8ED /* WMPageController.m in Sources */,
 				5DD0140C23FE943A00FC4060 /* JKRSATool.m in Sources */,
+				116642E42A39645800F846B2 /* SRXMsgChatVC.m in Sources */,
 				18CCFE3B23C6F5120009732E /* YBRectConst.m in Sources */,
+				1166441D2A39988400F846B2 /* SHAudioPlayerHelper.m in Sources */,
 				11EE165B2A208844008BE57F /* SRXGoodsSpecModel.m in Sources */,
 				18CCFE1E23C6F5120009732E /* UIButton+Gradient.m in Sources */,
+				111314CE2A36F8EC001A77B7 /* SRXChatFastTextVC.m in Sources */,
 				18CCFE3D23C6F5120009732E /* YBPopupMenu.m in Sources */,
 				62DCF1D0275DED9300B8C734 /* GradientButton.m in Sources */,
 				18652EF323F4457F005E8EEB /* UIImage+LCFillet.m in Sources */,
@@ -3721,6 +4277,8 @@
 				11D7E5C828894C9500FA19F5 /* YBIBContainerView.m in Sources */,
 				805A7E1024B5B36800D99F39 /* XHLaunchAdImageManager.m in Sources */,
 				5DD013F223FE943A00FC4060 /* UIButton+JKExtension.m in Sources */,
+				11C6F7E42A32D00400CFE28E /* SRXMessageListVC.m in Sources */,
+				116643E52A39971600F846B2 /* SRXMsgUserGoodsTableCell.m in Sources */,
 				112261412A1AF97A0023FC8C /* NetworkManager+Me.m in Sources */,
 				5DD013FF23FE943A00FC4060 /* UIImage+JKScaleVideoImage.m in Sources */,
 				5D09F1A5241A2C89006290A0 /* SRXCommonYellowGradientBtn.m in Sources */,
@@ -3730,7 +4288,10 @@
 				118E72A12A24C2EC009A28BE /* SRXGoodsInfoEditBaseVC.m in Sources */,
 				5DD013FA23FE943A00FC4060 /* UIImage+JKGIF.m in Sources */,
 				5DD0140E23FE943A00FC4060 /* JKScanningQRViewController.m in Sources */,
+				111314C02A36E771001A77B7 /* SRXChatCheckOrdersTableCell.m in Sources */,
 				805A7E0724B5B36800D99F39 /* XHLaunchAdButton.m in Sources */,
+				11C6F7FE2A33051600CFE28E /* SRXMessageListModel.m in Sources */,
+				1166441E2A39988400F846B2 /* SHTextView.m in Sources */,
 				5DD013DF23FE943A00FC4060 /* NSString+JK_MD5.m in Sources */,
 				11F25012290BCAF900E03964 /* wav.mm in Sources */,
 				5DD0140523FE943A00FC4060 /* JKSandboxPath.m in Sources */,
@@ -3749,6 +4310,7 @@
 				805A7E0C24B5B36800D99F39 /* XHLaunchAdDownloader.m in Sources */,
 				18CCFE2623C6F5120009732E /* UserInfo.m in Sources */,
 				11CF6D002A306F0000712C43 /* SRXGoodsSpecGroupCell.m in Sources */,
+				116643FE2A39971600F846B2 /* SRXMsgUserChargeOrderTableCell.m in Sources */,
 				805A7E0524B5B36800D99F39 /* FLAnimatedImageView.m in Sources */,
 				11E55EAB29E93C6100B34C18 /* SRXLoginMsgVC.m in Sources */,
 				5DD0140D23FE943A00FC4060 /* JKQRCode.m in Sources */,
@@ -3762,10 +4324,13 @@
 				5DD013EC23FE943A00FC4060 /* NSObject+JKRuntime.m in Sources */,
 				18CCFE2023C6F5120009732E /* TextVerification.m in Sources */,
 				18CCFE2F23C6F5120009732E /* XYTransition.m in Sources */,
+				116644212A39988400F846B2 /* SHActivityIndicatorView.m in Sources */,
 				62C5131226BCE3DB00A539BA /* LMJDropdownMenu.m in Sources */,
 				5DD0140A23FE943A00FC4060 /* JKTextExtension.m in Sources */,
 				18652EE523F4457F005E8EEB /* NSString+LCBase.m in Sources */,
+				116644292A39992400F846B2 /* SRXMsgOrderGoodsTableCell.m in Sources */,
 				11D7E5AA28894C8200FA19F5 /* YBIBImageCache.m in Sources */,
+				11CA6D7F2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.m in Sources */,
 				18CCFE1D23C6F5120009732E /* UIScrollView+mjRefreshByLiu70.m in Sources */,
 				18CCFE3E23C6F5120009732E /* MBProgressHUD+XY.m in Sources */,
 				18CCFD5D23C6F2D40009732E /* AppDelegate.m in Sources */,
@@ -3775,7 +4340,9 @@
 				5D169DA424B015FD00E19BE2 /* PXPayTypeCommonBtn.m in Sources */,
 				18652EE623F4457F005E8EEB /* NSDate+LCBase.m in Sources */,
 				118E72AA2A24C379009A28BE /* SRXGoodsInfoEditShowVC.m in Sources */,
+				116643F42A39971600F846B2 /* SRXMsgUserImageTableCell.m in Sources */,
 				1122614C2A1AF9EA0023FC8C /* SRXShopInfoModel.m in Sources */,
+				11C6F8012A330BE300CFE28E /* NetworkManager+MsgSet.m in Sources */,
 				11D7E5AD28894C8200FA19F5 /* YBIBImageLayout.m in Sources */,
 				11D7E59428894C7700FA19F5 /* YBIBCopywriter.m in Sources */,
 				5DD0140323FE943A00FC4060 /* UIApplication+JKExtension.m in Sources */,
@@ -3786,6 +4353,8 @@
 				80341F24242DE54300DED907 /* UITableView+WebVideoCache.m in Sources */,
 				110ABCB229EE8275002D562C /* SRXSmsAuthenticationVC.m in Sources */,
 				18CCFE2E23C6F5120009732E /* RootNavigationController.m in Sources */,
+				116644242A39991000F846B2 /* SRXMsgOrderGoodsTableView.m in Sources */,
+				11C6F7E92A32F48100CFE28E /* SRXMessageListTableCell.m in Sources */,
 				11DE699E29F2777F00730EF9 /* SRXOrderDetailsPayInfoTableCell.m in Sources */,
 				110ABC9929EE6853002D562C /* SRXSetInfoTableVC.m in Sources */,
 				110A32EE29ED277900BEE36F /* SRXMeTextCollectionCell.m in Sources */,
@@ -3807,6 +4376,7 @@
 				11D7E5DE28894CB400FA19F5 /* YBIBVideoCell.m in Sources */,
 				62DCF1D7275DEEA800B8C734 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				18CCFE4023C6F5120009732E /* GBIndicatorView.m in Sources */,
+				11CA6D7B2A383C08006672C9 /* SRXChatQuickReplyVC.m in Sources */,
 				5DD013E423FE943A00FC4060 /* NSString+JKRegex.m in Sources */,
 				11D7E5C728894C9500FA19F5 /* YBIBDataMediator.m in Sources */,
 				805A7E0924B5B36800D99F39 /* XHLaunchAdConst.m in Sources */,
@@ -3817,6 +4387,8 @@
 				11F2151A2863FCCA00CA0981 /* HGPopGestureCompatibleCollectionView.m in Sources */,
 				18CCFE5323C6F5300009732E /* AppDelegate+AppService.m in Sources */,
 				11CF6CF72A3019B300712C43 /* SRXCalendarPickerView.m in Sources */,
+				116643E92A39971600F846B2 /* SRXMsgUserOrderTableCell.m in Sources */,
+				116644202A39988400F846B2 /* SHMessageInputView.m in Sources */,
 				11D950462898D0B1006BBEE7 /* HWTFCursorView.m in Sources */,
 				18652EEB23F4457F005E8EEB /* NSString+LCRegExp.m in Sources */,
 				80341F20242DE54300DED907 /* JPVideoPlayerScrollViewProtocol.m in Sources */,
@@ -3860,17 +4432,24 @@
 				80341F26242DE54300DED907 /* JPVideoPlayerCellProtocol.m in Sources */,
 				5DD013DD23FE943A00FC4060 /* NSString+JKBase64.m in Sources */,
 				11D7E5A828894C8200FA19F5 /* YBIBInteractionProfile.m in Sources */,
+				1166443B2A39AE9700F846B2 /* SRXChatCouponTableCell.m in Sources */,
 				112261532A1B67CC0023FC8C /* SRXOrderShippedSelfVC.m in Sources */,
 				5D6374E52582016D0051B11B /* ShareAlert.m in Sources */,
 				5D324CA824503142008ED36E /* SRXCommonBtnBalanceDetail.m in Sources */,
 				5D264EE1243C61E000383261 /* SRXChangePasswordCommonBtn.m in Sources */,
+				11CA6D842A384127006672C9 /* SRXQuickReplyPhraseTableCell.m in Sources */,
 				118E729E2A24A984009A28BE /* SRXGoodsInfoEditPageVC.m in Sources */,
+				111314C52A36F540001A77B7 /* SRXChatStateSwitchVC.m in Sources */,
 				1852A77023D45F6000A032FC /* JXLayoutButton.m in Sources */,
+				1166438F2A39663400F846B2 /* JYTextView.m in Sources */,
 				11F25011290BCAF900E03964 /* DeviceManagerBase+Media.m in Sources */,
 				18856B7723CD71C4004DF025 /* UIWindow+JXSafeArea.m in Sources */,
 				11E55EA529E92A4B00B34C18 /* SRXLoginShopListTableCell.m in Sources */,
+				11E14B682A380847005211D1 /* SRXChatTagsTableCell.m in Sources */,
 				11E0899029FA727400335DCC /* SRXGoodsListEditTableCell.m in Sources */,
 				80341F2A242DE54300DED907 /* JPVideoPlayer.m in Sources */,
+				116643F82A39971600F846B2 /* SRXMsgShopTextTableCell.m in Sources */,
+				116644002A39971600F846B2 /* SRXMsgShopGoodsTableCell.m in Sources */,
 				116E427429E6A1660006ECBD /* SRXLoginVC.m in Sources */,
 				119992AD29F7751A00DDEE44 /* SRXOrderLogisticsDetailsVC.m in Sources */,
 				11DE697C29F223C700730EF9 /* SRXOrdersListGoodsTableCell.m in Sources */,
@@ -3882,6 +4461,7 @@
 				80341F18242DE54300DED907 /* TSVideoPlayback.m in Sources */,
 				18CCFE1723C6F5120009732E /* UITextView+PinchZoom.m in Sources */,
 				80341F25242DE54300DED907 /* UICollectionViewCell+WebVideoCache.m in Sources */,
+				11C6F7EF2A32F4B100CFE28E /* SRXMessageListShopCollectionCell.m in Sources */,
 				11DF670629F66262004557DE /* SRXOrderRefundDetailsBuyerTableCell.m in Sources */,
 				805A7E0624B5B36800D99F39 /* XHLaunchAdView.m in Sources */,
 				11F2500B290BCAF900E03964 /* AudioPlayerUtil.m in Sources */,
@@ -3892,13 +4472,16 @@
 				5DD013F623FE943A00FC4060 /* UIImageView+JKImageView.m in Sources */,
 				11C04A50290F9C09005E5636 /* JHWebSocketManager.m in Sources */,
 				112261402A1AF97A0023FC8C /* NetworkManager+Goods.m in Sources */,
+				116643812A3964E900F846B2 /* SRXMsgChatModel.m in Sources */,
 				18CCFE3523C6F5120009732E /* YCPresentationController.m in Sources */,
 				11CDC6282A2DDE7A009EE348 /* SRXArrayTitlesAlertVC.m in Sources */,
 				11D7E5CD28894C9900FA19F5 /* YBImageBrowser.m in Sources */,
+				111314B72A36E6BF001A77B7 /* SRXChatCheckOrdersVC.m in Sources */,
 				11D7E5DB28894CB300FA19F5 /* YBIBVideoView.m in Sources */,
 				5DD013DE23FE943A00FC4060 /* NSData+JKHash.m in Sources */,
 				80341F1E242DE54300DED907 /* JPVideoPlayerCompat.m in Sources */,
 				18652EF523F4457F005E8EEB /* UIView+LCXib.m in Sources */,
+				116644332A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.m in Sources */,
 				189C7A6A23D6A28B001FB8ED /* WMMenuItem.m in Sources */,
 				11EE165F2A208BB1008BE57F /* SRXGoodsSpecSetTableVC.m in Sources */,
 				11D7E5C628894C9500FA19F5 /* NSObject+YBImageBrowser.m in Sources */,
@@ -3907,6 +4490,7 @@
 				11D7E59228894C7700FA19F5 /* YBIBPhotoAlbumManager.m in Sources */,
 				11F6FBD829FBA03B00519293 /* SRXOrderDetailsModel.m in Sources */,
 				625EFF2E26B79D4100BF618A /* DownloadMethod.m in Sources */,
+				1166441B2A39988400F846B2 /* SHAudioRecordHelper.m in Sources */,
 				189C7A8223D6D2E5001FB8ED /* SRXBaseModel.m in Sources */,
 				5DD013EE23FE943A00FC4060 /* NSString+JKString.m in Sources */,
 				11DE69A829F2828100730EF9 /* SRXOrderDetailsGoodsListView.m in Sources */,
@@ -3918,10 +4502,13 @@
 				5DD013E823FE943A00FC4060 /* UIFont+JKExtension.m in Sources */,
 				18652EF823F4457F005E8EEB /* UIView+LCFrame.m in Sources */,
 				5D264EE4243C61E000383261 /* SRXDefaultPayWayCommonBtn.m in Sources */,
+				116644182A39988400F846B2 /* SHMessageVoiceHUD.m in Sources */,
 				11D7E5DF28894CB400FA19F5 /* YBIBVideoTopBar.m in Sources */,
 				80341F27242DE54300DED907 /* JPVideoPlayerManager.m in Sources */,
 				11E0898829FA641700335DCC /* SRXTextCollectionCell.m in Sources */,
 				5DD013EF23FE943A00FC4060 /* UIDevice+JKHardware.m in Sources */,
+				1166441C2A39988400F846B2 /* SHFileHelper.m in Sources */,
+				111314BB2A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.m in Sources */,
 				18CCFE1823C6F5120009732E /* UITextView+Select.m in Sources */,
 				18CCFE3623C6F5120009732E /* YCPopoverAnimator.m in Sources */,
 				110A32EA29ED26F100BEE36F /* SRXMeCollectionView.m in Sources */,
@@ -3936,20 +4523,26 @@
 				5D004930242AF0E5000ECF8D /* SRXMsgCenterCommonBtn.m in Sources */,
 				11F6FBD529FB9E6B00519293 /* SRXOrderListModel.m in Sources */,
 				11DF670129F6624E004557DE /* SRXOrderRefundDetailsGoodsTableCell.m in Sources */,
+				11C6F7E12A32CEA500CFE28E /* SRXMessagePageVC.m in Sources */,
 				805A7E0E24B5B36800D99F39 /* XHLaunchAdConfiguration.m in Sources */,
 				11C59F2828C047310070C2CB /* JHBaseTableViewController.m in Sources */,
 				18CCFE1923C6F5120009732E /* CacheTools.m in Sources */,
 				11EE166B2A20A25E008BE57F /* SRXGoodsSpecTableCell.m in Sources */,
 				11F2500E290BCAF900E03964 /* DeviceManagerBase+ProximitySensor.m in Sources */,
+				116643EE2A39971600F846B2 /* SRXMsgShopImageTableCell.m in Sources */,
 				80341F2E242DE54300DED907 /* JPVideoPlayerCachePath.m in Sources */,
 				11C01E9228324D63000F2528 /* SRXPullTableView.m in Sources */,
 				11EE16662A20912E008BE57F /* SRXGoodsSpecAddTableCell.m in Sources */,
 				18CCFE1F23C6F5120009732E /* UIImage+Gradient.m in Sources */,
 				5DD013FD23FE943A00FC4060 /* UIImage+JKDirection.m in Sources */,
+				11E14B642A380617005211D1 /* SRXChatTagsListVC.m in Sources */,
+				1166441F2A39988400F846B2 /* SHMessageHelper.m in Sources */,
 				18652EFA23F4457F005E8EEB /* UIViewController+LCBase.m in Sources */,
 				62501C6C278C35C4005DFC15 /* ZWHCollectionViewFlowWaterfallLayout.m in Sources */,
 				11C2C76528DAA17100C7286B /* JKScrollView.m in Sources */,
+				11C6F7F42A32F99100CFE28E /* SRXMessageListShopView.m in Sources */,
 				11D7E5A928894C8200FA19F5 /* YBImage.m in Sources */,
+				116643FB2A39971600F846B2 /* SRXMsgUserAudioTableCell.m in Sources */,
 				11E10CB32A21D57800255988 /* SRXGoodsSpecInfoEditVC.m in Sources */,
 				18CCFE2723C6F5120009732E /* UserAccount.m in Sources */,
 				62791D4C26E3173E00E9FEA9 /* SortButton.m in Sources */,
@@ -3957,6 +4550,7 @@
 				8018D27324221112005EFB4A /* RootPresentViewController.m in Sources */,
 				11DE699429F2774500730EF9 /* SRXOrderDetailsBuyerTableCell.m in Sources */,
 				18CCFE1A23C6F5120009732E /* UIView+SettingLayer.m in Sources */,
+				111314B42A36E69F001A77B7 /* SRXChatRecommentGoodsVC.m in Sources */,
 				11DE699929F2775D00730EF9 /* SRXOrderDetailsGoodsTableCell.m in Sources */,
 				11D7E58428894C6900FA19F5 /* YBIBToastView.m in Sources */,
 				11DF671029F66291004557DE /* SRXOrderRefundDetailsPicsTableCell.m in Sources */,

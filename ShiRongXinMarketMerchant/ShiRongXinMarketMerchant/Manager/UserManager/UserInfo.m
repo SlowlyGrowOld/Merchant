@@ -10,5 +10,8 @@
 
 @implementation UserInfo
 
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"_id" : @"id"};
+}
 
 @end

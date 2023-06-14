@@ -14,6 +14,7 @@
                 <outlet property="contentView" destination="UTz-0g-dpd" id="xX6-n0-Hsq"/>
                 <outlet property="tableView" destination="AfQ-Q8-bhf" id="3pU-RR-aco"/>
                 <outlet property="tableViewConsH" destination="cgU-9w-Af8" id="NKa-jp-9bP"/>
+                <outlet property="titleLb" destination="lFR-O0-gtl" id="HUf-Ni-VPl"/>
                 <outlet property="view" destination="Iy3-WY-KPx" id="9xA-AB-J2u"/>
             </connections>
         </placeholder>
@@ -23,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTz-0g-dpd">
-                    <rect key="frame" x="0.0" y="627" width="393" height="225"/>
+                    <rect key="frame" x="0.0" y="661" width="393" height="191"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwQ-Fc-tIV">
                             <rect key="frame" x="0.0" y="137" width="393" height="44"/>

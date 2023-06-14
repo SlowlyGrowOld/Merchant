@@ -42,9 +42,11 @@
 #define CFontUnselected [UIColor colorWithHexString:@"A0A0A0"]
 
 //红色
-#define CRed [UIColor colorWithHexString:@"DF0000"]
+#define CRed [UIColor colorWithHexString:@"D10000"]
 
 //橘红色
+#define COrange [UIColor colorWithHexString:@"C84D1D"]
+//蓝色
 #define C43B8F6 [UIColor colorWithHexString:@"43B8F6"]
 //再次级字色
 #define CFont99 [UIColor colorWithHexString:@"999999"]

@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SRXOrderListModel : NSObject
 @property (nonatomic , copy) NSString              * order_id;
 @property (nonatomic , copy) NSString              * user_id;
+@property (nonatomic , copy) NSString              * order_sn;
 @property (nonatomic , copy) NSString              * create_time;
 @property (nonatomic , assign) CGFloat               shipping_amount;
 @property (nonatomic , copy) NSString              * deduct_amount;

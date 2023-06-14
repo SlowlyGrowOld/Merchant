@@ -27,6 +27,7 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     self.textField.placeholder = self.placeholder;
+    self.textField.text = self.default_text;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

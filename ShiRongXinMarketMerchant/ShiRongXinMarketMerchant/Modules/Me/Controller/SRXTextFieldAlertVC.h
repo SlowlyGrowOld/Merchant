@@ -13,6 +13,7 @@ typedef void(^SRXTextFieldAlertBlock)(NSString *nickname);
 @interface SRXTextFieldAlertVC : RootPresentViewController
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, copy) NSString *placeholder;
+@property (nonatomic, copy) NSString *default_text;
 @property (nonatomic, copy) SRXTextFieldAlertBlock block;
 @end
 

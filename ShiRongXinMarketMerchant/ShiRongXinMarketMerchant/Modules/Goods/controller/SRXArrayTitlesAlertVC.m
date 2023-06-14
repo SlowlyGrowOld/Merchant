@@ -8,6 +8,7 @@
 
 #import "SRXArrayTitlesAlertVC.h"
 #import "NetworkManager+GoodUpdate.h"
+#import "NetworkManager+MsgSet.h"
 
 @implementation SRXArrayTitlesModel
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewConsH;
+@property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @end
@@ -50,6 +52,7 @@
 - (void)requestData {
     [SVProgressHUD show];
     if (self.type == SRXArrayTitlesTypePlat) {
+        self.titleLb.text = @"选择平台商品分类";
         [NetworkManager getPlatformClassifyListWithSearch_word:@"" page:self.page pageSize:20 success:^(NSArray *modelList) {
             for (SRXShop_PlatClassifyItem *item in modelList) {
                 SRXArrayTitlesModel *model = [SRXArrayTitlesModel new];
@@ -66,6 +69,7 @@
             
         }];
     } else if (self.type == SRXArrayTitlesTypeShop) {
+        self.titleLb.text = @"选择店铺商品分类";
         [NetworkManager getShopClassifyListWithSearch_word:@"" page:self.page pageSize:20 success:^(NSArray *modelList) {
             for (SRXShop_PlatClassifyItem *item in modelList) {
                 SRXArrayTitlesModel *model = [SRXArrayTitlesModel new];
@@ -82,7 +86,9 @@
             
         }];
     } else if (self.type == SRXArrayTitlesTypeSupplier) {
+        self.titleLb.text = @"选择供应商";
         [NetworkManager getSupplierListSuccess:^(NSArray *modelList) {
+            self.tableView.mj_footer.hidden = YES;
             [self.dataSource removeAllObjects];
             for (SRXGoodsSupplierItem *item in modelList) {
                 SRXArrayTitlesModel *model = [SRXArrayTitlesModel new];
@@ -96,6 +102,7 @@
             
         }];
     } else if (self.type == SRXArrayTitlesTypeDelivery) {
+        self.titleLb.text = @"选择物流公司";
         [NetworkManager getShippingTemplateListWithPage:self.page pageSize:20 success:^(NSArray *modelList) {
             for (SRXGoodsDeliveryItem *item in modelList) {
                 SRXArrayTitlesModel *model = [SRXArrayTitlesModel new];
@@ -105,6 +112,22 @@
             }
             if (modelList.count<20) {
                 self.tableView.mj_footer.hidden = YES;
+            }
+            self.tableViewConsH.constant = (44*self.dataSource.count>kScreenHeight - 250)?kScreenHeight - 250:44*self.dataSource.count;
+            [self.tableView reloadData];
+        } failure:^(NSString *message) {
+            
+        }];
+    }else if (self.type == SRXArrayTitlesTypeGroup) {
+        self.titleLb.text = @"选择分组";
+        [NetworkManager getQuickReplyGroupNameWithWithShop_id:@"" success:^(NSArray *modelList) {
+            self.tableView.mj_footer.hidden = YES;
+            [self.dataSource removeAllObjects];
+            for (SRXMsgReplysGroupItem *item in modelList) {
+                SRXArrayTitlesModel *model = [SRXArrayTitlesModel new];
+                model.name = item.group_name;
+                model._id = item.group_id;
+                [self.dataSource addObject:model];
             }
             self.tableViewConsH.constant = (44*self.dataSource.count>kScreenHeight - 250)?kScreenHeight - 250:44*self.dataSource.count;
             [self.tableView reloadData];

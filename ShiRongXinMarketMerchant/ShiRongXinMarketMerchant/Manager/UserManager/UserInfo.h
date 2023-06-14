@@ -17,7 +17,7 @@ typedef NS_ENUM(NSInteger,UserGender){
 
 @interface UserInfo : NSObject
 
-@property(nonatomic,assign)long long _id;//用户ID
+@property (nonatomic,copy) NSString * _id;//用户ID
 @property (nonatomic,copy) NSString * username;//昵称
 @property (nonatomic,copy) NSString * nickname;//店铺
 @property (nonatomic,copy) NSString * mobile;//手机号码

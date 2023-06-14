@@ -22,9 +22,4 @@
 #define kIMPushCerName @"dev"
 
 
-//WebSocket
-
-#define kDebugWebSockerServer_ip @"wss://webman.go-easy.cn/wss"
-#define kWebSockerServer_ip @"wss://chat.goeasy.vip/wss"
-
 #endif /* ThirdMacros_h */

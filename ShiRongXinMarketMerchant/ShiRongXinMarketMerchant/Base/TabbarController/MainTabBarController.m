@@ -10,6 +10,7 @@
 #import "UITabBar+CustomBadge.h"
 #import "XYTabBar.h"
 
+#import "SRXMessagePageVC.h"
 #import "SRXGoodsListPageVC.h"
 #import "SRXMeVC.h"
 #import "SRXOrdersCenterPageC.h"
@@ -57,7 +58,8 @@
     SRXMeVC *vc1 = [me instantiateViewControllerWithIdentifier:@"SRXMeVC"];
     [self setupChildViewController:vc1 title:@"工作台" imageName:@"tabbar_workbench" seleceImageName:@"tabbar_workbench_select"];
     
-    SRXMeVC *vc2 = [[SRXMeVC alloc] init];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
+    SRXMessagePageVC *vc2 = [storyboard instantiateViewControllerWithIdentifier:@"SRXMessagePageVC"];
     [self setupChildViewController:vc2 title:@"消息" imageName:@"tabbar_message" seleceImageName:@"tabbar_message_select"];
     
     UIStoryboard *order = [UIStoryboard storyboardWithName:@"Order" bundle:nil];

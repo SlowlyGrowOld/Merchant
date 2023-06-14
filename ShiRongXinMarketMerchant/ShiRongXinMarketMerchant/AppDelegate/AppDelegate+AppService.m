@@ -105,6 +105,7 @@
                 break;
             }case 1:{
                 DLog(@"网络环境：WiFi");
+                KPostNotification(KNotificationNetWorkStateChange, @YES);
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:KNotificationNetWorkState];
             }case 2:{
                 DLog(@"网络环境：手机自带网络");

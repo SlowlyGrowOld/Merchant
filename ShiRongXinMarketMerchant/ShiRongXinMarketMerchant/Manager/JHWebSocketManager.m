@@ -8,13 +8,14 @@
 
 #import "JHWebSocketManager.h"
 #import "SocketRocket.h"
+#import "NetworkManager+Message.h"
 
 @interface JHWebSocketManager ()<SRWebSocketDelegate>
 
 @property (strong, nonatomic) SRWebSocket *socket;
 @property (strong, nonatomic) NSTimer *heatBeat;
 @property (assign, nonatomic) NSTimeInterval reConnectTime;
-
+@property (assign, nonatomic) BOOL isNetWork;
 @end
 
 @implementation JHWebSocketManager
@@ -24,8 +25,27 @@ static JHWebSocketManager *manager = nil;
     static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             manager = [[JHWebSocketManager alloc] init];
+            [[NSNotificationCenter defaultCenter] addObserver:manager
+                                                     selector:@selector(netWorkStateChange:)
+                                                         name:KNotificationNetWorkStateChange
+                                                       object:nil];
         });
     return manager;
+}
+
+- (void)netWorkStateChange:(NSNotification *)notification
+{
+   self.isNetWork = [notification.object boolValue];
+    
+    if (self.isNetWork) {//有网络
+        if (self.socket.readyState != SR_OPEN) {
+            self.socket = nil;
+            [self reConnect];
+        }
+    }else {//登陆失败加载登陆页面控制器
+        [SVProgressHUD showInfoWithStatus:@"网络断开！"];
+        [self destoryHeart];
+    }
 }
 
 #pragma mark -- WebSocket
@@ -51,7 +71,18 @@ static JHWebSocketManager *manager = nil;
 
 //绑定cliend_id、uid  未登录请设置uid = @""; 防止切换账号未执行
 - (void)bindClienIdAndUid {
-
+    if (self.client_id.length>0) {
+        NSString *uid = [UserManager sharedUserManager].curUserInfo._id;
+        DLog(@"用户ID：%@",uid);
+        [NetworkManager bindWSSWithClient_id:self.client_id uid:uid success:^(NSString *message) {
+            [JHWebSocketManager shareInstance].isBindUid = YES;
+            self.uid = uid;
+            DLog(@"绑定成功");
+        } failure:^(NSString *message) {
+            [JHWebSocketManager shareInstance].isBindUid = NO;
+            self.uid = @"";
+        }];
+    }
 }
 
 #pragma mark -- SRWebSocketDelegate
@@ -68,12 +99,12 @@ static JHWebSocketManager *manager = nil;
     if (self.receiveBlock) {
         self.receiveBlock(dic);
     }
-    NSLog(@"收到服务器返回消息：%@",message);
+    DLog(@"收到服务器返回消息：%@",message);
 }
 
 //连接成功
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket{
-    NSLog(@"连接成功，可以立刻登录你公司后台的服务器了，还有开启心跳");
+    DLog(@"连接成功，可以立刻登录你公司后台的服务器了，还有开启心跳");
     [self initHeart];
     
     
@@ -84,7 +115,7 @@ static JHWebSocketManager *manager = nil;
             [_socket sendString:jsonString error:nil];   //发送数据包
             
         } else if (_socket.readyState == SR_CONNECTING) {
-            NSLog(@"正在连接中，重连后其他方法会去自动同步数据");
+            DLog(@"正在连接中，重连后其他方法会去自动同步数据");
             // 每隔2秒检测一次 socket.readyState 状态，检测 10 次左右
             // 只要有一次状态是 SR_OPEN 的就调用 [ws.socket send:data] 发送数据
             // 如果 10 次都还是没连上的，那这个发送请求就丢失了，这种情况是服务器的问题了，小概率的
@@ -94,8 +125,8 @@ static JHWebSocketManager *manager = nil;
             // websocket 断开了，调用 reConnect 方法重连
         }
     } else {
-        NSLog(@"没网络，发送失败，一旦断网 socket 会被我设置 nil 的");
-        NSLog(@"其实最好是发送前判断一下网络状态比较好，我写的有点晦涩，socket==nil来表示断网");
+        DLog(@"没网络，发送失败，一旦断网 socket 会被我设置 nil 的");
+        DLog(@"其实最好是发送前判断一下网络状态比较好，我写的有点晦涩，socket==nil来表示断网");
     }
 }
 
@@ -136,13 +167,23 @@ static JHWebSocketManager *manager = nil;
 
 //断开连接时销毁心跳
 - (void)destoryHeart{
-    
+    [self.socket close];
+    self.socket = nil;
+    [self.heatBeat invalidate];
+    self.heatBeat = nil;
 }
 
 //重连机制
 - (void)reConnect{
     //每隔一段时间重连一次
     //规定64不在重连,2的指数级
+    BOOL isNet = [[NSUserDefaults standardUserDefaults] boolForKey:KNotificationNetWorkState];
+    if (!isNet) {
+        return;
+    }
+    if (self.socket.readyState == SR_OPEN) {
+        return;
+    }
     if (_reConnectTime > 60) {
         return;
     }
