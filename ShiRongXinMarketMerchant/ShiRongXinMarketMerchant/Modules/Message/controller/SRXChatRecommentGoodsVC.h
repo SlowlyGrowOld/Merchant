@@ -7,11 +7,14 @@
 //
 
 #import "JHBaseTableViewController.h"
-
+#import "SRXMsgChatModel.h"
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^SRXChatRecommentGoodsBlock)(SRXMsgGoodsInfoItem *goods,BOOL isSendGoods);
 
 @interface SRXChatRecommentGoodsVC : JHBaseTableViewController
 @property (nonatomic, copy) NSString *shop_id;
+@property (nonatomic, copy) SRXChatRecommentGoodsBlock clickBlock;
 @end
 
 NS_ASSUME_NONNULL_END

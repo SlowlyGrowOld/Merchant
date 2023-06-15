@@ -28,19 +28,12 @@
     // Configure the view for the selected state
 }
 
-- (void)setItem:(SRXChatRecommentGoodsItem *)item {
+- (void)setItem:(SRXMsgGoodsInfoItem *)item {
     _item = item;
     [_goods_img sd_setImageWithURL:[NSURL URLWithString:item.image]];
     _goods_name.text = item.goods_name;
     _goods_price.text = item.price;
-}
-
-- (IBAction)sendCouponBtnClick:(id)sender {
-    
-}
-
-- (IBAction)sendGoodsBtnClick:(id)sender {
-    
+    _couponBtn.hidden = item.coupon?NO:YES;
 }
 
 @end

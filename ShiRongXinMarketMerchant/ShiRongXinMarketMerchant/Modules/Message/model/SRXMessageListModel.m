@@ -49,7 +49,3 @@
 }
 
 @end
-
-@implementation SRXMsgChatCoupnItem
-
-@end

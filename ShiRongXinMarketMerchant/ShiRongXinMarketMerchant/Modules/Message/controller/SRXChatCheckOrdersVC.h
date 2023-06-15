@@ -7,10 +7,10 @@
 //
 
 #import "JHBaseTableViewController.h"
-#import "SRXMsgChatModel.h"
+#import "SRXOrderListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^SRXMsgCheckOrdersBlock)(SRXMsgOrderInfo *model);
+typedef void(^SRXMsgCheckOrdersBlock)(SRXOrderListModel *model);
 
 @interface SRXChatCheckOrdersVC : JHBaseTableViewController
 @property (nonatomic, copy) NSString *user_id;

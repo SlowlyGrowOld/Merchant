@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //推荐商品
 @interface SRXChatRecommentGoodsItem :NSObject
-@property (nonatomic , assign) NSInteger              goods_id;
+@property (nonatomic , copy) NSString              * goods_id;
 @property (nonatomic , copy) NSString              * goods_name;
 @property (nonatomic , copy) NSString              * image;
 @property (nonatomic , copy) NSString              * price;
@@ -99,20 +99,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SRXMsgChatOther : NSObject
 @property (nonatomic , strong) SRXMsgChatOrderNum              * order_num;
 @property (nonatomic , strong) NSArray <SRXMsgLabelsItem *>              * user_labels;
-@end
-
-//优惠券列表
-@interface SRXMsgChatCoupnItem :NSObject
-@property (nonatomic , copy) NSString              * coupon_id;
-@property (nonatomic , copy) NSString              * name;
-@property (nonatomic , copy) NSString              * money;
-@property (nonatomic , copy) NSString              * condition;
-@property (nonatomic , copy) NSString              * validity_day;
-@property (nonatomic , copy) NSString              * goods_id;
-@property (nonatomic , copy) NSString              * goods_name;
-@property (nonatomic , copy) NSString              * validity;
-@property (nonatomic , copy) NSString              * less_num;
-
 @end
 
 

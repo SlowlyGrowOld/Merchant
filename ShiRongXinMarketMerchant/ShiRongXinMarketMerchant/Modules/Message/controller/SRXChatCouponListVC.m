@@ -11,11 +11,11 @@
 
 #import "NetworkManager+Message.h"
 
-@interface SRXChatCouponListVC ()
+@interface SRXChatCouponListVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *searchBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sendBtn;
-
+@property (nonatomic, strong) SRXMsgChatCoupnItem *selectItem;
 @end
 
 @implementation SRXChatCouponListVC
@@ -23,11 +23,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"发优惠卷";
+    self.view.backgroundColor = CViewBgColor;
     self.tableView.rowHeight = 104;
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXChatCouponTableCell" bundle:nil] forCellReuseIdentifier:@"SRXChatCouponTableCell"];
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(52);
-        make.bottom.mas_equalTo(-20-BottomSafeHeight);
+        make.bottom.mas_equalTo(-20-BottomSafeHeight-50);
     }];
     
     [self requestTableData];
@@ -48,13 +50,44 @@
 }
 
 - (IBAction)sendCouponBtnClick:(id)sender {
-    
+    if (self.selectBlock && self.selectItem) {
+        self.selectBlock(self.selectItem);
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [SVProgressHUD showInfoWithStatus:@"请选择优惠券"];
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
+    [self.tableView.mj_header beginRefreshing];
+    return YES;
 }
 
 #pragma mark - UITableView
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.dataSources.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXChatCouponTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXChatCouponTableCell" forIndexPath:indexPath];
+    cell.item = self.dataSources[indexPath.section];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    for (SRXMsgChatCoupnItem *m in self.dataSources) {
+        m.is_select = NO;
+    }
+    self.selectItem = self.dataSources[indexPath.section];
+    self.selectItem.is_select = YES;
+    [self.tableView reloadData];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

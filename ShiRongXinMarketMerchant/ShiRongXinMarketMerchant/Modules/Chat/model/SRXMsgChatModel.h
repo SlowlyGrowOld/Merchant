@@ -10,6 +10,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//优惠券列表
+@interface SRXMsgChatCoupnItem :NSObject
+@property (nonatomic , copy) NSString              * coupon_id;
+@property (nonatomic , copy) NSString              * name;
+@property (nonatomic , assign) CGFloat              money;
+@property (nonatomic , copy) NSString              * condition;
+@property (nonatomic , assign) NSInteger             validity_day;
+@property (nonatomic , copy) NSString              * goods_id;
+@property (nonatomic , copy) NSString              * goods_name;
+@property (nonatomic , copy) NSString              * image;
+@property (nonatomic , copy) NSString              * validity;
+@property (nonatomic , copy) NSString              * less_num;
+@property (nonatomic , assign) BOOL              is_coupon_receive;
+@property (nonatomic , assign) BOOL              is_select;
+@end
+
 @interface SRXMsgReferenceInfo : NSObject
 @property (nonatomic , copy) NSString              * reference_type;
 @property (nonatomic , copy) NSString              * reference_chat_id;
@@ -34,6 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) NSInteger              activity_id;
 //咨询订单接口模型使用
 @property (nonatomic , copy) NSString              * goods_id;
+//推荐商品列表使用
+@property (nonatomic , strong) SRXMsgChatCoupnItem              * coupon;
 @end
 
 @interface SRXMsgOrderInfo :NSObject
@@ -104,6 +122,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) SRXMsgOrderInfo          * fulu_order_info;
 /**msg_type=text并有引用时有数据*/
 @property (nonatomic , strong) SRXMsgReferenceInfo          * reference_info;
+/**msg_type=coupon_info并有引用时有数据*/
+@property (nonatomic , strong) SRXMsgChatCoupnItem          * coupon_info;
 
 /**--自己添加的参数--*/
 //发送文本，引用的id
@@ -122,8 +142,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) UIImage              * image;
 //发送的音频
 @property (nonatomic , copy) NSString              * voice;
-//发送的shop_id
+//发送的user_id
 @property (nonatomic , copy) NSString              * user_id;
+//客服id
+@property (nonatomic , copy) NSString              * shop_user_id;
+//门店id
+@property (nonatomic , copy) NSString              * shop_id;
 //音频播放
 @property (nonatomic , assign) BOOL              isPlaying;
 

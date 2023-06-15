@@ -7,17 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class SRXMsgChatCoupnItem;
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderGoodsItem :NSObject
 @property (nonatomic , copy) NSString              * order_goods_id;
 @property (nonatomic , assign) NSInteger              order_id;
-@property (nonatomic , assign) NSInteger              goods_id;
+@property (nonatomic , copy) NSString              * goods_id;
 @property (nonatomic , copy) NSString              * goods_name;
 @property (nonatomic , copy) NSString              * image;
 @property (nonatomic , copy) NSString              * spec_key_name;
+@property (nonatomic , copy) NSString              * price;
 @property (nonatomic , assign) NSInteger              order_delivery_id;
+@property (nonatomic , strong) SRXMsgChatCoupnItem  *coupon;
 
 @property (nonatomic , assign) BOOL              isSelect;
 @end
@@ -29,11 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * create_time;
 @property (nonatomic , assign) CGFloat               shipping_amount;
 @property (nonatomic , copy) NSString              * deduct_amount;
+@property (nonatomic , copy) NSString              * deduct_score;
 @property (nonatomic , assign) CGFloat               pay_amount;
 @property (nonatomic , copy) NSString              * consignee;
 @property (nonatomic , copy) NSString              * remark;
 @property (nonatomic , copy) NSString              * address;
-@property (nonatomic , copy) NSString              * pay_status;
+@property (nonatomic , assign) NSInteger              pay_status;
 @property (nonatomic , copy) NSString              * shipping_status;
 @property (nonatomic , assign) NSInteger              order_status;
 @property (nonatomic , assign) NSInteger              goods_count;

@@ -8,6 +8,10 @@
 
 #import "SRXMsgChatModel.h"
 
+@implementation SRXMsgChatCoupnItem
+
+@end
+
 @implementation SRXMsgReferenceInfo
 
 @end

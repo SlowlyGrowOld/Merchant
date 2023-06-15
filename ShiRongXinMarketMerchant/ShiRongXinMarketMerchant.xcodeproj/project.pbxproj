@@ -69,7 +69,7 @@
 		116643DB2A39971600F846B2 /* SRXMsgShopTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166439D2A39971000F846B2 /* SRXMsgShopTextTableCell.xib */; };
 		116643DC2A39971600F846B2 /* SRXMsgShopImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166439E2A39971000F846B2 /* SRXMsgShopImageTableCell.xib */; };
 		116643DD2A39971600F846B2 /* SRXMsgUserChargeOrderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166439F2A39971000F846B2 /* SRXMsgUserChargeOrderTableCell.xib */; };
-		116643E12A39971600F846B2 /* SRXMsgShopAddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643A62A39971100F846B2 /* SRXMsgShopAddressTableCell.m */; };
+		116643E12A39971600F846B2 /* SRXMsgUserAddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643A62A39971100F846B2 /* SRXMsgUserAddressTableCell.m */; };
 		116643E32A39971600F846B2 /* SRXMsgShopGoodsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643A82A39971100F846B2 /* SRXMsgShopGoodsTableCell.xib */; };
 		116643E52A39971600F846B2 /* SRXMsgUserGoodsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643AA2A39971100F846B2 /* SRXMsgUserGoodsTableCell.m */; };
 		116643E72A39971600F846B2 /* SRXMsgShopOrderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643AC2A39971200F846B2 /* SRXMsgShopOrderTableCell.xib */; };
@@ -87,7 +87,7 @@
 		116643F92A39971600F846B2 /* SRXMsgUserOrderTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643C82A39971400F846B2 /* SRXMsgUserOrderTableCell.xib */; };
 		116643FA2A39971600F846B2 /* SRXMsgShopAudioTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643CA2A39971500F846B2 /* SRXMsgShopAudioTableCell.m */; };
 		116643FB2A39971600F846B2 /* SRXMsgUserAudioTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643CC2A39971500F846B2 /* SRXMsgUserAudioTableCell.m */; };
-		116643FC2A39971600F846B2 /* SRXMsgShopAddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643CE2A39971500F846B2 /* SRXMsgShopAddressTableCell.xib */; };
+		116643FC2A39971600F846B2 /* SRXMsgUserAddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116643CE2A39971500F846B2 /* SRXMsgUserAddressTableCell.xib */; };
 		116643FE2A39971600F846B2 /* SRXMsgUserChargeOrderTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643D22A39971500F846B2 /* SRXMsgUserChargeOrderTableCell.m */; };
 		116643FF2A39971600F846B2 /* SRXMsgUserTextTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643D32A39971500F846B2 /* SRXMsgUserTextTableCell.m */; };
 		116644002A39971600F846B2 /* SRXMsgShopGoodsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 116643D52A39971600F846B2 /* SRXMsgShopGoodsTableCell.m */; };
@@ -330,6 +330,8 @@
 		11F25011290BCAF900E03964 /* DeviceManagerBase+Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F24FFF290BCAF800E03964 /* DeviceManagerBase+Media.m */; };
 		11F25012290BCAF900E03964 /* wav.mm in Sources */ = {isa = PBXBuildFile; fileRef = 11F25004290BCAF800E03964 /* wav.mm */; };
 		11F25013290BCAF900E03964 /* amrFileCodec.mm in Sources */ = {isa = PBXBuildFile; fileRef = 11F25005290BCAF800E03964 /* amrFileCodec.mm */; };
+		11F2F19A2A3AE02D002A4189 /* SRXMsgUserCouponTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F2F1982A3AE02D002A4189 /* SRXMsgUserCouponTableCell.m */; };
+		11F2F19B2A3AE02D002A4189 /* SRXMsgUserCouponTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F2F1992A3AE02D002A4189 /* SRXMsgUserCouponTableCell.xib */; };
 		11F361022A1C52050084075A /* SRXOrderShippedGroupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F361002A1C52050084075A /* SRXOrderShippedGroupVC.m */; };
 		11F361072A1C59870084075A /* SRXLogisticsCompanyAlertC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F361052A1C59870084075A /* SRXLogisticsCompanyAlertC.m */; };
 		11F361082A1C59870084075A /* SRXLogisticsCompanyAlertC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F361062A1C59870084075A /* SRXLogisticsCompanyAlertC.xib */; };
@@ -695,7 +697,7 @@
 		1166439F2A39971000F846B2 /* SRXMsgUserChargeOrderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserChargeOrderTableCell.xib; sourceTree = "<group>"; };
 		116643A02A39971000F846B2 /* SRXMsgUserOrderTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserOrderTableCell.h; sourceTree = "<group>"; };
 		116643A42A39971100F846B2 /* SRXMsgShopImageTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopImageTableCell.h; sourceTree = "<group>"; };
-		116643A62A39971100F846B2 /* SRXMsgShopAddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopAddressTableCell.m; sourceTree = "<group>"; };
+		116643A62A39971100F846B2 /* SRXMsgUserAddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserAddressTableCell.m; sourceTree = "<group>"; };
 		116643A82A39971100F846B2 /* SRXMsgShopGoodsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopGoodsTableCell.xib; sourceTree = "<group>"; };
 		116643AA2A39971100F846B2 /* SRXMsgUserGoodsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserGoodsTableCell.m; sourceTree = "<group>"; };
 		116643AC2A39971200F846B2 /* SRXMsgShopOrderTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopOrderTableCell.xib; sourceTree = "<group>"; };
@@ -714,7 +716,7 @@
 		116643BE2A39971300F846B2 /* SRXMsgUserGoodsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserGoodsTableCell.xib; sourceTree = "<group>"; };
 		116643BF2A39971400F846B2 /* SRXMsgUserImageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserImageTableCell.m; sourceTree = "<group>"; };
 		116643C02A39971400F846B2 /* SRXMsgTimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgTimeTableCell.xib; sourceTree = "<group>"; };
-		116643C12A39971400F846B2 /* SRXMsgShopAddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopAddressTableCell.h; sourceTree = "<group>"; };
+		116643C12A39971400F846B2 /* SRXMsgUserAddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserAddressTableCell.h; sourceTree = "<group>"; };
 		116643C22A39971400F846B2 /* SRXMsgUserTextTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserTextTableCell.h; sourceTree = "<group>"; };
 		116643C32A39971400F846B2 /* SRXMsgTimeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgTimeTableCell.h; sourceTree = "<group>"; };
 		116643C62A39971400F846B2 /* SRXMsgShopTextTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopTextTableCell.m; sourceTree = "<group>"; };
@@ -722,7 +724,7 @@
 		116643C92A39971400F846B2 /* SRXMsgUserChargeOrderTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserChargeOrderTableCell.h; sourceTree = "<group>"; };
 		116643CA2A39971500F846B2 /* SRXMsgShopAudioTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgShopAudioTableCell.m; sourceTree = "<group>"; };
 		116643CC2A39971500F846B2 /* SRXMsgUserAudioTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserAudioTableCell.m; sourceTree = "<group>"; };
-		116643CE2A39971500F846B2 /* SRXMsgShopAddressTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgShopAddressTableCell.xib; sourceTree = "<group>"; };
+		116643CE2A39971500F846B2 /* SRXMsgUserAddressTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXMsgUserAddressTableCell.xib; sourceTree = "<group>"; };
 		116643CF2A39971500F846B2 /* SRXMsgShopTextTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXMsgShopTextTableCell.h; sourceTree = "<group>"; };
 		116643D22A39971500F846B2 /* SRXMsgUserChargeOrderTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserChargeOrderTableCell.m; sourceTree = "<group>"; };
 		116643D32A39971500F846B2 /* SRXMsgUserTextTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserTextTableCell.m; sourceTree = "<group>"; };
@@ -1156,6 +1158,9 @@
 		11F25005290BCAF800E03964 /* amrFileCodec.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = amrFileCodec.mm; sourceTree = "<group>"; };
 		11F25006290BCAF800E03964 /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
 		11F25007290BCAF800E03964 /* wav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wav.h; sourceTree = "<group>"; };
+		11F2F1972A3AE02D002A4189 /* SRXMsgUserCouponTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMsgUserCouponTableCell.h; sourceTree = "<group>"; };
+		11F2F1982A3AE02D002A4189 /* SRXMsgUserCouponTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMsgUserCouponTableCell.m; sourceTree = "<group>"; };
+		11F2F1992A3AE02D002A4189 /* SRXMsgUserCouponTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXMsgUserCouponTableCell.xib; sourceTree = "<group>"; };
 		11F360FF2A1C52050084075A /* SRXOrderShippedGroupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXOrderShippedGroupVC.h; sourceTree = "<group>"; };
 		11F361002A1C52050084075A /* SRXOrderShippedGroupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXOrderShippedGroupVC.m; sourceTree = "<group>"; };
 		11F361042A1C59870084075A /* SRXLogisticsCompanyAlertC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXLogisticsCompanyAlertC.h; sourceTree = "<group>"; };
@@ -1852,9 +1857,6 @@
 				116644272A39992400F846B2 /* SRXMsgOrderGoodsTableCell.h */,
 				116644262A39992400F846B2 /* SRXMsgOrderGoodsTableCell.m */,
 				116644252A39992300F846B2 /* SRXMsgOrderGoodsTableCell.xib */,
-				116643C12A39971400F846B2 /* SRXMsgShopAddressTableCell.h */,
-				116643A62A39971100F846B2 /* SRXMsgShopAddressTableCell.m */,
-				116643CE2A39971500F846B2 /* SRXMsgShopAddressTableCell.xib */,
 				116643B02A39971200F846B2 /* SRXMsgShopAudioTableCell.h */,
 				116643CA2A39971500F846B2 /* SRXMsgShopAudioTableCell.m */,
 				116643B12A39971200F846B2 /* SRXMsgShopAudioTableCell.xib */,
@@ -1888,9 +1890,15 @@
 				116643A02A39971000F846B2 /* SRXMsgUserOrderTableCell.h */,
 				116643AE2A39971200F846B2 /* SRXMsgUserOrderTableCell.m */,
 				116643C82A39971400F846B2 /* SRXMsgUserOrderTableCell.xib */,
+				116643C12A39971400F846B2 /* SRXMsgUserAddressTableCell.h */,
+				116643A62A39971100F846B2 /* SRXMsgUserAddressTableCell.m */,
+				116643CE2A39971500F846B2 /* SRXMsgUserAddressTableCell.xib */,
 				116643C22A39971400F846B2 /* SRXMsgUserTextTableCell.h */,
 				116643D32A39971500F846B2 /* SRXMsgUserTextTableCell.m */,
 				116643B52A39971300F846B2 /* SRXMsgUserTextTableCell.xib */,
+				11F2F1972A3AE02D002A4189 /* SRXMsgUserCouponTableCell.h */,
+				11F2F1982A3AE02D002A4189 /* SRXMsgUserCouponTableCell.m */,
+				11F2F1992A3AE02D002A4189 /* SRXMsgUserCouponTableCell.xib */,
 			);
 			path = tableViewCell;
 			sourceTree = "<group>";
@@ -3830,7 +3838,7 @@
 				11C3F8EC2910ACE500E15BB5 /* chat_receive_voice2.png in Resources */,
 				5D6374E62582016D0051B11B /* ShareAlert.xib in Resources */,
 				18CCFE4323C6F5120009732E /* close_icon@2x.png in Resources */,
-				116643FC2A39971600F846B2 /* SRXMsgShopAddressTableCell.xib in Resources */,
+				116643FC2A39971600F846B2 /* SRXMsgUserAddressTableCell.xib in Resources */,
 				1166443C2A39AE9700F846B2 /* SRXChatCouponTableCell.xib in Resources */,
 				111314C62A36F540001A77B7 /* SRXChatStateSwitchVC.xib in Resources */,
 				80FF854F24349D56009B96CA /* region.json in Resources */,
@@ -3872,6 +3880,7 @@
 				116643F32A39971600F846B2 /* SRXMsgUserGoodsTableCell.xib in Resources */,
 				116642E52A39645800F846B2 /* SRXMsgChatVC.xib in Resources */,
 				18CCFE4423C6F5120009732E /* snow.png in Resources */,
+				11F2F19B2A3AE02D002A4189 /* SRXMsgUserCouponTableCell.xib in Resources */,
 				11A5C798290BBD3200CD7658 /* voice_play_animation_3.png in Resources */,
 				11ECD8782A25CB0600AF7B82 /* SRXGoodsMediaCollectionCell.xib in Resources */,
 				112261542A1B67CC0023FC8C /* SRXOrderShippedSelfVC.xib in Resources */,
@@ -4154,6 +4163,7 @@
 				80341F0E242DE54300DED907 /* SDPhotoBrowser.m in Sources */,
 				11C74430286C23E80036A0C5 /* SRXBasePopupVC.m in Sources */,
 				18CCFE2223C6F5120009732E /* IAPManager.m in Sources */,
+				11F2F19A2A3AE02D002A4189 /* SRXMsgUserCouponTableCell.m in Sources */,
 				116643902A39663400F846B2 /* SRXMsgChatQuoteView.m in Sources */,
 				80341F29242DE54300DED907 /* JPGCDExtensions.m in Sources */,
 				18CCFE3F23C6F5120009732E /* GBTopScrollMenuView.m in Sources */,
@@ -4246,7 +4256,7 @@
 				1166441A2A39988400F846B2 /* SHShareMenuItem.m in Sources */,
 				18CCFE1C23C6F5120009732E /* CAAnimation+HCAnimation.m in Sources */,
 				11D7E57C28894C6200FA19F5 /* YBIBSheetView.m in Sources */,
-				116643E12A39971600F846B2 /* SRXMsgShopAddressTableCell.m in Sources */,
+				116643E12A39971600F846B2 /* SRXMsgUserAddressTableCell.m in Sources */,
 				18CCFE2923C6F5120009732E /* ShareManager.m in Sources */,
 				11C5FFB32A1DAFEB00850951 /* SRXTextFieldAlertVC.m in Sources */,
 				110ABCA629EE7A36002D562C /* SRXSetInfoUpdateSuccessVC.m in Sources */,

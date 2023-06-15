@@ -10,7 +10,7 @@
 #import "SRXMsgChatModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SRXMsgShopAddressTableCell : UITableViewCell
+@interface SRXMsgUserAddressTableCell : UITableViewCell
 @property (nonatomic,strong) SRXMsgChatModel *model;
 @property (nonatomic, copy) dispatch_block_t updateBlock;
 @end

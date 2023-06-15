@@ -63,7 +63,7 @@
     mdic[@"search_word"] = search_word;
     mdic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] getWithURLString:@"shop/chat_recomment_goods" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
-        NSArray *array = [SRXChatRecommentGoodsItem mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
+        NSArray *array = [SRXMsgGoodsInfoItem mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
         success(array);
     } failure:failure];
 }
@@ -71,9 +71,13 @@
 /// 订单核对列表
 + (void)getChatOrderListWithUser_id:(NSString *)user_id
                         shop_id:(NSString *)shop_id
+                               page:(NSInteger)page
+                           pageSize:(NSInteger)pageSize
                         success:(JHNetworkRequestSuccessArray)success
                             failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"page"] = @(page);
+    mdic[@"page_size"] = @(pageSize);
     mdic[@"user_id"] = user_id;
     mdic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] getWithURLString:@"shop/chat_order_list" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {

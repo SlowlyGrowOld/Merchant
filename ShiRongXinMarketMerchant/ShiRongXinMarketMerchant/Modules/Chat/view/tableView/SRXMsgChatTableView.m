@@ -12,12 +12,13 @@
 #import "SRXMsgUserImageTableCell.h"
 #import "SRXMsgUserGoodsTableCell.h"
 #import "SRXMsgUserOrderTableCell.h"
+#import "SRXMsgUserCouponTableCell.h"
 #import "SRXMsgUserAudioTableCell.h"
 #import "SRXMsgUserChargeOrderTableCell.h"
 #import "SRXMsgShopTextTableCell.h"
 #import "SRXMsgShopImageTableCell.h"
 #import "SRXMsgShopGoodsTableCell.h"
-#import "SRXMsgShopAddressTableCell.h"
+#import "SRXMsgUserAddressTableCell.h"
 #import "SRXMsgShopOrderTableCell.h"
 #import "SRXMsgShopAudioTableCell.h"
 #import "SRXMsgChatModel.h"
@@ -54,6 +55,8 @@
     [self registerNib:[UINib nibWithNibName:@"SRXMsgUserGoodsTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserGoodsTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgUserImageTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserImageTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgUserOrderTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserOrderTableCell"];
+    [self registerNib:[UINib nibWithNibName:@"SRXMsgUserAddressTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserAddressTableCell"];
+    [self registerNib:[UINib nibWithNibName:@"SRXMsgUserCouponTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserCouponTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgUserAudioTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserAudioTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgUserChargeOrderTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserChargeOrderTableCell"];
     
@@ -61,7 +64,6 @@
     [self registerNib:[UINib nibWithNibName:@"SRXMsgShopImageTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgShopImageTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgShopGoodsTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgShopGoodsTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgShopOrderTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgShopOrderTableCell"];
-    [self registerNib:[UINib nibWithNibName:@"SRXMsgShopAddressTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgShopAddressTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgShopAudioTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgShopAudioTableCell"];
     
     [kNotificationCenter addObserver:self selector:@selector(chatTextMenuAction:) name:KNotiChatTextMenuAction object:nil];
@@ -129,7 +131,7 @@
         return cell;
     }else {
         if ([model.who_send isEqualToString:@"shop"]) {
-            if ([model.msg_type isEqualToString:@"goods_link"] && [model.who_send isEqualToString:@"user"]) {
+            if ([model.msg_type isEqualToString:@"goods_link"]) {
                 SRXMsgUserGoodsTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgUserGoodsTableCell" forIndexPath:indexPath];
                 cell.model = model;
                 return cell;
@@ -139,6 +141,14 @@
                 return cell;
             }else if ([model.msg_type isEqualToString:@"user_order"]){
                 SRXMsgUserOrderTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgUserOrderTableCell" forIndexPath:indexPath];
+                cell.model = model;
+                return cell;
+            }else if ([model.msg_type isEqualToString:@"order_address"]) {
+                SRXMsgUserAddressTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgUserAddressTableCell" forIndexPath:indexPath];
+                cell.model = model;
+                return cell;
+            }else if ([model.msg_type isEqualToString:@"coupon"]){
+                SRXMsgUserCouponTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgUserCouponTableCell" forIndexPath:indexPath];
                 cell.model = model;
                 return cell;
             }else if ([model.msg_type isEqualToString:@"voice"]){
@@ -159,27 +169,19 @@
                 return cell;
             }
         }else {
-            if ([model.msg_type isEqualToString:@"goods_link"] && [model.who_send isEqualToString:@"shop"]) {
+            if ([model.msg_type isEqualToString:@"goods_link"] && [model.who_send isEqualToString:@"user"]) {
                 SRXMsgShopGoodsTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgShopGoodsTableCell" forIndexPath:indexPath];
                 cell.model = model;
                 return cell;
-            }else if ([model.msg_type isEqualToString:@"image"] && [model.who_send isEqualToString:@"shop"]){
+            }else if ([model.msg_type isEqualToString:@"image"] && [model.who_send isEqualToString:@"user"]){
                 SRXMsgShopImageTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgShopImageTableCell" forIndexPath:indexPath];
                 cell.model = model;
                 return cell;
-            }else if ([model.msg_type isEqualToString:@"order_address"] && [model.who_send isEqualToString:@"shop"]) {
-                SRXMsgShopAddressTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgShopAddressTableCell" forIndexPath:indexPath];
-                cell.model = model;
-                MJWeakSelf;
-                cell.updateBlock = ^{
-                    [weakSelf reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationNone];
-                };
-                return cell;
-            }else if ([model.msg_type isEqualToString:@"user_order"] && [model.who_send isEqualToString:@"shop"]) {
+            }else if ([model.msg_type isEqualToString:@"user_order"] && [model.who_send isEqualToString:@"user"]) {
                 SRXMsgShopOrderTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgShopOrderTableCell" forIndexPath:indexPath];
                 cell.model = model;
                 return cell;
-            }else if ([model.msg_type isEqualToString:@"voice"] && [model.who_send isEqualToString:@"shop"]){
+            }else if ([model.msg_type isEqualToString:@"voice"] && [model.who_send isEqualToString:@"user"]){
                 SRXMsgShopAudioTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgShopAudioTableCell" forIndexPath:indexPath];
                 cell.model = model;
                 MJWeakSelf;

@@ -21,6 +21,7 @@
 #import "JYBubbleMenuView.h"
 #import "SRXChatCheckOrdersVC.h"
 #import "SRXChatCouponListVC.h"
+#import "SRXChatRecommentGoodsVC.h"
 
 @interface SRXMsgChatVC ()<SHMessageInputViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,JHWebSocketManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *shopBtn;
@@ -28,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *shop_name;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewConsH;
 @property (weak, nonatomic) IBOutlet SRXMsgChatTableView *tableView;
-
+//咨询商品弹窗
 @property (weak, nonatomic) IBOutlet UIView *goodConsultView;
 @property (weak, nonatomic) IBOutlet UILabel *c_titleLb;
 @property (weak, nonatomic) IBOutlet UIImageView *c_good_image;
@@ -57,7 +58,7 @@
     
     self.isHidenNaviBar = YES;
     self.view.backgroundColor = CViewBgColor;
-    self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight;
+    self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36;
     self.pageNo = 1;
     self.pageSize = 15;
     [self setMj_header];
@@ -148,7 +149,7 @@
     }]];
     [[UIViewController jk_currentViewController] presentViewController:alertC animated:YES completion:nil];
 }
-
+#pragma mark - UIButton event
 - (IBAction)backBtnClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -162,18 +163,43 @@
 }
 
 - (IBAction)closeGoodConsultViewBtnClick:(id)sender {
-    self.goodConsultView.hidden = YES;
+//    self.goodConsultView.hidden = YES;
 }
 
 - (IBAction)sendGoodInfoBtnClick:(id)sender {
-    self.goodConsultView.hidden = YES;
-    if (self.orderInfo) {
-        [self sendChatMessageWithOrder:self.orderInfo];
-    }else {
-        [self sendChatMessageWithGoods];
-    }
+//    self.goodConsultView.hidden = YES;
+//    if (self.orderInfo) {
+//        [self sendChatMessageWithOrder:self.orderInfo];
+//    }else {
+//        [self sendChatMessageWithGoods];
+//    }
 }
 
+- (IBAction)quickReplyBtnClick:(id)sender {
+    
+}
+
+- (IBAction)InviteEvaluationBtnClick:(id)sender {
+}
+
+- (IBAction)transferBtnClick:(id)sender {
+}
+
+- (IBAction)recommendGoodsBtnClick:(id)sender {
+    SRXChatRecommentGoodsVC *vc = [SRXChatRecommentGoodsVC new];
+    vc.shop_id = self.shop_id;
+    MJWeakSelf;
+    vc.clickBlock = ^(SRXMsgGoodsInfoItem * _Nonnull goods, BOOL isSendGoods) {
+        if (isSendGoods) {
+            [weakSelf sendChatMessageWithGoods:goods];
+        } else {
+            [weakSelf sendChatMessageWithCoupon:goods.coupon];
+        }
+    };
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - requestTableData
 - (void)requestTableData {
     [NetworkManager getChatContentWithUser_id:self.item.user_id shop_id:self.shop_id page:self.pageNo pageSize:self.pageSize success:^(NSArray *modelList) {
         [self requestTableDataSuccessWithArray:modelList];
@@ -241,36 +267,49 @@
 }
 
 #pragma mark 发送商品
-- (void)sendChatMessageWithGoods {
+- (void)sendChatMessageWithGoods:(SRXMsgGoodsInfoItem *)goods {
     SRXMsgChatModel *message = [SRXMsgChatModel new];
 
     message.msg_type = @"goods_link";
-    message.params = self.goodInfo._id;
-    message.goods_type = self.goodInfo.goods_type;
-    message.activity_id = self.goodInfo.activity_id;
-    message.goods_info = self.goodInfo;
+    message.params = goods.goods_id;
+    message.goods_info = goods;
+    message.messageKey = [SHMessageHelper getTimeWithZone];
+    //添加到聊天界面
+    [self addChatMessageWithMessage:message isBottom:YES];
+}
+
+#pragma mark 发送优惠券
+- (void)sendChatMessageWithCoupon:(SRXMsgChatCoupnItem *)coupon {
+    SRXMsgChatModel *message = [SRXMsgChatModel new];
+
+    message.msg_type = @"coupon";
+    message.params = coupon.coupon_id;
+    message.coupon_info = coupon;
     message.messageKey = [SHMessageHelper getTimeWithZone];
     //添加到聊天界面
     [self addChatMessageWithMessage:message isBottom:YES];
 }
 
 #pragma mark 发送我的订单
-- (void)sendChatMessageWithOrder:(SRXMsgOrderInfo *)order {
+- (void)sendChatMessageWithOrder:(SRXOrderListModel *)order {
     SRXMsgChatModel *message = [SRXMsgChatModel new];
 
-    message.msg_type = [order.msg_type isEqualToString:@"fulu_order"]?@"fulu_order":@"user_order";
+    message.msg_type = @"user_order";
     message.params = order.order_id;
-    if ([order.msg_type isEqualToString:@"fulu_order"]) {
-        message.fulu_order_info = order;
-        SRXMsgGoodsInfoItem *item = order.order_goods_info.firstObject;
-        message.fulu_order_info.goods_name = item.goods_name;
-        message.fulu_order_info.pay_sn = order.order_sn;
-        message.fulu_order_info.create_time = item.create_time_text;
-        message.fulu_order_info.mobile = item.mobile;
-        message.fulu_order_info.goods_image = item.image;
-    } else {
-        message.order_info = order;
+    SRXMsgOrderInfo *orderinfo = [SRXMsgOrderInfo new];
+    orderinfo.order_id = order.order_id;
+    orderinfo.pay_amount = @(order.pay_amount).stringValue;
+    NSMutableArray *marr = [NSMutableArray array];
+    for (SRXOrderGoodsItem *item in order.order_goods) {
+        SRXMsgGoodsInfoItem *goods = [SRXMsgGoodsInfoItem new];
+        goods.spec_key_name = item.spec_key_name;
+        goods.goods_name = item.goods_name;
+        goods.goods_id = item.goods_id;
+        goods.image = item.image;
+        [marr addObject:goods];
     }
+    orderinfo.goods_info = marr.copy;
+    message.order_info = orderinfo;
     message.messageKey = [SHMessageHelper getTimeWithZone];
 
     //添加到聊天界面
@@ -285,6 +324,8 @@
     [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     message.send_time = [dateFormatter stringFromDate:[NSDate date]];
     message.user_id = self.item.user_id;
+    message.avatar = [UserManager sharedUserManager].curUserInfo.avatar;
+    message.nickname = [UserManager sharedUserManager].curUserInfo.nickname;
     message.messageState = SRXSendMessageType_Sending;
     [self.dataSources addObject:message];
     self.tableView.datas = self.dataSources.copy;
@@ -370,7 +411,7 @@
         }];
     }else {
         SRXMsgChatModel *message = [SRXMsgChatModel receiveMessageWithDic:dic];
-        if ([message.user_id isEqualToString:self.item.user_id]) {
+        if ([message.user_id isEqualToString:self.item.user_id] && [self.shop_id isEqualToString:message.shop_id]) {
             [self.dataSources addObject:message];
             self.tableView.datas = self.dataSources.copy;
             [self.tableView reloadData];
@@ -382,7 +423,7 @@
 #pragma mark 工具栏高度改变  SHMessageInputViewDelegate
 - (void)toolbarHeightChange {
     //改变聊天界面高度
-    self.tableViewConsH.constant = self.chatInputView.jk_y-TopHeight;
+    self.tableViewConsH.constant = self.chatInputView.jk_y-TopHeight-36;
     [self.view layoutIfNeeded];
 //    //滚动到底部
     [self tableViewScrollToBottom];
@@ -432,14 +473,18 @@
         SRXChatCheckOrdersVC *vc = [[SRXChatCheckOrdersVC alloc] init];
         vc.user_id = self.item.user_id;
         MJWeakSelf;
-        vc.selectBlock = ^(SRXMsgOrderInfo * _Nonnull model) {
+        vc.selectBlock = ^(SRXOrderListModel * _Nonnull model) {
             [weakSelf sendChatMessageWithOrder:model];
         };
-        [self.navigationController presentViewController:vc animated:NO completion:nil];
+        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     }else if ([menuItem.title isEqualToString:@"优惠券"]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
         SRXChatCouponListVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXChatCouponListVC"];
         vc.shop_id = self.shop_id;
+        MJWeakSelf;
+        vc.selectBlock = ^(SRXMsgChatCoupnItem * _Nonnull model) {
+            [weakSelf sendChatMessageWithCoupon:model];
+        };
         [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     }
 }

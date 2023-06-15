@@ -73,9 +73,6 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="sendGoodsBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="l0d-rl-Nob"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8c-N1-ZxV">
                                 <rect key="frame" x="145" y="121" width="70" height="26"/>
@@ -99,9 +96,6 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="sendCouponBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Vc0-Xj-F32"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -137,6 +131,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="couponBtn" destination="h8c-N1-ZxV" id="PIy-0C-3Tm"/>
+                <outlet property="goodsBtn" destination="I6T-9t-1E0" id="ZWg-Bk-36b"/>
                 <outlet property="goods_img" destination="gzy-K6-wzU" id="dgJ-Q7-atP"/>
                 <outlet property="goods_name" destination="Ix8-yC-1iF" id="oin-ZC-DtP"/>
                 <outlet property="goods_price" destination="MWL-Nj-N6b" id="Qd7-R1-hsr"/>

@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SRXMessageListModel.h"
+#import "SRXMsgChatModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXChatRecommentGoodsTableCell : UITableViewCell
-@property (nonatomic, strong) SRXChatRecommentGoodsItem *item;
+@property (weak, nonatomic) IBOutlet UIButton *couponBtn;
+@property (weak, nonatomic) IBOutlet UIButton *goodsBtn;
+@property (nonatomic, strong) SRXMsgGoodsInfoItem *item;
 @end
 
 NS_ASSUME_NONNULL_END

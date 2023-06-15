@@ -62,13 +62,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="76" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥8.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJ4-hQ-rss">
-                                                <rect key="frame" x="40" y="3.0000000000000009" width="36" height="14.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <rect key="frame" x="34.666666666666657" y="1.6666666666666572" width="41.333333333333343" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="运费:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ef-1U-a9O">
-                                                <rect key="frame" x="11.666666666666663" y="3.0000000000000009" width="28.333333333333329" height="14.333333333333336"/>
+                                                <rect key="frame" x="6.3333333333333339" y="3.0000000000000009" width="28.333333333333329" height="14.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -86,13 +86,13 @@
                                         <rect key="frame" x="81" y="0.0" width="95" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uz4-tN-dKZ">
-                                                <rect key="frame" x="62" y="3.0000000000000009" width="33" height="14.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <rect key="frame" x="57" y="1.6666666666666572" width="38" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分抵扣:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biA-5K-57I">
-                                                <rect key="frame" x="9" y="3.0000000000000009" width="53" height="14.333333333333336"/>
+                                                <rect key="frame" x="4" y="3.0000000000000009" width="53" height="14.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -110,13 +110,13 @@
                                         <rect key="frame" x="181" y="0.0" width="95" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥8.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYk-iL-gE4">
-                                                <rect key="frame" x="59" y="3.0000000000000009" width="36" height="14.333333333333336"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <rect key="frame" x="53.666666666666686" y="1.6666666666666572" width="41.333333333333343" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付款:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXh-q4-b3c">
-                                                <rect key="frame" x="18.333333333333339" y="3.0000000000000009" width="40.666666666666657" height="14.333333333333336"/>
+                                                <rect key="frame" x="12.999999999999996" y="3.0000000000000009" width="40.666666666666657" height="14.333333333333336"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -276,10 +276,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BUz-vD-rvQ">
-                                <rect key="frame" x="64" y="429" width="222" height="26"/>
+                                <rect key="frame" x="216" y="429" width="70" height="26"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcO-Vu-Pd9">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="26"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcO-Vu-Pd9">
+                                        <rect key="frame" x="-70" y="0.0" width="70" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26" id="hJT-Hp-1IB"/>
                                             <constraint firstAttribute="width" constant="70" id="vU2-6R-C8g"/>
@@ -304,8 +304,8 @@
                                             <action selector="sendGoodsBtnClick:" destination="hTM-Hx-Eto" eventType="touchUpInside" id="saT-am-Lw0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaL-0m-L8x">
-                                        <rect key="frame" x="76" y="0.0" width="70" height="26"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NaL-0m-L8x">
+                                        <rect key="frame" x="-70" y="0.0" width="70" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="afp-tw-BIx"/>
                                             <constraint firstAttribute="height" constant="26" id="hzM-wb-GbX"/>
@@ -331,7 +331,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMa-Gg-yQ4">
-                                        <rect key="frame" x="152" y="0.0" width="70" height="26"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="26"/>
                                         <color key="backgroundColor" red="0.26274509800000001" green="0.72156862749999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="26" id="TqX-0I-kIv"/>
@@ -350,9 +350,6 @@
                                                 <integer key="value" value="0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="sendOrderBtnClick:" destination="hTM-Hx-Eto" eventType="touchUpInside" id="g0g-FE-5Ot"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

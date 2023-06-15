@@ -6,11 +6,11 @@
 //  Copyright © 2022 Alucardulad. All rights reserved.
 //
 
-#import "SRXMsgShopAddressTableCell.h"
+#import "SRXMsgUserAddressTableCell.h"
 #import "SRXMsgGoodsPicsCollectionCell.h"
 #import "SRXOrderDetailsVC.h"
 
-@interface SRXMsgShopAddressTableCell ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface SRXMsgUserAddressTableCell ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIImageView *shop_icon;
 @property (weak, nonatomic) IBOutlet UILabel *shop_name;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
@@ -27,10 +27,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *user_address;
 @property (weak, nonatomic) IBOutlet UIButton *addressBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
+@property (weak, nonatomic) IBOutlet UILabel *sureLb;
 
 @end
 
-@implementation SRXMsgShopAddressTableCell
+@implementation SRXMsgUserAddressTableCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -65,23 +66,23 @@
     // Configure the view for the selected state
 }
 - (IBAction)updateAddressBtnClick:(id)sender {
-   NSInteger timestamp = [NSDate lc_getTimestamp];
-    if (timestamp > self.model.order_address_info.create_time.integerValue + 2*60*60) {
-        [SVProgressHUD showInfoWithStatus:@"订单已超2个小时，不能更改地址"];
-        self.addressBtn.hidden = YES;
-        return;
-    }
+//   NSInteger timestamp = [NSDate lc_getTimestamp];
+//    if (timestamp > self.model.order_address_info.create_time.integerValue + 2*60*60) {
+//        [SVProgressHUD showInfoWithStatus:@"订单已超2个小时，不能更改地址"];
+//        self.addressBtn.hidden = YES;
+//        return;
+//    }
 }
 
 - (IBAction)sureBtnClick:(id)sender {
-    [[NetworkManager sharedClient] getWithURLString:@"v2/orderAddressConfirm" parameters:@{@"order_id":self.model.order_address_info.order_id} isNeedSVP:YES success:^(NSDictionary *messageDic) {
-        self.model.order_address_info.is_sure_address = 1;
-        if (self.updateBlock) {
-            self.updateBlock();
-        }
-    } failure:^(NSString *error) {
-
-    }];
+//    [[NetworkManager sharedClient] getWithURLString:@"v2/orderAddressConfirm" parameters:@{@"order_id":self.model.order_address_info.order_id} isNeedSVP:YES success:^(NSDictionary *messageDic) {
+//        self.model.order_address_info.is_sure_address = 1;
+//        if (self.updateBlock) {
+//            self.updateBlock();
+//        }
+//    } failure:^(NSString *error) {
+//
+//    }];
 }
 
 - (void)setModel:(SRXMsgChatModel *)model {
@@ -109,21 +110,23 @@
         _multiGoodsView.hidden = YES;
     }
     if (model.order_address_info.is_sure_address==1) {
-        _addressBtn.hidden = YES;
-        [_sureBtn setTitle:@"已确认" forState:UIControlStateNormal];
-        _sureBtn.backgroundColor = UIColorHex(0xcdcdcd);
-        _sureBtn.enabled = NO;
+        _sureLb.text = @"已确认";
+//        _addressBtn.hidden = YES;
+//        [_sureBtn setTitle:@"已确认" forState:UIControlStateNormal];
+//        _sureBtn.backgroundColor = UIColorHex(0xcdcdcd);
+//        _sureBtn.enabled = NO;
     }else {
-        if (model.order_address_info.is_change_address) {
-            _addressBtn.hidden = YES;
-        } else if (model.order_address_info.can_change_address) {
-            _addressBtn.hidden = NO;
-        }else {
-            _addressBtn.hidden = YES;
-        }
-        [_sureBtn setTitle:@"确认订单" forState:UIControlStateNormal];
-        _sureBtn.backgroundColor = COrange;
-        _sureBtn.enabled = YES;
+        _sureLb.text = @"未确认";
+//        if (model.order_address_info.is_change_address) {
+//            _addressBtn.hidden = YES;
+//        } else if (model.order_address_info.can_change_address) {
+//            _addressBtn.hidden = NO;
+//        }else {
+//            _addressBtn.hidden = YES;
+//        }
+//        [_sureBtn setTitle:@"确认订单" forState:UIControlStateNormal];
+//        _sureBtn.backgroundColor = COrange;
+//        _sureBtn.enabled = YES;
     }
 }
 

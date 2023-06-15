@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"推荐商品";
+    self.tableView.rowHeight = 138;
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXChatRecommentGoodsTableCell" bundle:nil] forCellReuseIdentifier:@"SRXChatRecommentGoodsTableCell"];
     [self.tableView.mj_header beginRefreshing];
 }
@@ -31,10 +32,32 @@
         [self requestTableDataFailed];
     }];
 }
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.dataSources.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXChatRecommentGoodsTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXChatRecommentGoodsTableCell" forIndexPath:indexPath];
-    cell.item = self.dataSources[indexPath.row];
+    SRXMsgGoodsInfoItem *item = self.dataSources[indexPath.section];
+    cell.item = item;
+    MJWeakSelf;
+    [cell.goodsBtn addCallBackAction:^(UIButton *button) {
+        if (weakSelf.clickBlock) {
+            weakSelf.clickBlock(item, YES);
+            [SVProgressHUD showSuccessWithStatus:@"商品已发送成功"];
+        }
+    }];
+    [cell.couponBtn addCallBackAction:^(UIButton *button) {
+        item.coupon.image = item.image;
+        if (weakSelf.clickBlock) {
+            weakSelf.clickBlock(item, NO);
+            [SVProgressHUD showSuccessWithStatus:@"优惠券已发送成功"];
+        }
+    }];
     return cell;
 }
 

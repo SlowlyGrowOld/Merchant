@@ -48,6 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 订单核对列表
 + (void)getChatOrderListWithUser_id:(NSString *)user_id
                         shop_id:(NSString *)shop_id
+                               page:(NSInteger)page
+                           pageSize:(NSInteger)pageSize
                         success:(JHNetworkRequestSuccessArray)success
                         failure:(JHNetworkRequestFailure)failure;
 
