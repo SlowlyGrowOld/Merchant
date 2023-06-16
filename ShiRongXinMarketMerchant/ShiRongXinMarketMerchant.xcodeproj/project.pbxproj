@@ -172,6 +172,13 @@
 		11C5FFB32A1DAFEB00850951 /* SRXTextFieldAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C5FFB12A1DAFEB00850951 /* SRXTextFieldAlertVC.m */; };
 		11C5FFB72A1DB9B200850951 /* NetworkManager+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C5FFB52A1DB9B100850951 /* NetworkManager+Common.m */; };
 		11C5FFBC2A1DE6C000850951 /* SRXGoodsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C5FFBB2A1DE6C000850951 /* SRXGoodsListModel.m */; };
+		11C66FFD2A3BF69600129C41 /* SRXMsgEvaluateTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C66FFB2A3BF69600129C41 /* SRXMsgEvaluateTableCell.m */; };
+		11C66FFE2A3BF69600129C41 /* SRXMsgEvaluateTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C66FFC2A3BF69600129C41 /* SRXMsgEvaluateTableCell.xib */; };
+		11C670022A3C0A8500129C41 /* SRXChatTransferServiceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C670002A3C0A8500129C41 /* SRXChatTransferServiceVC.m */; };
+		11C670032A3C0A8500129C41 /* SRXChatTransferServiceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C670012A3C0A8500129C41 /* SRXChatTransferServiceVC.xib */; };
+		11C670072A3C0BA600129C41 /* SRXChatTransferServiceTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C670052A3C0BA600129C41 /* SRXChatTransferServiceTableCell.m */; };
+		11C670082A3C0BA600129C41 /* SRXChatTransferServiceTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11C670062A3C0BA600129C41 /* SRXChatTransferServiceTableCell.xib */; };
+		11C6700B2A3C4AD000129C41 /* SRXChatQuickReplyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6700A2A3C4AD000129C41 /* SRXChatQuickReplyTableView.m */; };
 		11C6F7DE2A32CC4500CFE28E /* Message.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11C6F7DD2A32CC4500CFE28E /* Message.storyboard */; };
 		11C6F7E12A32CEA500CFE28E /* SRXMessagePageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F7E02A32CEA500CFE28E /* SRXMessagePageVC.m */; };
 		11C6F7E42A32D00400CFE28E /* SRXMessageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F7E32A32D00400CFE28E /* SRXMessageListVC.m */; };
@@ -860,6 +867,17 @@
 		11C5FFB62A1DB9B100850951 /* NetworkManager+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkManager+Common.h"; sourceTree = "<group>"; };
 		11C5FFBA2A1DE6C000850951 /* SRXGoodsListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsListModel.h; sourceTree = "<group>"; };
 		11C5FFBB2A1DE6C000850951 /* SRXGoodsListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsListModel.m; sourceTree = "<group>"; };
+		11C66FFA2A3BF69600129C41 /* SRXMsgEvaluateTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMsgEvaluateTableCell.h; sourceTree = "<group>"; };
+		11C66FFB2A3BF69600129C41 /* SRXMsgEvaluateTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMsgEvaluateTableCell.m; sourceTree = "<group>"; };
+		11C66FFC2A3BF69600129C41 /* SRXMsgEvaluateTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXMsgEvaluateTableCell.xib; sourceTree = "<group>"; };
+		11C66FFF2A3C0A8500129C41 /* SRXChatTransferServiceVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatTransferServiceVC.h; sourceTree = "<group>"; };
+		11C670002A3C0A8500129C41 /* SRXChatTransferServiceVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatTransferServiceVC.m; sourceTree = "<group>"; };
+		11C670012A3C0A8500129C41 /* SRXChatTransferServiceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatTransferServiceVC.xib; sourceTree = "<group>"; };
+		11C670042A3C0BA600129C41 /* SRXChatTransferServiceTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatTransferServiceTableCell.h; sourceTree = "<group>"; };
+		11C670052A3C0BA600129C41 /* SRXChatTransferServiceTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatTransferServiceTableCell.m; sourceTree = "<group>"; };
+		11C670062A3C0BA600129C41 /* SRXChatTransferServiceTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatTransferServiceTableCell.xib; sourceTree = "<group>"; };
+		11C670092A3C4AD000129C41 /* SRXChatQuickReplyTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatQuickReplyTableView.h; sourceTree = "<group>"; };
+		11C6700A2A3C4AD000129C41 /* SRXChatQuickReplyTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatQuickReplyTableView.m; sourceTree = "<group>"; };
 		11C6F7DD2A32CC4500CFE28E /* Message.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Message.storyboard; sourceTree = "<group>"; };
 		11C6F7DF2A32CEA500CFE28E /* SRXMessagePageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessagePageVC.h; sourceTree = "<group>"; };
 		11C6F7E02A32CEA500CFE28E /* SRXMessagePageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessagePageVC.m; sourceTree = "<group>"; };
@@ -1780,27 +1798,7 @@
 			path = ShiRongXinMarketMerchant/Modules/Me/model;
 			sourceTree = SOURCE_ROOT;
 		};
-		116642DD2A39632F00F846B2 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				116642E02A39644600F846B2 /* model */,
-				116642DF2A39644100F846B2 /* view */,
-				116642DE2A39643500F846B2 /* controller */,
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
-		116642DE2A39643500F846B2 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				116642E12A39645800F846B2 /* SRXMsgChatVC.h */,
-				116642E22A39645800F846B2 /* SRXMsgChatVC.m */,
-				116642E32A39645800F846B2 /* SRXMsgChatVC.xib */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		116642DF2A39644100F846B2 /* view */ = {
+		116642DF2A39644100F846B2 /* chatview */ = {
 			isa = PBXGroup;
 			children = (
 				116642E62A39647B00F846B2 /* inputView */,
@@ -1809,18 +1807,7 @@
 				116643752A39649E00F846B2 /* tableView */,
 				116642FC2A39647C00F846B2 /* tableViewCell */,
 			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		116642E02A39644600F846B2 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				1166437F2A3964E900F846B2 /* SRXMsgChatModel.h */,
-				116643802A3964E900F846B2 /* SRXMsgChatModel.m */,
-				116643822A3965DF00F846B2 /* SRXMessage.h */,
-				116643832A3965DF00F846B2 /* SRXMessage.m */,
-			);
-			path = model;
+			path = chatview;
 			sourceTree = "<group>";
 		};
 		116642E62A39647B00F846B2 /* inputView */ = {
@@ -1875,6 +1862,9 @@
 				116643C32A39971400F846B2 /* SRXMsgTimeTableCell.h */,
 				116643BB2A39971300F846B2 /* SRXMsgTimeTableCell.m */,
 				116643C02A39971400F846B2 /* SRXMsgTimeTableCell.xib */,
+				11C66FFA2A3BF69600129C41 /* SRXMsgEvaluateTableCell.h */,
+				11C66FFB2A3BF69600129C41 /* SRXMsgEvaluateTableCell.m */,
+				11C66FFC2A3BF69600129C41 /* SRXMsgEvaluateTableCell.xib */,
 				116643AF2A39971200F846B2 /* SRXMsgUserAudioTableCell.h */,
 				116643CC2A39971500F846B2 /* SRXMsgUserAudioTableCell.m */,
 				116643BD2A39971300F846B2 /* SRXMsgUserAudioTableCell.xib */,
@@ -2073,6 +2063,7 @@
 			isa = PBXGroup;
 			children = (
 				11C6F7DB2A32CC1100CFE28E /* model */,
+				116642DF2A39644100F846B2 /* chatview */,
 				11C6F7DA2A32CC0B00CFE28E /* view */,
 				11C6F7DC2A32CC1600CFE28E /* controller */,
 			);
@@ -2096,6 +2087,10 @@
 				11C6F7FD2A33051600CFE28E /* SRXMessageListModel.m */,
 				111314CF2A370D92001A77B7 /* SRXMessageSetModel.h */,
 				111314D02A370D92001A77B7 /* SRXMessageSetModel.m */,
+				1166437F2A3964E900F846B2 /* SRXMsgChatModel.h */,
+				116643802A3964E900F846B2 /* SRXMsgChatModel.m */,
+				116643822A3965DF00F846B2 /* SRXMessage.h */,
+				116643832A3965DF00F846B2 /* SRXMessage.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2108,12 +2103,18 @@
 				11C6F7E02A32CEA500CFE28E /* SRXMessagePageVC.m */,
 				11C6F7E22A32D00400CFE28E /* SRXMessageListVC.h */,
 				11C6F7E32A32D00400CFE28E /* SRXMessageListVC.m */,
+				116642E12A39645800F846B2 /* SRXMsgChatVC.h */,
+				116642E22A39645800F846B2 /* SRXMsgChatVC.m */,
+				116642E32A39645800F846B2 /* SRXMsgChatVC.xib */,
 				111314B22A36E69F001A77B7 /* SRXChatRecommentGoodsVC.h */,
 				111314B32A36E69F001A77B7 /* SRXChatRecommentGoodsVC.m */,
 				111314B52A36E6BF001A77B7 /* SRXChatCheckOrdersVC.h */,
 				111314B62A36E6BF001A77B7 /* SRXChatCheckOrdersVC.m */,
 				116644352A39ABE100F846B2 /* SRXChatCouponListVC.h */,
 				116644362A39ABE100F846B2 /* SRXChatCouponListVC.m */,
+				11C66FFF2A3C0A8500129C41 /* SRXChatTransferServiceVC.h */,
+				11C670002A3C0A8500129C41 /* SRXChatTransferServiceVC.m */,
+				11C670012A3C0A8500129C41 /* SRXChatTransferServiceVC.xib */,
 				111314AF2A36BAC0001A77B7 /* SRXMessageSetTableVC.h */,
 				111314B02A36BAC0001A77B7 /* SRXMessageSetTableVC.m */,
 				111314C22A36F540001A77B7 /* SRXChatStateSwitchVC.h */,
@@ -2149,6 +2150,9 @@
 				116644382A39AE9700F846B2 /* SRXChatCouponTableCell.h */,
 				116644392A39AE9700F846B2 /* SRXChatCouponTableCell.m */,
 				1166443A2A39AE9700F846B2 /* SRXChatCouponTableCell.xib */,
+				11C670042A3C0BA600129C41 /* SRXChatTransferServiceTableCell.h */,
+				11C670052A3C0BA600129C41 /* SRXChatTransferServiceTableCell.m */,
+				11C670062A3C0BA600129C41 /* SRXChatTransferServiceTableCell.xib */,
 				11E14B652A380847005211D1 /* SRXChatTagsTableCell.h */,
 				11E14B662A380847005211D1 /* SRXChatTagsTableCell.m */,
 				11E14B672A380847005211D1 /* SRXChatTagsTableCell.xib */,
@@ -2178,6 +2182,8 @@
 				11C6F7F22A32F99100CFE28E /* SRXMessageListShopView.h */,
 				11C6F7F32A32F99100CFE28E /* SRXMessageListShopView.m */,
 				11C6F7F52A32F99B00CFE28E /* SRXMessageListShopView.xib */,
+				11C670092A3C4AD000129C41 /* SRXChatQuickReplyTableView.h */,
+				11C6700A2A3C4AD000129C41 /* SRXChatQuickReplyTableView.m */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -3177,7 +3183,6 @@
 		18CCFE5623C7044E0009732E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				116642DD2A39632F00F846B2 /* Chat */,
 				11C6F7D92A32CC0300CFE28E /* Message */,
 				11E0896729FA10FF00335DCC /* Goods */,
 				116E426429E6872E0006ECBD /* Order */,
@@ -3859,7 +3864,9 @@
 				116E427129E69B910006ECBD /* Login.storyboard in Resources */,
 				119992C229F7C6A600DDEE44 /* SRXProtocolHtmlVC.xib in Resources */,
 				1104E6F42A1EF0AA006E58FF /* SRXGoodsListEditBottomView.xib in Resources */,
+				11C66FFE2A3BF69600129C41 /* SRXMsgEvaluateTableCell.xib in Resources */,
 				18CCFE4E23C6F5120009732E /* DazFire.png in Resources */,
+				11C670082A3C0BA600129C41 /* SRXChatTransferServiceTableCell.xib in Resources */,
 				11E10CB42A21D57800255988 /* SRXGoodsSpecInfoEditVC.xib in Resources */,
 				116643922A39663400F846B2 /* SRXMsgChatQuoteView.xib in Resources */,
 				18CCFE4F23C6F5120009732E /* back_icon@3x.png in Resources */,
@@ -3871,6 +3878,7 @@
 				11CA6D802A3840FE006672C9 /* SRXQuickReplyGroupNameTableCell.xib in Resources */,
 				11A5C796290BBD3200CD7658 /* voice_play_animation_6.png in Resources */,
 				11C4DE2929F4D44900A15C7D /* SRXOrderLogisticsListTableCell.xib in Resources */,
+				11C670032A3C0A8500129C41 /* SRXChatTransferServiceVC.xib in Resources */,
 				11C6F7F02A32F4B100CFE28E /* SRXMessageListShopCollectionCell.xib in Resources */,
 				116643F92A39971600F846B2 /* SRXMsgUserOrderTableCell.xib in Resources */,
 				11E0898C29FA6AF500335DCC /* SRXCreateTimeFilterView.xib in Resources */,
@@ -4344,6 +4352,7 @@
 				18CCFE1D23C6F5120009732E /* UIScrollView+mjRefreshByLiu70.m in Sources */,
 				18CCFE3E23C6F5120009732E /* MBProgressHUD+XY.m in Sources */,
 				18CCFD5D23C6F2D40009732E /* AppDelegate.m in Sources */,
+				11C66FFD2A3BF69600129C41 /* SRXMsgEvaluateTableCell.m in Sources */,
 				11BB773628DC47880019B686 /* SRXLoadFailView.m in Sources */,
 				11D7E58528894C6900FA19F5 /* YBIBLoadingView.m in Sources */,
 				5DD013E723FE943A00FC4060 /* NSMutableArray+JKMutableArray.m in Sources */,
@@ -4429,6 +4438,7 @@
 				5D4631DD2437122B00D55A0D /* SRXPersonalSettingCommonBtn.m in Sources */,
 				11E55EA829E9334500B34C18 /* SRXLoginProtocolVC.m in Sources */,
 				80341F1B242DE54300DED907 /* JPVideoPlayerDownloader.m in Sources */,
+				11C6700B2A3C4AD000129C41 /* SRXChatQuickReplyTableView.m in Sources */,
 				62AE29222665DFEA00B1946D /* JHWaterfallCollectionLayout.m in Sources */,
 				11F2500D290BCAF900E03964 /* AudioRecorderUtil.m in Sources */,
 				119992A929F769C500DDEE44 /* SRXOrderRefundDetailsPicsCollectionCell.m in Sources */,
@@ -4475,6 +4485,7 @@
 				11DF670629F66262004557DE /* SRXOrderRefundDetailsBuyerTableCell.m in Sources */,
 				805A7E0624B5B36800D99F39 /* XHLaunchAdView.m in Sources */,
 				11F2500B290BCAF900E03964 /* AudioPlayerUtil.m in Sources */,
+				11C670072A3C0BA600129C41 /* SRXChatTransferServiceTableCell.m in Sources */,
 				11ECD8772A25CB0600AF7B82 /* SRXGoodsMediaCollectionCell.m in Sources */,
 				110ABCA929EE8155002D562C /* SRXPhoneCurrentVC.m in Sources */,
 				1184996B283F72CB00D7EEC6 /* NSMutableAttributedString+JHExt.m in Sources */,
@@ -4516,6 +4527,7 @@
 				11D7E5DF28894CB400FA19F5 /* YBIBVideoTopBar.m in Sources */,
 				80341F27242DE54300DED907 /* JPVideoPlayerManager.m in Sources */,
 				11E0898829FA641700335DCC /* SRXTextCollectionCell.m in Sources */,
+				11C670022A3C0A8500129C41 /* SRXChatTransferServiceVC.m in Sources */,
 				5DD013EF23FE943A00FC4060 /* UIDevice+JKHardware.m in Sources */,
 				1166441C2A39988400F846B2 /* SHFileHelper.m in Sources */,
 				111314BB2A36E6D9001A77B7 /* SRXChatRecommentGoodsTableCell.m in Sources */,

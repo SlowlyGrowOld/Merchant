@@ -85,8 +85,14 @@ NS_ASSUME_NONNULL_BEGIN
                     success:(void(^)(SRXMsgChatOther *other))success
                     failure:(JHNetworkRequestFailure)failure;
 
-/// 对话窗口 - 待发货，待付款，待评价数量 和 标签
+/// 对话窗口-转接列表
 + (void)getChatTransferListWithSuccess:(JHNetworkRequestSuccessArray)success
+                               failure:(JHNetworkRequestFailure)failure;
+
+/// 转接按钮事件
++ (void)transferChatServiceWithUser_id:(NSString *)user_id
+                          shop_user_id:(NSString *)shop_user_id
+                               success:(JHNetworkRequestSuccessVoid)success
                                failure:(JHNetworkRequestFailure)failure;
 /// 商户发送消息
 + (void)sentChatMsgWithParameters:(NSDictionary *)parameters

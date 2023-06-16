@@ -124,18 +124,19 @@
     if (textView.selectedRange.length > 0) {
         //全部选中的时候内容显示的不一样。
         if (textView.selectedRange.length == textView.text.length) {
-            for (int i = 0; i < 4; i ++) {
+            for (int i = 0; i < 1; i ++) {
                 JYBubbleButtonModel *model = [[JYBubbleButtonModel alloc] init];
-                if (i == 0) {
-                    model.imageName = @"msg_bubble_quote";
-                    model.name = @"引用";
-                } else if (i == 1) {
-                    model.imageName = @"msg_bubble_report";
-                    model.name = @"举报";
-                } else if (i == 2) {
-                    model.imageName = @"msg_bubble_delete";
-                    model.name = @"删除";
-                } else if (i == 3) {
+//                if (i == 0) {
+//                    model.imageName = @"msg_bubble_quote";
+//                    model.name = @"引用";
+//                } else if (i == 1) {
+//                    model.imageName = @"msg_bubble_report";
+//                    model.name = @"举报";
+//                } else if (i == 2) {
+//                    model.imageName = @"msg_bubble_delete";
+//                    model.name = @"删除";
+//                } else
+                    if (i == 0) {
                     model.imageName = @"msg_bubble_copy";
                     model.name = @"复制";
                 }

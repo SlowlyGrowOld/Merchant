@@ -22,9 +22,10 @@
 #import "SRXChatCheckOrdersVC.h"
 #import "SRXChatCouponListVC.h"
 #import "SRXChatRecommentGoodsVC.h"
+#import "SRXChatTransferServiceVC.h"
+#import "SRXChatQuickReplyTableView.h"
 
 @interface SRXMsgChatVC ()<SHMessageInputViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,JHWebSocketManagerDelegate>
-@property (weak, nonatomic) IBOutlet UIButton *shopBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *shop_image;
 @property (weak, nonatomic) IBOutlet UILabel *shop_name;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewConsH;
@@ -37,6 +38,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *c_good_price;
 @property (weak, nonatomic) IBOutlet UIButton *c_sendBtn;
 @property (weak, nonatomic) IBOutlet UILabel *c_goods_num;
+//底部按钮视图
+@property (weak, nonatomic) IBOutlet UIView *bottom_btns;
+@property (weak, nonatomic) IBOutlet UIButton *nav_tags;
+@property (weak, nonatomic) IBOutlet UIButton *nav_orders;
+//快捷回复
+@property (weak, nonatomic) IBOutlet SRXChatQuickReplyTableView *replyTableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ReplyTableViewConsH;
+
 //下方工具栏
 @property (nonatomic, strong) SHMessageInputView *chatInputView;
 @property (nonatomic, strong) NSMutableArray *dataSources;
@@ -48,6 +57,8 @@
 @property (nonatomic, copy) NSString *chat_id;
 //发送引用文本所需chat_id
 @property (nonatomic, copy) NSString *text_chat_id;
+//转接其他客服后禁止发送消息
+@property (nonatomic, assign) BOOL isTransfer;
 @end
 
 @implementation SRXMsgChatVC
@@ -94,11 +105,16 @@
     [self.view addSubview:self.chatInputView];
     self.tableView.delegate = self;
     
+    MJWeakSelf;
+    self.replyTableView.selectBlock = ^(SRXMsgReplysItem * _Nonnull item) {
+        weakSelf.replyTableView.superview.hidden = YES;
+    };
+    
     [JHWebSocketManager shareInstance].delegate = self;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sendFailToResendMsg:) name:KNotificationMsgSendFail object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatTextMenuAction:) name:KNotiChatTextMenuAction object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickTableViewAction) name:@"JKTextViewHideTextSelection" object:nil];
     [[JHWebSocketManager shareInstance] initWebSocket];
 }
 
@@ -149,17 +165,31 @@
     }]];
     [[UIViewController jk_currentViewController] presentViewController:alertC animated:YES completion:nil];
 }
+
 #pragma mark - UIButton event
+- (void)clickTableViewAction {
+    if (!self.replyTableView.superview.isHidden) {
+        self.replyTableView.superview.hidden = YES;
+        return;
+    }
+}
+
 - (IBAction)backBtnClick:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)shopBtnClick:(id)sender {
+- (IBAction)tagsListBtnClick:(id)sender {
 
 }
 
-- (IBAction)setBtnClick:(id)sender {
-
+- (IBAction)orderListBtnClick:(id)sender {
+    SRXChatCheckOrdersVC *vc = [[SRXChatCheckOrdersVC alloc] init];
+    vc.user_id = self.item.user_id;
+    MJWeakSelf;
+    vc.selectBlock = ^(SRXOrderListModel * _Nonnull model) {
+        [weakSelf sendChatMessageWithOrder:model];
+    };
+    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 
 - (IBAction)closeGoodConsultViewBtnClick:(id)sender {
@@ -176,16 +206,64 @@
 }
 
 - (IBAction)quickReplyBtnClick:(id)sender {
-    
+    self.chatInputView.inputType = SHInputViewType_default;
+    if (!self.replyTableView.superview.isHidden) {
+        self.replyTableView.superview.hidden = YES;
+        return;
+    }
+    if (self.replyTableView.datas.count>0) {
+        self.replyTableView.superview.hidden = NO;
+        if (self.replyTableView.datas.count*36 > self.tableView.jk_height) {
+            self.ReplyTableViewConsH.constant = self.tableView.jk_height;
+        } else {
+            self.ReplyTableViewConsH.constant = self.replyTableView.datas.count*36;
+        }
+    }
+    [NetworkManager getQuickReplyWithShop_id:@"" success:^(NSArray *modelList) {
+        if (modelList.count>0) {
+            self.replyTableView.superview.hidden = NO;
+            self.replyTableView.datas = modelList;
+            if (modelList.count*36 > self.tableView.jk_height) {
+                self.ReplyTableViewConsH.constant = self.tableView.jk_height;
+            } else {
+                self.ReplyTableViewConsH.constant = modelList.count*36;
+            }
+        }
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (IBAction)InviteEvaluationBtnClick:(id)sender {
+    if (!self.replyTableView.superview.isHidden) {
+        self.replyTableView.superview.hidden = YES;
+    }
+    self.chatInputView.inputType = SHInputViewType_default;
+    [self sendChatMessageWithEvaluate];
 }
 
 - (IBAction)transferBtnClick:(id)sender {
+    if (!self.replyTableView.superview.isHidden) {
+        self.replyTableView.superview.hidden = YES;
+    }
+    self.chatInputView.inputType = SHInputViewType_default;
+    SRXChatTransferServiceVC *vc = [[SRXChatTransferServiceVC alloc] init];\
+    MJWeakSelf;
+    vc.serviceBlock = ^(SRXMsgChatServiceItem * _Nonnull item) {
+        [NetworkManager transferChatServiceWithUser_id:[UserManager sharedUserManager].curUserInfo._id shop_user_id:item.shop_user_id success:^(NSString *message) {
+            [weakSelf sendChatMessageWithTransfer:item];
+        } failure:^(NSString *message) {
+            
+        }];
+    };
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)recommendGoodsBtnClick:(id)sender {
+    if (!self.replyTableView.superview.isHidden) {
+        self.replyTableView.superview.hidden = YES;
+    }
+    self.chatInputView.inputType = SHInputViewType_default;
     SRXChatRecommentGoodsVC *vc = [SRXChatRecommentGoodsVC new];
     vc.shop_id = self.shop_id;
     MJWeakSelf;
@@ -203,9 +281,24 @@
 - (void)requestTableData {
     [NetworkManager getChatContentWithUser_id:self.item.user_id shop_id:self.shop_id page:self.pageNo pageSize:self.pageSize success:^(NSArray *modelList) {
         [self requestTableDataSuccessWithArray:modelList];
+        if (self.dataSources.count>0) {
+           SRXMsgChatModel *model = self.dataSources.lastObject;
+           self.isTransfer = [model.msg_type isEqualToString:@"transfer"]?YES:NO;
+        }
     } failure:^(NSString *message) {
         [self requestTableDataFailed];
     }];
+}
+
+- (void)setIsTransfer:(BOOL)isTransfer {
+    if (self.isTransfer == isTransfer) {
+        return;
+    }
+    _isTransfer = isTransfer;
+    self.bottom_btns.hidden = self.isTransfer;
+    self.chatInputView.isDisenable = self.isTransfer;
+    self.nav_tags.hidden = self.isTransfer;
+    self.nav_orders.hidden = self.isTransfer;
 }
 
 - (NSMutableArray *)dataSources{
@@ -285,6 +378,28 @@
     message.msg_type = @"coupon";
     message.params = coupon.coupon_id;
     message.coupon_info = coupon;
+    message.messageKey = [SHMessageHelper getTimeWithZone];
+    //添加到聊天界面
+    [self addChatMessageWithMessage:message isBottom:YES];
+}
+
+#pragma mark 发送邀请评价
+- (void)sendChatMessageWithEvaluate {
+    SRXMsgChatModel *message = [SRXMsgChatModel new];
+
+    message.msg_type = @"invite_evaluate";
+    message.messageKey = [SHMessageHelper getTimeWithZone];
+    //添加到聊天界面
+    [self addChatMessageWithMessage:message isBottom:YES];
+}
+
+#pragma mark 发送转接客服
+- (void)sendChatMessageWithTransfer:(SRXMsgChatServiceItem *)service {
+    SRXMsgChatModel *message = [SRXMsgChatModel new];
+
+    message.msg_type = @"transfer";
+    message.params = service.shop_user_id;
+    message.transfer_info = service;
     message.messageKey = [SHMessageHelper getTimeWithZone];
     //添加到聊天界面
     [self addChatMessageWithMessage:message isBottom:YES];
@@ -412,6 +527,7 @@
     }else {
         SRXMsgChatModel *message = [SRXMsgChatModel receiveMessageWithDic:dic];
         if ([message.user_id isEqualToString:self.item.user_id] && [self.shop_id isEqualToString:message.shop_id]) {
+            self.isTransfer = [message.msg_type isEqualToString:@"transfer"]?YES:NO;
             [self.dataSources addObject:message];
             self.tableView.datas = self.dataSources.copy;
             [self.tableView reloadData];

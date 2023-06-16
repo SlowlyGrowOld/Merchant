@@ -21,6 +21,7 @@
 #import "SRXMsgUserAddressTableCell.h"
 #import "SRXMsgShopOrderTableCell.h"
 #import "SRXMsgShopAudioTableCell.h"
+#import "SRXMsgEvaluateTableCell.h"
 #import "SRXMsgChatModel.h"
 
 #import "SHAudioPlayerHelper.h"
@@ -59,6 +60,7 @@
     [self registerNib:[UINib nibWithNibName:@"SRXMsgUserCouponTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserCouponTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgUserAudioTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserAudioTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgUserChargeOrderTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgUserChargeOrderTableCell"];
+    [self registerNib:[UINib nibWithNibName:@"SRXMsgEvaluateTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgEvaluateTableCell"];
     
     [self registerNib:[UINib nibWithNibName:@"SRXMsgShopTextTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgShopTextTableCell"];
     [self registerNib:[UINib nibWithNibName:@"SRXMsgShopImageTableCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SRXMsgShopImageTableCell"];
@@ -162,6 +164,19 @@
             }else if ([model.msg_type isEqualToString:@"fulu_order"]){
                 SRXMsgUserChargeOrderTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgUserChargeOrderTableCell" forIndexPath:indexPath];
                 cell.model = model;
+                return cell;
+            }else if ([model.msg_type isEqualToString:@"invite_evaluate"]){
+                SRXMsgEvaluateTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgEvaluateTableCell" forIndexPath:indexPath];
+                cell.model = model;
+                return cell;
+            }else if ([model.msg_type isEqualToString:@"end_evaluate"]){
+                SRXMsgEvaluateTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgEvaluateTableCell" forIndexPath:indexPath];
+                cell.model = model;
+                return cell;
+            }else if ([model.msg_type isEqualToString:@"transfer"]){
+                SRXMsgTimeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgTimeTableCell" forIndexPath:indexPath];
+                cell.timeLb.text = [NSString stringWithFormat:@"- 已转接了客服%@为您服务 -",model.transfer_info.nickname];
+                cell.timeLb.font = [UIFont systemFontOfSize:12];
                 return cell;
             } else {
                 SRXMsgUserTextTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgUserTextTableCell" forIndexPath:indexPath];

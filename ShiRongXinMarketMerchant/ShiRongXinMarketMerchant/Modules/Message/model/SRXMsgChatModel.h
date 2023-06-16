@@ -7,7 +7,7 @@
 //
 
 #import "SRXBaseModel.h"
-
+#import "SRXMessageListModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 //优惠券列表
@@ -122,8 +122,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) SRXMsgOrderInfo          * fulu_order_info;
 /**msg_type=text并有引用时有数据*/
 @property (nonatomic , strong) SRXMsgReferenceInfo          * reference_info;
-/**msg_type=coupon_info并有引用时有数据*/
+/**msg_type=coupon_info时有数据*/
 @property (nonatomic , strong) SRXMsgChatCoupnItem          * coupon_info;
+/**msg_type=transfer时有数据*/
+@property (nonatomic , strong) SRXMsgChatServiceItem          * transfer_info;
 
 /**--自己添加的参数--*/
 //发送文本，引用的id

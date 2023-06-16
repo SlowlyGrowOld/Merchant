@@ -34,7 +34,7 @@
 }
 @end
 
-@implementation SRXMsgChatShopItem
+@implementation SRXMsgChatServiceItem
 
 @end
 

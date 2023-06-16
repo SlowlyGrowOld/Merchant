@@ -50,6 +50,9 @@
 //引用文本
 @property (nonatomic, copy) NSString *quoteText;
 
+//是否禁止点击
+@property (nonatomic, assign) BOOL isDisenable;
+
 //刷新视图
 - (void)reloadView;
 

@@ -13,7 +13,7 @@
 #import "SHMessageVoiceHUD.h"
 #import "SHAudioPlayerHelper.h"
 #import "SHAudioRecordHelper.h"
-#import "SHFileHelper.h""
+#import "SHFileHelper.h"
 
 @interface SHMessageInputView () <
 UITextViewDelegate,
@@ -67,6 +67,18 @@ static CGFloat start_maxY;
         [self addKeyboardNote];
     }
     return self;
+}
+
+#pragma mark - 禁止点击
+- (void)setIsDisenable:(BOOL)isDisenable {
+    _isDisenable = isDisenable;
+    self.menuBtn.enabled = !isDisenable;
+    self.voiceBtn.enabled = !isDisenable;
+    self.textView.userInteractionEnabled = !isDisenable;
+    self.inputBg.backgroundColor = isDisenable?UIColorHex(0xEDEDED):UIColor.whiteColor;
+    self.textView.text = isDisenable?@"对话已转接":@"";
+    self.textView.textColor = isDisenable?CFont99:UIColor.blackColor;
+    self.textView.textAlignment = isDisenable?NSTextAlignmentCenter:NSTextAlignmentLeft;
 }
 
 #pragma mark - 懒加载
@@ -688,6 +700,9 @@ static CGFloat start_maxY;
 }
 
 - (void)setQuoteText:(NSString *)quoteText {
+    if (self.isDisenable) {
+        return;
+    }
     _quoteText = quoteText;
     if (quoteText.length>0) {
         self.quoteLb.superview.hidden = NO;

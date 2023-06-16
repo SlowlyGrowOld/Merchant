@@ -80,12 +80,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 //客服转移
-@interface SRXMsgChatShopItem :NSObject
-@property (nonatomic , assign) NSInteger              shop_user_id;
+@interface SRXMsgChatServiceItem :NSObject
+@property (nonatomic , copy) NSString              * shop_user_id;
 @property (nonatomic , copy) NSString              * nickname;
 @property (nonatomic , copy) NSString              * avatar;
 @property (nonatomic , assign) NSInteger              chat_status;
-
+/**聊天内容*/
+@property (nonatomic , copy) NSString              * shop_name;
+@property (nonatomic , copy) NSString              * shop_img;
+@property (nonatomic , copy) NSString              * shop_id;
 @end
 
 @interface SRXMsgChatOrderNum :NSObject
