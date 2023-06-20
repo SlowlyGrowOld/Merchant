@@ -8,6 +8,7 @@
 
 #import "SRXChatTagsEditVC.h"
 #import "NetworkManager+MsgSet.h"
+#import "UIColor+JHExt.h"
 
 @interface SRXChatTagsEditVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
@@ -35,7 +36,7 @@
         self.title = @"编辑标签";
         UIImage *image = [UIImage imageNamed:@"star_yellow"];
         self.imgView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self.imgView setTintColor:[self colorWithHexString:self.item.label_color_number alpha:1]];
+        [self.imgView setTintColor:[UIColor colorWithHexString:self.item.label_color_number alpha:1]];
         self.textField.text = self.item.label_name;
         self.label_color = self.item.label_color_number;
     } else {
@@ -92,7 +93,7 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-    cell.backgroundColor = [self colorWithHexString:self.datas[indexPath.row] alpha:1];
+    cell.backgroundColor = [UIColor colorWithHexString:self.datas[indexPath.row] alpha:1];
     return cell;
 }
 
@@ -112,53 +113,7 @@
     self.label_color = self.datas[indexPath.row];
     UIImage *image = [UIImage imageNamed:@"star_yellow"];
     self.imgView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    [self.imgView setTintColor:[self colorWithHexString:self.label_color alpha:1]];
-}
-
-- (UIColor *)colorWithHexString:(NSString *)color alpha:(CGFloat)alpha
-{
-    //删除字符串中的空格
-    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    // String should be 6 or 8 characters
-    if ([cString length] < 6)
-    {
-        return [UIColor clearColor];
-    }
-    // strip 0X if it appears
-    //如果是0x开头的，那么截取字符串，字符串从索引为2的位置开始，一直到末尾
-    if ([cString hasPrefix:@"0X"]||[cString hasPrefix:@"0x"])
-    {
-        cString = [cString substringFromIndex:2];
-    }
-    //如果是#开头的，那么截取字符串，字符串从索引为1的位置开始，一直到末尾
-    if ([cString hasPrefix:@"#"])
-    {
-        cString = [cString substringFromIndex:1];
-    }
-    if ([cString length] != 6)
-    {
-        return [UIColor clearColor];
-    }
-    
-    // Separate into r, g, b substrings
-    NSRange range;
-    range.location = 0;
-    range.length = 2;
-    //r
-    NSString *rString = [cString substringWithRange:range];
-    //g
-    range.location = 2;
-    NSString *gString = [cString substringWithRange:range];
-    //b
-    range.location = 4;
-    NSString *bString = [cString substringWithRange:range];
-    
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    return [UIColor colorWithRed:((float)r / 255.0f) green:((float)g / 255.0f) blue:((float)b / 255.0f) alpha:alpha];
+    [self.imgView setTintColor:[UIColor colorWithHexString:self.label_color alpha:1]];
 }
 
 - (NSArray *)datas {

@@ -142,6 +142,11 @@
 		11A5C79C290BBD3200CD7658 /* voice_play_animation_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 11A5C794290BBD3200CD7658 /* voice_play_animation_5.png */; };
 		11A61DFF2A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A61DFD2A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.m */; };
 		11A61E002A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A61DFE2A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.xib */; };
+		11AFD40E2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFD40D2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.m */; };
+		11AFD4102A3FFB79001F7EDD /* SRXChatUserInfoHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11AFD40F2A3FFB79001F7EDD /* SRXChatUserInfoHeadView.xib */; };
+		11AFD4132A3FFFB1001F7EDD /* UIColor+JHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFD4122A3FFFB1001F7EDD /* UIColor+JHExt.m */; };
+		11AFD4172A403967001F7EDD /* SRXMsgChatSetAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFD4152A403967001F7EDD /* SRXMsgChatSetAlertVC.m */; };
+		11AFD4182A403967001F7EDD /* SRXMsgChatSetAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11AFD4162A403967001F7EDD /* SRXMsgChatSetAlertVC.xib */; };
 		11BB02FF28C1F05F0050768D /* NSURL+JHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB02FE28C1F05F0050768D /* NSURL+JHExt.m */; };
 		11BB773628DC47880019B686 /* SRXLoadFailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BB773528DC47880019B686 /* SRXLoadFailView.m */; };
 		11BCBDAB294B0A020034A2C2 /* UITableView+JHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11BCBDAA294B0A010034A2C2 /* UITableView+JHExt.m */; };
@@ -822,6 +827,14 @@
 		11A61DFC2A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsEditQuitAlertVC.h; sourceTree = "<group>"; };
 		11A61DFD2A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsEditQuitAlertVC.m; sourceTree = "<group>"; };
 		11A61DFE2A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXGoodsEditQuitAlertVC.xib; sourceTree = "<group>"; };
+		11AFD40C2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatUserInfoHeadView.h; sourceTree = "<group>"; };
+		11AFD40D2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatUserInfoHeadView.m; sourceTree = "<group>"; };
+		11AFD40F2A3FFB79001F7EDD /* SRXChatUserInfoHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatUserInfoHeadView.xib; sourceTree = "<group>"; };
+		11AFD4112A3FFFB1001F7EDD /* UIColor+JHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+JHExt.h"; sourceTree = "<group>"; };
+		11AFD4122A3FFFB1001F7EDD /* UIColor+JHExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JHExt.m"; sourceTree = "<group>"; };
+		11AFD4142A403967001F7EDD /* SRXMsgChatSetAlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMsgChatSetAlertVC.h; sourceTree = "<group>"; };
+		11AFD4152A403967001F7EDD /* SRXMsgChatSetAlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMsgChatSetAlertVC.m; sourceTree = "<group>"; };
+		11AFD4162A403967001F7EDD /* SRXMsgChatSetAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXMsgChatSetAlertVC.xib; sourceTree = "<group>"; };
 		11BB02FD28C1F05F0050768D /* NSURL+JHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSURL+JHExt.h"; sourceTree = "<group>"; };
 		11BB02FE28C1F05F0050768D /* NSURL+JHExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSURL+JHExt.m"; sourceTree = "<group>"; };
 		11BB773428DC47880019B686 /* SRXLoadFailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXLoadFailView.h; sourceTree = "<group>"; };
@@ -1916,6 +1929,9 @@
 				1166438C2A39663400F846B2 /* SRXMsgChatQuoteView.h */,
 				116643882A39663400F846B2 /* SRXMsgChatQuoteView.m */,
 				1166438D2A39663400F846B2 /* SRXMsgChatQuoteView.xib */,
+				11AFD40C2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.h */,
+				11AFD40D2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.m */,
+				11AFD40F2A3FFB79001F7EDD /* SRXChatUserInfoHeadView.xib */,
 			);
 			path = customView;
 			sourceTree = "<group>";
@@ -2115,6 +2131,9 @@
 				11C66FFF2A3C0A8500129C41 /* SRXChatTransferServiceVC.h */,
 				11C670002A3C0A8500129C41 /* SRXChatTransferServiceVC.m */,
 				11C670012A3C0A8500129C41 /* SRXChatTransferServiceVC.xib */,
+				11AFD4142A403967001F7EDD /* SRXMsgChatSetAlertVC.h */,
+				11AFD4152A403967001F7EDD /* SRXMsgChatSetAlertVC.m */,
+				11AFD4162A403967001F7EDD /* SRXMsgChatSetAlertVC.xib */,
 				111314AF2A36BAC0001A77B7 /* SRXMessageSetTableVC.h */,
 				111314B02A36BAC0001A77B7 /* SRXMessageSetTableVC.m */,
 				111314C22A36F540001A77B7 /* SRXChatStateSwitchVC.h */,
@@ -2843,6 +2862,8 @@
 				11F197A828C878DE0008B668 /* VideoCompress.m */,
 				11CF6CF92A301C1F00712C43 /* NSDate+Formatter.h */,
 				11CF6CF82A301C1F00712C43 /* NSDate+Formatter.m */,
+				11AFD4112A3FFFB1001F7EDD /* UIColor+JHExt.h */,
+				11AFD4122A3FFFB1001F7EDD /* UIColor+JHExt.m */,
 				18CCFD9C23C6F5110009732E /* UITextView */,
 			);
 			path = Utils;
@@ -3867,6 +3888,7 @@
 				11C66FFE2A3BF69600129C41 /* SRXMsgEvaluateTableCell.xib in Resources */,
 				18CCFE4E23C6F5120009732E /* DazFire.png in Resources */,
 				11C670082A3C0BA600129C41 /* SRXChatTransferServiceTableCell.xib in Resources */,
+				11AFD4182A403967001F7EDD /* SRXMsgChatSetAlertVC.xib in Resources */,
 				11E10CB42A21D57800255988 /* SRXGoodsSpecInfoEditVC.xib in Resources */,
 				116643922A39663400F846B2 /* SRXMsgChatQuoteView.xib in Resources */,
 				18CCFE4F23C6F5120009732E /* back_icon@3x.png in Resources */,
@@ -3953,6 +3975,7 @@
 				111314CB2A36F623001A77B7 /* SRXMsgSetAllReadVC.xib in Resources */,
 				11A5C79A290BBD3200CD7658 /* voice_play_animation_4.png in Resources */,
 				1164568E28E2E0E400F5A2FE /* new_gift.gif in Resources */,
+				11AFD4102A3FFB79001F7EDD /* SRXChatUserInfoHeadView.xib in Resources */,
 				11C6F7EA2A32F48100CFE28E /* SRXMessageListTableCell.xib in Resources */,
 				11DE697D29F223C700730EF9 /* SRXOrdersListGoodsTableCell.xib in Resources */,
 				116644342A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.xib in Resources */,
@@ -4155,6 +4178,7 @@
 				5DD013E023FE943A00FC4060 /* NSData+JK_AES.m in Sources */,
 				18CCFE3223C6F5120009732E /* UITabBar+CustomBadge.m in Sources */,
 				189C7A8B23D6D955001FB8ED /* SRXResultModel.m in Sources */,
+				11AFD40E2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.m in Sources */,
 				18652EEC23F4457F005E8EEB /* NSString+LCTime.m in Sources */,
 				111314B12A36BAC0001A77B7 /* SRXMessageSetTableVC.m in Sources */,
 				5DD0140423FE943A00FC4060 /* UITextView+JKExtension.m in Sources */,
@@ -4520,6 +4544,7 @@
 				11F6FBCE29FB62A200519293 /* SRXGoodsSpecUpdateTableCell.m in Sources */,
 				11C4DE3029F5079400A15C7D /* SRXOrderShippedGoodsTableCell.m in Sources */,
 				80341F1D242DE54300DED907 /* UIView+WebVideoCache.m in Sources */,
+				11AFD4132A3FFFB1001F7EDD /* UIColor+JHExt.m in Sources */,
 				5DD013E823FE943A00FC4060 /* UIFont+JKExtension.m in Sources */,
 				18652EF823F4457F005E8EEB /* UIView+LCFrame.m in Sources */,
 				5D264EE4243C61E000383261 /* SRXDefaultPayWayCommonBtn.m in Sources */,
@@ -4566,6 +4591,7 @@
 				11D7E5A928894C8200FA19F5 /* YBImage.m in Sources */,
 				116643FB2A39971600F846B2 /* SRXMsgUserAudioTableCell.m in Sources */,
 				11E10CB32A21D57800255988 /* SRXGoodsSpecInfoEditVC.m in Sources */,
+				11AFD4172A403967001F7EDD /* SRXMsgChatSetAlertVC.m in Sources */,
 				18CCFE2723C6F5120009732E /* UserAccount.m in Sources */,
 				62791D4C26E3173E00E9FEA9 /* SortButton.m in Sources */,
 				11E10CA92A21960600255988 /* SRXSpecValueAddCollectionCell.m in Sources */,

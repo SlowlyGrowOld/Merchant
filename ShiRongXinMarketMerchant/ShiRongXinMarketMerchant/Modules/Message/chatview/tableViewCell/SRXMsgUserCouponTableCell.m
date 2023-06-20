@@ -48,7 +48,7 @@
     _good_price.text = [NSString stringWithNumber:@(model.coupon_info.money) formatter:@"##.##"];
     [_good_image sd_setImageWithURL:[NSURL URLWithString:model.coupon_info.image]];
     _conditionLb.text = [NSString stringWithFormat:@"满%@可用",model.coupon_info.condition];
-    _timeLb.text = [NSString stringWithFormat:@"有效期：%@",model.coupon_info.validity.length>0?model.coupon_info.validity:@""];
+    _timeLb.text = [NSString stringWithFormat:@"有效期至：%@",model.coupon_info.end_date.length>0?model.coupon_info.end_date:@""];
     _activityView.hidden = YES;
     _activityView.messageState = model.messageState;
 }

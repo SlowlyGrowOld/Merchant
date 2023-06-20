@@ -37,6 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
                           success:(JHNetworkRequestSuccessVoid)success
                           failure:(JHNetworkRequestFailure)failure;
 
+/// 对话设置-设置备注
++ (void)setChatRemarkWithUser_id:(NSString *)user_id
+                          shop_id:(NSString *)shop_id
+                     remark_name:(NSString *)remark_name
+                          success:(JHNetworkRequestSuccessVoid)success
+                          failure:(JHNetworkRequestFailure)failure;
+
 /// 推荐商品列表
 + (void)getRecommentChatGoodsWithSearch_word:(NSString *)search_word
                                      shop_id:(NSString *)shop_id

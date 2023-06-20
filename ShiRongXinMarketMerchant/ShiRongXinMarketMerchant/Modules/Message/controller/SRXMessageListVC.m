@@ -11,6 +11,7 @@
 #import "SRXMessageListShopView.h"
 #import "NetworkManager+Message.h"
 #import "SRXMsgChatVC.h"
+#import "SRXMsgChatSetAlertVC.h"
 
 @interface SRXMessageListVC ()
 @property (nonatomic, strong) SRXMessageListShopView *shopView;
@@ -32,16 +33,32 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXMessageListTableCell" bundle:nil] forCellReuseIdentifier:@"SRXMessageListTableCell"];
     self.tableView.mj_header.hidden = YES;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestShopData) name:KNotificationMsgAllRead object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestShopData) name:KNotificationMsgAllRead object:nil];
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognizer:)];
+    [self.tableView addGestureRecognizer:longPress];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self requestShopData];
 }
 
 - (void)requestShopData {
     [NetworkManager getChatShopNumWithSuccess:^(NSArray *modelList) {
         if (modelList.count>0) {
-            self.shop = modelList.firstObject;
-            self.shop.is_select = YES;
-            self.shopView.datas = modelList;
+            if (self.shop) {
+                for (SRXChatShopNumItem *item in modelList) {
+                    if ([item.shop_id isEqualToString:self.shop.shop_id]) {
+                        item.is_select = YES;
+                        self.shop = item;
+                        self.shopView.datas = modelList;
+                    }
+                }
+            } else {
+                self.shop = modelList.firstObject;
+                self.shop.is_select = YES;
+                self.shopView.datas = modelList;
+            }
         }
     } failure:^(NSString *message) {
         
@@ -82,17 +99,40 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-// 允许长按菜单
-- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
+//// 允许长按菜单
+//- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    DLog(@"长按---%zd---",indexPath.row)
+//    return YES;
+//}
+//
+//// 允许每一个Action
+//- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender
+//{
+//    DLog(@"长按---%zd---",indexPath.row)
+//    return NO;
+//}
+//
+//- (void)tableView:(UITableView *)tableView performAction:(nonnull SEL)action forRowAtIndexPath:(nonnull NSIndexPath *)indexPath withSender:(nullable id)sender {
+//
+//}
 
-// 允许每一个Action
-- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender
-{
-    DLog(@"长按---%zd---",indexPath.row)
-    return NO;
+//cell长按拖动排序
+- (void)longPressRecognizer:(UILongPressGestureRecognizer *)longPress{
+    //获取长按的点及cell
+    CGPoint location = [longPress locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    UIGestureRecognizerState state = longPress.state;
+    if (state == UIGestureRecognizerStateEnded) {
+        DLog(@"长按---%zd--%zd-",indexPath.row,state);
+        SRXMsgChatSetAlertVC *vc = [SRXMsgChatSetAlertVC new];
+        vc.item = self.dataSources[indexPath.row];
+        MJWeakSelf;
+        vc.refreshBlock = ^{
+            [weakSelf.tableView.mj_header beginRefreshing];
+        };
+        [self presentViewController:vc animated:YES completion:nil];
+    }
 }
 
 - (SRXMessageListShopView *)shopView {

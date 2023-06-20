@@ -50,6 +50,21 @@
     } failure:failure];
 }
 
+/// 对话设置-设置备注
++ (void)setChatRemarkWithUser_id:(NSString *)user_id
+                          shop_id:(NSString *)shop_id
+                     remark_name:(NSString *)remark_name
+                          success:(JHNetworkRequestSuccessVoid)success
+                         failure:(JHNetworkRequestFailure)failure {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"user_id"] = user_id;
+    mdic[@"shop_id"] = shop_id;
+    mdic[@"remark_name"] = remark_name;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/chat_set_remarks" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
+        success(messageDic[@"data"]);
+    } failure:failure];
+}
+
 /// 推荐商品列表
 + (void)getRecommentChatGoodsWithSearch_word:(NSString *)search_word
                                      shop_id:(NSString *)shop_id

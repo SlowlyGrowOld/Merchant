@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * image;
 @property (nonatomic , copy) NSString              * validity;
 @property (nonatomic , copy) NSString              * less_num;
+@property (nonatomic , copy) NSString              * end_date;
 @property (nonatomic , assign) BOOL              is_coupon_receive;
 @property (nonatomic , assign) BOOL              is_select;
 @end

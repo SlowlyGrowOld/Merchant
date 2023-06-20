@@ -28,7 +28,6 @@
 
 - (IBAction)sureBtnClick:(id)sender {
     [NetworkManager markChatAllReadWithSuccess:^(NSString *message) {
-        KPostNotification(KNotificationMsgAllRead, nil);
         [self dismissViewControllerAnimated:YES completion:^{
             [SVProgressHUD showSuccessWithStatus:@"已读完成"];
         }];

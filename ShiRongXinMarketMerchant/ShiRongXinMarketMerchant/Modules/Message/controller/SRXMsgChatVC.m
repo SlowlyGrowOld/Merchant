@@ -24,12 +24,14 @@
 #import "SRXChatRecommentGoodsVC.h"
 #import "SRXChatTransferServiceVC.h"
 #import "SRXChatQuickReplyTableView.h"
+#import "SRXChatUserInfoHeadView.h"
 
 @interface SRXMsgChatVC ()<SHMessageInputViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,JHWebSocketManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *shop_image;
 @property (weak, nonatomic) IBOutlet UILabel *shop_name;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewConsH;
 @property (weak, nonatomic) IBOutlet SRXMsgChatTableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewConsTop;
 //咨询商品弹窗
 @property (weak, nonatomic) IBOutlet UIView *goodConsultView;
 @property (weak, nonatomic) IBOutlet UILabel *c_titleLb;
@@ -45,6 +47,8 @@
 //快捷回复
 @property (weak, nonatomic) IBOutlet SRXChatQuickReplyTableView *replyTableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ReplyTableViewConsH;
+
+@property (nonatomic, strong) SRXChatUserInfoHeadView *headView;
 
 //下方工具栏
 @property (nonatomic, strong) SHMessageInputView *chatInputView;
@@ -116,6 +120,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatTextMenuAction:) name:KNotiChatTextMenuAction object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clickTableViewAction) name:@"JKTextViewHideTextSelection" object:nil];
     [[JHWebSocketManager shareInstance] initWebSocket];
+    
+    [self requestOtherData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -247,7 +253,7 @@
         self.replyTableView.superview.hidden = YES;
     }
     self.chatInputView.inputType = SHInputViewType_default;
-    SRXChatTransferServiceVC *vc = [[SRXChatTransferServiceVC alloc] init];\
+    SRXChatTransferServiceVC *vc = [[SRXChatTransferServiceVC alloc] init];
     MJWeakSelf;
     vc.serviceBlock = ^(SRXMsgChatServiceItem * _Nonnull item) {
         [NetworkManager transferChatServiceWithUser_id:[UserManager sharedUserManager].curUserInfo._id shop_user_id:item.shop_user_id success:^(NSString *message) {
@@ -307,6 +313,25 @@
         _dataSources = [NSMutableArray array];
     }
     return _dataSources;
+}
+
+- (void)requestOtherData {
+    [NetworkManager getChatOtherWithUser_id:self.item.user_id shop_id:@"" success:^(SRXMsgChatOther * _Nonnull other) {
+        SRXChatUserInfoHeadView *headView = [[NSBundle mainBundle] loadNibNamed:@"SRXChatUserInfoHeadView" owner:nil options:nil].firstObject;
+        if (other.user_labels.count==0) {
+            headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 44);
+            self.tableViewConsTop.constant = 44;
+            self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 44;
+        } else {
+            headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 76);
+            self.tableViewConsTop.constant = 76;
+            self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 76;
+        }
+        headView.other = other;
+        [self.view addSubview:headView];
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 #pragma mark 滚动最下方

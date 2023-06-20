@@ -27,6 +27,7 @@
                 <outlet property="shop_name" destination="UPB-Q1-J1g" id="53c-cu-o0V"/>
                 <outlet property="tableView" destination="Rm1-pn-9Yy" id="0fy-gF-5jn"/>
                 <outlet property="tableViewConsH" destination="TBm-8p-1P2" id="W83-Jb-QJN"/>
+                <outlet property="tableViewConsTop" destination="wah-s1-gKz" id="iWH-DL-dkG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -106,7 +107,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="YUC-Jq-cG1" secondAttribute="bottom" id="1Bx-na-Fxh"/>
                         <constraint firstItem="oeB-km-rXX" firstAttribute="leading" secondItem="UPB-Q1-J1g" secondAttribute="trailing" constant="10" id="3cb-J9-w9C"/>
@@ -145,7 +146,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您想咨询该商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2A-43-edX">
-                                    <rect key="frame" x="12" y="7.5" width="86" height="14.5"/>
+                                    <rect key="frame" x="12" y="7.5" width="86" height="14.500000000000004"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
