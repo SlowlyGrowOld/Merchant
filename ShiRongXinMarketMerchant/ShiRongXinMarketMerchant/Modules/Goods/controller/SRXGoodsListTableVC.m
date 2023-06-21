@@ -10,7 +10,7 @@
 #import "SRXGoodsListTableCell.h"
 #import "SRXGoodsListEditTableCell.h"
 #import "NetworkManager+Goods.h"
-
+#import "SRXGoodsDetailsVC.h"
 
 @interface SRXGoodsListTableVC ()<UIScrollViewDelegate>
 
@@ -118,6 +118,12 @@
         model.is_select = !model.is_select;
         [self.tableView reloadData];
         [self notificationEditBottomData];
+    }else {
+        SRXGoodsListModel *model = self.dataSources[indexPath.section];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
+        SRXGoodsDetailsVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXGoodsDetailsVC"];
+        vc.goods_id = model.goods_id;
+        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     }
 }
 

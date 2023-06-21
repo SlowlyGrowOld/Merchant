@@ -36,6 +36,16 @@
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestShopData) name:KNotificationMsgAllRead object:nil];
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressRecognizer:)];
     [self.tableView addGestureRecognizer:longPress];
+    
+    [JHWebSocketManager shareInstance].receiveBlock = ^(NSDictionary * _Nonnull dic) {
+        if ([dic[@"msg_type"] isEqualToString:@"login"]) {
+        }else {
+            SRXMsgChatModel *message = [SRXMsgChatModel receiveMessageWithDic:dic];
+            if ([self.shop.shop_id isEqualToString:message.shop_id]) {
+                [self initRequestData];
+            }
+        }
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -67,7 +77,12 @@
 
 - (void)setShop:(SRXChatShopNumItem *)shop {
     _shop = shop;
-    [self requestTableData];
+    [self initRequestData];
+}
+
+- (void)setSearch_word:(NSString *)search_word {
+    _search_word = search_word;
+    [self initRequestData];
 }
 
 - (void)requestTableData {
@@ -117,6 +132,15 @@
 //
 //}
 
+- (void)initRequestData {
+    [self removeNoDataImage];
+    self.tableView.mj_footer.hidden = YES;
+    [self.tableView.mj_footer resetNoMoreData];
+    self.pageNo = 1;
+    self.loadMore = NO;
+    [self requestTableData];
+}
+
 //cell长按拖动排序
 - (void)longPressRecognizer:(UILongPressGestureRecognizer *)longPress{
     //获取长按的点及cell
@@ -129,7 +153,7 @@
         vc.item = self.dataSources[indexPath.row];
         MJWeakSelf;
         vc.refreshBlock = ^{
-            [weakSelf.tableView.mj_header beginRefreshing];
+            [weakSelf initRequestData];
         };
         [self presentViewController:vc animated:YES completion:nil];
     }

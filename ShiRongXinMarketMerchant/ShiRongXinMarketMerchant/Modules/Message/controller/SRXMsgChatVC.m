@@ -564,7 +564,7 @@
 #pragma mark 工具栏高度改变  SHMessageInputViewDelegate
 - (void)toolbarHeightChange {
     //改变聊天界面高度
-    self.tableViewConsH.constant = self.chatInputView.jk_y-TopHeight-36;
+    self.tableViewConsH.constant = self.chatInputView.jk_y-TopHeight-36-48;
     [self.view layoutIfNeeded];
 //    //滚动到底部
     [self tableViewScrollToBottom];

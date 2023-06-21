@@ -53,7 +53,8 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-   
+    SRXMessageListVC *vc = self.vcs[self.menuView.currentPage];
+    vc.search_word = textField.text;
 }
 
 #pragma mark - init

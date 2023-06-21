@@ -16,6 +16,7 @@
 #import "SRXGoodsEditQuitAlertVC.h"
 #import "NetworkManager+GoodUpdate.h"
 #import "SRXGoodsEditInfoModel.h"
+#import "SRXGoodsDetailsVC.h"
 
 @interface SRXGoodsInfoEditPageVC ()
 /** 标题数组 */
@@ -126,12 +127,20 @@
     if (index == 4) {
         [dic addEntriesFromDictionary:self.showVC.parameters];
     }
-    [NetworkManager saveGoodsEditInfoWithGoods_id:self.goods_id parameters:dic.copy success:^(NSString *message) {
-
-        [SVProgressHUD showSuccessWithStatus:@"保存成功"];
-    } failure:^(NSString *message) {
-        
-    }];
+    if (self.goods_id) {
+        [NetworkManager saveGoodsEditInfoWithGoods_id:self.goods_id parameters:dic.copy success:^(NSString *message) {
+            [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+        } failure:^(NSString *message) {
+            
+        }];
+    } else {
+        [NetworkManager addGoodsWithDic:dic.copy success:^(NSString *message) {
+            self.goods_id = message;
+            [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+        } failure:^(NSString *message) {
+            
+        }];
+    }
 }
 
 
@@ -185,7 +194,10 @@
                 weakSelf.menuView.pageScrolledIndex = 2;
                 [weakSelf.pageContentView setPageContentShouldScrollToIndex:2 beforIndex:3];
             } else if (index == 2) {//浏览
-                
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
+                SRXGoodsDetailsVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXGoodsDetailsVC"];
+                vc.goods_id = weakSelf.goods_id;
+                [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
             } else {//保存
                 [weakSelf saveEditInfoWithIndex:4];
             }

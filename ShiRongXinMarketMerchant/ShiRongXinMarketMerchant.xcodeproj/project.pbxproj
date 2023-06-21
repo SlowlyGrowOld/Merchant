@@ -347,6 +347,42 @@
 		11F361022A1C52050084075A /* SRXOrderShippedGroupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F361002A1C52050084075A /* SRXOrderShippedGroupVC.m */; };
 		11F361072A1C59870084075A /* SRXLogisticsCompanyAlertC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F361052A1C59870084075A /* SRXLogisticsCompanyAlertC.m */; };
 		11F361082A1C59870084075A /* SRXLogisticsCompanyAlertC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F361062A1C59870084075A /* SRXLogisticsCompanyAlertC.xib */; };
+		11F362302A4178F10035F67D /* SRXGoodsDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3622E2A4178F10035F67D /* SRXGoodsDetailsVC.m */; };
+		11F362342A4179D30035F67D /* SRXGDEvaluationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362322A4179D20035F67D /* SRXGDEvaluationTableView.m */; };
+		11F362392A4179DC0035F67D /* SRXGDTagsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362372A4179DB0035F67D /* SRXGDTagsCollectionView.m */; };
+		11F3623A2A4179DC0035F67D /* SRXGDPicsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362382A4179DC0035F67D /* SRXGDPicsCollectionView.m */; };
+		11F3623D2A4179E70035F67D /* SRXGDShopGoodsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3623C2A4179E70035F67D /* SRXGDShopGoodsCollectionView.m */; };
+		11F362412A417A050035F67D /* SRXGoodsDetailsHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3623F2A417A040035F67D /* SRXGoodsDetailsHeadView.m */; };
+		11F362422A417A050035F67D /* SRXGoodsDetailsHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F362402A417A050035F67D /* SRXGoodsDetailsHeadView.xib */; };
+		11F362452A417A2C0035F67D /* SRXGoodsImageDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362442A417A2C0035F67D /* SRXGoodsImageDetailView.m */; };
+		11F3624D2A417BBE0035F67D /* SRXAllTheGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3624C2A417BBE0035F67D /* SRXAllTheGoodsModel.m */; };
+		11F362512A417FA40035F67D /* SRXImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F3624E2A417FA40035F67D /* SRXImageCollectionViewCell.xib */; };
+		11F362522A417FA40035F67D /* SRXImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362502A417FA40035F67D /* SRXImageCollectionViewCell.m */; };
+		11F362562A417FC90035F67D /* SRXGETagsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362542A417FC90035F67D /* SRXGETagsCollectionCell.m */; };
+		11F362572A417FC90035F67D /* SRXGETagsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F362552A417FC90035F67D /* SRXGETagsCollectionCell.xib */; };
+		11F3625A2A417FDE0035F67D /* SRXGoodsEvaluateListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362582A417FDE0035F67D /* SRXGoodsEvaluateListModel.m */; };
+		11F362632A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362602A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.m */; };
+		11F362642A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F362622A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.xib */; };
+		11F362682A4181130035F67D /* SRXGDEvaluationTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F362652A4181120035F67D /* SRXGDEvaluationTableCell.xib */; };
+		11F362692A4181130035F67D /* SRXGDEvaluationTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362662A4181120035F67D /* SRXGDEvaluationTableCell.m */; };
+		11F3626C2A4181400035F67D /* SRXGEStarsRankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3626A2A41813F0035F67D /* SRXGEStarsRankView.m */; };
+		11F362732A4187500035F67D /* PopProductParametersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362712A4187500035F67D /* PopProductParametersVC.m */; };
+		11F362742A4187500035F67D /* PopProductParametersVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F362722A4187500035F67D /* PopProductParametersVC.xib */; };
+		11F3627B2A4187C30035F67D /* ProductParameterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362792A4187C20035F67D /* ProductParameterTableViewCell.m */; };
+		11F3627C2A4187C30035F67D /* ProductParameterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F3627A2A4187C20035F67D /* ProductParameterTableViewCell.xib */; };
+		11F362802A418EA40035F67D /* SRXPopFeatureSelectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3627E2A418EA40035F67D /* SRXPopFeatureSelectionVC.m */; };
+		11F362812A418EA40035F67D /* SRXPopFeatureSelectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F3627F2A418EA40035F67D /* SRXPopFeatureSelectionVC.xib */; };
+		11F362842A418F020035F67D /* SRXFeatureSelectionCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362822A418F020035F67D /* SRXFeatureSelectionCollectionView.m */; };
+		11F362872A418F470035F67D /* SRXSpecGoodsPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362852A418F470035F67D /* SRXSpecGoodsPriceModel.m */; };
+		11F3628C2A41900A0035F67D /* SRXSpecModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362892A4190090035F67D /* SRXSpecModel.m */; };
+		11F3628D2A41900A0035F67D /* SRXSpecValueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3628B2A41900A0035F67D /* SRXSpecValueModel.m */; };
+		11F362912A41939C0035F67D /* SRXFeatureFooterReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3628F2A41939B0035F67D /* SRXFeatureFooterReusableView.m */; };
+		11F362922A41939C0035F67D /* SRXFeatureFooterReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F362902A41939C0035F67D /* SRXFeatureFooterReusableView.xib */; };
+		11F362952A41941E0035F67D /* DCCollectionHeaderLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362932A41941D0035F67D /* DCCollectionHeaderLayout.m */; };
+		11F362982A4194230035F67D /* DCFeatureHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F362972A4194230035F67D /* DCFeatureHeaderView.m */; };
+		11F3629B2A4194520035F67D /* DCFeatureItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3629A2A4194520035F67D /* DCFeatureItemCell.m */; };
+		11F3629F2A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F3629C2A4194FB0035F67D /* SRXFeatureImageItemCollectionViewCell.xib */; };
+		11F362A02A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F3629E2A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.m */; };
 		11F6FBCA29FB5DC000519293 /* SRXGoodsSpecUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F6FBC929FB5DC000519293 /* SRXGoodsSpecUpdateVC.m */; };
 		11F6FBCE29FB62A200519293 /* SRXGoodsSpecUpdateTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F6FBCC29FB62A200519293 /* SRXGoodsSpecUpdateTableCell.m */; };
 		11F6FBCF29FB62A200519293 /* SRXGoodsSpecUpdateTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F6FBCD29FB62A200519293 /* SRXGoodsSpecUpdateTableCell.xib */; };
@@ -1197,6 +1233,68 @@
 		11F361042A1C59870084075A /* SRXLogisticsCompanyAlertC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXLogisticsCompanyAlertC.h; sourceTree = "<group>"; };
 		11F361052A1C59870084075A /* SRXLogisticsCompanyAlertC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXLogisticsCompanyAlertC.m; sourceTree = "<group>"; };
 		11F361062A1C59870084075A /* SRXLogisticsCompanyAlertC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXLogisticsCompanyAlertC.xib; sourceTree = "<group>"; };
+		11F3622E2A4178F10035F67D /* SRXGoodsDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsDetailsVC.m; sourceTree = "<group>"; };
+		11F3622F2A4178F10035F67D /* SRXGoodsDetailsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGoodsDetailsVC.h; sourceTree = "<group>"; };
+		11F362322A4179D20035F67D /* SRXGDEvaluationTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGDEvaluationTableView.m; sourceTree = "<group>"; };
+		11F362332A4179D20035F67D /* SRXGDEvaluationTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGDEvaluationTableView.h; sourceTree = "<group>"; };
+		11F362352A4179DB0035F67D /* SRXGDTagsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGDTagsCollectionView.h; sourceTree = "<group>"; };
+		11F362362A4179DB0035F67D /* SRXGDPicsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGDPicsCollectionView.h; sourceTree = "<group>"; };
+		11F362372A4179DB0035F67D /* SRXGDTagsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGDTagsCollectionView.m; sourceTree = "<group>"; };
+		11F362382A4179DC0035F67D /* SRXGDPicsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGDPicsCollectionView.m; sourceTree = "<group>"; };
+		11F3623B2A4179E60035F67D /* SRXGDShopGoodsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGDShopGoodsCollectionView.h; sourceTree = "<group>"; };
+		11F3623C2A4179E70035F67D /* SRXGDShopGoodsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGDShopGoodsCollectionView.m; sourceTree = "<group>"; };
+		11F3623E2A417A040035F67D /* SRXGoodsDetailsHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGoodsDetailsHeadView.h; sourceTree = "<group>"; };
+		11F3623F2A417A040035F67D /* SRXGoodsDetailsHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsDetailsHeadView.m; sourceTree = "<group>"; };
+		11F362402A417A050035F67D /* SRXGoodsDetailsHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXGoodsDetailsHeadView.xib; sourceTree = "<group>"; };
+		11F362432A417A2C0035F67D /* SRXGoodsImageDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGoodsImageDetailView.h; sourceTree = "<group>"; };
+		11F362442A417A2C0035F67D /* SRXGoodsImageDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsImageDetailView.m; sourceTree = "<group>"; };
+		11F3624B2A417BBE0035F67D /* SRXAllTheGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXAllTheGoodsModel.h; sourceTree = "<group>"; };
+		11F3624C2A417BBE0035F67D /* SRXAllTheGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXAllTheGoodsModel.m; sourceTree = "<group>"; };
+		11F3624E2A417FA40035F67D /* SRXImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		11F3624F2A417FA40035F67D /* SRXImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXImageCollectionViewCell.h; sourceTree = "<group>"; };
+		11F362502A417FA40035F67D /* SRXImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXImageCollectionViewCell.m; sourceTree = "<group>"; };
+		11F362532A417FC80035F67D /* SRXGETagsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGETagsCollectionCell.h; sourceTree = "<group>"; };
+		11F362542A417FC90035F67D /* SRXGETagsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGETagsCollectionCell.m; sourceTree = "<group>"; };
+		11F362552A417FC90035F67D /* SRXGETagsCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXGETagsCollectionCell.xib; sourceTree = "<group>"; };
+		11F362582A417FDE0035F67D /* SRXGoodsEvaluateListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsEvaluateListModel.m; sourceTree = "<group>"; };
+		11F362592A417FDE0035F67D /* SRXGoodsEvaluateListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGoodsEvaluateListModel.h; sourceTree = "<group>"; };
+		11F362602A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGDShopGoodsCollectionCell.m; sourceTree = "<group>"; };
+		11F362612A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGDShopGoodsCollectionCell.h; sourceTree = "<group>"; };
+		11F362622A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXGDShopGoodsCollectionCell.xib; sourceTree = "<group>"; };
+		11F362652A4181120035F67D /* SRXGDEvaluationTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXGDEvaluationTableCell.xib; sourceTree = "<group>"; };
+		11F362662A4181120035F67D /* SRXGDEvaluationTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGDEvaluationTableCell.m; sourceTree = "<group>"; };
+		11F362672A4181130035F67D /* SRXGDEvaluationTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGDEvaluationTableCell.h; sourceTree = "<group>"; };
+		11F3626A2A41813F0035F67D /* SRXGEStarsRankView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXGEStarsRankView.m; sourceTree = "<group>"; };
+		11F3626B2A41813F0035F67D /* SRXGEStarsRankView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXGEStarsRankView.h; sourceTree = "<group>"; };
+		11F362702A4187500035F67D /* PopProductParametersVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopProductParametersVC.h; sourceTree = "<group>"; };
+		11F362712A4187500035F67D /* PopProductParametersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopProductParametersVC.m; sourceTree = "<group>"; };
+		11F362722A4187500035F67D /* PopProductParametersVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopProductParametersVC.xib; sourceTree = "<group>"; };
+		11F362782A4187C20035F67D /* ProductParameterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductParameterTableViewCell.h; sourceTree = "<group>"; };
+		11F362792A4187C20035F67D /* ProductParameterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductParameterTableViewCell.m; sourceTree = "<group>"; };
+		11F3627A2A4187C20035F67D /* ProductParameterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductParameterTableViewCell.xib; sourceTree = "<group>"; };
+		11F3627D2A418EA40035F67D /* SRXPopFeatureSelectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXPopFeatureSelectionVC.h; sourceTree = "<group>"; };
+		11F3627E2A418EA40035F67D /* SRXPopFeatureSelectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXPopFeatureSelectionVC.m; sourceTree = "<group>"; };
+		11F3627F2A418EA40035F67D /* SRXPopFeatureSelectionVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXPopFeatureSelectionVC.xib; sourceTree = "<group>"; };
+		11F362822A418F020035F67D /* SRXFeatureSelectionCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXFeatureSelectionCollectionView.m; sourceTree = "<group>"; };
+		11F362832A418F020035F67D /* SRXFeatureSelectionCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXFeatureSelectionCollectionView.h; sourceTree = "<group>"; };
+		11F362852A418F470035F67D /* SRXSpecGoodsPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXSpecGoodsPriceModel.m; sourceTree = "<group>"; };
+		11F362862A418F470035F67D /* SRXSpecGoodsPriceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXSpecGoodsPriceModel.h; sourceTree = "<group>"; };
+		11F362882A4190090035F67D /* SRXSpecValueModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXSpecValueModel.h; sourceTree = "<group>"; };
+		11F362892A4190090035F67D /* SRXSpecModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXSpecModel.m; sourceTree = "<group>"; };
+		11F3628A2A41900A0035F67D /* SRXSpecModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXSpecModel.h; sourceTree = "<group>"; };
+		11F3628B2A41900A0035F67D /* SRXSpecValueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXSpecValueModel.m; sourceTree = "<group>"; };
+		11F3628E2A41939B0035F67D /* SRXFeatureFooterReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXFeatureFooterReusableView.h; sourceTree = "<group>"; };
+		11F3628F2A41939B0035F67D /* SRXFeatureFooterReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXFeatureFooterReusableView.m; sourceTree = "<group>"; };
+		11F362902A41939C0035F67D /* SRXFeatureFooterReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXFeatureFooterReusableView.xib; sourceTree = "<group>"; };
+		11F362932A41941D0035F67D /* DCCollectionHeaderLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCCollectionHeaderLayout.m; sourceTree = "<group>"; };
+		11F362942A41941D0035F67D /* DCCollectionHeaderLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCCollectionHeaderLayout.h; sourceTree = "<group>"; };
+		11F362962A4194220035F67D /* DCFeatureHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCFeatureHeaderView.h; sourceTree = "<group>"; };
+		11F362972A4194230035F67D /* DCFeatureHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCFeatureHeaderView.m; sourceTree = "<group>"; };
+		11F362992A4194510035F67D /* DCFeatureItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCFeatureItemCell.h; sourceTree = "<group>"; };
+		11F3629A2A4194520035F67D /* DCFeatureItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCFeatureItemCell.m; sourceTree = "<group>"; };
+		11F3629C2A4194FB0035F67D /* SRXFeatureImageItemCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SRXFeatureImageItemCollectionViewCell.xib; sourceTree = "<group>"; };
+		11F3629D2A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRXFeatureImageItemCollectionViewCell.h; sourceTree = "<group>"; };
+		11F3629E2A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRXFeatureImageItemCollectionViewCell.m; sourceTree = "<group>"; };
 		11F6FBC829FB5DC000519293 /* SRXGoodsSpecUpdateVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsSpecUpdateVC.h; sourceTree = "<group>"; };
 		11F6FBC929FB5DC000519293 /* SRXGoodsSpecUpdateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsSpecUpdateVC.m; sourceTree = "<group>"; };
 		11F6FBCB29FB62A200519293 /* SRXGoodsSpecUpdateTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsSpecUpdateTableCell.h; sourceTree = "<group>"; };
@@ -2350,6 +2448,7 @@
 		11E0896729FA10FF00335DCC /* Goods */ = {
 			isa = PBXGroup;
 			children = (
+				11F362752A4187810035F67D /* details */,
 				11C5FFB82A1DE65800850951 /* model */,
 				11E0896829FA110900335DCC /* view */,
 				11C5FFB92A1DE66500850951 /* controller */,
@@ -2623,6 +2722,99 @@
 				11F25007290BCAF800E03964 /* wav.h */,
 			);
 			path = amrwapper;
+			sourceTree = "<group>";
+		};
+		11F362312A4179A60035F67D /* detailView */ = {
+			isa = PBXGroup;
+			children = (
+				11F3624F2A417FA40035F67D /* SRXImageCollectionViewCell.h */,
+				11F362502A417FA40035F67D /* SRXImageCollectionViewCell.m */,
+				11F3624E2A417FA40035F67D /* SRXImageCollectionViewCell.xib */,
+				11F362362A4179DB0035F67D /* SRXGDPicsCollectionView.h */,
+				11F362382A4179DC0035F67D /* SRXGDPicsCollectionView.m */,
+				11F362532A417FC80035F67D /* SRXGETagsCollectionCell.h */,
+				11F362542A417FC90035F67D /* SRXGETagsCollectionCell.m */,
+				11F362552A417FC90035F67D /* SRXGETagsCollectionCell.xib */,
+				11F362352A4179DB0035F67D /* SRXGDTagsCollectionView.h */,
+				11F362372A4179DB0035F67D /* SRXGDTagsCollectionView.m */,
+				11F362612A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.h */,
+				11F362602A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.m */,
+				11F362622A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.xib */,
+				11F3623B2A4179E60035F67D /* SRXGDShopGoodsCollectionView.h */,
+				11F3623C2A4179E70035F67D /* SRXGDShopGoodsCollectionView.m */,
+				11F3626B2A41813F0035F67D /* SRXGEStarsRankView.h */,
+				11F3626A2A41813F0035F67D /* SRXGEStarsRankView.m */,
+				11F362672A4181130035F67D /* SRXGDEvaluationTableCell.h */,
+				11F362662A4181120035F67D /* SRXGDEvaluationTableCell.m */,
+				11F362652A4181120035F67D /* SRXGDEvaluationTableCell.xib */,
+				11F362332A4179D20035F67D /* SRXGDEvaluationTableView.h */,
+				11F362322A4179D20035F67D /* SRXGDEvaluationTableView.m */,
+				11F3623E2A417A040035F67D /* SRXGoodsDetailsHeadView.h */,
+				11F3623F2A417A040035F67D /* SRXGoodsDetailsHeadView.m */,
+				11F362402A417A050035F67D /* SRXGoodsDetailsHeadView.xib */,
+				11F362432A417A2C0035F67D /* SRXGoodsImageDetailView.h */,
+				11F362442A417A2C0035F67D /* SRXGoodsImageDetailView.m */,
+				11F362782A4187C20035F67D /* ProductParameterTableViewCell.h */,
+				11F362792A4187C20035F67D /* ProductParameterTableViewCell.m */,
+				11F3627A2A4187C20035F67D /* ProductParameterTableViewCell.xib */,
+				11F3628E2A41939B0035F67D /* SRXFeatureFooterReusableView.h */,
+				11F3628F2A41939B0035F67D /* SRXFeatureFooterReusableView.m */,
+				11F362902A41939C0035F67D /* SRXFeatureFooterReusableView.xib */,
+				11F3629D2A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.h */,
+				11F3629E2A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.m */,
+				11F3629C2A4194FB0035F67D /* SRXFeatureImageItemCollectionViewCell.xib */,
+				11F362832A418F020035F67D /* SRXFeatureSelectionCollectionView.h */,
+				11F362822A418F020035F67D /* SRXFeatureSelectionCollectionView.m */,
+				11F362992A4194510035F67D /* DCFeatureItemCell.h */,
+				11F3629A2A4194520035F67D /* DCFeatureItemCell.m */,
+				11F362942A41941D0035F67D /* DCCollectionHeaderLayout.h */,
+				11F362932A41941D0035F67D /* DCCollectionHeaderLayout.m */,
+				11F362962A4194220035F67D /* DCFeatureHeaderView.h */,
+				11F362972A4194230035F67D /* DCFeatureHeaderView.m */,
+			);
+			path = detailView;
+			sourceTree = "<group>";
+		};
+		11F362752A4187810035F67D /* details */ = {
+			isa = PBXGroup;
+			children = (
+				11F362762A41878B0035F67D /* model */,
+				11F362312A4179A60035F67D /* detailView */,
+				11F362772A4187960035F67D /* vc */,
+			);
+			path = details;
+			sourceTree = "<group>";
+		};
+		11F362762A41878B0035F67D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				11F3624B2A417BBE0035F67D /* SRXAllTheGoodsModel.h */,
+				11F3624C2A417BBE0035F67D /* SRXAllTheGoodsModel.m */,
+				11F362592A417FDE0035F67D /* SRXGoodsEvaluateListModel.h */,
+				11F362582A417FDE0035F67D /* SRXGoodsEvaluateListModel.m */,
+				11F362862A418F470035F67D /* SRXSpecGoodsPriceModel.h */,
+				11F362852A418F470035F67D /* SRXSpecGoodsPriceModel.m */,
+				11F3628A2A41900A0035F67D /* SRXSpecModel.h */,
+				11F362892A4190090035F67D /* SRXSpecModel.m */,
+				11F362882A4190090035F67D /* SRXSpecValueModel.h */,
+				11F3628B2A41900A0035F67D /* SRXSpecValueModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		11F362772A4187960035F67D /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				11F3622F2A4178F10035F67D /* SRXGoodsDetailsVC.h */,
+				11F3622E2A4178F10035F67D /* SRXGoodsDetailsVC.m */,
+				11F362702A4187500035F67D /* PopProductParametersVC.h */,
+				11F362712A4187500035F67D /* PopProductParametersVC.m */,
+				11F362722A4187500035F67D /* PopProductParametersVC.xib */,
+				11F3627D2A418EA40035F67D /* SRXPopFeatureSelectionVC.h */,
+				11F3627E2A418EA40035F67D /* SRXPopFeatureSelectionVC.m */,
+				11F3627F2A418EA40035F67D /* SRXPopFeatureSelectionVC.xib */,
+			);
+			path = vc;
 			sourceTree = "<group>";
 		};
 		1852A76D23D45F6000A032FC /* JXLayoutButton */ = {
@@ -3861,6 +4053,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11F362422A417A050035F67D /* SRXGoodsDetailsHeadView.xib in Resources */,
 				11C3F8EC2910ACE500E15BB5 /* chat_receive_voice2.png in Resources */,
 				5D6374E62582016D0051B11B /* ShareAlert.xib in Resources */,
 				18CCFE4323C6F5120009732E /* close_icon@2x.png in Resources */,
@@ -3873,24 +4066,28 @@
 				11C3F8EB2910ACE500E15BB5 /* chat_receive_voice3.png in Resources */,
 				116643DB2A39971600F846B2 /* SRXMsgShopTextTableCell.xib in Resources */,
 				18CCFE5023C6F5120009732E /* rain.png in Resources */,
+				11F3627C2A4187C30035F67D /* ProductParameterTableViewCell.xib in Resources */,
 				5DD0140F23FE943A00FC4060 /* JKBaseKit.bundle in Resources */,
 				11C04A4D290F7407005E5636 /* message_fail.png in Resources */,
 				11A5C797290BBD3200CD7658 /* voice_play_animation_0.png in Resources */,
 				11E0898929FA641700335DCC /* SRXTextCollectionCell.xib in Resources */,
 				11C3F8E92910ACE500E15BB5 /* chat_picture.png in Resources */,
 				11C5D856295442C0004F698F /* integral_share.png in Resources */,
+				11F362682A4181130035F67D /* SRXGDEvaluationTableCell.xib in Resources */,
 				18CCFD6B23C6F2D60009732E /* LaunchScreen.storyboard in Resources */,
 				18CCFE4823C6F5120009732E /* MBHUD_Success@3x.png in Resources */,
 				11C3F8F32910ACF200E15BB5 /* chat_send_voice1.png in Resources */,
 				116E427129E69B910006ECBD /* Login.storyboard in Resources */,
 				119992C229F7C6A600DDEE44 /* SRXProtocolHtmlVC.xib in Resources */,
 				1104E6F42A1EF0AA006E58FF /* SRXGoodsListEditBottomView.xib in Resources */,
+				11F362512A417FA40035F67D /* SRXImageCollectionViewCell.xib in Resources */,
 				11C66FFE2A3BF69600129C41 /* SRXMsgEvaluateTableCell.xib in Resources */,
 				18CCFE4E23C6F5120009732E /* DazFire.png in Resources */,
 				11C670082A3C0BA600129C41 /* SRXChatTransferServiceTableCell.xib in Resources */,
 				11AFD4182A403967001F7EDD /* SRXMsgChatSetAlertVC.xib in Resources */,
 				11E10CB42A21D57800255988 /* SRXGoodsSpecInfoEditVC.xib in Resources */,
 				116643922A39663400F846B2 /* SRXMsgChatQuoteView.xib in Resources */,
+				11F362572A417FC90035F67D /* SRXGETagsCollectionCell.xib in Resources */,
 				18CCFE4F23C6F5120009732E /* back_icon@3x.png in Resources */,
 				11C3F8F42910ACF200E15BB5 /* chat_send_voice4.png in Resources */,
 				110A32EF29ED277900BEE36F /* SRXMeTextCollectionCell.xib in Resources */,
@@ -3910,9 +4107,12 @@
 				116643F32A39971600F846B2 /* SRXMsgUserGoodsTableCell.xib in Resources */,
 				116642E52A39645800F846B2 /* SRXMsgChatVC.xib in Resources */,
 				18CCFE4423C6F5120009732E /* snow.png in Resources */,
+				11F362742A4187500035F67D /* PopProductParametersVC.xib in Resources */,
 				11F2F19B2A3AE02D002A4189 /* SRXMsgUserCouponTableCell.xib in Resources */,
 				11A5C798290BBD3200CD7658 /* voice_play_animation_3.png in Resources */,
 				11ECD8782A25CB0600AF7B82 /* SRXGoodsMediaCollectionCell.xib in Resources */,
+				11F362642A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.xib in Resources */,
+				11F362812A418EA40035F67D /* SRXPopFeatureSelectionVC.xib in Resources */,
 				112261542A1B67CC0023FC8C /* SRXOrderShippedSelfVC.xib in Resources */,
 				11E0897629FA4BDD00335DCC /* SRXGoodsListTableCell.xib in Resources */,
 				116643E32A39971600F846B2 /* SRXMsgShopGoodsTableCell.xib in Resources */,
@@ -3933,6 +4133,7 @@
 				80341F23242DE54300DED907 /* JPVideoPlayer.bundle in Resources */,
 				11ECD87C2A25D01200AF7B82 /* SRXGEPicsCollectionCell.xib in Resources */,
 				18CCFE4C23C6F5120009732E /* MBHUD_Error@3x.png in Resources */,
+				11F362922A41939C0035F67D /* SRXFeatureFooterReusableView.xib in Resources */,
 				18CCFE4D23C6F5120009732E /* back_icon@2x.png in Resources */,
 				11E10CAF2A219E1D00255988 /* SRXGoodsSpecAdd1TableCell.xib in Resources */,
 				110A32E329ED21EC00BEE36F /* Me.storyboard in Resources */,
@@ -3960,6 +4161,7 @@
 				11EE16672A20912E008BE57F /* SRXGoodsSpecAddTableCell.xib in Resources */,
 				18CCFE4723C6F5120009732E /* MBHUD_Info@2x.png in Resources */,
 				11C4DE3129F5079400A15C7D /* SRXOrderShippedGoodsTableCell.xib in Resources */,
+				11F3629F2A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.xib in Resources */,
 				11A5C795290BBD3200CD7658 /* voice_play_animation_1.png in Resources */,
 				11E0898429FA630F00335DCC /* SRXShopClassFilterView.xib in Resources */,
 				11C6F7F62A32F99B00CFE28E /* SRXMessageListShopView.xib in Resources */,
@@ -4203,9 +4405,12 @@
 				11DE69A329F277CB00730EF9 /* SRXOrderDetailsInfoTableCell.m in Sources */,
 				18652EEF23F4457F005E8EEB /* UILabel+LCSpace.m in Sources */,
 				11C4DE2829F4D44900A15C7D /* SRXOrderLogisticsListTableCell.m in Sources */,
+				11F362842A418F020035F67D /* SRXFeatureSelectionCollectionView.m in Sources */,
 				11E55EA129E925F700B34C18 /* SRXLoginShopListVC.m in Sources */,
+				11F3626C2A4181400035F67D /* SRXGEStarsRankView.m in Sources */,
 				11EEE2A229F0E0A5005A07E7 /* SRXOrderListTableVC.m in Sources */,
 				1166437C2A39649E00F846B2 /* SRXMsgChatTableView.m in Sources */,
+				11F362A02A4194FC0035F67D /* SRXFeatureImageItemCollectionViewCell.m in Sources */,
 				18652EFB23F4457F005E8EEB /* UIDevice+LCBase.m in Sources */,
 				5DD013ED23FE943A00FC4060 /* NSData+JKData.m in Sources */,
 				116643842A3965DF00F846B2 /* SRXMessage.m in Sources */,
@@ -4229,7 +4434,9 @@
 				116643932A39663400F846B2 /* JYBubbleButtonModel.m in Sources */,
 				18CCFE1B23C6F5120009732E /* NullSafe.m in Sources */,
 				5DD013E923FE943A00FC4060 /* NSData+JKGzip.m in Sources */,
+				11F3624D2A417BBE0035F67D /* SRXAllTheGoodsModel.m in Sources */,
 				111314D12A370D92001A77B7 /* SRXMessageSetModel.m in Sources */,
+				11F362522A417FA40035F67D /* SRXImageCollectionViewCell.m in Sources */,
 				11F215172863FCCA00CA0981 /* HGPageViewController.m in Sources */,
 				116643FA2A39971600F846B2 /* SRXMsgShopAudioTableCell.m in Sources */,
 				5DD013F123FE943A00FC4060 /* UIViewController+JKViewController.m in Sources */,
@@ -4254,6 +4461,7 @@
 				18CCFE3823C6F5120009732E /* QiPageContentView.m in Sources */,
 				5DD013E123FE943A00FC4060 /* NSString+JKPinyin.m in Sources */,
 				5DD0140B23FE943A00FC4060 /* JKDate.m in Sources */,
+				11F3625A2A417FDE0035F67D /* SRXGoodsEvaluateListModel.m in Sources */,
 				11E0898029FA526F00335DCC /* SRXGoodsMoreFilterView.m in Sources */,
 				1118AEE229F0E6CF003C994A /* SRXOrdersCenterPageC.m in Sources */,
 				11E2C2E9292CA010007D572E /* SRXHtmlTextView.m in Sources */,
@@ -4269,6 +4477,7 @@
 				11240AFD2A1DF92F00F1475E /* NetworkManager+GoodUpdate.m in Sources */,
 				11E0896C29FA119800335DCC /* SRXGoodsListPageVC.m in Sources */,
 				11D7E58628894C6900FA19F5 /* YBIBAuxiliaryViewHandler.m in Sources */,
+				11F362982A4194230035F67D /* DCFeatureHeaderView.m in Sources */,
 				18652EE723F4457F005E8EEB /* NSMutableDictionary+LCBase.m in Sources */,
 				11ECD8702A25900000AF7B82 /* SRXGoodsInfoEditBasicInfoTableCell.m in Sources */,
 				11C4DE2429F4D42700A15C7D /* SRXOrderLogisticsListVC.m in Sources */,
@@ -4278,6 +4487,7 @@
 				805A7E0424B5B36800D99F39 /* FLAnimatedImage.m in Sources */,
 				119992BD29F7BEC500DDEE44 /* SRXShopDataItem.m in Sources */,
 				110ABCAF29EE818F002D562C /* SRXPasswordUpdateVC.m in Sources */,
+				11F3628C2A41900A0035F67D /* SRXSpecModel.m in Sources */,
 				11F361022A1C52050084075A /* SRXOrderShippedGroupVC.m in Sources */,
 				11C4DE2C29F4D76B00A15C7D /* SRXOrderListGoodsTableView.m in Sources */,
 				11F2151B2863FCCA00CA0981 /* HGPagesViewController.m in Sources */,
@@ -4294,7 +4504,9 @@
 				110ABCA629EE7A36002D562C /* SRXSetInfoUpdateSuccessVC.m in Sources */,
 				11DF66FC29F66237004557DE /* SRXOrderRefundDetailsFlowTableCell.m in Sources */,
 				80341F1F242DE54300DED907 /* JPVideoPlayerResourceLoader.m in Sources */,
+				11F3629B2A4194520035F67D /* DCFeatureItemCell.m in Sources */,
 				18CCFE3023C6F5120009732E /* RootViewController.m in Sources */,
+				11F362692A4181130035F67D /* SRXGDEvaluationTableCell.m in Sources */,
 				5DD013F323FE943A00FC4060 /* UIBarButtonItem+JKBarbuttonItem.m in Sources */,
 				18652EF623F4457F005E8EEB /* UIBarButtonItem+LCBase.m in Sources */,
 				5DD013FE23FE943A00FC4060 /* UITextField+JKTextField.m in Sources */,
@@ -4305,6 +4517,7 @@
 				11D7E5CA28894C9500FA19F5 /* YBIBCollectionView.m in Sources */,
 				189C7A7A23D6C840001FB8ED /* SRXBaseVM.m in Sources */,
 				189C7A6823D6A28B001FB8ED /* WMPageController.m in Sources */,
+				11F362452A417A2C0035F67D /* SRXGoodsImageDetailView.m in Sources */,
 				5DD0140C23FE943A00FC4060 /* JKRSATool.m in Sources */,
 				116642E42A39645800F846B2 /* SRXMsgChatVC.m in Sources */,
 				18CCFE3B23C6F5120009732E /* YBRectConst.m in Sources */,
@@ -4323,6 +4536,7 @@
 				116643E52A39971600F846B2 /* SRXMsgUserGoodsTableCell.m in Sources */,
 				112261412A1AF97A0023FC8C /* NetworkManager+Me.m in Sources */,
 				5DD013FF23FE943A00FC4060 /* UIImage+JKScaleVideoImage.m in Sources */,
+				11F362392A4179DC0035F67D /* SRXGDTagsCollectionView.m in Sources */,
 				5D09F1A5241A2C89006290A0 /* SRXCommonYellowGradientBtn.m in Sources */,
 				18CCFE2323C6F5120009732E /* AppManager.m in Sources */,
 				11A61DFF2A2ECC4800FB4815 /* SRXGoodsEditQuitAlertVC.m in Sources */,
@@ -4330,7 +4544,9 @@
 				118E72A12A24C2EC009A28BE /* SRXGoodsInfoEditBaseVC.m in Sources */,
 				5DD013FA23FE943A00FC4060 /* UIImage+JKGIF.m in Sources */,
 				5DD0140E23FE943A00FC4060 /* JKScanningQRViewController.m in Sources */,
+				11F362342A4179D30035F67D /* SRXGDEvaluationTableView.m in Sources */,
 				111314C02A36E771001A77B7 /* SRXChatCheckOrdersTableCell.m in Sources */,
+				11F362872A418F470035F67D /* SRXSpecGoodsPriceModel.m in Sources */,
 				805A7E0724B5B36800D99F39 /* XHLaunchAdButton.m in Sources */,
 				11C6F7FE2A33051600CFE28E /* SRXMessageListModel.m in Sources */,
 				1166441E2A39988400F846B2 /* SHTextView.m in Sources */,
@@ -4343,6 +4559,7 @@
 				11F2151E2863FD6300CA0981 /* HGCategoryView.m in Sources */,
 				5DD013FB23FE943A00FC4060 /* UINavigationController+JKNavigationController.m in Sources */,
 				11F2500C290BCAF900E03964 /* DeviceManagerBase.m in Sources */,
+				11F362302A4178F10035F67D /* SRXGoodsDetailsVC.m in Sources */,
 				18CCFE3723C6F5120009732E /* UIViewController+YCPopover.m in Sources */,
 				18652EF123F4457F005E8EEB /* UICollectionView+LCRegister.m in Sources */,
 				11E0896F29FA11BE00335DCC /* SRXGoodsListTableVC.m in Sources */,
@@ -4365,6 +4582,7 @@
 				11ECD8732A25C90000AF7B82 /* SRXGoodsMediaView.m in Sources */,
 				5DD013EC23FE943A00FC4060 /* NSObject+JKRuntime.m in Sources */,
 				18CCFE2023C6F5120009732E /* TextVerification.m in Sources */,
+				11F3628D2A41900A0035F67D /* SRXSpecValueModel.m in Sources */,
 				18CCFE2F23C6F5120009732E /* XYTransition.m in Sources */,
 				116644212A39988400F846B2 /* SHActivityIndicatorView.m in Sources */,
 				62C5131226BCE3DB00A539BA /* LMJDropdownMenu.m in Sources */,
@@ -4374,6 +4592,7 @@
 				11D7E5AA28894C8200FA19F5 /* YBIBImageCache.m in Sources */,
 				11CA6D7F2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.m in Sources */,
 				18CCFE1D23C6F5120009732E /* UIScrollView+mjRefreshByLiu70.m in Sources */,
+				11F362912A41939C0035F67D /* SRXFeatureFooterReusableView.m in Sources */,
 				18CCFE3E23C6F5120009732E /* MBProgressHUD+XY.m in Sources */,
 				18CCFD5D23C6F2D40009732E /* AppDelegate.m in Sources */,
 				11C66FFD2A3BF69600129C41 /* SRXMsgEvaluateTableCell.m in Sources */,
@@ -4397,6 +4616,7 @@
 				110ABCB229EE8275002D562C /* SRXSmsAuthenticationVC.m in Sources */,
 				18CCFE2E23C6F5120009732E /* RootNavigationController.m in Sources */,
 				116644242A39991000F846B2 /* SRXMsgOrderGoodsTableView.m in Sources */,
+				11F362562A417FC90035F67D /* SRXGETagsCollectionCell.m in Sources */,
 				11C6F7E92A32F48100CFE28E /* SRXMessageListTableCell.m in Sources */,
 				11DE699E29F2777F00730EF9 /* SRXOrderDetailsPayInfoTableCell.m in Sources */,
 				110ABC9929EE6853002D562C /* SRXSetInfoTableVC.m in Sources */,
@@ -4416,6 +4636,7 @@
 				625EFF0426B78F2600BF618A /* CommentPhotosView.m in Sources */,
 				805A7E0F24B5B36800D99F39 /* XHLaunchAdCache.m in Sources */,
 				80341F10242DE54300DED907 /* SDBrowserImageView.m in Sources */,
+				11F362632A4180DB0035F67D /* SRXGDShopGoodsCollectionCell.m in Sources */,
 				11D7E5DE28894CB400FA19F5 /* YBIBVideoCell.m in Sources */,
 				62DCF1D7275DEEA800B8C734 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				18CCFE4023C6F5120009732E /* GBIndicatorView.m in Sources */,
@@ -4489,6 +4710,7 @@
 				11F25011290BCAF900E03964 /* DeviceManagerBase+Media.m in Sources */,
 				18856B7723CD71C4004DF025 /* UIWindow+JXSafeArea.m in Sources */,
 				11E55EA529E92A4B00B34C18 /* SRXLoginShopListTableCell.m in Sources */,
+				11F362732A4187500035F67D /* PopProductParametersVC.m in Sources */,
 				11E14B682A380847005211D1 /* SRXChatTagsTableCell.m in Sources */,
 				11E0899029FA727400335DCC /* SRXGoodsListEditTableCell.m in Sources */,
 				80341F2A242DE54300DED907 /* JPVideoPlayer.m in Sources */,
@@ -4499,7 +4721,9 @@
 				11DE697C29F223C700730EF9 /* SRXOrdersListGoodsTableCell.m in Sources */,
 				5DD013FC23FE943A00FC4060 /* CALayer+JKLayer.m in Sources */,
 				5DD0140123FE943A00FC4060 /* UIScrollView+JKExtension.m in Sources */,
+				11F3623A2A4179DC0035F67D /* SRXGDPicsCollectionView.m in Sources */,
 				80341F21242DE54300DED907 /* JPVideoPlayerCacheFile.m in Sources */,
+				11F362802A418EA40035F67D /* SRXPopFeatureSelectionVC.m in Sources */,
 				5DD013DC23FE943A00FC4060 /* NSData+JKBase64.m in Sources */,
 				11F25013290BCAF900E03964 /* amrFileCodec.mm in Sources */,
 				80341F18242DE54300DED907 /* TSVideoPlayback.m in Sources */,
@@ -4527,12 +4751,14 @@
 				80341F1E242DE54300DED907 /* JPVideoPlayerCompat.m in Sources */,
 				18652EF523F4457F005E8EEB /* UIView+LCXib.m in Sources */,
 				116644332A399A5200F846B2 /* SRXMsgGoodsPicsCollectionCell.m in Sources */,
+				11F3623D2A4179E70035F67D /* SRXGDShopGoodsCollectionView.m in Sources */,
 				189C7A6A23D6A28B001FB8ED /* WMMenuItem.m in Sources */,
 				11EE165F2A208BB1008BE57F /* SRXGoodsSpecSetTableVC.m in Sources */,
 				11D7E5C628894C9500FA19F5 /* NSObject+YBImageBrowser.m in Sources */,
 				189C7A6B23D6A28B001FB8ED /* WMScrollView.m in Sources */,
 				18E8D52E23CC66E50088906A /* UIView+LZRViewLayer.m in Sources */,
 				11D7E59228894C7700FA19F5 /* YBIBPhotoAlbumManager.m in Sources */,
+				11F3627B2A4187C30035F67D /* ProductParameterTableViewCell.m in Sources */,
 				11F6FBD829FBA03B00519293 /* SRXOrderDetailsModel.m in Sources */,
 				625EFF2E26B79D4100BF618A /* DownloadMethod.m in Sources */,
 				1166441B2A39988400F846B2 /* SHAudioRecordHelper.m in Sources */,
@@ -4542,6 +4768,7 @@
 				11CF6CFA2A301C1F00712C43 /* NSDate+Formatter.m in Sources */,
 				18652EF423F4457F005E8EEB /* UIImage+LCBase.m in Sources */,
 				11F6FBCE29FB62A200519293 /* SRXGoodsSpecUpdateTableCell.m in Sources */,
+				11F362412A417A050035F67D /* SRXGoodsDetailsHeadView.m in Sources */,
 				11C4DE3029F5079400A15C7D /* SRXOrderShippedGoodsTableCell.m in Sources */,
 				80341F1D242DE54300DED907 /* UIView+WebVideoCache.m in Sources */,
 				11AFD4132A3FFFB1001F7EDD /* UIColor+JHExt.m in Sources */,
@@ -4580,6 +4807,7 @@
 				80341F2E242DE54300DED907 /* JPVideoPlayerCachePath.m in Sources */,
 				11C01E9228324D63000F2528 /* SRXPullTableView.m in Sources */,
 				11EE16662A20912E008BE57F /* SRXGoodsSpecAddTableCell.m in Sources */,
+				11F362952A41941E0035F67D /* DCCollectionHeaderLayout.m in Sources */,
 				18CCFE1F23C6F5120009732E /* UIImage+Gradient.m in Sources */,
 				5DD013FD23FE943A00FC4060 /* UIImage+JKDirection.m in Sources */,
 				11E14B642A380617005211D1 /* SRXChatTagsListVC.m in Sources */,

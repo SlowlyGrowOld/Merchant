@@ -77,18 +77,19 @@
 
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidEndEditing:(UITextField *)textField {
+
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField endEditing:YES];
     if ([textField.text isEqualToString:self.item.nickname]) {
-        return;
+        return YES;
     }
     [NetworkManager setChatRemarkWithUser_id:self.item.user_id shop_id:@"" remark_name:textField.text success:^(NSString *message) {
         
     } failure:^(NSString *message) {
         
     }];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField endEditing:YES];
     return YES;
 }
 

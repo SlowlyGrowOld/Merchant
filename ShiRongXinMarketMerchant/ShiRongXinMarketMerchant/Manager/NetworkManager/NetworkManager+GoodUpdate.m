@@ -15,7 +15,7 @@
                 failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [[NetworkManager sharedClient] postWithURLString:@"shop/goods_add" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
-        success(messageDic[@"msg"]);
+        success(messageDic[@"data"]);
     } failure:failure];
 }
 
@@ -29,7 +29,7 @@
     NSMutableDictionary *mdic = [NSMutableDictionary dictionaryWithDictionary:parameters];
     mdic[@"goods_id"] = goods_id;
     [[NetworkManager sharedClient] postWithURLString:@"shop/goods_save" parameters:mdic.copy isNeedSVP:YES success:^(NSDictionary *messageDic) {
-        success(messageDic[@"msg"]);
+        success(messageDic[@"data"]);
     } failure:failure];
 }
 
