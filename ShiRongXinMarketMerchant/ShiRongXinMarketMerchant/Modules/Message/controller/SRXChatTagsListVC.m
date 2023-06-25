@@ -28,6 +28,15 @@
     self.tableView.separatorColor = CViewBgColor;
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXChatTagsTableCell" bundle:nil] forCellReuseIdentifier:@"SRXChatTagsTableCell"];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
+    [self addNavigationItemWithImageNames:@[@"back_black"] isLeft:YES target:self action:@selector(back1BtnClicked) tags:nil];
+}
+
+- (void)back1BtnClicked {
+    if (self.presentingViewController) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -36,7 +45,7 @@
 }
 
 - (void)requestData {
-    [NetworkManager getShopLabelsWithShop_id:@"" success:^(NSArray *modelList) {
+    [NetworkManager getShopLabelsWithShop_id:@"" user_id:@"" success:^(NSArray *modelList) {
         [self.tableView.mj_header endRefreshing];
         self.datas = modelList;
         [self.tableView reloadData];
@@ -48,7 +57,7 @@
 - (IBAction)deleteBtnClick:(id)sender {
     NSMutableArray *array = [NSMutableArray array];
     for (SRXMsgLabelsItem *item in self.datas) {
-        if (item.is_select){
+        if (item.is_chose){
             [array addObject:item.label_id];
         }
     }

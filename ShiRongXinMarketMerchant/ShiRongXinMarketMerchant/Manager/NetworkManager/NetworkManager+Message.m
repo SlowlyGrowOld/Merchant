@@ -201,4 +201,30 @@
         success(messageDic[@"data"]);
     } failure:failure];
 }
+
+/// 给用户添加标签
++ (void)addChatUserLabelWithUser_id:(NSString *)user_id
+                           label_id:(NSString *)label_id
+                          success:(JHNetworkRequestSuccessVoid)success
+                          failure:(JHNetworkRequestFailure)failure {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"user_id"] = user_id;
+    mdic[@"label_id"] = label_id;
+    [[NetworkManager sharedClient] postWithURLString:@"shop/set_chat_user_label" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
+        success(messageDic[@"data"]);
+    } failure:failure];
+}
+
+/// 删除用户标签
++ (void)removeChatUserLabelWithUser_id:(NSString *)user_id
+                           label_id:(NSString *)label_id
+                          success:(JHNetworkRequestSuccessVoid)success
+                          failure:(JHNetworkRequestFailure)failure {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"user_id"] = user_id;
+    mdic[@"label_id"] = label_id;
+    [[NetworkManager sharedClient] postWithURLString:@"shop/set_chat_user_label_del" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
+        success(messageDic[@"data"]);
+    } failure:failure];
+}
 @end

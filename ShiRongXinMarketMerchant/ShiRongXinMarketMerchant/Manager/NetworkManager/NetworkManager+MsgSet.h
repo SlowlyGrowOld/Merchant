@@ -66,6 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
                           failure:(JHNetworkRequestFailure)failure;
 /// 获取商家标签
 + (void)getShopLabelsWithShop_id:(NSString *)shop_id
+                         user_id:(NSString *)user_id
                     success:(JHNetworkRequestSuccessArray)success
                     failure:(JHNetworkRequestFailure)failure;
 

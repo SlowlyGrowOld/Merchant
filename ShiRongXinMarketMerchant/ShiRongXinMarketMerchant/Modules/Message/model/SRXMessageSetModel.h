@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * label_name;
 @property (nonatomic , copy) NSString              * label_color_number;
 
-@property (nonatomic , assign) BOOL              is_select;
+@property (nonatomic , assign) BOOL              is_chose;
 
 @end
 

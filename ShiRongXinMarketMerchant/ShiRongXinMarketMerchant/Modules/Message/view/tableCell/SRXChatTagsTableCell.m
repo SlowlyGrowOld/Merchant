@@ -31,7 +31,7 @@
 
 - (IBAction)selectBtnClick:(UIButton *)sender {
     sender.selected = !sender.isSelected;
-    self.item.is_select = sender.isSelected;
+    self.item.is_chose = sender.isSelected;
 }
 
 - (void)setItem:(SRXMsgLabelsItem *)item {
@@ -40,7 +40,7 @@
     UIImage *image = [UIImage imageNamed:@"star_yellow"];
     self.star_image.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.star_image setTintColor:[UIColor colorWithHexString:item.label_color_number alpha:1]];
-    self.selectBtn.selected = item.is_select;
+    self.selectBtn.selected = item.is_chose;
 }
 
 @end

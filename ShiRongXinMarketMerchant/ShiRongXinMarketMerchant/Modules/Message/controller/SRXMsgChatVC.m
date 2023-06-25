@@ -315,20 +315,33 @@
     return _dataSources;
 }
 
+- (SRXChatUserInfoHeadView *)headView {
+    if(!_headView) {
+        _headView = [[NSBundle mainBundle] loadNibNamed:@"SRXChatUserInfoHeadView" owner:nil options:nil].firstObject;
+    }
+    _headView.user_id = self.item.user_id;
+    MJWeakSelf;
+    _headView.refreshBlock = ^{
+        weakSelf.headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 44);
+        weakSelf.tableViewConsTop.constant = 44;
+        weakSelf.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 44;
+    };
+    return _headView;
+}
+
 - (void)requestOtherData {
     [NetworkManager getChatOtherWithUser_id:self.item.user_id shop_id:@"" success:^(SRXMsgChatOther * _Nonnull other) {
-        SRXChatUserInfoHeadView *headView = [[NSBundle mainBundle] loadNibNamed:@"SRXChatUserInfoHeadView" owner:nil options:nil].firstObject;
         if (other.user_labels.count==0) {
-            headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 44);
+            self.headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 44);
             self.tableViewConsTop.constant = 44;
             self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 44;
         } else {
-            headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 76);
+            self.headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 76);
             self.tableViewConsTop.constant = 76;
             self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 76;
         }
-        headView.other = other;
-        [self.view addSubview:headView];
+        self.headView.other = other;
+        [self.view addSubview:self.headView];
     } failure:^(NSString *message) {
         
     }];

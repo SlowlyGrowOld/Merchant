@@ -106,6 +106,17 @@ NS_ASSUME_NONNULL_BEGIN
                           shop_id:(NSString *)shop_id
                           success:(JHNetworkRequestSuccessVoid)success
                                failure:(JHNetworkRequestFailure)failure;
+/// 给用户添加标签
++ (void)addChatUserLabelWithUser_id:(NSString *)user_id
+                           label_id:(NSString *)label_id
+                          success:(JHNetworkRequestSuccessVoid)success
+                          failure:(JHNetworkRequestFailure)failure;
+
+/// 删除用户标签
++ (void)removeChatUserLabelWithUser_id:(NSString *)user_id
+                           label_id:(NSString *)label_id
+                          success:(JHNetworkRequestSuccessVoid)success
+                          failure:(JHNetworkRequestFailure)failure;
 @end
 
 NS_ASSUME_NONNULL_END

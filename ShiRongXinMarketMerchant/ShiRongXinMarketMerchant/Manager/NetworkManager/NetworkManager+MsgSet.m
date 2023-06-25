@@ -85,10 +85,12 @@
 }
 
 + (void)getShopLabelsWithShop_id:(NSString *)shop_id
+                         user_id:(NSString *)user_id
                     success:(JHNetworkRequestSuccessArray)success
                          failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
     mdic[@"shop_id"] = shop_id;
+    mdic[@"user_id"] = user_id;
     [[NetworkManager sharedClient] getWithURLString:@"shop/get_shop_labels" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSArray *array = [SRXMsgLabelsItem mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
         success(array);

@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXChatUserInfoHeadView : UIView
+@property (nonatomic, copy) NSString  *user_id;
 @property (nonatomic, strong) SRXMsgChatOther *other;
+@property (nonatomic, copy) dispatch_block_t refreshBlock;
 @end
 
 NS_ASSUME_NONNULL_END
