@@ -28,6 +28,7 @@
     [NetworkManager changePasswordWithPwd:self.pwdTF.text re_pwd:self.rePwdTF.text success:^(NSString *message) {
         SRXSmsAuthenticationVC *vc = [[UIStoryboard storyboardWithName:@"Me" bundle:nil] instantiateViewControllerWithIdentifier:@"SRXSmsAuthenticationVC"];
         vc.type = SRXSetInfoUpdateSuccessTypePsd;
+        vc.mobile = message;
         vc.pwd = self.pwdTF.text;
         vc.re_pwd = self.rePwdTF.text;
         [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
@@ -38,8 +39,8 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    SRXSmsAuthenticationVC *vc = [segue destinationViewController];
-//    vc.type = SRXSetInfoUpdateSuccessTypePsd;
+    SRXSmsAuthenticationVC *vc = [segue destinationViewController];
+    vc.type = SRXSetInfoUpdateSuccessTypePsd;
 }
 
 @end

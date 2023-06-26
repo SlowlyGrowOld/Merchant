@@ -36,8 +36,8 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    SRXSmsAuthenticationVC *vc = [segue destinationViewController];
-//    vc.type = SRXSetInfoUpdateSuccessTypePhone;
+    SRXSmsAuthenticationVC *vc = [segue destinationViewController];
+    vc.type = SRXSetInfoUpdateSuccessTypePhone;
 }
 
 @end

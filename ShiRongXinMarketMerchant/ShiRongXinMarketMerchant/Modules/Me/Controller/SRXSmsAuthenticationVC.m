@@ -11,6 +11,7 @@
 #import "SRXSetInfoUpdateSuccessVC.h"
 
 #import "NetworkManager+Me.h"
+#import "NetworkManager+Login.h"
 
 @interface SRXSmsAuthenticationVC ()
 @property (weak, nonatomic) IBOutlet UILabel *numberLb;
@@ -35,9 +36,9 @@
         [weakSelf verifyPsdWith:code];
     };
     [self.codeView addSubview:_code1View];
+    self.numberLb.text = [NSString stringWithFormat:@"验证码已发送至+86 %@",self.mobile];
     self.num = 60;
-    self.sendMsgBtn.enabled = NO;
-    [self startTimer];
+    [self sendMsgBtnClick];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,9 +46,17 @@
     self.code1View.isEdit = YES;
 }
 
+- (void)sendMsgBtnClick {
+    [NetworkManager sendSMSWithMobile:self.mobile sms_event:self.type == SRXSetInfoUpdateSuccessTypePhone?@"change_phone":@"change_pwd" success:^(NSString *message) {
+        self.sendMsgBtn.enabled = NO;
+        [self startTimer];
+    } failure:^(NSString *message) {
+        self.sendMsgBtn.enabled = YES;
+    }];
+}
+
 - (IBAction)sendMsgBtnClick:(id)sender {
-    self.sendMsgBtn.enabled = !self.sendMsgBtn.isEnabled;
-    [self startTimer];
+    [self sendMsgBtnClick];
 }
 
 - (void)verifyPsdWith:(NSString *)code {

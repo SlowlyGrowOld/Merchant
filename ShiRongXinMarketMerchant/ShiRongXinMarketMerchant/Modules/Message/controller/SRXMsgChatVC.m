@@ -25,6 +25,7 @@
 #import "SRXChatTransferServiceVC.h"
 #import "SRXChatQuickReplyTableView.h"
 #import "SRXChatUserInfoHeadView.h"
+#import "SRXChatTagsListVC.h"
 
 @interface SRXMsgChatVC ()<SHMessageInputViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,JHWebSocketManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *shop_image;
@@ -73,7 +74,7 @@
     
     self.isHidenNaviBar = YES;
     self.view.backgroundColor = CViewBgColor;
-    self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36;
+    self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 73;
     self.pageNo = 1;
     self.pageSize = 15;
     [self setMj_header];
@@ -185,7 +186,9 @@
 }
 
 - (IBAction)tagsListBtnClick:(id)sender {
-
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
+    SRXChatTagsListVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXChatTagsListVC"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)orderListBtnClick:(id)sender {
@@ -343,7 +346,7 @@
         self.headView.other = other;
         [self.view addSubview:self.headView];
     } failure:^(NSString *message) {
-        
+        self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36;
     }];
 }
 
@@ -577,7 +580,7 @@
 #pragma mark 工具栏高度改变  SHMessageInputViewDelegate
 - (void)toolbarHeightChange {
     //改变聊天界面高度
-    self.tableViewConsH.constant = self.chatInputView.jk_y-TopHeight-36-48;
+    self.tableViewConsH.constant = self.chatInputView.jk_y-TopHeight-36-self.headView.jk_height;
     [self.view layoutIfNeeded];
 //    //滚动到底部
     [self tableViewScrollToBottom];

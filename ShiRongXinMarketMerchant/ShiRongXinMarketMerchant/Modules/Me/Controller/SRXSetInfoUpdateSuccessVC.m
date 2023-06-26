@@ -35,6 +35,7 @@
         }
         [self.navigationController popToRootViewControllerAnimated:YES];
     } else {
+        [UserManager clearUser];
         [AppHandyMethods switchWindowToLoginScene];
     }
 }

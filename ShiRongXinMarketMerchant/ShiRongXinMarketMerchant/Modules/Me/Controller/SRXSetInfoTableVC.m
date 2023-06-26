@@ -42,6 +42,7 @@
     [self.phoneView jk_addTapActionWithBlock:^(UITapGestureRecognizer * _Nonnull gestureRecoginzer) {
         UIStoryboard *me = [UIStoryboard storyboardWithName:@"Me" bundle:nil];
         SRXPhoneCurrentVC *vc = [me instantiateViewControllerWithIdentifier:@"SRXPhoneCurrentVC"];
+        vc.mobile = self.meInfo.shop_user_info.mobile;
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     [self.psdView jk_addTapActionWithBlock:^(UITapGestureRecognizer * _Nonnull gestureRecoginzer) {
@@ -82,7 +83,10 @@
         }];
         [self presentViewController:imagePickerVc animated:YES completion:nil];
     }];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self requestData];
 }
 
@@ -98,6 +102,15 @@
         [self.tableView reloadData];
     } failure:^(NSString *message) {
     
+    }];
+}
+
+- (IBAction)quitBtnClick:(id)sender {
+    [[NetworkManager sharedClient] getWithURLString:@"shop/log_out" parameters:nil isNeedSVP:NO success:^(NSDictionary *messageDic) {
+        [UserManager clearUser];
+        [AppHandyMethods switchWindowToLoginScene];
+    } failure:^(NSString *error) {
+            
     }];
 }
 

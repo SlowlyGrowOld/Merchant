@@ -14,6 +14,7 @@ typedef enum : NSUInteger {
 } SRXMeCollectionType;
 
 typedef enum : NSUInteger {
+    SRXMeCollectionJumpTypeNo,
     SRXMeCollectionJumpTypeMyOrder,
     SRXMeCollectionJumpTypeOther,
 } SRXMeCollectionJumpType;

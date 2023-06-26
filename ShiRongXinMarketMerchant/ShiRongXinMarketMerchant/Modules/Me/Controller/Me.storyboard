@@ -919,6 +919,9 @@
                                                             <integer key="value" value="5"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="quitBtnClick:" destination="aX6-IT-ZBc" eventType="touchUpInside" id="2XJ-ey-2Yl"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

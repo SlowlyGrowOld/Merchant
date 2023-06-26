@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXPasswordUpdateVC : RootViewController
-
+@property (nonatomic, copy) NSString *mobile;
 @end
 
 NS_ASSUME_NONNULL_END
