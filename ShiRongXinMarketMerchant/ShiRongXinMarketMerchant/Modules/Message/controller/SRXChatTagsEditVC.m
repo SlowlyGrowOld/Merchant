@@ -41,6 +41,10 @@
         self.label_color = self.item.label_color_number;
     } else {
         self.title = @"新增标签";
+        self.label_color = @"#FF0000";
+        UIImage *image = [UIImage imageNamed:@"star_yellow"];
+        self.imgView.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+        [self.imgView setTintColor:[UIColor colorWithHexString:self.label_color alpha:1]];
     }
     [self.textField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
 }

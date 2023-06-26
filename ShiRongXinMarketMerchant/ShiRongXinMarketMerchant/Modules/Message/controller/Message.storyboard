@@ -899,10 +899,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RKj-bv-KEf">
-                                <rect key="frame" x="15" y="118" width="363" height="140"/>
+                                <rect key="frame" x="15" y="118" width="363" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="wc1-Aq-GPG"/>
+                                    <constraint firstAttribute="height" constant="150" id="wc1-Aq-GPG"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZyN-PH-Apq">
                                     <size key="itemSize" width="128" height="128"/>
@@ -933,16 +933,16 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择颜色" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vn-Wx-mty">
-                                <rect key="frame" x="15.000000000000004" y="298" width="61.333333333333343" height="18"/>
+                                <rect key="frame" x="15.000000000000004" y="308" width="61.333333333333343" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Grl-9P-ymK">
-                                <rect key="frame" x="15" y="327" width="363" height="40"/>
+                                <rect key="frame" x="15" y="337" width="363" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GsN-sF-jmU">
-                                        <rect key="frame" x="15" y="0.0" width="300.66666666666663" height="40"/>
+                                        <rect key="frame" x="15" y="0.0" width="300.66666666666669" height="40"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>

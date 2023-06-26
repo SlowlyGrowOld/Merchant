@@ -58,6 +58,9 @@
             [NetworkManager changeUserInfoWithTarget_value:nickname target_type:@"2" success:^(NSString *message) {
                 weakSelf.nickname.text = nickname;
                 [weakSelf requestData];
+                if (weakSelf.refreshBlock) {
+                    weakSelf.refreshBlock();
+                }
             } failure:^(NSString *message) {
                 
             }];
@@ -74,6 +77,9 @@
                 [NetworkManager changeUserInfoWithTarget_value:messageDic[@"data"] target_type:@"1" success:^(NSString *message) {
                     weakSelf.meInfo.shop_user_info.avatar = messageDic[@"data"];
                     weakSelf.avatar.image = photos.firstObject;
+                    if (weakSelf.refreshBlock) {
+                        weakSelf.refreshBlock();
+                    }
                 } failure:^(NSString *message) {
                     
                 }];

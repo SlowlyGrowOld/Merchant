@@ -9,6 +9,7 @@
 #import "SRXMeVC.h"
 #import "SRXMeCollectionView.h"
 #import "NetworkManager+Me.h"
+#import "SRXSetInfoTableVC.h"
 
 @interface SRXMeVC ()
 @property (weak, nonatomic) IBOutlet SRXMeCollectionView *orderCollectionView;
@@ -44,17 +45,19 @@
     self.otherCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"商品管理" content:@"me_goods_manage"],[SRXMeCollectionModel configWithTitle:@"订单管理" content:@"me_order_manage"]];
     
     [self requestData];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
 }
 
 - (void)requestData {
     
     [NetworkManager getShopInfoWithShop_id:[UserManager sharedUserManager].curUserInfo.shop_id success:^(SRXShopInfoModel * _Nonnull info) {
+        [self.tableView.mj_header endRefreshing];
         self.nameLb.text = info.shop_info.shop_user_nickname;
         [self.avatar sd_setImageWithURL:[NSURL URLWithString:info.shop_info.shop_user_avatar]];
         self.shop_name.text = info.shop_info.shop_img;
         self.shopCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"订单总数" content:@(info.order_num_info.all_order_num).stringValue],[SRXMeCollectionModel configWithTitle:@"昨日订单" content:@(info.order_num_info.yesterday_order_num).stringValue]];
     } failure:^(NSString *message) {
-        
+        [self.tableView.mj_header endRefreshing];
     }];
     
     [NetworkManager getIncomeInfoWithShop_id:[UserManager sharedUserManager].curUserInfo.shop_id start_date:nil end_date:nil success:^(SRXIncomeInfo * _Nonnull info) {
@@ -76,11 +79,14 @@
 }
 
 #pragma mark - button event
-
-- (IBAction)setBtnClick:(id)sender {
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"setInfo"]) {
+        SRXSetInfoTableVC *vc = [segue destinationViewController];
+        MJWeakSelf;
+        vc.refreshBlock = ^{
+            [weakSelf requestData];
+        };
+    }
 }
-
-
 
 @end
