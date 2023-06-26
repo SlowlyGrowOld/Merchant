@@ -13,6 +13,7 @@
 #import "SRXOrderGoodsShippedVC.h"
 #import "SRXOrderLogisticsDetailsVC.h"
 #import "SRXOrderLogisticsListVC.h"
+#import "SRXMsgChatVC.h"
 
 @interface SRXOrdersListTableCell ()
 @property (weak, nonatomic) IBOutlet SRXOrderListGoodsTableView *tableView;
@@ -172,7 +173,13 @@
 }
 
 - (IBAction)contactBuyerBtnClick:(id)sender {
-    
+    SRXMsgChatVC *vc = [[SRXMsgChatVC alloc] init];
+    SRXMessageListModel *item = [SRXMessageListModel new];
+    item.nickname = self.model.nickname;
+    item.avatar =  self.model.avatar;
+    item.user_id =  self.model.user_id;
+    vc.item = item;
+    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 
 - (IBAction)copyBtnClick:(id)sender {

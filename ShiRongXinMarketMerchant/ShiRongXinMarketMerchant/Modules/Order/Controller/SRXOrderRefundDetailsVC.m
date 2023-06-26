@@ -16,6 +16,7 @@
 #import "NetworkManager+Order.h"
 #import "SRXOrderLogisticsDetailsVC.h"
 #import "SRXOrderLogisticsListVC.h"
+#import "SRXMsgChatVC.h"
 
 @interface SRXOrderRefundDetailsVC ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -40,7 +41,13 @@
 }
 
 - (IBAction)kefuBtnClick:(id)sender {
-    
+    SRXMsgChatVC *vc = [[SRXMsgChatVC alloc] init];
+    SRXMessageListModel *item = [SRXMessageListModel new];
+    item.nickname = self.details.user_info.nickname;
+    item.avatar = self.details.user_info.avatar;
+    item.user_id = self.details.user_info.user_id;
+    vc.item = item;
+    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 
 - (IBAction)rejectBtnClick:(id)sender {

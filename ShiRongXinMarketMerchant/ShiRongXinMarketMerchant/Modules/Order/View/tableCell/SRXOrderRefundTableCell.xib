@@ -295,7 +295,7 @@
                                                     <action selector="kefuBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PGE-EL-Vtf"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9b-7r-XDu">
+                                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9b-7r-XDu">
                                                 <rect key="frame" x="200" y="24" width="72" height="26"/>
                                                 <color key="backgroundColor" red="0.26274509800000001" green="0.72156862749999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -310,9 +310,6 @@
                                                         <integer key="value" value="13"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="detailsBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DCc-xd-K3c"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

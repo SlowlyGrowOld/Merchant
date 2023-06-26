@@ -7,6 +7,7 @@
 //
 
 #import "SRXOrderDetailsBuyerTableCell.h"
+#import "SRXMsgChatVC.h"
 
 @interface SRXOrderDetailsBuyerTableCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *user_img;
@@ -42,7 +43,13 @@
 }
 
 - (IBAction)chantBuyerBtnClick:(id)sender {
-    
+    SRXMsgChatVC *vc = [[SRXMsgChatVC alloc] init];
+    SRXMessageListModel *item = [SRXMessageListModel new];
+    item.nickname = self.info.nickname;
+    item.avatar =  self.info.avatar;
+    item.user_id =  self.info.user_id;
+    vc.item = item;
+    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 
 - (IBAction)copyFullAddressBtnClick:(id)sender {

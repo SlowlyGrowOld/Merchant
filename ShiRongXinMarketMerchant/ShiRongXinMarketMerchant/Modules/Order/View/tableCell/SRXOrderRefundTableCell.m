@@ -8,8 +8,9 @@
 
 #import "SRXOrderRefundTableCell.h"
 #import "SRXOrderListGoodsTableView.h"
-
+#import "SRXMsgChatVC.h"
 #import "SRXOrdersRemarkVC.h"
+#import "SRXOrderRefundDetailsVC.h"
 
 @interface SRXOrderRefundTableCell ()
 @property (weak, nonatomic) IBOutlet SRXOrderListGoodsTableView *goodsTable;
@@ -90,11 +91,15 @@
     
     [[UIViewController jk_currentViewController] presentViewController:alertC animated:YES completion:nil];
 }
-- (IBAction)detailsBtnClick:(id)sender {
-}
 
 - (IBAction)kefuBtnClick:(id)sender {
-    
+    SRXMsgChatVC *vc = [[SRXMsgChatVC alloc] init];
+    SRXMessageListModel *item = [SRXMessageListModel new];
+    item.nickname = self.model.nickname;
+    item.avatar = self.model.avatar;
+    item.user_id = self.model.user_id;
+    vc.item = item;
+    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 
 @end

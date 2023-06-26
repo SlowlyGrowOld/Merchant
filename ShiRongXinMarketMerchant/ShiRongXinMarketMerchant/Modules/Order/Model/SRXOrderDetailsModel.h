@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderDUser_info :NSObject
-@property (nonatomic , assign) NSInteger              user_id;
+@property (nonatomic , copy) NSString              * user_id;
 @property (nonatomic , copy) NSString              * nickname;
 @property (nonatomic , copy) NSString              * avatar;
 @property (nonatomic , copy) NSString              * consignee;
