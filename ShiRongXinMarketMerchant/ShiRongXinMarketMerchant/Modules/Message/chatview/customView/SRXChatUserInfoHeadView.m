@@ -88,7 +88,7 @@
     CGRect cursorStartRectToWindow = [self convertRect:sender.frame toView:((AppDelegate*)([UIApplication sharedApplication].delegate)).window];
     [[JYBubbleMenuView shareMenuView] showViewWithButtonModels:@[model] cursorStartRect:cursorStartRectToWindow selectionTextRectInWindow:tempRect selectBlock:^(NSString * _Nonnull selectTitle) {
         SRXMsgLabelsItem *item = self.other.user_labels[sender.tag];
-        [NetworkManager removeChatUserLabelWithUser_id:self.user_id label_id:item.label_id success:^(NSString *message) {
+        [NetworkManager removeChatUserLabelWithUser_id:self.user_id label_id:item.label_id shop_id:self.shop_id success:^(NSString *message) {
             NSMutableArray *mArr = [NSMutableArray arrayWithArray:self.other.user_labels];
             [mArr removeObject:item];
             self.other.user_labels = mArr.copy;

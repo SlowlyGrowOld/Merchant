@@ -63,7 +63,7 @@
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否移除对话？" preferredStyle:UIAlertControllerStyleAlert];
     [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alertC addAction:[UIAlertAction actionWithTitle:@"移除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [NetworkManager removeChatUserWithUser_id:self.item.user_id shop_id:@"" success:^(NSString *message) {
+        [NetworkManager removeChatUserWithUser_id:self.item.user_id shop_id:self.shop_id success:^(NSString *message) {
             if (self.refreshBlock) {
                 self.refreshBlock();
             }
@@ -79,7 +79,7 @@
     SRXChatTransferServiceVC *vc = [[SRXChatTransferServiceVC alloc] init];
     MJWeakSelf;
     vc.serviceBlock = ^(SRXMsgChatServiceItem * _Nonnull item) {
-        [NetworkManager transferChatServiceWithUser_id:[UserManager sharedUserManager].curUserInfo._id shop_user_id:item.shop_user_id success:^(NSString *message) {
+        [NetworkManager transferChatServiceWithUser_id:[UserManager sharedUserManager].curUserInfo._id shop_user_id:item.shop_user_id shop_id:self.shop_id success:^(NSString *message) {
             [weakSelf dismissViewControllerAnimated:YES completion:^{
                             
             }];
@@ -91,7 +91,7 @@
 }
 
 - (void)requestData {
-    [NetworkManager getShopLabelsWithShop_id:@"" user_id:self.item.user_id success:^(NSArray *modelList) {
+    [NetworkManager getShopLabelsWithShop_id:self.shop_id user_id:self.item.user_id success:^(NSArray *modelList) {
         self.datas = modelList;
         self.tagsViewConsH.constant = modelList.count>0?83:46;
         [self.tagsCollectionView reloadData];
@@ -106,7 +106,7 @@
     if ([textField.text isEqualToString:self.item.nickname]) {
         return YES;
     }
-    [NetworkManager setChatRemarkWithUser_id:self.item.user_id shop_id:@"" remark_name:textField.text success:^(NSString *message) {
+    [NetworkManager setChatRemarkWithUser_id:self.item.user_id shop_id:self.shop_id remark_name:textField.text success:^(NSString *message) {
         
     } failure:^(NSString *message) {
         
@@ -142,7 +142,7 @@
     SRXMsgLabelsItem *item = self.datas[indexPath.row];
     if (item.is_chose) {
         [SVProgressHUD show];
-        [NetworkManager removeChatUserLabelWithUser_id:self.item.user_id label_id:item.label_id success:^(NSString *message) {
+        [NetworkManager removeChatUserLabelWithUser_id:self.item.user_id label_id:item.label_id shop_id:self.shop_id success:^(NSString *message) {
             item.is_chose = NO;
             [self.tagsCollectionView reloadData];
         } failure:^(NSString *message) {
@@ -159,7 +159,7 @@
             [SVProgressHUD showInfoWithStatus:@"用户标签最多设置三个！"];
         }else {
             [SVProgressHUD show];
-            [NetworkManager addChatUserLabelWithUser_id:self.item.user_id label_id:item.label_id success:^(NSString *message) {
+            [NetworkManager addChatUserLabelWithUser_id:self.item.user_id label_id:item.label_id shop_id:self.shop_id success:^(NSString *message) {
                 item.is_chose = YES;
                 [self.tagsCollectionView reloadData];
             } failure:^(NSString *message) {

@@ -47,12 +47,16 @@
     [SVProgressHUD setBackgroundColor:kHRGBAlpha(0, 0, 0, .6)];
     [SVProgressHUD setForegroundColor:UIColor.whiteColor];
 
+#ifdef DEBUG
     NSString *onlineOrTest = [kUserDefaults stringForKey:SwitchServiceOnlineOrTest];
     if ([onlineOrTest isEqualToString:@"1"]) {//正式线
         [UserAccount sharedAccount].isOnline = YES;
     }else {
         [UserAccount sharedAccount].isOnline = NO;
     }
+#else
+    [UserAccount sharedAccount].isOnline = YES;
+#endif
 }
 
 - (void)initIQKeyboard{

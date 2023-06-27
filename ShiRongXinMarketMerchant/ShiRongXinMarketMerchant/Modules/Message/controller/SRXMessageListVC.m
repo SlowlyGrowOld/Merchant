@@ -150,6 +150,7 @@
     if (state == UIGestureRecognizerStateEnded) {
         DLog(@"长按---%zd--%zd-",indexPath.row,state);
         SRXMsgChatSetAlertVC *vc = [SRXMsgChatSetAlertVC new];
+        vc.shop_id = self.shop.shop_id;
         vc.item = self.dataSources[indexPath.row];
         MJWeakSelf;
         vc.refreshBlock = ^{

@@ -259,7 +259,7 @@
     SRXChatTransferServiceVC *vc = [[SRXChatTransferServiceVC alloc] init];
     MJWeakSelf;
     vc.serviceBlock = ^(SRXMsgChatServiceItem * _Nonnull item) {
-        [NetworkManager transferChatServiceWithUser_id:[UserManager sharedUserManager].curUserInfo._id shop_user_id:item.shop_user_id success:^(NSString *message) {
+        [NetworkManager transferChatServiceWithUser_id:[UserManager sharedUserManager].curUserInfo._id shop_user_id:item.shop_user_id shop_id:self.shop_id success:^(NSString *message) {
             [weakSelf sendChatMessageWithTransfer:item];
         } failure:^(NSString *message) {
             
@@ -333,7 +333,7 @@
 }
 
 - (void)requestOtherData {
-    [NetworkManager getChatOtherWithUser_id:self.item.user_id shop_id:@"" success:^(SRXMsgChatOther * _Nonnull other) {
+    [NetworkManager getChatOtherWithUser_id:self.item.user_id shop_id:self.shop_id success:^(SRXMsgChatOther * _Nonnull other) {
         if (other.user_labels.count==0) {
             self.headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 44);
             self.tableViewConsTop.constant = 44;

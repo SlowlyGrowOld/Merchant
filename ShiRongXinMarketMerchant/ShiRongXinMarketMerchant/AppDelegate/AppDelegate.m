@@ -44,10 +44,10 @@
     //广告页
     [AppManager appStart];
 
-    [UMConfigure initWithAppkey:@"5ec4db22dbc2ec0816fa04fc" channel:nil];
-    [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WechatAppID appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
-    [WXApi registerApp:WechatAppID universalLink:@"https://app.goeasy.vip/"];
+//    [UMConfigure initWithAppkey:@"5ec4db22dbc2ec0816fa04fc" channel:nil];
+//    [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
+//    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WechatAppID appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+//    [WXApi registerApp:WechatAppID universalLink:@"https://app.goeasy.vip/"];
     
     //启动广告页
 //    [XHLaunchAd setLaunchSourceType:SourceTypeLaunchImage];
@@ -56,15 +56,15 @@
     
     //Required
       //notice: 3.0.0 及以后版本注册可以这样写，也可以继续用之前的注册方式
-    [self initJPushWithLaunchOptions:launchOptions];
+//    [self initJPushWithLaunchOptions:launchOptions];
     
-    [MQManager initWithAppkey:@"ff054af0af3e16281a0243defaa64315" completion:^(NSString *clientId, NSError *error) {
-        if (!error) {
-            NSLog(@"美洽 SDK：初始化成功");
-        } else {
-            NSLog(@"error:%@",error);
-        }
-    }];
+//    [MQManager initWithAppkey:@"ff054af0af3e16281a0243defaa64315" completion:^(NSString *clientId, NSError *error) {
+//        if (!error) {
+//            NSLog(@"美洽 SDK：初始化成功");
+//        } else {
+//            NSLog(@"error:%@",error);
+//        }
+//    }];
      
     return YES;
 }

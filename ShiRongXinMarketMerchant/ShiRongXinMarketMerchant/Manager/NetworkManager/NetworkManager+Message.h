@@ -99,6 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 转接按钮事件
 + (void)transferChatServiceWithUser_id:(NSString *)user_id
                           shop_user_id:(NSString *)shop_user_id
+                               shop_id:(NSString *)shop_id
                                success:(JHNetworkRequestSuccessVoid)success
                                failure:(JHNetworkRequestFailure)failure;
 /// 商户发送消息
@@ -109,12 +110,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 给用户添加标签
 + (void)addChatUserLabelWithUser_id:(NSString *)user_id
                            label_id:(NSString *)label_id
+                            shop_id:(NSString *)shop_id
                           success:(JHNetworkRequestSuccessVoid)success
                           failure:(JHNetworkRequestFailure)failure;
 
 /// 删除用户标签
 + (void)removeChatUserLabelWithUser_id:(NSString *)user_id
                            label_id:(NSString *)label_id
+                               shop_id:(NSString *)shop_id
                           success:(JHNetworkRequestSuccessVoid)success
                           failure:(JHNetworkRequestFailure)failure;
 @end

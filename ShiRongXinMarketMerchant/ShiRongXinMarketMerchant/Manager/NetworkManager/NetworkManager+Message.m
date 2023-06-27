@@ -181,11 +181,13 @@
 /// 转接按钮事件
 + (void)transferChatServiceWithUser_id:(NSString *)user_id
                           shop_user_id:(NSString *)shop_user_id
+                               shop_id:(NSString *)shop_id
                                success:(JHNetworkRequestSuccessVoid)success
                                failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
     mdic[@"user_id"] = user_id;
     mdic[@"shop_user_id"] = shop_user_id;
+    mdic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] getWithURLString:@"shop/chat_transfer_to" parameters:mdic.copy isNeedSVP:YES success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
     } failure:failure];
@@ -205,11 +207,13 @@
 /// 给用户添加标签
 + (void)addChatUserLabelWithUser_id:(NSString *)user_id
                            label_id:(NSString *)label_id
+                            shop_id:(NSString *)shop_id
                           success:(JHNetworkRequestSuccessVoid)success
                           failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
     mdic[@"user_id"] = user_id;
     mdic[@"label_id"] = label_id;
+    mdic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] postWithURLString:@"shop/set_chat_user_label" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
     } failure:failure];
@@ -218,11 +222,13 @@
 /// 删除用户标签
 + (void)removeChatUserLabelWithUser_id:(NSString *)user_id
                            label_id:(NSString *)label_id
+                               shop_id:(NSString *)shop_id
                           success:(JHNetworkRequestSuccessVoid)success
                           failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
     mdic[@"user_id"] = user_id;
     mdic[@"label_id"] = label_id;
+    mdic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] postWithURLString:@"shop/set_chat_user_label_del" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
     } failure:failure];
