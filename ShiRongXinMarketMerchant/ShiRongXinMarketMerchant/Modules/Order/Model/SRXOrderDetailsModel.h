@@ -61,6 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) NSArray <SRXOrderDGoods_infoItem *>              * goods_info;
 @property (nonatomic , strong) SRXOrderDOrder_info              * order_info;
 @property (nonatomic , strong) SRXOrderDPay_info              * pay_info;
+@property (nonatomic , assign) NSInteger              goods_count;
 
 @end
 

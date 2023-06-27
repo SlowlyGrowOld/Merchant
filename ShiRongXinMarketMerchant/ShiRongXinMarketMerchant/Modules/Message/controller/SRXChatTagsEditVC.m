@@ -50,7 +50,7 @@
 }
 
 - (IBAction)saveBtnClick:(id)sender {
-    [NetworkManager setShopLabelsWithType:self.item?@"2":@"1" label_name:self.textField.text label_color_number:self.label_color label_id:self.item.label_id shop_id:@"" success:^(NSString *message) {
+    [NetworkManager setShopLabelsWithType:self.item?@"2":@"1" label_name:self.textField.text label_color_number:self.label_color label_id:self.item.label_id shop_id:self.shop_id success:^(NSString *message) {
         [SVProgressHUD showSuccessWithStatus:self.item?@"编辑成功":@"新增标签成功"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if (self.refreshBlock){self.refreshBlock();};
@@ -63,7 +63,7 @@
 
 - (IBAction)cancelBtnClick:(id)sender {
     if ([self.cancelBtn.titleLabel.text isEqualToString:@"删除"]) {
-        [NetworkManager setShopLabelsWithType:@"3" label_name:self.textField.text label_color_number:self.label_color label_id:self.item.label_id shop_id:@"" success:^(NSString *message) {
+        [NetworkManager setShopLabelsWithType:@"3" label_name:self.textField.text label_color_number:self.label_color label_id:self.item.label_id shop_id:self.shop_id success:^(NSString *message) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if (self.refreshBlock){self.refreshBlock();};
                 [self.navigationController popViewControllerAnimated:YES];

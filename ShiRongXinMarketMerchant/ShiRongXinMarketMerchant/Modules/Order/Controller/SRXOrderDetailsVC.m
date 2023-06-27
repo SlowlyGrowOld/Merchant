@@ -72,6 +72,7 @@
             vc.is_distribute = YES;
         }
     }
+    vc.is_single = self.details.goods_count==1?YES:NO;
     [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 

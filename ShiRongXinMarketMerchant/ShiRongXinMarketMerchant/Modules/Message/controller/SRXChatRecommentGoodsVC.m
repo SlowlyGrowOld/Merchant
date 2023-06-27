@@ -9,9 +9,11 @@
 #import "SRXChatRecommentGoodsVC.h"
 #import "SRXChatRecommentGoodsTableCell.h"
 #import "NetworkManager+Message.h"
+#import "SRXSearchView.h"
 
 @interface SRXChatRecommentGoodsVC ()
-
+@property (nonatomic, strong) SRXSearchView *searchView;
+@property (nonatomic, copy) NSString *search_word;
 @end
 
 @implementation SRXChatRecommentGoodsVC
@@ -23,10 +25,21 @@
     self.tableView.rowHeight = 138;
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXChatRecommentGoodsTableCell" bundle:nil] forCellReuseIdentifier:@"SRXChatRecommentGoodsTableCell"];
     [self.tableView.mj_header beginRefreshing];
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(40);
+    }];
+    self.searchView = [[SRXSearchView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
+    self.searchView.placeholder_text = @"请输入商品名称";
+    [self.view addSubview:self.searchView];
+    MJWeakSelf;
+    self.searchView.searchBlock = ^(NSString * _Nonnull search_key) {
+        weakSelf.search_word = search_key;
+        [weakSelf.tableView.mj_header beginRefreshing];
+    };
 }
 
 - (void)requestTableData {
-    [NetworkManager getRecommentChatGoodsWithSearch_word:@"" shop_id:self.shop_id page:self.pageNo pageSize:self.pageSize success:^(NSArray *modelList) {
+    [NetworkManager getRecommentChatGoodsWithSearch_word:self.search_word shop_id:self.shop_id page:self.pageNo pageSize:self.pageSize success:^(NSArray *modelList) {
         [self requestTableDataSuccessWithArray:modelList];
     } failure:^(NSString *message) {
         [self requestTableDataFailed];
@@ -48,15 +61,15 @@
     [cell.goodsBtn addCallBackAction:^(UIButton *button) {
         if (weakSelf.clickBlock) {
             weakSelf.clickBlock(item, YES);
-            [SVProgressHUD showSuccessWithStatus:@"商品已发送成功"];
         }
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
     [cell.couponBtn addCallBackAction:^(UIButton *button) {
         item.coupon.image = item.image;
         if (weakSelf.clickBlock) {
             weakSelf.clickBlock(item, NO);
-            [SVProgressHUD showSuccessWithStatus:@"优惠券已发送成功"];
         }
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
     return cell;
 }

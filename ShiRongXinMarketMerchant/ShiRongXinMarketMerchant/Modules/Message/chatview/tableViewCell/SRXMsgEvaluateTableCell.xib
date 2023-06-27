@@ -64,19 +64,40 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfb-h8-i8n" customClass="SHActivityIndicatorView">
+                        <rect key="frame" x="27" y="41" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="DWj-Xj-Rom"/>
+                            <constraint firstAttribute="width" constant="20" id="ZYM-dJ-2RN"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    </button>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msg_text_report" translatesAutoresizingMaskIntoConstraints="NO" id="X1L-li-zW5">
+                        <rect key="frame" x="25" y="41" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="H0T-cG-yEO"/>
+                            <constraint firstAttribute="width" constant="20" id="rOy-GV-bX5"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="tfb-h8-i8n" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="04B-tC-JOd"/>
                     <constraint firstItem="acY-ja-pyA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="52" id="Aqp-0X-3lb"/>
                     <constraint firstAttribute="bottom" secondItem="acY-ja-pyA" secondAttribute="bottom" constant="5" id="NdI-6Y-LUD"/>
                     <constraint firstItem="acY-ja-pyA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RjV-qt-a3P"/>
+                    <constraint firstItem="acY-ja-pyA" firstAttribute="leading" secondItem="X1L-li-zW5" secondAttribute="trailing" constant="7" id="Zhf-Fr-J2w"/>
+                    <constraint firstItem="X1L-li-zW5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bZ3-k6-zPT"/>
                     <constraint firstAttribute="trailing" secondItem="acY-ja-pyA" secondAttribute="trailing" constant="52" id="oje-ar-zVh"/>
+                    <constraint firstItem="acY-ja-pyA" firstAttribute="leading" secondItem="tfb-h8-i8n" secondAttribute="trailing" constant="5" id="pML-a9-ESv"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
+                <outlet property="activityView" destination="tfb-h8-i8n" id="NfH-Lb-LHB"/>
                 <outlet property="contentLb" destination="rGE-yT-5f5" id="yzc-J8-ZQm"/>
                 <outlet property="imgView" destination="SBp-w8-cmd" id="Jtc-qa-7VD"/>
+                <outlet property="report_image" destination="X1L-li-zW5" id="NUz-es-Owl"/>
                 <outlet property="titleLb" destination="AVI-Up-8UI" id="e6n-Fz-0W4"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="40.140845070422536"/>
@@ -84,6 +105,7 @@
     </objects>
     <resources>
         <image name="evaluated_icon" width="12" height="13"/>
+        <image name="msg_text_report" width="20" height="19"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

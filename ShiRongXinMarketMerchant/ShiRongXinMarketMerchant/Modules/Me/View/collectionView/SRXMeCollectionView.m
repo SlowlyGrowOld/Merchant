@@ -78,9 +78,9 @@
         RootNavigationController *nav = kAppDelegate.mainTabBar.viewControllers[2];
         SRXOrdersCenterPageC *vc = nav.viewControllers.firstObject;
         if (indexPath.item==0) {
-            vc.pageIndex = 1;
-        } else if (indexPath.item==1) {
             vc.pageIndex = 0;
+        } else if (indexPath.item==1) {
+            vc.pageIndex = 1;
         } else if (indexPath.item==2) {
             vc.pageIndex = 2;
         } else{

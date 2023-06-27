@@ -15,7 +15,8 @@
 
 @interface SRXMessageListVC ()
 @property (nonatomic, strong) SRXMessageListShopView *shopView;
-@property (nonatomic, strong) SRXChatShopNumItem *shop;
+
+@property (nonatomic, strong) NSArray *shopArray;
 @end
 
 @implementation SRXMessageListVC
@@ -55,6 +56,7 @@
 
 - (void)requestShopData {
     [NetworkManager getChatShopNumWithSuccess:^(NSArray *modelList) {
+        self.shopArray = modelList;
         if (modelList.count>0) {
             if (self.shop) {
                 for (SRXChatShopNumItem *item in modelList) {
@@ -69,6 +71,8 @@
                 self.shop.is_select = YES;
                 self.shopView.datas = modelList;
             }
+        }else {
+            [self initRequestData];
         }
     } failure:^(NSString *message) {
         
@@ -104,7 +108,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 54;
+    return self.shopArray.count<2?0:54;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,24 +117,6 @@
     vc.shop_id = self.shop.shop_id;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-//// 允许长按菜单
-//- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    DLog(@"长按---%zd---",indexPath.row)
-//    return YES;
-//}
-//
-//// 允许每一个Action
-//- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath*)indexPath withSender:(id)sender
-//{
-//    DLog(@"长按---%zd---",indexPath.row)
-//    return NO;
-//}
-//
-//- (void)tableView:(UITableView *)tableView performAction:(nonnull SEL)action forRowAtIndexPath:(nonnull NSIndexPath *)indexPath withSender:(nullable id)sender {
-//
-//}
 
 - (void)initRequestData {
     [self removeNoDataImage];

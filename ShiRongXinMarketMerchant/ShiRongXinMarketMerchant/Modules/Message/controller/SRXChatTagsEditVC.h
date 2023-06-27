@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SRXChatTagsEditVC : RootViewController
 @property (nonatomic, strong) SRXMsgLabelsItem *item;
 @property (nonatomic, copy) dispatch_block_t refreshBlock;
+@property (nonatomic, copy) NSString *shop_id;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -35,7 +35,7 @@
     
     self.orderCollectionView.type = SRXMeCollectionTypeImage;
     self.orderCollectionView.jumpType = SRXMeCollectionJumpTypeMyOrder;
-    self.orderCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"待付款" content:@"me_unpaid"],[SRXMeCollectionModel configWithTitle:@"待发货" content:@"me_shipping"],[SRXMeCollectionModel configWithTitle:@"待收货" content:@"me_receiving"],[SRXMeCollectionModel configWithTitle:@"退款/售后" content:@"me_return"]];
+    self.orderCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"待发货" content:@"me_shipping"],[SRXMeCollectionModel configWithTitle:@"待付款" content:@"me_unpaid"],[SRXMeCollectionModel configWithTitle:@"待收货" content:@"me_receiving"],[SRXMeCollectionModel configWithTitle:@"退款/售后" content:@"me_return"]];
     self.shopCollectionView.type = SRXMeCollectionTypeText;
     self.shopCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"订单总数" content:@"0"],[SRXMeCollectionModel configWithTitle:@"昨日订单" content:@"0"]];
     self.incomeCollectionView.type = SRXMeCollectionTypeText;

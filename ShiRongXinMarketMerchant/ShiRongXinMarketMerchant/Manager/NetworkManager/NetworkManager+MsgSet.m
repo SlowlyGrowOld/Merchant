@@ -42,6 +42,7 @@
                      replay_content:(NSString *)replay_content
                           reply_img:(NSString *)reply_img
                            reply_id:(NSString *)reply_id
+                            shop_id:(NSString *)shop_id
                           success:(JHNetworkRequestSuccessVoid)success
                             failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
@@ -50,6 +51,7 @@
     mdic[@"replay_content"] = replay_content;
     mdic[@"reply_img"] = reply_img;
     mdic[@"reply_id"] = reply_id;
+    mdic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] postWithURLString:@"shop/set_quick_reply" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
     } failure:failure];
@@ -148,19 +150,24 @@
     } failure:failure];
 }
 
-+ (void)changeChatStatusWithChat_status:(NSString *)chat_status
++ (void)changeChatStatusWithShop_id:(NSString *)shop_id
+                        chat_status:(NSString *)chat_status
                     success:(JHNetworkRequestSuccessVoid)success
                                 failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"shop_id"] = shop_id;
     mdic[@"chat_status"] = chat_status;
     [[NetworkManager sharedClient] postWithURLString:@"shop/chat_shop_status_change" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
     } failure:failure];
 }
 
-+ (void)getChatStatusWithSuccess:(JHNetworkRequestSuccessVoid)success
++ (void)getChatStatusWithShop_id:(NSString *)shop_id
+                         success:(JHNetworkRequestSuccessVoid)success
                          failure:(JHNetworkRequestFailure)failure {
-    [[NetworkManager sharedClient] getWithURLString:@"shop/get_chat_status" parameters:nil isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"shop_id"] = shop_id;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/get_chat_status" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSDictionary *dic = messageDic[@"data"];
         success(dic[@"chat_status"]);
     } failure:failure];

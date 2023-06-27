@@ -45,7 +45,7 @@
 }
 
 - (void)requestData {
-    [NetworkManager getShopLabelsWithShop_id:@"" user_id:@"" success:^(NSArray *modelList) {
+    [NetworkManager getShopLabelsWithShop_id:self.shop_id user_id:@"" success:^(NSArray *modelList) {
         [self.tableView.mj_header endRefreshing];
         self.datas = modelList;
         [self.tableView reloadData];
@@ -65,7 +65,7 @@
         return;
     }
     [SVProgressHUD show];
-    [NetworkManager setShopLabelsWithType:@"3" label_name:@"" label_color_number:@"" label_id:[array componentsJoinedByString:@","] shop_id:@"" success:^(NSString *message) {
+    [NetworkManager setShopLabelsWithType:@"3" label_name:@"" label_color_number:@"" label_id:[array componentsJoinedByString:@","] shop_id:self.shop_id success:^(NSString *message) {
         [self.tableView.mj_header beginRefreshing];
     } failure:^(NSString *message) {
         

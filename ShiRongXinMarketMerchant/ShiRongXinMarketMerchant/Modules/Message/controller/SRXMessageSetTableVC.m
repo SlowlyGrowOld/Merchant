@@ -28,7 +28,7 @@
 }
 
 - (void)requestChatStatus {
-    [NetworkManager getChatStatusWithSuccess:^(NSString *message) {
+    [NetworkManager getChatStatusWithShop_id:self.shop_id success:^(NSString *message) {
         int chat_status = message.intValue;
         if (chat_status == 1) {
             self.stateLb.text = @"值守中";
@@ -48,6 +48,7 @@
     
     if (indexPath.row == 0) {
         SRXChatStateSwitchVC *vc = [[SRXChatStateSwitchVC alloc] init];
+        vc.shop_id = self.shop_id;
         MJWeakSelf;
         vc.stateBlock = ^(NSUInteger type) {
             if (type == 0) {
@@ -62,19 +63,23 @@
     } else if (indexPath.row == 1) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
         SRXChatTagsListVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXChatTagsListVC"];
+        vc.shop_id = self.shop_id;
         [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     } else if (indexPath.row == 2) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
         SRXChatQuickReplyVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXChatQuickReplyVC"];
+        vc.shop_id = self.shop_id;
         [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     } else if (indexPath.row == 3) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
         SRXChatFastTextVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXChatFastTextVC"];
+        vc.shop_id = self.shop_id;
         vc.type = SRXChatFastTextTypeWelcome;
         [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     } else if (indexPath.row == 4) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
         SRXChatFastTextVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXChatFastTextVC"];
+        vc.shop_id = self.shop_id;
         vc.type = SRXChatFastTextTypeEvaluate;
         [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     } else if (indexPath.row == 5) {

@@ -10,9 +10,11 @@
 #import "SRXChatCheckOrdersTableCell.h"
 #import "NetworkManager+Message.h"
 #import "SRXOrderDetailsVC.h"
+#import "SRXSearchView.h"
 
 @interface SRXChatCheckOrdersVC ()
-
+@property (nonatomic, strong) SRXSearchView *searchView;
+@property (nonatomic, copy) NSString *search_word;
 @end
 
 @implementation SRXChatCheckOrdersVC
@@ -28,6 +30,17 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXChatCheckOrdersTableCell" bundle:nil] forCellReuseIdentifier:@"SRXChatCheckOrdersTableCell"];
     [self.tableView.mj_header beginRefreshing];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orderChange:) name:KNotificationOrderStatusChange object:nil];
+    [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(40);
+    }];
+    self.searchView = [[SRXSearchView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
+    self.searchView.placeholder_text = @"请输入商品名称或订单编号";
+    [self.view addSubview:self.searchView];
+    MJWeakSelf;
+    self.searchView.searchBlock = ^(NSString * _Nonnull search_key) {
+        weakSelf.search_word = search_key;
+        [weakSelf.tableView.mj_header beginRefreshing];
+    };
 }
 
 - (void)orderChange:(NSNotification *)userinfo {
@@ -35,7 +48,7 @@
 }
 
 - (void)requestTableData {
-    [NetworkManager getChatOrderListWithUser_id:self.user_id shop_id:self.shop_id page:self.pageNo pageSize:self.pageSize success:^(NSArray *modelList) {
+    [NetworkManager getChatOrderListWithUser_id:self.user_id shop_id:self.shop_id search:self.search_word page:self.pageNo pageSize:self.pageSize success:^(NSArray *modelList) {
         [self requestTableDataSuccessWithArray:modelList];
     } failure:^(NSString *message) {
         [self requestTableDataFailed];
@@ -59,6 +72,7 @@
         if (weakSelf.selectBlock) {
             weakSelf.selectBlock(weakSelf.dataSources[indexPath.section]);
         }
+        [weakSelf.navigationController popViewControllerAnimated:YES];
     }];
     return cell;
 }

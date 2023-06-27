@@ -13,6 +13,7 @@ typedef void(^SRXChatStateSwitchBlock)(NSUInteger type);
 
 @interface SRXChatStateSwitchVC : RootPresentViewController
 @property (nonatomic, copy) SRXChatStateSwitchBlock stateBlock;
+@property (nonatomic, copy) NSString *shop_id;
 @end
 
 NS_ASSUME_NONNULL_END

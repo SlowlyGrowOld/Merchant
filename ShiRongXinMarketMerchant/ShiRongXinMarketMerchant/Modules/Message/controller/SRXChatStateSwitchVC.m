@@ -29,7 +29,7 @@
 
 - (IBAction)switchBtnClick:(UIButton *)sender {
     [SVProgressHUD show];
-    [NetworkManager changeChatStatusWithChat_status:sender.tag==0?@"1":@"0" success:^(NSString *message) {
+    [NetworkManager changeChatStatusWithShop_id:self.shop_id chat_status:sender.tag==0?@"1":@"0" success:^(NSString *message) {
         [self dismissViewControllerAnimated:YES completion:^{
             if (self.stateBlock) {
                 self.stateBlock(sender.tag);

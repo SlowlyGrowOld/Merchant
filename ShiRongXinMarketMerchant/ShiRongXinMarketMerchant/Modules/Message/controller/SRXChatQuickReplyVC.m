@@ -66,7 +66,7 @@
 
 #pragma mark - request
 - (void)requestData {
-    [NetworkManager getQuickReplyGroupWithWithShop_id:@"" success:^(NSArray *modelList) {
+    [NetworkManager getQuickReplyGroupWithWithShop_id:self.shop_id success:^(NSArray *modelList) {
         self.datas = modelList;
         [self.groupTableView reloadData];
         if (self.datas.count>0) {
@@ -88,7 +88,7 @@
 }
 
 - (void)setGroupNameWithName:(NSString *)name type:(NSString *)type group_id:(NSString *)group_id{
-    [NetworkManager setQuickReplyGroupWithType:type group_id:group_id group_name:name shop_id:@"" success:^(NSString *message) {
+    [NetworkManager setQuickReplyGroupWithType:type group_id:group_id group_name:name shop_id:self.shop_id success:^(NSString *message) {
         [self requestData];
     } failure:^(NSString *message) {
         
@@ -143,7 +143,7 @@
         }
         MJWeakSelf;
         [cell.delBtn addCallBackAction:^(UIButton *button) {
-            [NetworkManager setQuickReplyGroupWithType:@"3" group_id:item.group_id group_name:item.group_name shop_id:@"" success:^(NSString *message) {
+            [NetworkManager setQuickReplyGroupWithType:@"3" group_id:item.group_id group_name:item.group_name shop_id:self.shop_id success:^(NSString *message) {
                 [weakSelf requestData];
             } failure:^(NSString *message) {
                 

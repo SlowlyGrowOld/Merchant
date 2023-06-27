@@ -49,6 +49,7 @@
 @property (weak, nonatomic) IBOutlet SRXChatQuickReplyTableView *replyTableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ReplyTableViewConsH;
 
+@property (weak, nonatomic) IBOutlet UIView *numberView;
 @property (nonatomic, strong) SRXChatUserInfoHeadView *headView;
 
 //下方工具栏
@@ -74,7 +75,7 @@
     
     self.isHidenNaviBar = YES;
     self.view.backgroundColor = CViewBgColor;
-    self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 73;
+    self.tableViewConsH.constant = kScreenHeight - self.shop_name.superview.jk_height - kSHInPutHeight - BottomSafeHeight - 36;
     self.pageNo = 1;
     self.pageSize = 15;
     [self setMj_header];
@@ -113,6 +114,7 @@
     MJWeakSelf;
     self.replyTableView.selectBlock = ^(SRXMsgReplysItem * _Nonnull item) {
         weakSelf.replyTableView.superview.hidden = YES;
+        [weakSelf chatMessageWithSendText:item.reply_content];
     };
     
     [JHWebSocketManager shareInstance].delegate = self;
@@ -321,13 +323,14 @@
 - (SRXChatUserInfoHeadView *)headView {
     if(!_headView) {
         _headView = [[NSBundle mainBundle] loadNibNamed:@"SRXChatUserInfoHeadView" owner:nil options:nil].firstObject;
+        _headView.frame = CGRectMake(0, 0, kScreenWidth, 44);
     }
     _headView.user_id = self.item.user_id;
     MJWeakSelf;
     _headView.refreshBlock = ^{
-        weakSelf.headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 44);
+        weakSelf.headView.frame = CGRectMake(0, 0, kScreenWidth, 44);
         weakSelf.tableViewConsTop.constant = 44;
-        weakSelf.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 44;
+        [weakSelf toolbarHeightChange];
     };
     return _headView;
 }
@@ -335,18 +338,17 @@
 - (void)requestOtherData {
     [NetworkManager getChatOtherWithUser_id:self.item.user_id shop_id:self.shop_id success:^(SRXMsgChatOther * _Nonnull other) {
         if (other.user_labels.count==0) {
-            self.headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 44);
+            self.headView.frame = CGRectMake(0, 0, kScreenWidth, 44);
             self.tableViewConsTop.constant = 44;
-            self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 44;
         } else {
-            self.headView.frame = CGRectMake(0, TopHeight, kScreenWidth, 76);
+            self.headView.frame = CGRectMake(0, 0, kScreenWidth, 76);
             self.tableViewConsTop.constant = 76;
-            self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36 - 76;
         }
         self.headView.other = other;
-        [self.view addSubview:self.headView];
+        [self.numberView addSubview:self.headView];
+        [self toolbarHeightChange];
     } failure:^(NSString *message) {
-        self.tableViewConsH.constant = kScreenHeight - TopHeight - 48 - BottomSafeHeight - 36;
+        [self toolbarHeightChange];
     }];
 }
 
@@ -580,7 +582,7 @@
 #pragma mark 工具栏高度改变  SHMessageInputViewDelegate
 - (void)toolbarHeightChange {
     //改变聊天界面高度
-    self.tableViewConsH.constant = self.chatInputView.jk_y-TopHeight-36-self.headView.jk_height;
+    self.tableViewConsH.constant = self.chatInputView.jk_y-self.shop_name.superview.jk_height-36-self.tableViewConsTop.constant;
     [self.view layoutIfNeeded];
 //    //滚动到底部
     [self tableViewScrollToBottom];

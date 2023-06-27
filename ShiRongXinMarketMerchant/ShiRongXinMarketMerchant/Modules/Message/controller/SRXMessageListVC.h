@@ -7,6 +7,7 @@
 //
 
 #import "JHBaseTableViewController.h"
+#import "SRXMessageListModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *search_word;
 /**1=招待列表， 2=标记列表*/
 @property (nonatomic, copy) NSString *chat_type;
+//当前切换的店铺信息
+@property (nonatomic, strong) SRXChatShopNumItem *shop;
 @end
 
 NS_ASSUME_NONNULL_END

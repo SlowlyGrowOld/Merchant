@@ -199,6 +199,7 @@
 		11C6F8012A330BE300CFE28E /* NetworkManager+MsgSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C6F8002A330BE300CFE28E /* NetworkManager+MsgSet.m */; };
 		11C74430286C23E80036A0C5 /* SRXBasePopupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C7442F286C23E80036A0C5 /* SRXBasePopupVC.m */; };
 		11C81D1B285C2C51009A1D98 /* NSString+JHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C81D19285C2C51009A1D98 /* NSString+JHExt.m */; };
+		11C8D8292A4AD8D00069640B /* SRXSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11C8D8282A4AD8D00069640B /* SRXSearchView.m */; };
 		11CA6D7B2A383C08006672C9 /* SRXChatQuickReplyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CA6D7A2A383C08006672C9 /* SRXChatQuickReplyVC.m */; };
 		11CA6D7F2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11CA6D7D2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.m */; };
 		11CA6D802A3840FE006672C9 /* SRXQuickReplyGroupNameTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11CA6D7E2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.xib */; };
@@ -954,6 +955,8 @@
 		11C7442F286C23E80036A0C5 /* SRXBasePopupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXBasePopupVC.m; sourceTree = "<group>"; };
 		11C81D19285C2C51009A1D98 /* NSString+JHExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JHExt.m"; sourceTree = "<group>"; };
 		11C81D1A285C2C51009A1D98 /* NSString+JHExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JHExt.h"; sourceTree = "<group>"; };
+		11C8D8272A4AD8D00069640B /* SRXSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SRXSearchView.h; path = ShiRongXinMarketMerchant/Modules/Message/view/SRXSearchView.h; sourceTree = SOURCE_ROOT; };
+		11C8D8282A4AD8D00069640B /* SRXSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SRXSearchView.m; path = ShiRongXinMarketMerchant/Modules/Message/view/SRXSearchView.m; sourceTree = SOURCE_ROOT; };
 		11CA6D792A383C08006672C9 /* SRXChatQuickReplyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatQuickReplyVC.h; sourceTree = "<group>"; };
 		11CA6D7A2A383C08006672C9 /* SRXChatQuickReplyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatQuickReplyVC.m; sourceTree = "<group>"; };
 		11CA6D7C2A3840FD006672C9 /* SRXQuickReplyGroupNameTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXQuickReplyGroupNameTableCell.h; sourceTree = "<group>"; };
@@ -2309,6 +2312,8 @@
 				11C6F7F52A32F99B00CFE28E /* SRXMessageListShopView.xib */,
 				11C670092A3C4AD000129C41 /* SRXChatQuickReplyTableView.h */,
 				11C6700A2A3C4AD000129C41 /* SRXChatQuickReplyTableView.m */,
+				11C8D8272A4AD8D00069640B /* SRXSearchView.h */,
+				11C8D8282A4AD8D00069640B /* SRXSearchView.m */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -4676,6 +4681,7 @@
 				5DD013F723FE943A00FC4060 /* UIResponder+JKExtension.m in Sources */,
 				5DD013E623FE943A00FC4060 /* NSString+JKContains.m in Sources */,
 				11CF6CFD2A306C4600712C43 /* SRXGoodsSpecGroupTableVC.m in Sources */,
+				11C8D8292A4AD8D00069640B /* SRXSearchView.m in Sources */,
 				5DD013F523FE943A00FC4060 /* UIView+JKLayout.m in Sources */,
 				18652EE823F4457F005E8EEB /* NSString+LCSandBox.m in Sources */,
 				18CCFE2823C6F5120009732E /* NetworkManager.m in Sources */,

@@ -60,7 +60,7 @@
             goodsM[@"store_count"] = cell.integralTF.text;
         } else {
             goodsM[@"price"] = cell.priceTF.text;
-            goodsM[@"store_count"] = cell.integralTF.text;
+            goodsM[@"score"] = cell.integralTF.text;
         }
         
         [goodsArray addObject:goodsM];

@@ -29,8 +29,13 @@
     if (@available(iOS 15.0, *)) {
        self.tableView.sectionHeaderTopPadding = 0;
     }
-    self.titles = self.is_distribute?@[@"商品分包裹发货"]:@[@"按订单发货",@"商品分包裹发货",@"用户线下自提"];
-    self.images = self.is_distribute?@[@"order_ship_group"]:@[@"order_ship_all",@"order_ship_group",@"order_ship_self"];
+    if (self.is_single) {
+        self.titles = @[@"按订单发货",@"用户线下自提"];
+        self.images = @[@"order_ship_all",@"order_ship_self"];
+    } else {
+        self.titles = self.is_distribute?@[@"商品分包裹发货"]:@[@"按订单发货",@"商品分包裹发货",@"用户线下自提"];
+        self.images = self.is_distribute?@[@"order_ship_group"]:@[@"order_ship_all",@"order_ship_group",@"order_ship_self"];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -58,23 +63,42 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MJWeakSelf;
-    
-    if (indexPath.row == 2) {
-        SRXOrderShippedSelfVC *vc = [[SRXOrderShippedSelfVC alloc] init];
-        vc.order_id = self.order_id;
-        vc.closeBlock = ^{
-            [weakSelf.navigationController popViewControllerAnimated:YES];
-        };
-        [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:YES completion:nil];
-    }else {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
-        SRXOrderShippedGroupVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXOrderShippedGroupVC"];
-        vc.order_id = self.order_id;
-        vc.closeBlock = ^{
-            [weakSelf.navigationController popViewControllerAnimated:YES];
-        };
-        vc.type = (indexPath.row==0 && !self.is_distribute)?SRXOrderShippedTypeAll:SRXOrderShippedTypeGoods;
-        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+    if (self.is_single) {
+        if (indexPath.row == 1) {
+            SRXOrderShippedSelfVC *vc = [[SRXOrderShippedSelfVC alloc] init];
+            vc.order_id = self.order_id;
+            vc.closeBlock = ^{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            };
+            [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:YES completion:nil];
+        }else {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
+            SRXOrderShippedGroupVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXOrderShippedGroupVC"];
+            vc.order_id = self.order_id;
+            vc.closeBlock = ^{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            };
+            vc.type = SRXOrderShippedTypeAll;
+            [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+        }
+    } else {
+        if (indexPath.row == 2) {
+            SRXOrderShippedSelfVC *vc = [[SRXOrderShippedSelfVC alloc] init];
+            vc.order_id = self.order_id;
+            vc.closeBlock = ^{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            };
+            [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:YES completion:nil];
+        }else {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
+            SRXOrderShippedGroupVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXOrderShippedGroupVC"];
+            vc.order_id = self.order_id;
+            vc.closeBlock = ^{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            };
+            vc.type = (indexPath.row==0 && !self.is_distribute)?SRXOrderShippedTypeAll:SRXOrderShippedTypeGoods;
+            [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+        }
     }
 }
 /*

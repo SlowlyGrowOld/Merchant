@@ -22,6 +22,7 @@
                 <outlet property="goodConsultView" destination="h6c-f8-8rP" id="mus-fy-L9E"/>
                 <outlet property="nav_orders" destination="mWE-hk-hQb" id="4mK-PI-FUQ"/>
                 <outlet property="nav_tags" destination="oeB-km-rXX" id="5Xj-s0-Gs9"/>
+                <outlet property="numberView" destination="z9M-5r-dI1" id="VnY-mm-pjy"/>
                 <outlet property="replyTableView" destination="EQf-fQ-BGh" id="KNF-rr-fU8"/>
                 <outlet property="shop_image" destination="YmR-7T-tgJ" id="mn8-op-QEr"/>
                 <outlet property="shop_name" destination="UPB-Q1-J1g" id="53c-cu-o0V"/>
@@ -128,6 +129,10 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbh-vw-0C3">
                     <rect key="frame" x="0.0" y="92" width="414" height="804"/>
                     <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z9M-5r-dI1">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Rm1-pn-9Yy" customClass="SRXMsgChatTableView">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -146,7 +151,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您想咨询该商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2A-43-edX">
-                                    <rect key="frame" x="12" y="7.5" width="86" height="14.500000000000004"/>
+                                    <rect key="frame" x="12" y="7.5" width="86" height="14.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -361,10 +366,14 @@
                         <constraint firstItem="h6c-f8-8rP" firstAttribute="leading" secondItem="vbh-vw-0C3" secondAttribute="leading" constant="12" id="7uJ-gm-gRx"/>
                         <constraint firstAttribute="trailing" secondItem="YZq-aZ-z0D" secondAttribute="trailing" id="AsV-W2-2Xh"/>
                         <constraint firstItem="Rm1-pn-9Yy" firstAttribute="leading" secondItem="vbh-vw-0C3" secondAttribute="leading" id="BPC-Jb-f42"/>
+                        <constraint firstItem="z9M-5r-dI1" firstAttribute="leading" secondItem="vbh-vw-0C3" secondAttribute="leading" id="CZ7-x6-c0V"/>
                         <constraint firstAttribute="trailing" secondItem="h6c-f8-8rP" secondAttribute="trailing" constant="12" id="Eas-B8-yZK"/>
                         <constraint firstAttribute="trailing" secondItem="SR3-WM-mYW" secondAttribute="trailing" id="FMM-ER-3Me"/>
                         <constraint firstAttribute="bottom" secondItem="SR3-WM-mYW" secondAttribute="bottom" id="I6O-jf-LNy"/>
                         <constraint firstItem="SR3-WM-mYW" firstAttribute="leading" secondItem="vbh-vw-0C3" secondAttribute="leading" id="bLS-xm-9o4"/>
+                        <constraint firstAttribute="trailing" secondItem="z9M-5r-dI1" secondAttribute="trailing" id="cfx-1s-g2c"/>
+                        <constraint firstItem="z9M-5r-dI1" firstAttribute="top" secondItem="vbh-vw-0C3" secondAttribute="top" id="fZ2-4X-OX3"/>
+                        <constraint firstItem="Rm1-pn-9Yy" firstAttribute="top" secondItem="z9M-5r-dI1" secondAttribute="bottom" id="nIm-jA-ut3"/>
                         <constraint firstItem="SR3-WM-mYW" firstAttribute="top" secondItem="Rm1-pn-9Yy" secondAttribute="bottom" id="naJ-ia-cUH"/>
                         <constraint firstAttribute="trailing" secondItem="Rm1-pn-9Yy" secondAttribute="trailing" id="qWQ-WK-7UJ"/>
                         <constraint firstItem="h6c-f8-8rP" firstAttribute="bottom" secondItem="Rm1-pn-9Yy" secondAttribute="bottom" id="wRO-qk-kNZ"/>

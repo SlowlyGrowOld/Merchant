@@ -86,6 +86,7 @@
 /// 订单核对列表
 + (void)getChatOrderListWithUser_id:(NSString *)user_id
                         shop_id:(NSString *)shop_id
+                             search:(NSString *)search_word
                                page:(NSInteger)page
                            pageSize:(NSInteger)pageSize
                         success:(JHNetworkRequestSuccessArray)success
@@ -95,6 +96,7 @@
     mdic[@"page_size"] = @(pageSize);
     mdic[@"user_id"] = user_id;
     mdic[@"shop_id"] = shop_id;
+    mdic[@"search_word"] = search_word;
     [[NetworkManager sharedClient] getWithURLString:@"shop/chat_order_list" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSArray *array = [SRXOrderListModel mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
         success(array);

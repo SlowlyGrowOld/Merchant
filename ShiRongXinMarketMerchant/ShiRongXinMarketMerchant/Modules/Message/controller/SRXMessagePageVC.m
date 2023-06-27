@@ -10,6 +10,7 @@
 #import "QiPageContentView.h"
 #import "QiPageMenuView.h"
 #import "SRXMessageListVC.h"
+#import "SRXMessageSetTableVC.h"
 
 @interface SRXMessagePageVC ()
 @property (weak, nonatomic) IBOutlet UIView *menuBgView;
@@ -117,14 +118,18 @@
     }
     return _titles;
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    SRXMessageListVC *vc = self.vcs[self.menuView.currentPage];
+    if ([segue.identifier isEqualToString:@"chatSet"]) {
+        SRXMessageSetTableVC * set = [segue destinationViewController];
+        set.shop_id = vc.shop.shop_id;
+    }
 }
-*/
 
 @end

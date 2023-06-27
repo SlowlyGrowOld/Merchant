@@ -11,9 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    SRXChatFastTextTypePhrase,
-    SRXChatFastTextTypeWelcome,
-    SRXChatFastTextTypeEvaluate,
+    SRXChatFastTextTypePhrase,//短语
+    SRXChatFastTextTypeWelcome,//欢迎语
+    SRXChatFastTextTypeEvaluate,//评价
 } SRXChatFastTextType;
 
 @interface SRXChatFastTextVC : RootViewController
@@ -21,6 +21,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) SRXMsgReplysItem *replys;
 @property (nonatomic, copy) NSString *group_id;
 @property (nonatomic, copy) NSString *group_name;
+
+@property (nonatomic, copy) NSString *shop_id;
 
 @property (nonatomic, copy) dispatch_block_t refreshBlock;
 @end

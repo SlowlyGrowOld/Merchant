@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
                      replay_content:(NSString *)replay_content
                           reply_img:(NSString *)reply_img
                            reply_id:(NSString *)reply_id
+                            shop_id:(NSString *)shop_id
                           success:(JHNetworkRequestSuccessVoid)success
                           failure:(JHNetworkRequestFailure)failure;
 
@@ -97,12 +98,14 @@ NS_ASSUME_NONNULL_BEGIN
                     success:(JHNetworkRequestSuccessVoid)success
                     failure:(JHNetworkRequestFailure)failure;
 /// 设置中心-状态切换  chat_status   1=值守，0=休息
-+ (void)changeChatStatusWithChat_status:(NSString *)chat_status
++ (void)changeChatStatusWithShop_id:(NSString *)shop_id
+                        chat_status:(NSString *)chat_status
                     success:(JHNetworkRequestSuccessVoid)success
                     failure:(JHNetworkRequestFailure)failure;
 
 /// 设置中心-状态切换  chat_status   1=值守，0=休息
-+ (void)getChatStatusWithSuccess:(JHNetworkRequestSuccessVoid)success
++ (void)getChatStatusWithShop_id:(NSString *)shop_id
+                         success:(JHNetworkRequestSuccessVoid)success
                          failure:(JHNetworkRequestFailure)failure;
 
 /// 全部标记已读

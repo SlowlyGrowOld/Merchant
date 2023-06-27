@@ -117,7 +117,7 @@
             self.group_nameLb.textColor = CFont3D;
         }
     } else if (self.type == SRXChatFastTextTypeWelcome) {
-        [NetworkManager getChatWelcomeWithShop_id:@"" success:^(SRXMsgChatWelcome * _Nonnull welcome) {
+        [NetworkManager getChatWelcomeWithShop_id:self.shop_id success:^(SRXMsgChatWelcome * _Nonnull welcome) {
             self.switchBtn.on = welcome.is_auto_welcome;
             self.textView.text = welcome.welcome_content;
             self.tv_hint.hidden = welcome.welcome_content.length>0?YES:NO;
@@ -128,7 +128,7 @@
             
         }];
     } else if (self.type == SRXChatFastTextTypeEvaluate) {
-        [NetworkManager getChatInviteEvaluateWithShop_id:@"" success:^(SRXMsgChatEvaluate * _Nonnull evaluate) {
+        [NetworkManager getChatInviteEvaluateWithShop_id:self.shop_id success:^(SRXMsgChatEvaluate * _Nonnull evaluate) {
             self.switchBtn.on = evaluate.is_auto_invite;
             self.textView.text = evaluate.invite_content;
             self.tv_hint.hidden = evaluate.invite_content.length>0?YES:NO;
@@ -169,7 +169,7 @@
 
 - (IBAction)cancelBtnClick:(id)sender {
     if ([self.cancelBtn.titleLabel.text isEqualToString:@"删除"]) {
-        [NetworkManager setQuickReplyPhraseWithType:@"3" group_id:self.replys.group_id replay_content:self.textView.text reply_img:self.imageUrl reply_id:self.replys.reply_id success:^(NSString *message) {
+        [NetworkManager setQuickReplyPhraseWithType:@"3" group_id:self.replys.group_id replay_content:self.textView.text reply_img:self.imageUrl reply_id:self.replys.reply_id shop_id:self.shop_id success:^(NSString *message) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (self.refreshBlock){self.refreshBlock();};
                 [self.navigationController popViewControllerAnimated:YES];
@@ -184,7 +184,7 @@
 
 - (IBAction)saveBtnClick:(id)sender {
     if (self.type == SRXChatFastTextTypePhrase) {
-        [NetworkManager setQuickReplyPhraseWithType:self.replys?@"2":@"1" group_id:self.group_id replay_content:self.textView.text reply_img:self.imageUrl reply_id:self.replys.reply_id success:^(NSString *message) {
+        [NetworkManager setQuickReplyPhraseWithType:self.replys?@"2":@"1" group_id:self.group_id replay_content:self.textView.text reply_img:self.imageUrl reply_id:self.replys.reply_id shop_id:self.shop_id success:^(NSString *message) {
             [SVProgressHUD showSuccessWithStatus:@"编辑成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if (self.refreshBlock){self.refreshBlock();};
@@ -194,7 +194,7 @@
             
         }];
     } else if (self.type == SRXChatFastTextTypeWelcome) {
-        [NetworkManager setChatWelcomeWithShop_id:@"" is_auto_welcome:self.switchBtn.isOn?@"1":@"0" welcome_content:self.textView.text welcome_img:self.imageUrl success:^(NSString *message) {
+        [NetworkManager setChatWelcomeWithShop_id:self.shop_id is_auto_welcome:self.switchBtn.isOn?@"1":@"0" welcome_content:self.textView.text welcome_img:self.imageUrl success:^(NSString *message) {
             [SVProgressHUD showSuccessWithStatus:@"编辑成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
@@ -203,7 +203,7 @@
             
         }];
     } else if (self.type == SRXChatFastTextTypeEvaluate) {
-        [NetworkManager setChatInviteEvaluateWithShop_id:@"" is_auto_invite:self.switchBtn.isOn?@"1":@"0" invite_content:self.textView.text success:^(NSString *message) {
+        [NetworkManager setChatInviteEvaluateWithShop_id:self.shop_id is_auto_invite:self.switchBtn.isOn?@"1":@"0" invite_content:self.textView.text success:^(NSString *message) {
             [SVProgressHUD showSuccessWithStatus:@"编辑成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
