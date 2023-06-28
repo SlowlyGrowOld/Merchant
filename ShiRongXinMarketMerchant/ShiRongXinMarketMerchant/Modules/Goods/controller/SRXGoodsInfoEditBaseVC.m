@@ -111,6 +111,18 @@
 }
 
 - (IBAction)nextStepBtnClick:(id)sender {
+    if (self.editInfo.cat_id.length==0) {
+        [SVProgressHUD showInfoWithStatus:@"请选择平台商品分类"];
+        return;
+    }
+    if (self.editInfo.extend_cat_id.length==0) {
+        [SVProgressHUD showInfoWithStatus:@"请选择店铺商品分类"];
+        return;
+    }
+    if (self.shop_name.text.length==0) {
+        [SVProgressHUD showInfoWithStatus:@"请输入商品名称"];
+        return;
+    }
     [self configParameters];
     if (self.block) {
         self.block(2);

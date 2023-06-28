@@ -25,10 +25,6 @@ static JHWebSocketManager *manager = nil;
     static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             manager = [[JHWebSocketManager alloc] init];
-            [[NSNotificationCenter defaultCenter] addObserver:manager
-                                                     selector:@selector(netWorkStateChange:)
-                                                         name:KNotificationNetWorkStateChange
-                                                       object:nil];
         });
     return manager;
 }
@@ -55,7 +51,10 @@ static JHWebSocketManager *manager = nil;
     if (_socket) {
         return;
     }
-    
+    [[NSNotificationCenter defaultCenter] addObserver:manager
+                                             selector:@selector(netWorkStateChange:)
+                                                 name:KNotificationNetWorkStateChange
+                                               object:nil];
     //Url
     NSURL *url = [NSURL URLWithString:[UserAccount sharedAccount].isOnline ?kWebSockerServer_ip:kDebugWebSockerServer_ip];
     //请求
@@ -171,6 +170,7 @@ static JHWebSocketManager *manager = nil;
     self.socket = nil;
     [self.heatBeat invalidate];
     self.heatBeat = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 //重连机制

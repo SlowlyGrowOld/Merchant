@@ -24,8 +24,7 @@
     // Do any additional setup after loading the view.
     self.title = @"编辑标签";
     self.tableView.rowHeight = 60;
-    self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
-    self.tableView.separatorColor = CViewBgColor;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 1)];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXChatTagsTableCell" bundle:nil] forCellReuseIdentifier:@"SRXChatTagsTableCell"];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(requestData)];
     [self addNavigationItemWithImageNames:@[@"back_black"] isLeft:YES target:self action:@selector(back1BtnClicked) tags:nil];
@@ -48,6 +47,11 @@
     [NetworkManager getShopLabelsWithShop_id:self.shop_id user_id:@"" success:^(NSArray *modelList) {
         [self.tableView.mj_header endRefreshing];
         self.datas = modelList;
+        if (modelList.count==0) {
+            [self showNoDataImageToView:self.tableView];
+        } else {
+            [self removeNoDataImage];
+        }
         [self.tableView reloadData];
     } failure:^(NSString *message) {
         

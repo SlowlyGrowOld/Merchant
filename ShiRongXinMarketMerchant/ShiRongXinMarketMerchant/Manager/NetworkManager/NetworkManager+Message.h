@@ -94,7 +94,8 @@ NS_ASSUME_NONNULL_BEGIN
                     failure:(JHNetworkRequestFailure)failure;
 
 /// 对话窗口-转接列表
-+ (void)getChatTransferListWithSuccess:(JHNetworkRequestSuccessArray)success
++ (void)getChatTransferListWithShop_id:(NSString *)shop_id
+                               success:(JHNetworkRequestSuccessArray)success
                                failure:(JHNetworkRequestFailure)failure;
 
 /// 转接按钮事件

@@ -72,16 +72,26 @@
                             <color key="titleColor" red="0.26274509800000001" green="0.72156862749999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-og-hVq">
+                        <rect key="frame" x="15" y="43" width="290" height="1"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="YtR-bw-pL7"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="EVW-vT-UxV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="41H-ym-vHS"/>
+                    <constraint firstAttribute="bottom" secondItem="H6b-og-hVq" secondAttribute="bottom" id="Apu-id-yhp"/>
                     <constraint firstItem="SS0-4a-jta" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ddr-CP-yJ3"/>
                     <constraint firstAttribute="bottom" secondItem="SS0-4a-jta" secondAttribute="bottom" id="GJ6-lt-MbX"/>
                     <constraint firstItem="yOy-Eb-0zl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aTe-5E-5eb"/>
+                    <constraint firstItem="H6b-og-hVq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="dyI-zB-YIj"/>
                     <constraint firstItem="EVW-vT-UxV" firstAttribute="leading" secondItem="yOy-Eb-0zl" secondAttribute="trailing" id="hbi-ED-iWA"/>
                     <constraint firstItem="yOy-Eb-0zl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jO8-qL-RCL"/>
                     <constraint firstAttribute="trailing" secondItem="SS0-4a-jta" secondAttribute="trailing" id="pSB-27-dss"/>
                     <constraint firstAttribute="bottom" secondItem="yOy-Eb-0zl" secondAttribute="bottom" id="pcq-w6-MFx"/>
+                    <constraint firstAttribute="trailing" secondItem="H6b-og-hVq" secondAttribute="trailing" constant="15" id="vcr-Lu-flC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>

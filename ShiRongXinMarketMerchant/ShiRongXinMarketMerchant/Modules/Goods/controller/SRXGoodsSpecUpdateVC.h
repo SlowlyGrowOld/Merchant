@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SRXGoodsSpecUpdateVC : RootPresentViewController
 @property (nonatomic, assign) BOOL isStore;//是否是更改库存
 @property (nonatomic, copy) NSString *goods_id;
+@property (nonatomic, strong) NSArray *datas;
 @end
 
 NS_ASSUME_NONNULL_END

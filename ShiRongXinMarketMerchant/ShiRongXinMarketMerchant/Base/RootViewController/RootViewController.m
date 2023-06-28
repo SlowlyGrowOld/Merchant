@@ -97,14 +97,15 @@
     [_noDataView setImage:[UIImage imageNamed:_noDataImg ? _noDataImg : @"不开心"]];
     _noDataLabel = [[UILabel alloc]init];
     _noDataLabel.numberOfLines = 0;
-    _noDataLabel.textColor = UIColorHex(#202020);
+    _noDataLabel.textColor = UIColorHex(#333333);
     _noDataLabel.text = self.noDataStr ? self.noDataStr : @"暂无数据~";
     _noDataLabel.textAlignment = NSTextAlignmentCenter;
+    _noDataLabel.font = [UIFont systemFontOfSize:14];
   
     [view addSubview:self.noDataView];
     [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(view.mas_centerX);
-        make.centerY.equalTo(view.mas_centerY);
+        make.centerY.equalTo(view.mas_centerY).offset(-30);
     }];
     [view addSubview:self.noDataLabel];
     [self.noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {

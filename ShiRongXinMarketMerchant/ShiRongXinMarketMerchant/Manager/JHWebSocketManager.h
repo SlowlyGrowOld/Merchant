@@ -29,6 +29,8 @@ typedef void(^JHWebSocketBlock)(NSDictionary *dic);
 + (JHWebSocketManager *)shareInstance;
 - (void)initWebSocket;
 - (void)bindClienIdAndUid;
+//断开连接时销毁心跳
+- (void)destoryHeart;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -26,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.noDataImg = @"order_no_data";
+    self.noDataStr = @"暂无相关订单";
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXOrdersListTableCell" bundle:nil] forCellReuseIdentifier:@"SRXOrdersListTableCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXOrderRefundTableCell" bundle:nil] forCellReuseIdentifier:@"SRXOrderRefundTableCell"];

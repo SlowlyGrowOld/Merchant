@@ -53,12 +53,14 @@
 
 - (void)setType:(SRXLoginType)type {
     _type = type;
+    [self.accountTF endEditing:YES];
     if (_type == SRXLoginTypePhoneMsg) {
         self.account_icon.hidden = YES;
         self.areaView.hidden = NO;
         self.psdView.hidden = YES;
         self.login_type.text = @"密码登录";
         [self.loginBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+        self.accountTF.keyboardType = UIKeyboardTypePhonePad;
     } else {
         self.psdView.hidden = NO;
         self.login_type.text = @"更多登录方式";
@@ -67,10 +69,12 @@
             self.account_icon.hidden = YES;
             self.areaView.hidden = NO;
             self.accountTF.placeholder = @"请输入手机号";
+            self.accountTF.keyboardType = UIKeyboardTypePhonePad;
         } else {
             self.account_icon.hidden = NO;
             self.areaView.hidden = YES;
             self.accountTF.placeholder = @"请输入账号";
+            self.accountTF.keyboardType = UIKeyboardTypeDefault;
         }
     }
 }

@@ -15,6 +15,7 @@ typedef void(^SRXChatTransferServiceBlock)(SRXMsgChatServiceItem *item);
 
 @interface SRXChatTransferServiceVC : RootPresentViewController
 @property (nonatomic, copy) SRXChatTransferServiceBlock serviceBlock;
+@property (nonatomic, copy) NSString *shop_id;
 @end
 
 NS_ASSUME_NONNULL_END

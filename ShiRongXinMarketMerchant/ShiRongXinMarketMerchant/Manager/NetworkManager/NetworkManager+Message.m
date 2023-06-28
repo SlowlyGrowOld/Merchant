@@ -167,13 +167,17 @@
                         shop_id:(NSString *)shop_id
                     success:(void(^)(SRXMsgChatOther *other))success
                         failure:(JHNetworkRequestFailure)failure {
-    [[NetworkManager sharedClient] getWithURLString:@"shop/chat_content_other" parameters:@{@"user_id":user_id,@"shop_id":shop_id} isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"user_id"] = user_id;
+    mdic[@"shop_id"] = shop_id;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/chat_content_other" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         SRXMsgChatOther *other = [SRXMsgChatOther mj_objectWithKeyValues:messageDic[@"data"]];
         success(other);
     } failure:failure];
 }
 
-+ (void)getChatTransferListWithSuccess:(JHNetworkRequestSuccessArray)success
++ (void)getChatTransferListWithShop_id:(NSString *)shop_id
+                               success:(JHNetworkRequestSuccessArray)success
                                failure:(JHNetworkRequestFailure)failure {
     [[NetworkManager sharedClient] getWithURLString:@"shop/get_chat_shop_transfer" parameters:nil isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSArray *array = [SRXMsgChatServiceItem mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];

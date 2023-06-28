@@ -116,7 +116,7 @@
         SRXGoodsSpecItemsItem *item = self.item.spec_items[indexPath.item];
         cell.titleLb.text = item.spec_value;
         cell.deleteBtn.hidden = !item.is_select;
-        cell.titleLb.textColor = item.is_select?C43B8F6:CFont99;
+        cell.titleLb.textColor = item.is_select?C43B8F6:CFont3D;
         cell.bgView.layer.borderColor = item.is_select?C43B8F6.CGColor:CFont99.CGColor;
         [cell.deleteBtn addCallBackAction:^(UIButton *button) {
             NSMutableArray *mArr = [NSMutableArray array];

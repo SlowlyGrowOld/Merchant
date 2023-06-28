@@ -78,7 +78,7 @@
     controller.tabBarItem.title = title;//跟上面一样效果
     controller.tabBarItem.image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     controller.tabBarItem.selectedImage = [[UIImage imageNamed:selectImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    if (@available(iOS 15.0, *)) {
+    if (@available(iOS 13.0, *)) {
         UITabBarAppearance *bar = [UITabBarAppearance new];
         bar.backgroundColor = [UIColor whiteColor];
         bar.backgroundEffect = nil;
@@ -86,7 +86,11 @@
         bar.shadowColor = nil;
         bar.stackedLayoutAppearance.normal.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:10],NSForegroundColorAttributeName:CFont3D};
         bar.stackedLayoutAppearance.selected.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:10],NSForegroundColorAttributeName:C43B8F6};
-        self.tabBar.scrollEdgeAppearance = bar;
+        if (@available(iOS 15.0, *)) {
+            self.tabBar.scrollEdgeAppearance = bar;
+        } else {
+            // Fallback on earlier versions
+        }
         self.tabBar.standardAppearance = bar;
     }else {
         //未选中字体颜色

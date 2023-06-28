@@ -28,9 +28,13 @@
 
 - (void)requstData {
     [SVProgressHUD show];
-    [NetworkManager getChatTransferListWithSuccess:^(NSArray *modelList) {
+    [NetworkManager getChatTransferListWithShop_id:self.shop_id success:^(NSArray *modelList) {
         self.datas = modelList;
-        self.tableViewConsH.constant = modelList.count*70;
+        if (modelList.count*70>kScreenHeight-200) {
+            self.tableViewConsH.constant = kScreenHeight-200;
+        } else {
+            self.tableViewConsH.constant = modelList.count*70;
+        }
         [self.tableView reloadData];
     } failure:^(NSString *message) {
         

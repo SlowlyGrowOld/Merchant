@@ -37,11 +37,15 @@
 @implementation SRXMsgChatModel
 + (SRXMsgChatModel *)receiveMessageWithDic:(NSDictionary *)dic {
     SRXMsgChatModel *model = [SRXMsgChatModel mj_objectWithKeyValues:dic];
-    model.who_send = @"shop";
+    model.who_send = @"user";
     NSDictionary *data = dic[@"data"];
     model.order_address_info = [SRXMsgOrderInfo mj_objectWithKeyValues:data[@"order_address"]];
     model.goods_info = [SRXMsgGoodsInfoItem mj_objectWithKeyValues:data[@"goods_info"]];
     model.order_info = [SRXMsgOrderInfo mj_objectWithKeyValues:data[@"order_info"]];
+    
+    model.reference_info = [SRXMsgReferenceInfo mj_objectWithKeyValues:data[@"reference_info"]];
+    model.coupon_info = [SRXMsgChatCoupnItem mj_objectWithKeyValues:data[@"coupon_info"]];
+    model.transfer_info = [SRXMsgChatServiceItem mj_objectWithKeyValues:data[@"transfer_info"]];
     NSString *voice = data[@"voice"];
     NSString *image = data[@"image"];
     if (voice.length>0) {

@@ -40,7 +40,8 @@
     [self.contentView settingRadius:20 corner:UIRectCornerTopLeft|UIRectCornerTopRight];
     self.tableView.rowHeight = 44;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
-    self.tableView.separatorColor = UIColorHex(0xD8D8D8);
+    self.tableView.separatorColor = UIColorHex(0xF2F2F2);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.mj_footer = [MJRefreshAutoFooter footerWithRefreshingTarget:self refreshingAction:@selector(requestMoreData)];
     [self requestData];
 }

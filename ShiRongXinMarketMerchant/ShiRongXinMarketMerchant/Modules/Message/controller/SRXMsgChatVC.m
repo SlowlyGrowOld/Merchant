@@ -259,10 +259,12 @@
     }
     self.chatInputView.inputType = SHInputViewType_default;
     SRXChatTransferServiceVC *vc = [[SRXChatTransferServiceVC alloc] init];
+    vc.shop_id = self.shop_id;
     MJWeakSelf;
     vc.serviceBlock = ^(SRXMsgChatServiceItem * _Nonnull item) {
-        [NetworkManager transferChatServiceWithUser_id:[UserManager sharedUserManager].curUserInfo._id shop_user_id:item.shop_user_id shop_id:self.shop_id success:^(NSString *message) {
+        [NetworkManager transferChatServiceWithUser_id:self.item.user_id shop_user_id:item.shop_user_id shop_id:self.shop_id success:^(NSString *message) {
             [weakSelf sendChatMessageWithTransfer:item];
+            weakSelf.isTransfer = YES;
         } failure:^(NSString *message) {
             
         }];
@@ -443,6 +445,7 @@
     message.msg_type = @"transfer";
     message.params = service.shop_user_id;
     message.transfer_info = service;
+    message.content = [NSString stringWithFormat:@"- 已转接了客服%@为您服务 -",service.nickname];
     message.messageKey = [SHMessageHelper getTimeWithZone];
     //添加到聊天界面
     [self addChatMessageWithMessage:message isBottom:YES];
@@ -536,6 +539,11 @@
         [self.tableView reloadData];
     } failure:^(NSString *message) {
         model.messageState = SRXSendMessageType_Failed;
+        if ([model.msg_type isEqualToString:@"transfer"]) {
+            self.isTransfer = NO;
+            [self.dataSources removeObject:model];
+            self.tableView.datas = self.dataSources.copy;
+        }
         [self.tableView reloadData];
     }];
 }

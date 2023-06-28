@@ -13,6 +13,7 @@
 #import "YBPopupMenu.h"
 
 #import "NetworkManager+Goods.h"
+#import "NetworkManager+GoodUpdate.h"
 
 @interface SRXGoodsListTableCell ()<YBPopupMenuDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *goods_image;
@@ -78,18 +79,36 @@
 }
 
 - (IBAction)storeNumBtnClick:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
-    SRXGoodsSpecUpdateVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXGoodsSpecUpdateVC"];
-    vc.isStore = YES;
-    vc.goods_id = self.model.goods_id;
-    [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:NO completion:nil];
+    [NetworkManager getGoodsFateInfoWithGoods_id:self.model.goods_id success:^(NSArray *modelList) {
+        if (modelList.count==0) {
+            [SVProgressHUD showInfoWithStatus:@"请先设置规格"];
+        } else {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
+            SRXGoodsSpecUpdateVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXGoodsSpecUpdateVC"];
+            vc.goods_id = self.model.goods_id;
+            vc.isStore = YES;
+            vc.datas = modelList;
+            [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:NO completion:nil];
+        }
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (IBAction)priceBtnClick:(id)sender {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
-    SRXGoodsSpecUpdateVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXGoodsSpecUpdateVC"];
-    vc.goods_id = self.model.goods_id;
-    [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:NO completion:nil];
+    [NetworkManager getGoodsFateInfoWithGoods_id:self.model.goods_id success:^(NSArray *modelList) {
+        if (modelList.count==0) {
+            [SVProgressHUD showInfoWithStatus:@"请先设置规格"];
+        } else {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
+            SRXGoodsSpecUpdateVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXGoodsSpecUpdateVC"];
+            vc.goods_id = self.model.goods_id;
+            vc.datas = modelList;
+            [[UIViewController jk_currentNavigatonController] presentViewController:vc animated:NO completion:nil];
+        }
+    } failure:^(NSString *message) {
+        
+    }];
 }
 
 - (IBAction)moreBtnClick:(id)sender {

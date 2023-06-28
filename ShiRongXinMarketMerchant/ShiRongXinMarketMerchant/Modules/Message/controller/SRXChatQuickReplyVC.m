@@ -32,6 +32,7 @@
     self.title = @"编辑回复短语";
     [self.addGroupBtn setImagePosition:LXMImagePositionLeft spacing:4];
     self.groupTableView.rowHeight = 40;
+    self.phraseTableView.tableFooterView = [UIView new];
     [self.groupTableView registerNib:[UINib nibWithNibName:@"SRXQuickReplyGroupNameTableCell" bundle:nil] forCellReuseIdentifier:@"SRXQuickReplyGroupNameTableCell"];
     [self.phraseTableView registerNib:[UINib nibWithNibName:@"SRXQuickReplyPhraseTableCell" bundle:nil] forCellReuseIdentifier:@"SRXQuickReplyPhraseTableCell"];
 

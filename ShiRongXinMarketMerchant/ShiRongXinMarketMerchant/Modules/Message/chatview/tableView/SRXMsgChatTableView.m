@@ -175,7 +175,7 @@
                 return cell;
             }else if ([model.msg_type isEqualToString:@"transfer"]){
                 SRXMsgTimeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgTimeTableCell" forIndexPath:indexPath];
-                cell.timeLb.text = [NSString stringWithFormat:@"- 已转接了客服%@为您服务 -",model.transfer_info.nickname];
+                cell.timeLb.text = model.content;//[NSString stringWithFormat:@"- 已转接了客服%@为您服务 -",model.transfer_info.nickname];
                 cell.timeLb.font = [UIFont systemFontOfSize:12];
                 return cell;
             } else {
@@ -203,6 +203,11 @@
                 cell.playBlock = ^{
                     [weakSelf didPlayVioce:model];
                 };
+                return cell;
+            }else if ([model.msg_type isEqualToString:@"system"]){
+                SRXMsgTimeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgTimeTableCell" forIndexPath:indexPath];
+                cell.timeLb.text = model.content;
+                cell.timeLb.font = [UIFont systemFontOfSize:12];
                 return cell;
             }else {
                 SRXMsgShopTextTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgShopTextTableCell" forIndexPath:indexPath];

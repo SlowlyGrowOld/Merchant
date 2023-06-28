@@ -214,6 +214,7 @@
         !failure?:failure(response[@"msg"]);
         return;
     } else if ([response[@"code"] integerValue] == 401) {//未登录
+        [[JHWebSocketManager shareInstance] destoryHeart];
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:response[@"msg"] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确定"
                                                              style:UIAlertActionStyleDefault

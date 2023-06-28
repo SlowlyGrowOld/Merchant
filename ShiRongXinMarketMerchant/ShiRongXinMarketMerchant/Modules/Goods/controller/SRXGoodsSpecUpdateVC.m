@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewConsH;
-@property (nonatomic, strong) NSArray *datas;
+
 @end
 
 @implementation SRXGoodsSpecUpdateVC
@@ -26,7 +26,6 @@
     self.tableView.backgroundColor = CViewBgColor;
     [self.bgView settingRadius:10 corner:UIRectCornerTopLeft|UIRectCornerTopRight];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXGoodsSpecUpdateTableCell" bundle:nil] forCellReuseIdentifier:@"SRXGoodsSpecUpdateTableCell"];
-    self.datas = @[];
     
     CGFloat height = (self.isStore?self.datas.count*84:self.datas.count*128) + 5.01*(self.datas.count-1);
     if (height+100+BottomSafeHeight>kScreenHeight-100) {
@@ -36,7 +35,7 @@
         self.tableViewConsH.constant = height;
         self.tableView.scrollEnabled = NO;
     }
-    [self requestSpecData];
+//    [self requestSpecData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,14 +91,10 @@
     if (!isResult) {[self dismissViewControllerAnimated:NO completion:nil];}
 }
 
-- (void)requestSpecData {
-    [NetworkManager getGoodsFateInfoWithGoods_id:self.goods_id success:^(NSArray *modelList) {
-        self.datas = modelList;
-        [self setTableViewHeight];
-        [self.tableView reloadData];
-    } failure:^(NSString *message) {
-        
-    }];
+- (void)setDatas:(NSArray *)datas {
+    _datas = datas;
+    [self setTableViewHeight];
+    [self.tableView reloadData];
 }
 
 - (void)setTableViewHeight {
