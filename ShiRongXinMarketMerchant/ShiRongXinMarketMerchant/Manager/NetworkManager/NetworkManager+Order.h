@@ -46,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// - Parameters:
 ///   - order_id: 订单id
 + (void)getOrderDetailsWithOrderID:(NSString *)order_id
+                           shop_id:(NSString *)shop_id
                            success:(void (^)(SRXOrderDetailsModel *model))success
                            failure:(JHNetworkRequestFailure)failure;
 
@@ -53,6 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// - Parameters:
 ///   - order_id: 订单id
 + (void)getOrderGoodsDeliveryListWithOrderID:(NSString *)order_id
+                                     shop_id:(NSString *)shop_id
                                      success:(JHNetworkRequestSuccessArray)success
                                      failure:(JHNetworkRequestFailure)failure;
 
@@ -64,6 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///   - order_type: 默认1。1=普通订单，2=售后订单
 ///   - order_return_id: 售后订单id
 + (void)getOrderGoodsDeliveryDetailsWithOrderID:(NSString *)order_id
+                                        shop_id:(NSString *)shop_id
                                      express_sn:(NSString *)express_sn
                                      order_type:(NSString *)order_type
                                 order_return_id:(NSString *)order_return_id
@@ -101,13 +104,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 发货-自提
 /// @param order_id 订单id
 + (void)sendGoodsBySelfLiftingWithID:(NSString *)order_id
+                             shop_id:(NSString *)shop_id
                              success:(JHNetworkRequestSuccessVoid)success
                                failure:(JHNetworkRequestFailure)failure;
 
 /// 发货-获取物流公司
-/// @param shop_id 店铺id
-+ (void)get_express_listWithSuccess:(JHNetworkRequestSuccessArray)success
-                            failure:(JHNetworkRequestFailure)failure;
++ (void)get_express_listWithShop_id:(NSString *)shop_id
+                            success:(JHNetworkRequestSuccessArray)success
+                         failure:(JHNetworkRequestFailure)failure;
 
 
 /// 按订单发货
@@ -115,6 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param express_sn 物流单号
 /// @param express_id 物流公司id
 + (void)sendOrderGoodsWithOrderID:(NSString *)order_id
+                          shop_id:(NSString *)shop_id
                        express_sn:(NSString *)express_sn
                        express_id:(NSString *)express_id
                              success:(JHNetworkRequestSuccessVoid)success
@@ -126,6 +131,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param express_sn 物流单号
 /// @param express_id 物流公司id
 + (void)sendOrderGoodsWithGoodsID:(NSString *)order_goods_id
+                          shop_id:(NSString *)shop_id
                          order_id:(NSString *)order_id
                        express_sn:(NSString *)express_sn
                        express_id:(NSString *)express_id
@@ -135,6 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 按商品包裹发货 - 获取商品
 /// @param order_id 订单id
 + (void)getOrderDeliveryGoodsWithOrder_id:(NSString *)order_id
+                                  shop_id:(NSString *)shop_id
                              success:(JHNetworkRequestSuccessArray)success
                                failure:(JHNetworkRequestFailure)failure;
 @end

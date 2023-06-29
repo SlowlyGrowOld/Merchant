@@ -16,11 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) UIStatusBarStyle StatusBarStyle;
 @property (nonatomic,strong) NSString *noDataStr;//文字说明没有数据
+@property (nonatomic,strong) NSString *noDataImg;//文字说明没有数据
 /**
  *  显示没有数据页面
  */
 -(void)showNoDataImage;
-
+-(void)showNoDataImageToView:(UIView *)view;
 /**
  *  移除无数据页面
  */

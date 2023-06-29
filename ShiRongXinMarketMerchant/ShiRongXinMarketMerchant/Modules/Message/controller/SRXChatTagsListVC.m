@@ -79,6 +79,7 @@
 - (IBAction)addBtnClick:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
     SRXChatTagsEditVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXChatTagsEditVC"];
+    vc.shop_id = self.shop_id;
     MJWeakSelf;
     vc.refreshBlock = ^{
         [weakSelf requestData];

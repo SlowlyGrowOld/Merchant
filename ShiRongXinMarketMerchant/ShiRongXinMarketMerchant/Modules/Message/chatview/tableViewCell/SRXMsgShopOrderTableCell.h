@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXMsgShopOrderTableCell : UITableViewCell
 @property (nonatomic,strong) SRXMsgChatModel *model;
+@property (nonatomic, copy) NSString *shop_id;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -45,6 +45,7 @@
 - (IBAction)lookShipDetailsBtnClick:(id)sender {
     
     SRXOrderLogisticsDetailsVC *vc = [[SRXOrderLogisticsDetailsVC alloc] init];
+    vc.shop_id = self.shop_id;
     vc.order_id = self.model.order_id;
     vc.express_sn = self.model.express_sn;
     vc.order_type = @"1";

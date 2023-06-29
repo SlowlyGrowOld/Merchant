@@ -7,15 +7,25 @@
 //
 
 #import "NetworkManager+GoodUpdate.h"
+#import "SRXGoodsInfoUpdateAlertVC.h"
 
 @implementation NetworkManager (GoodUpdate)
+
++ (void)showGoodsInfoUpdateAlert:(NSString *)content {
+    if (content.length>0) {
+        SRXGoodsInfoUpdateAlertVC *vc = [[SRXGoodsInfoUpdateAlertVC alloc] init];
+        vc.contentLb.text = content;
+        [[UIViewController jk_currentViewController] presentViewController:vc animated:YES completion:nil];
+    }
+}
 
 + (void)addGoodsWithDic:(NSDictionary *)parameters
                 success:(JHNetworkRequestSuccessVoid)success
                 failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionaryWithDictionary:parameters];
     [[NetworkManager sharedClient] postWithURLString:@"shop/goods_add" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
-        success(messageDic[@"data"]);
+        NSString *goods_id = (NSString *)messageDic[@"data"];
+        success(goods_id);
     } failure:failure];
 }
 
@@ -30,6 +40,7 @@
     mdic[@"goods_id"] = goods_id;
     [[NetworkManager sharedClient] postWithURLString:@"shop/goods_save" parameters:mdic.copy isNeedSVP:YES success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
+        [self showGoodsInfoUpdateAlert:messageDic[@"data"]];
     } failure:failure];
 }
 
@@ -51,6 +62,7 @@
     mDic[@"spec"] = spec;
     [[NetworkManager sharedClient] postWithURLString:@"shop/fast_change_goods_spec_price" parameters:mDic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(@"修改成功");
+        [self showGoodsInfoUpdateAlert:messageDic[@"data"]];
     } failure:failure];
 }
 
@@ -63,6 +75,7 @@
     mDic[@"spec"] = spec;
     [[NetworkManager sharedClient] postWithURLString:@"shop/fast_change_goods_spec_store_count" parameters:mDic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(@"修改成功");
+        [self showGoodsInfoUpdateAlert:messageDic[@"data"]];
     } failure:failure];
 }
 
@@ -171,6 +184,7 @@
     mdic[@"goods_id"] = goods_id;
     [[NetworkManager sharedClient] postWithURLString:@"shop/goods_spec_edit" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
+        [self showGoodsInfoUpdateAlert:messageDic[@"data"]];
     } failure:failure];
 }
 @end

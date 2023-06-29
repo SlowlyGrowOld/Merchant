@@ -52,7 +52,7 @@
 {
     [self removeNoDataImage];
     _noDataView=[[UIImageView alloc] init];
-    [_noDataView setImage:[UIImage imageNamed:_noDataImg ? _noDataImg : @"不开心"]];
+    [_noDataView setImage:[UIImage imageNamed:_noDataImg ? _noDataImg : @"order_no_data"]];
     _noDataLabel = [[UILabel alloc]init];
     _noDataLabel.numberOfLines = 0;
     _noDataLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];
@@ -94,7 +94,7 @@
     [self removeNoDataImage];
     
     _noDataView=[[UIImageView alloc] init];
-    [_noDataView setImage:[UIImage imageNamed:_noDataImg ? _noDataImg : @"不开心"]];
+    [_noDataView setImage:[UIImage imageNamed:_noDataImg ? _noDataImg : @"order_no_data"]];
     _noDataLabel = [[UILabel alloc]init];
     _noDataLabel.numberOfLines = 0;
     _noDataLabel.textColor = UIColorHex(#333333);

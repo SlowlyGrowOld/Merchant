@@ -130,6 +130,7 @@
     if (indexPath.section%2==0) {
         SRXMsgTimeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgTimeTableCell" forIndexPath:indexPath];
         cell.timeLb.text = model.send_time;
+        cell.timeLb.font = [UIFont systemFontOfSize:10];
         return cell;
     }else {
         if ([model.who_send isEqualToString:@"shop"]) {
@@ -143,10 +144,12 @@
                 return cell;
             }else if ([model.msg_type isEqualToString:@"user_order"]){
                 SRXMsgUserOrderTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgUserOrderTableCell" forIndexPath:indexPath];
+                cell.shop_id = self.shop_id;
                 cell.model = model;
                 return cell;
             }else if ([model.msg_type isEqualToString:@"order_address"]) {
                 SRXMsgUserAddressTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgUserAddressTableCell" forIndexPath:indexPath];
+                cell.shop_id = self.shop_id;
                 cell.model = model;
                 return cell;
             }else if ([model.msg_type isEqualToString:@"coupon"]){
@@ -194,6 +197,7 @@
                 return cell;
             }else if ([model.msg_type isEqualToString:@"user_order"] && [model.who_send isEqualToString:@"user"]) {
                 SRXMsgShopOrderTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXMsgShopOrderTableCell" forIndexPath:indexPath];
+                cell.shop_id = self.shop_id;
                 cell.model = model;
                 return cell;
             }else if ([model.msg_type isEqualToString:@"voice"] && [model.who_send isEqualToString:@"user"]){

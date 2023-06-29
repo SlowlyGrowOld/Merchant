@@ -22,6 +22,7 @@
 #import "SRXChatCheckOrdersVC.h"
 #import "SRXChatCouponListVC.h"
 #import "SRXChatRecommentGoodsVC.h"
+#import "SRXChatTransferShopVC.h"
 #import "SRXChatTransferServiceVC.h"
 #import "SRXChatQuickReplyTableView.h"
 #import "SRXChatUserInfoHeadView.h"
@@ -110,7 +111,7 @@
     //添加下方输入框
     [self.view addSubview:self.chatInputView];
     self.tableView.delegate = self;
-    
+    self.tableView.shop_id = self.shop_id;
     MJWeakSelf;
     self.replyTableView.selectBlock = ^(SRXMsgReplysItem * _Nonnull item) {
         weakSelf.replyTableView.superview.hidden = YES;
@@ -258,18 +259,31 @@
         self.replyTableView.superview.hidden = YES;
     }
     self.chatInputView.inputType = SHInputViewType_default;
+    if ([UserManager sharedUserManager].curUserInfo.is_mine_pipe == 1) {
+        SRXChatTransferShopVC *vc = [[SRXChatTransferShopVC alloc] init];
+        MJWeakSelf;
+        vc.serviceBlock = ^(SRXChatShopNumItem * _Nonnull shop) {
+            [weakSelf transferServiceWithTo_shop_id:shop.shop_id];
+        };
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        [self transferServiceWithTo_shop_id:nil];
+    }
+}
+//转接店铺列表的shop_id，is_mine_pipe=1时传
+- (void)transferServiceWithTo_shop_id:(nullable NSString *)to_shop_id {
     SRXChatTransferServiceVC *vc = [[SRXChatTransferServiceVC alloc] init];
     vc.shop_id = self.shop_id;
     MJWeakSelf;
     vc.serviceBlock = ^(SRXMsgChatServiceItem * _Nonnull item) {
-        [NetworkManager transferChatServiceWithUser_id:self.item.user_id shop_user_id:item.shop_user_id shop_id:self.shop_id success:^(NSString *message) {
+        [NetworkManager transferChatServiceWithUser_id:weakSelf.item.user_id shop_user_id:item.shop_user_id shop_id:weakSelf.shop_id to_shop_id:to_shop_id success:^(NSString *message) {
             [weakSelf sendChatMessageWithTransfer:item];
             weakSelf.isTransfer = YES;
         } failure:^(NSString *message) {
             
         }];
     };
-    [self presentViewController:vc animated:YES completion:nil];
+    [[UIViewController jk_currentViewController] presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)recommendGoodsBtnClick:(id)sender {
@@ -577,12 +591,20 @@
         }];
     }else {
         SRXMsgChatModel *message = [SRXMsgChatModel receiveMessageWithDic:dic];
-        if ([message.user_id isEqualToString:self.item.user_id] && [self.shop_id isEqualToString:message.shop_id]) {
-            self.isTransfer = [message.msg_type isEqualToString:@"transfer"]?YES:NO;
-            [self.dataSources addObject:message];
-            self.tableView.datas = self.dataSources.copy;
-            [self.tableView reloadData];
-            [self tableViewScrollToBottom];
+        if ([message.user_id isEqualToString:self.item.user_id] && ([message.shop_id isEqualToString:@"99989"]||[self.shop_id isEqualToString:message.shop_id])) {
+            self.isTransfer = [message.msg_type isEqualToString:@"system"]?YES:NO;
+            if ([message.msg_type isEqualToString:@"system"]) {
+                [self.dataSources removeAllObjects];
+                self.pageNo = 1;
+                self.currentPage = self.pageNo;
+                self.loadMore = NO;
+                [self requestTableData];
+            } else {
+                [self.dataSources addObject:message];
+                self.tableView.datas = self.dataSources.copy;
+                [self.tableView reloadData];
+                [self tableViewScrollToBottom];
+            }
         }
     }
 }
@@ -639,6 +661,7 @@
     }else if ([menuItem.title isEqualToString:@"核对订单"]) {
         SRXChatCheckOrdersVC *vc = [[SRXChatCheckOrdersVC alloc] init];
         vc.user_id = self.item.user_id;
+        vc.shop_id = self.shop_id;
         MJWeakSelf;
         vc.selectBlock = ^(SRXOrderListModel * _Nonnull model) {
             [weakSelf sendChatMessageWithOrder:model];

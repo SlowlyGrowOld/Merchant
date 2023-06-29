@@ -40,7 +40,7 @@
 -(void)showNoDataImage
 {
     _noDataView=[[UIImageView alloc] init];
-    [_noDataView setImage:[UIImage imageNamed:@"不开心"]];
+    [_noDataView setImage:[UIImage imageNamed:_noDataImg ? _noDataImg : @"order_no_data"]];
     _noDataLabel = [[UILabel alloc]init];
     _noDataLabel.numberOfLines = 0;
     _noDataLabel.textColor = [UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];
@@ -74,6 +74,32 @@
         }
     }];
 }
+
+- (void)showNoDataImageToView:(UIView *)view {
+    
+    [self removeNoDataImage];
+    
+    _noDataView=[[UIImageView alloc] init];
+    [_noDataView setImage:[UIImage imageNamed:_noDataImg ? _noDataImg : @"order_no_data"]];
+    _noDataLabel = [[UILabel alloc]init];
+    _noDataLabel.numberOfLines = 0;
+    _noDataLabel.textColor = UIColorHex(#333333);
+    _noDataLabel.text = self.noDataStr ? self.noDataStr : @"暂无数据~";
+    _noDataLabel.textAlignment = NSTextAlignmentCenter;
+    _noDataLabel.font = [UIFont systemFontOfSize:14];
+  
+    [view addSubview:self.noDataView];
+    [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(view.mas_centerX);
+        make.centerY.equalTo(view.mas_centerY).offset(-30);
+    }];
+    [view addSubview:self.noDataLabel];
+    [self.noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(view.mas_centerX);
+        make.top.equalTo(self.noDataView.mas_bottom).offset(15);
+    }];
+}
+
 -(void)removeNoDataImage{
     if (_noDataView) {
         [_noDataView removeFromSuperview];

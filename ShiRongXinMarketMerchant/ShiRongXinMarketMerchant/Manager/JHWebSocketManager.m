@@ -70,7 +70,7 @@ static JHWebSocketManager *manager = nil;
 
 //绑定cliend_id、uid  未登录请设置uid = @""; 防止切换账号未执行
 - (void)bindClienIdAndUid {
-    if (self.client_id.length>0) {
+    if (self.client_id.length>0 && [UserManager sharedUserManager].curUserInfo._id.length>0) {
         NSString *uid = [UserManager sharedUserManager].curUserInfo._id;
         DLog(@"用户ID：%@",uid);
         [NetworkManager bindWSSWithClient_id:self.client_id uid:uid success:^(NSString *message) {

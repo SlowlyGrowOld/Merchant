@@ -16,6 +16,7 @@ typedef enum : NSUInteger {
 } SRXOrderShippedType;
 
 @interface SRXOrderShippedGroupVC : RootViewController
+@property (nonatomic , copy) NSString *shop_id;
 @property (nonatomic, copy) NSString *order_id;
 @property (nonatomic, copy) dispatch_block_t closeBlock;
 @property (nonatomic, assign) SRXOrderShippedType type;

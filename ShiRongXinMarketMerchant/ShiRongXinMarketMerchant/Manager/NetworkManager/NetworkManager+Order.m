@@ -56,24 +56,33 @@
 }
 
 + (void)getOrderDetailsWithOrderID:(NSString *)order_id
+                           shop_id:(NSString *)shop_id
                            success:(nonnull void (^)(SRXOrderDetailsModel * _Nonnull))success
                            failure:(nonnull JHNetworkRequestFailure)failure {
-    [[NetworkManager sharedClient] getWithURLString:@"shop/order_details" parameters:@{@"order_id":order_id} isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"order_id"] = order_id;
+    dic[@"shop_id"] = shop_id;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/order_details" parameters:dic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         SRXOrderDetailsModel *model = [SRXOrderDetailsModel mj_objectWithKeyValues:messageDic[@"data"]];
         success(model);
     } failure:failure];
 }
 
 + (void)getOrderGoodsDeliveryListWithOrderID:(NSString *)order_id
+                                     shop_id:(NSString *)shop_id
                                      success:(JHNetworkRequestSuccessArray)success
                                      failure:(JHNetworkRequestFailure)failure {
-    [[NetworkManager sharedClient] getWithURLString:@"shop/delivery_goods" parameters:@{@"order_id":order_id} isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"order_id"] = order_id;
+    dic[@"shop_id"] = shop_id;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/delivery_goods" parameters:dic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSArray *array = [SRXOrderDeliveryModel mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
         success(array);
     } failure:failure];
 }
 
 + (void)getOrderGoodsDeliveryDetailsWithOrderID:(NSString *)order_id
+                                        shop_id:(NSString *)shop_id
                                      express_sn:(NSString *)express_sn
                                      order_type:(NSString *)order_type
                                 order_return_id:(NSString *)order_return_id
@@ -84,6 +93,7 @@
     dic[@"express_sn"] = express_sn;
     dic[@"order_type"] = order_type;
     dic[@"order_return_id"] = order_return_id;
+    dic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] getWithURLString:@"shop/logistics_details" parameters:dic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         SRXDeliveryDetailsData *details = [SRXDeliveryDetailsData mj_objectWithKeyValues:messageDic[@"data"]];
         success(details);
@@ -125,24 +135,32 @@
 
 
 + (void)sendGoodsBySelfLiftingWithID:(NSString *)order_id
+                             shop_id:(NSString *)shop_id
                              success:(JHNetworkRequestSuccessVoid)success
                              failure:(JHNetworkRequestFailure)failure {
-    [[NetworkManager sharedClient] postWithURLString:@"shop/order_delivery_self_lifting" parameters:@{@"order_id":order_id} isNeedSVP:YES success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"order_id"] = order_id;
+    dic[@"shop_id"] = shop_id;
+    [[NetworkManager sharedClient] postWithURLString:@"shop/order_delivery_self_lifting" parameters:dic.copy isNeedSVP:YES success:^(NSDictionary *messageDic) {
         success(@"请求成功");
     } failure:^(NSString *error) {
         
     }];
 }
 
-+ (void)get_express_listWithSuccess:(JHNetworkRequestSuccessArray)success
++ (void)get_express_listWithShop_id:(NSString *)shop_id
+                            success:(JHNetworkRequestSuccessArray)success
                          failure:(JHNetworkRequestFailure)failure {
-    [[NetworkManager sharedClient] getWithURLString:@"shop/get_express_list" parameters:nil isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"shop_id"] = shop_id;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/get_express_list" parameters:dic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSArray *array = [SRXExpressListModel mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
         success(array);
     } failure:failure];
 }
 
 + (void)sendOrderGoodsWithOrderID:(NSString *)order_id
+                          shop_id:(NSString *)shop_id
                        express_sn:(NSString *)express_sn
                        express_id:(NSString *)express_id
                              success:(JHNetworkRequestSuccessVoid)success
@@ -151,12 +169,14 @@
     dic[@"order_id"] = order_id;
     dic[@"express_sn"] = express_sn;
     dic[@"express_id"] = express_id;
+    dic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] postWithURLString:@"shop/order_delivery_by_order" parameters:dic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"msg"]);
     } failure:failure];
 }
 
 + (void)sendOrderGoodsWithGoodsID:(NSString *)order_goods_id
+                          shop_id:(NSString *)shop_id
                          order_id:(NSString *)order_id
                        express_sn:(NSString *)express_sn
                        express_id:(NSString *)express_id
@@ -167,6 +187,7 @@
     dic[@"order_id"] = order_id;
     dic[@"express_sn"] = express_sn;
     dic[@"express_id"] = express_id;
+    dic[@"shop_id"] = shop_id;
     [[NetworkManager sharedClient] postWithURLString:@"shop/order_delivery_by_package" parameters:dic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"msg"]);
     } failure:failure];
@@ -175,10 +196,13 @@
 /// 按商品包裹发货 - 获取商品
 /// @param order_id 订单id
 + (void)getOrderDeliveryGoodsWithOrder_id:(NSString *)order_id
+                                  shop_id:(NSString *)shop_id
                              success:(JHNetworkRequestSuccessArray)success
                                   failure:(JHNetworkRequestFailure)failure {
-    
-    [[NetworkManager sharedClient] getWithURLString:@"shop/get_order_delivery_goods" parameters:@{@"order_id":order_id} isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    dic[@"order_id"] = order_id;
+    dic[@"shop_id"] = shop_id;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/get_order_delivery_goods" parameters:dic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSArray *array = [SRXOrderGoodsItem mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
         success(array);
     } failure:failure];

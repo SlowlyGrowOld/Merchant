@@ -67,6 +67,7 @@
 - (IBAction)sendGoodsBtnClick:(id)sender {
     UIStoryboard *order = [UIStoryboard storyboardWithName:@"Order" bundle:Nil];
     SRXOrderGoodsShippedVC *vc = [order instantiateViewControllerWithIdentifier:@"SRXOrderGoodsShippedVC"];
+    vc.shop_id = self.shop_id;
     vc.order_id = self.model.order_id;
     for (SRXOrderGoodsItem *item in self.model.order_goods) {
         if (item.order_delivery_id>0) {

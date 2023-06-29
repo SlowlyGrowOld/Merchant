@@ -30,7 +30,7 @@
 
 - (void)requestTableData {
     
-    [NetworkManager getOrderGoodsDeliveryListWithOrderID:self.order_id success:^(NSArray *modelList) {
+    [NetworkManager getOrderGoodsDeliveryListWithOrderID:self.order_id shop_id:self.shop_id success:^(NSArray *modelList) {
         [self requestTableDataSuccessWithArray:modelList];
     } failure:^(NSString *message) {
         
@@ -47,6 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXOrderLogisticsListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrderLogisticsListTableCell" forIndexPath:indexPath];
+    cell.shop_id = self.shop_id;
     cell.model = self.dataSources[indexPath.section];
     cell.titleLb.text = [NSString stringWithFormat:@"包裹%zd",indexPath.section+1];
     return cell;

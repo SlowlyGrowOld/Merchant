@@ -26,4 +26,5 @@ typedef NS_ENUM(NSInteger,UserGender){
 @property (nonatomic,copy) NSString * access_token;//token
 @property (nonatomic,copy) NSString * shop_id;//
 @property (nonatomic,assign) NSInteger shops_num;//
+@property (nonatomic,assign) BOOL is_mine_pipe;//判断是否是平台客服
 @end

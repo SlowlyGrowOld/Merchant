@@ -42,7 +42,7 @@
 }
 
 - (void)requestExpressData {
-    [NetworkManager get_express_listWithSuccess:^(NSArray *modelList) {
+    [NetworkManager get_express_listWithShop_id:@"" success:^(NSArray *modelList) {
         if (modelList.count>0) {
             self.datas = modelList;
             self.tableViewConsH.constant = (44*self.datas.count>kScreenHeight - 250)?kScreenHeight - 250:44*self.datas.count;

@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet SRXGoodsMediaView *videoCollectionView;
 @property (weak, nonatomic) IBOutlet SRXGoodsMediaView *videosCollectionView;
 @property (weak, nonatomic) IBOutlet SRXGoodsMediaView *detailCollectionView;
+@property (weak, nonatomic) IBOutlet UIButton *lookBtn;
 
 @end
 
@@ -45,6 +46,7 @@
     MJWeakSelf;
     _bannersCollectionView.block = ^(NSInteger count) {
         weakSelf.BannersConsH.constant = count>5?height * 2:height;
+        weakSelf.bannerNum.text = [NSString stringWithFormat:@"商品轮播图（%zd/9）",weakSelf.bannersCollectionView.datas.count];
     };
     _detailCollectionView.block = ^(NSInteger count) {
         weakSelf.detailsConsH.constant = count>5?height * 2:height;
@@ -52,26 +54,31 @@
 }
 
 - (void)setEditInfo:(SRXGoodsEditInfoModel *)editInfo {
-    if (!self.editInfo && editInfo) {
-        _editInfo = editInfo;
-        _imageCollectionView.datas = editInfo.image.length>0?@[editInfo.image].mutableCopy:@[].mutableCopy;
-        
-        _bannerNum.text = [NSString stringWithFormat:@"商品轮播图（%zd/9）",editInfo.images.count];
-        _bannersCollectionView.datas = [NSMutableArray arrayWithArray:editInfo.images];
-        CGFloat height = (kScreenWidth - 20)/5;
-        self.BannersConsH.constant = editInfo.images.count>=5?height * 2:height;
-        
-        _gifCollectionView.datas = editInfo.gif_image.length>0?@[editInfo.gif_image].mutableCopy:@[].mutableCopy;
-        
-        _videoCollectionView.datas = editInfo.video.length>0?@[editInfo.video].mutableCopy:@[].mutableCopy;
-
-        _videosCollectionView.datas = [NSMutableArray arrayWithArray:editInfo.videos];
-        _videosConsH.constant = editInfo.videos.count>2?height * 2:height;
-        
-        _detailCollectionView.datas = [NSMutableArray arrayWithArray:editInfo.goods_content];
-        _detailsConsH.constant = editInfo.goods_content.count>=5?height * 2:height;
-    }
+    _editInfo = editInfo;
+    
+    self.lookBtn.hidden = editInfo._id?NO:YES;
+    _imageCollectionView.datas = editInfo.image.length>0?@[editInfo.image].mutableCopy:@[].mutableCopy;
+    
+    _bannerNum.text = [NSString stringWithFormat:@"商品轮播图（%zd/9）",editInfo.images.count];
+    _bannersCollectionView.datas = [NSMutableArray arrayWithArray:editInfo.images];
+    CGFloat height = (kScreenWidth - 20)/5;
+    self.BannersConsH.constant = editInfo.images.count>=5?height * 2:height;
+    
+    _gifCollectionView.datas = editInfo.gif_image.length>0?@[editInfo.gif_image].mutableCopy:@[].mutableCopy;
+    
+    _videoCollectionView.datas = editInfo.video.length>0?@[editInfo.video].mutableCopy:@[].mutableCopy;
+    _videosCollectionView.datas = [NSMutableArray arrayWithArray:editInfo.videos];
+    _videosConsH.constant = editInfo.videos.count>2?height * 2:height;
+    
+    _detailCollectionView.datas = [NSMutableArray arrayWithArray:editInfo.goods_content];
+    _detailsConsH.constant = editInfo.goods_content.count>=5?height * 2:height;
 }
+
+- (void)setGoods_id:(NSString *)goods_id {
+    _goods_id = goods_id;
+    self.lookBtn.hidden = goods_id.intValue>0?NO:YES;
+}
+
 - (IBAction)lastStepBtnClick:(id)sender {
     if (self.block) {
         self.block(0);

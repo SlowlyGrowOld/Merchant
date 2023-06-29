@@ -13,6 +13,7 @@
 #import "NetworkManager+MsgSet.h"
 #import "UIColor+JHExt.h"
 #import "SRXChatTagsListVC.h"
+#import "SRXChatTransferShopVC.h"
 
 @interface SRXMsgChatSetAlertVC ()<UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -28,7 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib.'
+    self.isBgClose = YES;
     [self.contentView settingRadius:20 corner:UIRectCornerTopLeft|UIRectCornerTopRight];
     [self.tagsCollectionView registerNib:[UINib nibWithNibName:@"SRXChatTagsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"SRXChatTagsCollectionCell"];
     MJWeakSelf;
@@ -38,7 +40,7 @@
     [self.transfer_chat jk_addTapActionWithBlock:^(UITapGestureRecognizer * _Nonnull gestureRecoginzer) {
         [weakSelf transferUser];
     }];
-    self.remarkTF.text = self.item.nickname;
+    self.remarkTF.text = self.model.nickname;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -53,6 +55,7 @@
 - (IBAction)goTagsListBtnClick:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Message" bundle:nil];
     SRXChatTagsListVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXChatTagsListVC"];
+    vc.shop_id = self.shop_id;
     RootNavigationController *nav = [[RootNavigationController alloc] initWithRootViewController:vc];
     nav.modalPresentationStyle = 0;
     [self presentViewController:nav animated:YES completion:^{
@@ -63,7 +66,7 @@
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否移除对话？" preferredStyle:UIAlertControllerStyleAlert];
     [alertC addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [alertC addAction:[UIAlertAction actionWithTitle:@"移除" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [NetworkManager removeChatUserWithUser_id:self.item.user_id shop_id:self.shop_id success:^(NSString *message) {
+        [NetworkManager removeChatUserWithUser_id:self.model.user_id shop_id:self.shop_id success:^(NSString *message) {
             if (self.refreshBlock) {
                 self.refreshBlock();
             }
@@ -76,22 +79,49 @@
 }
 
 - (void)transferUser {
+    if ([UserManager sharedUserManager].curUserInfo.is_mine_pipe == 1) {
+        SRXChatTransferShopVC *vc = [[SRXChatTransferShopVC alloc] init];
+        MJWeakSelf;
+        vc.serviceBlock = ^(SRXChatShopNumItem * _Nonnull shop) {
+            [weakSelf transferServiceWithTo_shop_id:shop.shop_id];
+        };
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        [self transferServiceWithTo_shop_id:nil];
+    }
+}
+//转接店铺列表的shop_id，is_mine_pipe=1时传
+- (void)transferServiceWithTo_shop_id:(nullable NSString *)to_shop_id {
     SRXChatTransferServiceVC *vc = [[SRXChatTransferServiceVC alloc] init];
+    vc.shop_id = self.shop_id;
     MJWeakSelf;
     vc.serviceBlock = ^(SRXMsgChatServiceItem * _Nonnull item) {
-        [NetworkManager transferChatServiceWithUser_id:[UserManager sharedUserManager].curUserInfo._id shop_user_id:item.shop_user_id shop_id:self.shop_id success:^(NSString *message) {
+        [NetworkManager transferChatServiceWithUser_id:weakSelf.model.user_id shop_user_id:item.shop_user_id shop_id:weakSelf.shop_id to_shop_id:to_shop_id success:^(NSString *message) {
+            [weakSelf sendChatMessageWithTransfer:item];
             [weakSelf dismissViewControllerAnimated:YES completion:^{
                             
             }];
-            } failure:^(NSString *message) {
+        } failure:^(NSString *message) {
             
         }];
     };
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)sendChatMessageWithTransfer:(SRXMsgChatServiceItem *)item {
+    NSMutableDictionary *dicM = [NSMutableDictionary dictionary];
+    dicM[@"user_id"] = self.model.user_id;
+    dicM[@"msg_type"] = @"transfer";
+    dicM[@"params"] = item.shop_user_id;
+
+    [NetworkManager sentChatMsgWithParameters:dicM.copy shop_id:self.shop_id success:^(NSString *message) {
+    } failure:^(NSString *message) {
+
+    }];
+}
+
 - (void)requestData {
-    [NetworkManager getShopLabelsWithShop_id:self.shop_id user_id:self.item.user_id success:^(NSArray *modelList) {
+    [NetworkManager getShopLabelsWithShop_id:self.shop_id user_id:self.model.user_id success:^(NSArray *modelList) {
         self.datas = modelList;
         self.tagsViewConsH.constant = modelList.count>0?83:46;
         [self.tagsCollectionView reloadData];
@@ -103,15 +133,20 @@
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField endEditing:YES];
-    if ([textField.text isEqualToString:self.item.nickname]) {
-        return YES;
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if ([textField.text isEqualToString:self.model.nickname]) {
+        return;
     }
-    [NetworkManager setChatRemarkWithUser_id:self.item.user_id shop_id:self.shop_id remark_name:textField.text success:^(NSString *message) {
-        
+    [NetworkManager setChatRemarkWithUser_id:self.model.user_id shop_id:self.shop_id remark_name:textField.text success:^(NSString *message) {
+        if (self.refreshBlock) {
+            self.refreshBlock();
+        }
     } failure:^(NSString *message) {
         
     }];
-    return YES;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -142,7 +177,7 @@
     SRXMsgLabelsItem *item = self.datas[indexPath.row];
     if (item.is_chose) {
         [SVProgressHUD show];
-        [NetworkManager removeChatUserLabelWithUser_id:self.item.user_id label_id:item.label_id shop_id:self.shop_id success:^(NSString *message) {
+        [NetworkManager removeChatUserLabelWithUser_id:self.model.user_id label_id:item.label_id shop_id:self.shop_id success:^(NSString *message) {
             item.is_chose = NO;
             [self.tagsCollectionView reloadData];
         } failure:^(NSString *message) {
@@ -159,7 +194,7 @@
             [SVProgressHUD showInfoWithStatus:@"用户标签最多设置三个！"];
         }else {
             [SVProgressHUD show];
-            [NetworkManager addChatUserLabelWithUser_id:self.item.user_id label_id:item.label_id shop_id:self.shop_id success:^(NSString *message) {
+            [NetworkManager addChatUserLabelWithUser_id:self.model.user_id label_id:item.label_id shop_id:self.shop_id success:^(NSString *message) {
                 item.is_chose = YES;
                 [self.tagsCollectionView reloadData];
             } failure:^(NSString *message) {

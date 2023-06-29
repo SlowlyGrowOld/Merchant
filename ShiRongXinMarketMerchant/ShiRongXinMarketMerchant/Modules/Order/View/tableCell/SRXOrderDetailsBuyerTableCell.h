@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderDetailsBuyerTableCell : UITableViewCell
 @property (nonatomic, strong) SRXOrderDUser_info *info;
+@property (nonatomic, copy) NSString *shop_id;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -61,12 +61,14 @@
 - (IBAction)logisticsBtnClick:(id)sender {
     SRXOrderLogisticsListVC *vc = [[SRXOrderLogisticsListVC alloc] init];
     vc.order_id = self.order_id;
+    vc.shop_id = self.shop_id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)sendGoodsBtnClick:(id)sender {
     UIStoryboard *order = [UIStoryboard storyboardWithName:@"Order" bundle:Nil];
     SRXOrderGoodsShippedVC *vc = [order instantiateViewControllerWithIdentifier:@"SRXOrderGoodsShippedVC"];
     vc.order_id = self.order_id;
+    vc.shop_id = self.shop_id;
     for (SRXOrderDGoods_infoItem *item in self.details.goods_info) {
         if (item.order_delivery_id>0){
             vc.is_distribute = YES;
@@ -77,7 +79,7 @@
 }
 
 - (void)requestData {
-    [NetworkManager getOrderDetailsWithOrderID:self.order_id success:^(SRXOrderDetailsModel * _Nonnull model) {
+    [NetworkManager getOrderDetailsWithOrderID:self.order_id shop_id:self.shop_id success:^(SRXOrderDetailsModel * _Nonnull model) {
         self.details = model;
         [self setprogressStatus];
         [self.tableView reloadData];
@@ -154,6 +156,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section==0) {
         SRXOrderDetailsBuyerTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXOrderDetailsBuyerTableCell" forIndexPath:indexPath];
+        cell.shop_id = self.shop_id;
         cell.info = self.details.user_info;
         return cell;
     } else if (indexPath.section==1) {

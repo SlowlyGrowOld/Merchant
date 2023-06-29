@@ -7,6 +7,7 @@
 //
 
 #import "SRXMsgShopGoodsTableCell.h"
+#import "SRXGoodsDetailsVC.h"
 
 @interface SRXMsgShopGoodsTableCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *shop_icon;
@@ -29,28 +30,10 @@
 }
 
 - (void)jumpGoodsDetails {
-//    if ([self.model.goods_info.goods_type isEqualToString:@"group_goods"]) {
-//        SRXGroupGoodsModel *group = [SRXGroupGoodsModel new];
-//        group.activity_id = self.model.goods_info.activity_id;
-//        group.goods_id = [self.model.goods_info._id integerValue];
-//        group.goods_name = self.model.goods_info.goods_name;
-//        HomeHotTeamGoodDetailVC *vc = [[HomeHotTeamGoodDetailVC alloc] initWithNibName:@"HomeHotTeamGoodDetailVC" bundle:nil];
-//        vc.item = group;
-//        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
-//    }else if ([self.model.goods_info.goods_type isEqualToString:@"jx_goods"]) {
-//        HomeRecomendDetailVC *vc = [[HomeRecomendDetailVC alloc] initWithNibName:@"HomeRecomendDetailVC" bundle:nil];
-//        vc.goodId = self.model.goods_info._id;
-//        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
-//    }else {
-//        SRXGoodsListModel *goods = [[SRXGoodsListModel alloc] init];
-//        goods._id = self.model.goods_info._id;
-//        goods.goods_name = self.model.goods_info.goods_name;
-//        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
-//        SRXGoodsDetailsVC *vc = [story instantiateViewControllerWithIdentifier:@"SRXGoodsDetailsVC"];
-//        vc.goodsDetailType = GoodsDetailTypeNormal;
-//        vc.goodsListModel = goods;
-//        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
-//    }
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Goods" bundle:nil];
+    SRXGoodsDetailsVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXGoodsDetailsVC"];
+    vc.goods_id = self.model.goods_info.goods_id;
+    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

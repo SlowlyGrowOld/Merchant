@@ -44,6 +44,7 @@
 
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
     SRXOrderDetailsVC *vc = [sb instantiateViewControllerWithIdentifier:@"SRXOrderDetailsVC"];
+    vc.shop_id = self.shop_id;
     vc.order_id =self.model.order_info.order_id;
     [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }

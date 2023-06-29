@@ -136,6 +136,7 @@
     } else {
         [NetworkManager addGoodsWithDic:dic.copy success:^(NSString *message) {
             self.goods_id = message;
+            self.showVC.goods_id = message;
             [SVProgressHUD showSuccessWithStatus:@"保存成功"];
         } failure:^(NSString *message) {
             

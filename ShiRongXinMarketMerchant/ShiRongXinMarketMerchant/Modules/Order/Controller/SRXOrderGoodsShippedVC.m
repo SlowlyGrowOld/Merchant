@@ -24,6 +24,7 @@
     self.title = @"发货";
     self.view.backgroundColor = UIColor.whiteColor;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
+    self.tableView.separatorColor = UIColorHex(0xf2f2f2);
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
     self.tableView.rowHeight = 48;
     if (@available(iOS 15.0, *)) {
@@ -66,6 +67,7 @@
     if (self.is_single) {
         if (indexPath.row == 1) {
             SRXOrderShippedSelfVC *vc = [[SRXOrderShippedSelfVC alloc] init];
+            vc.shop_id = self.shop_id;
             vc.order_id = self.order_id;
             vc.closeBlock = ^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -74,6 +76,7 @@
         }else {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
             SRXOrderShippedGroupVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXOrderShippedGroupVC"];
+            vc.shop_id = self.shop_id;
             vc.order_id = self.order_id;
             vc.closeBlock = ^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -84,6 +87,7 @@
     } else {
         if (indexPath.row == 2) {
             SRXOrderShippedSelfVC *vc = [[SRXOrderShippedSelfVC alloc] init];
+            vc.shop_id = self.shop_id;
             vc.order_id = self.order_id;
             vc.closeBlock = ^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -92,6 +96,7 @@
         }else {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
             SRXOrderShippedGroupVC *vc = [storyboard instantiateViewControllerWithIdentifier:@"SRXOrderShippedGroupVC"];
+            vc.shop_id = self.shop_id;
             vc.order_id = self.order_id;
             vc.closeBlock = ^{
                 [weakSelf.navigationController popViewControllerAnimated:YES];

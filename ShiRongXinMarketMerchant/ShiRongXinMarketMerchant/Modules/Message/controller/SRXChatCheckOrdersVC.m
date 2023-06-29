@@ -66,6 +66,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SRXChatCheckOrdersTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXChatCheckOrdersTableCell" forIndexPath:indexPath];
+    cell.shop_id = self.shop_id;
     cell.model = self.dataSources[indexPath.section];
     MJWeakSelf;
     [cell.sendMsgBtn addCallBackAction:^(UIButton *button) {
@@ -82,6 +83,7 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Order" bundle:nil];
     SRXOrderDetailsVC *vc = [sb instantiateViewControllerWithIdentifier:@"SRXOrderDetailsVC"];
     vc.order_id = model.order_id;
+    vc.shop_id = self.shop_id;
     [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 

@@ -33,10 +33,15 @@
 }
 
 - (void)requestData {
-    [NetworkManager getOrderGoodsDeliveryDetailsWithOrderID:self.order_id express_sn:self.express_sn order_type:self.order_type order_return_id:self.order_return_id success:^(SRXDeliveryDetailsData * _Nonnull details) {
+    [NetworkManager getOrderGoodsDeliveryDetailsWithOrderID:self.order_id shop_id:self.shop_id express_sn:self.express_sn order_type:self.order_type order_return_id:self.order_return_id success:^(SRXDeliveryDetailsData * _Nonnull details) {
         [self.tableView.mj_header endRefreshing];
         self.details = details;
         [self.tableView reloadData];
+        if (details.traces) {
+            [self removeNoDataImage];
+        } else {
+            [self showNoDataImageToView:self.tableView];
+        }
     } failure:^(NSString *message) {
         
     }];

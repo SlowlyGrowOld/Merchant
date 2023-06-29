@@ -32,7 +32,7 @@
         _is_recommend.on = editInfo.is_recommend==1?YES:NO;
         _is_new.on = editInfo.is_new==1?YES:NO;
         _is_hot.on = editInfo.is_hot==1?YES:NO;
-        _weigh.text = @(editInfo.weigh).stringValue;
+        _weigh.text = editInfo.weigh;
     }
 }
 

@@ -28,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.noDataImg = @"msg_list_nodata";
+    self.noDataStr = @"暂无更多消息...";
     self.tableView.backgroundColor = UIColor.whiteColor;
     self.tableView.rowHeight = 65;
     self.tableView.separatorInset = UIEdgeInsetsMake(0, 15, 0, 15);
@@ -41,10 +43,8 @@
     [JHWebSocketManager shareInstance].receiveBlock = ^(NSDictionary * _Nonnull dic) {
         if ([dic[@"msg_type"] isEqualToString:@"login"]) {
         }else {
-            SRXMsgChatModel *message = [SRXMsgChatModel receiveMessageWithDic:dic];
-            if ([self.shop.shop_id isEqualToString:message.shop_id]) {
-                [self initRequestData];
-            }
+//            SRXMsgChatModel *message = [SRXMsgChatModel receiveMessageWithDic:dic];
+            [self initRequestData];
         }
     };
 }
@@ -137,7 +137,7 @@
         DLog(@"长按---%zd--%zd-",indexPath.row,state);
         SRXMsgChatSetAlertVC *vc = [SRXMsgChatSetAlertVC new];
         vc.shop_id = self.shop.shop_id;
-        vc.item = self.dataSources[indexPath.row];
+        vc.model = self.dataSources[indexPath.row];
         MJWeakSelf;
         vc.refreshBlock = ^{
             [weakSelf initRequestData];

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SRXOrderLogisticsListTableCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
 @property (nonatomic, strong) SRXOrderDeliveryModel *model;
+@property (nonatomic, strong) NSString *shop_id;
 @end
 
 NS_ASSUME_NONNULL_END

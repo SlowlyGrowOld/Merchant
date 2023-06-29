@@ -60,7 +60,7 @@
     mdic[@"user_id"] = user_id;
     mdic[@"shop_id"] = shop_id;
     mdic[@"remark_name"] = remark_name;
-    [[NetworkManager sharedClient] getWithURLString:@"shop/chat_set_remarks" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    [[NetworkManager sharedClient] postWithURLString:@"shop/chat_set_remarks" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
     } failure:failure];
 }
@@ -179,21 +179,37 @@
 + (void)getChatTransferListWithShop_id:(NSString *)shop_id
                                success:(JHNetworkRequestSuccessArray)success
                                failure:(JHNetworkRequestFailure)failure {
-    [[NetworkManager sharedClient] getWithURLString:@"shop/get_chat_shop_transfer" parameters:nil isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"shop_id"] = shop_id;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/get_chat_shop_transfer" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSArray *array = [SRXMsgChatServiceItem mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
         success(array);
     } failure:failure];
 }
+/// 对话窗口-转接店铺列表
++ (void)getChatTransferShopsWithSearch_word:(NSString *)search_word
+                               success:(JHNetworkRequestSuccessArray)success
+                                    failure:(JHNetworkRequestFailure)failure {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"search_word"] = search_word;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/get_chat_transfer_shops" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
+        NSArray *array = [SRXChatShopNumItem mj_objectArrayWithKeyValuesArray:messageDic[@"data"]];
+        success(array);
+    } failure:failure];
+}
+
 /// 转接按钮事件
 + (void)transferChatServiceWithUser_id:(NSString *)user_id
                           shop_user_id:(NSString *)shop_user_id
                                shop_id:(NSString *)shop_id
+                            to_shop_id:(NSString *)to_shop_id
                                success:(JHNetworkRequestSuccessVoid)success
                                failure:(JHNetworkRequestFailure)failure {
     NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
     mdic[@"user_id"] = user_id;
     mdic[@"shop_user_id"] = shop_user_id;
     mdic[@"shop_id"] = shop_id;
+    mdic[@"to_shop_id"] = to_shop_id;
     [[NetworkManager sharedClient] getWithURLString:@"shop/chat_transfer_to" parameters:mdic.copy isNeedSVP:YES success:^(NSDictionary *messageDic) {
         success(messageDic[@"data"]);
     } failure:failure];

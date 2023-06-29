@@ -28,12 +28,12 @@
 }
 
 - (IBAction)sureBtnClick:(id)sender {
-    [NetworkManager sendGoodsBySelfLiftingWithID:self.order_id success:^(NSString *message) {
+    [NetworkManager sendGoodsBySelfLiftingWithID:self.order_id shop_id:self.shop_id success:^(NSString *message) {
         [SVProgressHUD showSuccessWithStatus:@"发货成功"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             if(self.closeBlock){self.closeBlock();}
             KPostNotificationInfo(KNotificationOrderStatusChange, nil, @"refresh");
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
         });
     } failure:^(NSString *message) {
         

@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXOrderGoodsShippedVC : RootViewController
+@property (nonatomic, copy) NSString *shop_id;
 @property (nonatomic, copy) NSString *order_id;
 
 @property (nonatomic, assign) BOOL is_distribute;//多件商品部分商品已发货  只显示分包裹发货

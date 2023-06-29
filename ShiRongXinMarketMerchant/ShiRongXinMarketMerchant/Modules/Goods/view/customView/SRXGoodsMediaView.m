@@ -26,12 +26,12 @@
 
 @implementation SRXGoodsMediaView
 
-
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
     if (self) {
-        [self configUI];
+//        [self configUI];
+        self.limit_num = 1;
     }
     return self;
 }
@@ -41,11 +41,11 @@
     self.dataSource = self;
     self.contentInset = UIEdgeInsetsMake(0, 10, 0, 0);
     [self registerNib:[UINib nibWithNibName:@"SRXGEPicsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"SRXGEPicsCollectionCell"];
-    self.limit_num = 1;
 }
 
 - (void)setDatas:(NSMutableArray *)datas {
     _datas = datas;
+    [self configUI];
     [self reloadData];
 }
 

@@ -41,9 +41,9 @@
 - (void)setEditInfo:(SRXGoodsEditInfoModel *)editInfo {
     if (!self.editInfo) {
         _editInfo = editInfo;
-        _market_price.text = [NSString stringWithNumber:@(editInfo.market_price) formatter:@"###.##"];
-        _weight.text = [NSString stringWithNumber:@(editInfo.weight) formatter:@"###.##"];
-        _refund_deadline.text = @(editInfo.refund_deadline).stringValue;
+//        _market_price.text = [NSString stringWithNumber:@(editInfo.market_price) formatter:@"###.##"];
+        _weight.text = editInfo.weight;
+        _refund_deadline.text = editInfo.refund_deadline;
         _is_free_shipping.on = editInfo.is_free_shipping==1?YES:NO;
         if (editInfo.is_free_shipping == 1) {
             _shippingView.hidden = YES;
@@ -70,6 +70,14 @@
     }
 }
 - (IBAction)nextStepBtnClick:(id)sender {
+    if (self.refund_deadline.text.length==0) {
+        [SVProgressHUD showInfoWithStatus:@"请输入退款期限"];
+        return;
+    }
+    if (!self.is_free_shipping.isOn && self.editInfo.delivery_id.length==0) {
+        [SVProgressHUD showInfoWithStatus:@"请选择运费模版"];
+        return;
+    }
     [self configParameters];
     if (self.block) {
         self.block(2);
@@ -78,7 +86,7 @@
 
 - (void)configParameters {
     self.parameters = [NSMutableDictionary dictionary];
-    self.parameters[@"market_price"] = self.market_price.text;
+//    self.parameters[@"market_price"] = self.market_price.text;
     self.parameters[@"weight"] = self.weight.text;
     self.parameters[@"refund_deadline"] = self.refund_deadline.text;
     self.parameters[@"is_free_shipping"] = self.is_free_shipping.isOn?@"1":@"0";

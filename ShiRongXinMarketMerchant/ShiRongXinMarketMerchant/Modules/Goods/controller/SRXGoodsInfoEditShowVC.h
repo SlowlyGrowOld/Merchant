@@ -15,7 +15,7 @@ typedef void(^SRXGoodsInfoEditBlock)(NSInteger index);
 @interface SRXGoodsInfoEditShowVC : RootViewController
 @property (nonatomic, strong) SRXGoodsEditInfoModel *editInfo;
 @property (nonatomic, copy) SRXGoodsInfoEditBlock block;
-
+@property (nonatomic, copy) NSString *goods_id;
 @property (nonatomic, strong) NSMutableDictionary *parameters;
 @end
 

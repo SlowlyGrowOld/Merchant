@@ -48,7 +48,7 @@
 }
 
 - (void)requestExpressData {
-    [NetworkManager get_express_listWithSuccess:^(NSArray *modelList) {
+    [NetworkManager get_express_listWithShop_id:self.shop_id success:^(NSArray *modelList) {
         self.express_datas = modelList;
     } failure:^(NSString *message) {
         
@@ -56,7 +56,7 @@
 }
 
 - (void)requestGoodsData {
-    [NetworkManager getOrderDeliveryGoodsWithOrder_id:self.order_id success:^(NSArray *modelList) {
+    [NetworkManager getOrderDeliveryGoodsWithOrder_id:self.order_id shop_id:self.shop_id success:^(NSArray *modelList) {
         self.goods_datas = modelList;
         [self.tableView reloadData];
     } failure:^(NSString *message) {
@@ -72,7 +72,7 @@
                 [mArr addObject:item.order_goods_id];
             }
         }
-        [NetworkManager sendOrderGoodsWithGoodsID:[mArr componentsJoinedByString:@","] order_id:self.order_id express_sn:self.express_sn.text express_id:self.express.express_id success:^(NSString *message) {
+        [NetworkManager sendOrderGoodsWithGoodsID:[mArr componentsJoinedByString:@","] shop_id:self.shop_id order_id:self.order_id express_sn:self.express_sn.text express_id:self.express.express_id success:^(NSString *message) {
             [SVProgressHUD showSuccessWithStatus:@"发货成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if(self.closeBlock){self.closeBlock();}
@@ -83,7 +83,7 @@
             
         }];
     }else {
-        [NetworkManager sendOrderGoodsWithOrderID:self.order_id express_sn:self.express_sn.text express_id:self.express.express_id success:^(NSString *message) {
+        [NetworkManager sendOrderGoodsWithOrderID:self.order_id shop_id:self.shop_id express_sn:self.express_sn.text express_id:self.express.express_id success:^(NSString *message) {
             [SVProgressHUD showSuccessWithStatus:@"发货成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 if(self.closeBlock){self.closeBlock();}

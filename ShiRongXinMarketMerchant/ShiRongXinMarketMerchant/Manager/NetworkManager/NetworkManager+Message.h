@@ -93,8 +93,12 @@ NS_ASSUME_NONNULL_BEGIN
                     success:(void(^)(SRXMsgChatOther *other))success
                     failure:(JHNetworkRequestFailure)failure;
 
-/// 对话窗口-转接列表
+/// 对话窗口-转接客服列表
 + (void)getChatTransferListWithShop_id:(NSString *)shop_id
+                               success:(JHNetworkRequestSuccessArray)success
+                               failure:(JHNetworkRequestFailure)failure;
+/// 对话窗口-转接店铺列表
++ (void)getChatTransferShopsWithSearch_word:(NSString *)search_word
                                success:(JHNetworkRequestSuccessArray)success
                                failure:(JHNetworkRequestFailure)failure;
 
@@ -102,6 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)transferChatServiceWithUser_id:(NSString *)user_id
                           shop_user_id:(NSString *)shop_user_id
                                shop_id:(NSString *)shop_id
+                            to_shop_id:(NSString *)to_shop_id //转接店铺列表的shop_id，is_mine_pipe=1时传
                                success:(JHNetworkRequestSuccessVoid)success
                                failure:(JHNetworkRequestFailure)failure;
 /// 商户发送消息

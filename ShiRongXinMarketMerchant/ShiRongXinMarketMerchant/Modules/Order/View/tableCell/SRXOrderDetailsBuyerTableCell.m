@@ -49,6 +49,7 @@
     item.avatar =  self.info.avatar;
     item.user_id =  self.info.user_id;
     vc.item = item;
+    vc.shop_id = self.shop_id;
     [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
 }
 

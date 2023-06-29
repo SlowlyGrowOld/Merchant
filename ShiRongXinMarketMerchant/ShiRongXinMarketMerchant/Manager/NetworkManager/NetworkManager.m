@@ -188,7 +188,7 @@
 
 #pragma mark - 请求和结果处理
 - (void)prepareRequestNeedSVP:(BOOL)needSVP url:(NSString *)url parameters:(NSDictionary *)parameters {
-    NSLog(@"token:%@ url:%@ ,参数：%@", [[UserManager sharedUserManager] curUserInfo].access_token,url ,parameters);
+    DLog(@"token:%@ url:%@ ,参数：%@", [[UserManager sharedUserManager] curUserInfo].access_token,url ,parameters);
     [self.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[[UserManager sharedUserManager] curUserInfo].access_token] forHTTPHeaderField:@"Authorization"];
     if (needSVP) {
         [SVProgressHUD show];

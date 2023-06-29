@@ -55,8 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * goods_sn;
 @property (nonatomic , strong) NSArray <SRXGoodsBasicInfoItem *>              * basic_info;
 @property (nonatomic , assign) CGFloat               market_price;
-@property (nonatomic , assign) CGFloat               weight;
-@property (nonatomic , assign) NSInteger              refund_deadline;
+@property (nonatomic , copy) NSString              * weight;
+@property (nonatomic , copy) NSString              * refund_deadline;
 @property (nonatomic , assign) NSInteger              is_free_shipping;
 @property (nonatomic , copy) NSString              * delivery_id;
 @property (nonatomic , copy) NSString              * delivery_name;
@@ -64,7 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , assign) NSInteger              is_recommend;
 @property (nonatomic , assign) NSInteger              is_new;
 @property (nonatomic , assign) NSInteger              is_hot;
-@property (nonatomic , assign) NSInteger              weigh;
+@property (nonatomic , copy) NSString              * weigh;
 @property (nonatomic , copy) NSString              * image;
 @property (nonatomic , strong) NSArray <NSString *>              * images;
 @property (nonatomic , copy) NSString              * gif_image;
