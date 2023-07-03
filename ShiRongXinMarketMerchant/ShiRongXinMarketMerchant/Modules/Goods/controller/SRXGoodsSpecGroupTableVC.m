@@ -58,9 +58,8 @@
     dic[@"spec_list"] = listArr.copy;
 
     [NetworkManager saveGoodsSpecInfoWithGoods_id:self.goods_id parameters:dic.copy success:^(NSString *message) {
-        [SVProgressHUD showSuccessWithStatus:@"保存成功,商品已转至审核中列表"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            KPostNotification(KNotificationGoodsInfoChange, nil);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            KPostNotification(KNotificationGoodsInfoChange, nil);
             [self.navigationController popToRootViewControllerAnimated:YES];
         });
     } failure:^(NSString *message) {

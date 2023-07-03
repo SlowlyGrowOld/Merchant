@@ -41,6 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
                              failure:(JHNetworkRequestFailure)failure;
 /// 商品列表-提交审核
 + (void)reviewGoodsWithGoods_id:(NSString*)goods_id
+                  is_audit_show:(NSString *)is_audit_show
                              success:(JHNetworkRequestSuccessVoid)success
                              failure:(JHNetworkRequestFailure)failure;
 

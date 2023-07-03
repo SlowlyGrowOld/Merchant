@@ -54,9 +54,13 @@
 }
 /// 商品列表-提交审核
 + (void)reviewGoodsWithGoods_id:(NSString*)goods_id
+                  is_audit_show:(NSString *)is_audit_show
                              success:(JHNetworkRequestSuccessVoid)success
                              failure:(JHNetworkRequestFailure)failure {
-    [[NetworkManager sharedClient] getWithURLString:@"shop/goods_sub_review" parameters:@{@"goods_id":goods_id} isNeedSVP:NO success:^(NSDictionary *messageDic) {
+    NSMutableDictionary *mdic = [NSMutableDictionary dictionary];
+    mdic[@"goods_id"] = goods_id;
+    mdic[@"is_audit_show"] = is_audit_show;
+    [[NetworkManager sharedClient] getWithURLString:@"shop/goods_sub_review" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(messageDic[@"msg"]);
     } failure:failure];
 }

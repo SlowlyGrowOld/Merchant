@@ -73,8 +73,10 @@
         }];
     } else {
         [NetworkManager changeGoodsFateInfoWithGoods_id:self.goods_id spec:goodsArray success:^(NSString *message) {
-            [SVProgressHUD showSuccessWithStatus:message];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            if (message.length==0) {
+                [SVProgressHUD showSuccessWithStatus:message];
+            }
+//            [self dismissViewControllerAnimated:YES completion:nil];
         } failure:^(NSString *message) {
             
         }];

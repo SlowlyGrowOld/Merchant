@@ -135,7 +135,7 @@
             
         }];
     } else if ([string isEqualToString:@"提交审核"]) {
-        [NetworkManager reviewGoodsWithGoods_id:self.model.goods_id success:^(NSString *message) {
+        [NetworkManager reviewGoodsWithGoods_id:self.model.goods_id is_audit_show:@"0" success:^(NSString *message) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 KPostNotification(KNotificationGoodsInfoChange, nil);
             });

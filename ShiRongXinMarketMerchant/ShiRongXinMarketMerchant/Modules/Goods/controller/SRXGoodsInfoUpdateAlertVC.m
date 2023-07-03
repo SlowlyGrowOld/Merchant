@@ -9,7 +9,7 @@
 #import "SRXGoodsInfoUpdateAlertVC.h"
 
 @interface SRXGoodsInfoUpdateAlertVC ()
-
+@property (weak, nonatomic) IBOutlet UILabel *contentLb;
 @end
 
 @implementation SRXGoodsInfoUpdateAlertVC
@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.isBgClose = YES;
+    self.contentLb.text = self.content;
 }
 
 - (IBAction)sureBtnClick:(id)sender {

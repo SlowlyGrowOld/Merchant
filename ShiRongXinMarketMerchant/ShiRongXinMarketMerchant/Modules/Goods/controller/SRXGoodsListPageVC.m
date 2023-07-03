@@ -85,6 +85,11 @@
     self.parameters = [SRXGoodsListParameter new];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeStatus) name:@"goods_leaveTop" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(goodsListBatchStateChange:) name:@"KNotificationGoodsListBatchStateChange" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(goodsInfoChange:) name:KNotificationGoodsInfoChange object:nil];
+}
+
+- (void)goodsInfoChange:(NSNotification *)noti {
+    [self requestGoodsNumber];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -9,6 +9,7 @@
 #import "SRXGoodsListTableVC.h"
 #import "SRXGoodsListTableCell.h"
 #import "SRXGoodsListEditTableCell.h"
+#import "SRXGoodsListNewTableCell.h"
 #import "NetworkManager+Goods.h"
 #import "SRXGoodsDetailsVC.h"
 
@@ -27,6 +28,7 @@
     // Do any additional setup after loading the view.
     self.tableView.backgroundColor = CViewBgColor;
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXGoodsListTableCell" bundle:nil] forCellReuseIdentifier:@"SRXGoodsListTableCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SRXGoodsListNewTableCell" bundle:nil] forCellReuseIdentifier:@"SRXGoodsListNewTableCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SRXGoodsListEditTableCell" bundle:nil] forCellReuseIdentifier:@"SRXGoodsListEditTableCell"];
     [self requestTableData];
     
@@ -105,10 +107,17 @@
         cell.model = self.dataSources[indexPath.section];
         return cell;
     } else {
-        SRXGoodsListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXGoodsListTableCell" forIndexPath:indexPath];
-        cell.model = self.dataSources[indexPath.section];
-        cell.goods_status = self.goods_status;
-        return cell;
+        if (self.goods_status.intValue == 1) {
+            SRXGoodsListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXGoodsListTableCell" forIndexPath:indexPath];
+            cell.model = self.dataSources[indexPath.section];
+            cell.goods_status = self.goods_status;
+            return cell;
+        } else {
+            SRXGoodsListNewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SRXGoodsListNewTableCell" forIndexPath:indexPath];
+            cell.model = self.dataSources[indexPath.section];
+            cell.goods_status = self.goods_status;
+            return cell;
+        }
     }
 }
 
@@ -128,7 +137,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.isEdit?126:(self.goods_status.intValue==3?130:160);
+    return self.isEdit?126:(self.goods_status.intValue==1?160:UITableViewAutomaticDimension);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

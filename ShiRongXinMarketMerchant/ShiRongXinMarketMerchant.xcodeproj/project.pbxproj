@@ -150,6 +150,10 @@
 		11A8662C2A4D1F9100E77281 /* SRXChatTransferShopTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A8662A2A4D1F9100E77281 /* SRXChatTransferShopTableCell.xib */; };
 		11A866302A4D7C3200E77281 /* SRXGoodsInfoUpdateAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11A8662E2A4D7C3200E77281 /* SRXGoodsInfoUpdateAlertVC.m */; };
 		11A866312A4D7C3200E77281 /* SRXGoodsInfoUpdateAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11A8662F2A4D7C3200E77281 /* SRXGoodsInfoUpdateAlertVC.xib */; };
+		11AD56432A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AD56412A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.m */; };
+		11AD56442A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11AD56422A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.xib */; };
+		11AD56482A52698600EF3AB8 /* SRXShelfReviewAlertVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AD56462A52698600EF3AB8 /* SRXShelfReviewAlertVC.m */; };
+		11AD56492A52698600EF3AB8 /* SRXShelfReviewAlertVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11AD56472A52698600EF3AB8 /* SRXShelfReviewAlertVC.xib */; };
 		11AFD40E2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFD40D2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.m */; };
 		11AFD4102A3FFB79001F7EDD /* SRXChatUserInfoHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11AFD40F2A3FFB79001F7EDD /* SRXChatUserInfoHeadView.xib */; };
 		11AFD4132A3FFFB1001F7EDD /* UIColor+JHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 11AFD4122A3FFFB1001F7EDD /* UIColor+JHExt.m */; };
@@ -884,6 +888,12 @@
 		11A8662D2A4D7C3200E77281 /* SRXGoodsInfoUpdateAlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsInfoUpdateAlertVC.h; sourceTree = "<group>"; };
 		11A8662E2A4D7C3200E77281 /* SRXGoodsInfoUpdateAlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsInfoUpdateAlertVC.m; sourceTree = "<group>"; };
 		11A8662F2A4D7C3200E77281 /* SRXGoodsInfoUpdateAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXGoodsInfoUpdateAlertVC.xib; sourceTree = "<group>"; };
+		11AD56402A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXGoodsListNewTableCell.h; sourceTree = "<group>"; };
+		11AD56412A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXGoodsListNewTableCell.m; sourceTree = "<group>"; };
+		11AD56422A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXGoodsListNewTableCell.xib; sourceTree = "<group>"; };
+		11AD56452A52698600EF3AB8 /* SRXShelfReviewAlertVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXShelfReviewAlertVC.h; sourceTree = "<group>"; };
+		11AD56462A52698600EF3AB8 /* SRXShelfReviewAlertVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXShelfReviewAlertVC.m; sourceTree = "<group>"; };
+		11AD56472A52698600EF3AB8 /* SRXShelfReviewAlertVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXShelfReviewAlertVC.xib; sourceTree = "<group>"; };
 		11AFD40C2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatUserInfoHeadView.h; sourceTree = "<group>"; };
 		11AFD40D2A3FFB65001F7EDD /* SRXChatUserInfoHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatUserInfoHeadView.m; sourceTree = "<group>"; };
 		11AFD40F2A3FFB79001F7EDD /* SRXChatUserInfoHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXChatUserInfoHeadView.xib; sourceTree = "<group>"; };
@@ -2167,6 +2177,9 @@
 				11E0896B29FA119800335DCC /* SRXGoodsListPageVC.m */,
 				11E0896D29FA11BE00335DCC /* SRXGoodsListTableVC.h */,
 				11E0896E29FA11BE00335DCC /* SRXGoodsListTableVC.m */,
+				11AD56452A52698600EF3AB8 /* SRXShelfReviewAlertVC.h */,
+				11AD56462A52698600EF3AB8 /* SRXShelfReviewAlertVC.m */,
+				11AD56472A52698600EF3AB8 /* SRXShelfReviewAlertVC.xib */,
 				11F6FBC829FB5DC000519293 /* SRXGoodsSpecUpdateVC.h */,
 				11F6FBC929FB5DC000519293 /* SRXGoodsSpecUpdateVC.m */,
 				11EE165C2A208BB1008BE57F /* SRXGoodsSpecSetTableVC.h */,
@@ -2509,6 +2522,9 @@
 				11E0897229FA4BDD00335DCC /* SRXGoodsListTableCell.h */,
 				11E0897329FA4BDD00335DCC /* SRXGoodsListTableCell.m */,
 				11E0897429FA4BDD00335DCC /* SRXGoodsListTableCell.xib */,
+				11AD56402A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.h */,
+				11AD56412A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.m */,
+				11AD56422A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.xib */,
 				11E0898D29FA727400335DCC /* SRXGoodsListEditTableCell.h */,
 				11E0898E29FA727400335DCC /* SRXGoodsListEditTableCell.m */,
 				11E0898F29FA727400335DCC /* SRXGoodsListEditTableCell.xib */,
@@ -4142,6 +4158,7 @@
 				11E0898C29FA6AF500335DCC /* SRXCreateTimeFilterView.xib in Resources */,
 				11E0898229FA540200335DCC /* SRXGoodsMoreFilterView.xib in Resources */,
 				11DF66FD29F66237004557DE /* SRXOrderRefundDetailsFlowTableCell.xib in Resources */,
+				11AD56442A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.xib in Resources */,
 				80341F19242DE54300DED907 /* icon_play@2x.png in Resources */,
 				116643F32A39971600F846B2 /* SRXMsgUserGoodsTableCell.xib in Resources */,
 				116642E52A39645800F846B2 /* SRXMsgChatVC.xib in Resources */,
@@ -4207,6 +4224,7 @@
 				11E0898429FA630F00335DCC /* SRXShopClassFilterView.xib in Resources */,
 				11C6F7F62A32F99B00CFE28E /* SRXMessageListShopView.xib in Resources */,
 				111314C12A36E771001A77B7 /* SRXChatCheckOrdersTableCell.xib in Resources */,
+				11AD56492A52698600EF3AB8 /* SRXShelfReviewAlertVC.xib in Resources */,
 				11DF9B7228BC87D10045FD17 /* YYStarView.bundle in Resources */,
 				116643F22A39971600F846B2 /* SRXMsgUserAudioTableCell.xib in Resources */,
 				11DF670C29F6627D004557DE /* SRXOrderRefundDetailsInfoTableCell.xib in Resources */,
@@ -4544,12 +4562,14 @@
 				18CCFE2923C6F5120009732E /* ShareManager.m in Sources */,
 				11C5FFB32A1DAFEB00850951 /* SRXTextFieldAlertVC.m in Sources */,
 				110ABCA629EE7A36002D562C /* SRXSetInfoUpdateSuccessVC.m in Sources */,
+				11AD56482A52698600EF3AB8 /* SRXShelfReviewAlertVC.m in Sources */,
 				11DF66FC29F66237004557DE /* SRXOrderRefundDetailsFlowTableCell.m in Sources */,
 				80341F1F242DE54300DED907 /* JPVideoPlayerResourceLoader.m in Sources */,
 				11F3629B2A4194520035F67D /* DCFeatureItemCell.m in Sources */,
 				18CCFE3023C6F5120009732E /* RootViewController.m in Sources */,
 				11F362692A4181130035F67D /* SRXGDEvaluationTableCell.m in Sources */,
 				5DD013F323FE943A00FC4060 /* UIBarButtonItem+JKBarbuttonItem.m in Sources */,
+				11AD56432A525D3E00EF3AB8 /* SRXGoodsListNewTableCell.m in Sources */,
 				18652EF623F4457F005E8EEB /* UIBarButtonItem+LCBase.m in Sources */,
 				5DD013FE23FE943A00FC4060 /* UITextField+JKTextField.m in Sources */,
 				18CCFE3323C6F5120009732E /* MainTabBarController.m in Sources */,

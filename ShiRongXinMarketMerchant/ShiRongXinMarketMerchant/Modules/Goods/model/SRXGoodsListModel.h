@@ -42,10 +42,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * goods_name;
 @property (nonatomic , copy) NSString              * image;
 @property (nonatomic , assign) NSInteger              sales_sum;
-@property (nonatomic , copy) NSString              * status;
+/**状态:0=审核中,1=审核通过,2=审核未通过,3=待提交*/
+@property (nonatomic , assign) NSInteger              status;
+/**status=2未通过时 的原因*/
+@property (nonatomic , copy) NSString              * refuse_reason;
 @property (nonatomic , assign) NSInteger              is_show;
 @property (nonatomic , copy) NSString              * price;
 @property (nonatomic , assign) NSInteger              store_count;
+/**1=提交审核按钮灰色，0=可提交*/
+@property (nonatomic , assign) NSInteger              is_editing;
 
 @property (nonatomic , assign) BOOL              is_select;
 @end

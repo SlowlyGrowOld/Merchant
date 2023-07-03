@@ -97,6 +97,7 @@
     if (self.batchBlock) {
         self.batchBlock(batch);
     }
+    [SVProgressHUD showSuccessWithStatus:@"已批量赋值"];
 }
 
 - (IBAction)resetBtnClick:(id)sender {
@@ -112,6 +113,18 @@
 }
 
 - (IBAction)saveBtnClick:(id)sender {
+    if (_price.text.length==0) {
+        [SVProgressHUD showInfoWithStatus:@"未填写销售价"];
+        return;
+    }
+    if (_score.text.length==0) {
+        [SVProgressHUD showInfoWithStatus:@"未填写积分抵扣"];
+        return;
+    }
+    if (_store_count.text.length==0) {
+        [SVProgressHUD showInfoWithStatus:@"未填写库存"];
+        return;
+    }
     self.item.form.price = _price.text;
     self.item.form.market_price = _market_price.text;
     self.item.form.package_price = _package_price.text;

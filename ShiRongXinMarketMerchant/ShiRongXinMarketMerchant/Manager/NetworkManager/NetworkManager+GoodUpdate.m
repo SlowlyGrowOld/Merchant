@@ -14,9 +14,10 @@
 + (void)showGoodsInfoUpdateAlert:(NSString *)content {
     if (content.length>0) {
         SRXGoodsInfoUpdateAlertVC *vc = [[SRXGoodsInfoUpdateAlertVC alloc] init];
-        vc.contentLb.text = content;
+        vc.content = content;
         [[UIViewController jk_currentViewController] presentViewController:vc animated:YES completion:nil];
     }
+    KPostNotification(KNotificationGoodsInfoChange, nil);
 }
 
 + (void)addGoodsWithDic:(NSDictionary *)parameters
@@ -26,6 +27,7 @@
     [[NetworkManager sharedClient] postWithURLString:@"shop/goods_add" parameters:mdic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         NSString *goods_id = (NSString *)messageDic[@"data"];
         success(goods_id);
+        KPostNotification(KNotificationGoodsInfoChange, nil);
     } failure:failure];
 }
 
@@ -61,7 +63,7 @@
     mDic[@"goods_id"] = goods_id;
     mDic[@"spec"] = spec;
     [[NetworkManager sharedClient] postWithURLString:@"shop/fast_change_goods_spec_price" parameters:mDic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
-        success(@"修改成功");
+        success(messageDic[@"data"]);
         [self showGoodsInfoUpdateAlert:messageDic[@"data"]];
     } failure:failure];
 }
@@ -75,7 +77,6 @@
     mDic[@"spec"] = spec;
     [[NetworkManager sharedClient] postWithURLString:@"shop/fast_change_goods_spec_store_count" parameters:mDic.copy isNeedSVP:NO success:^(NSDictionary *messageDic) {
         success(@"修改成功");
-        [self showGoodsInfoUpdateAlert:messageDic[@"data"]];
     } failure:failure];
 }
 

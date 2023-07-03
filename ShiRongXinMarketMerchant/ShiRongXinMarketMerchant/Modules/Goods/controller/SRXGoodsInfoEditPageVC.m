@@ -129,7 +129,9 @@
     }
     if (self.goods_id) {
         [NetworkManager saveGoodsEditInfoWithGoods_id:self.goods_id parameters:dic.copy success:^(NSString *message) {
-            [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+            if (message.length==0) {
+                [SVProgressHUD showSuccessWithStatus:@"保存成功"];
+            }
         } failure:^(NSString *message) {
             
         }];

@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SRXGoodsInfoUpdateAlertVC : RootPresentViewController
-@property (weak, nonatomic) IBOutlet UILabel *contentLb;
+@property (nonatomic, copy) NSString *content;
 
 @end
 
