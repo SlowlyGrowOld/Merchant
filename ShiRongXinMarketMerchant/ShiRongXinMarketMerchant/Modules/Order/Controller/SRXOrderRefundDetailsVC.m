@@ -57,16 +57,26 @@
         vc.order_type = @"2";
         [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
     } else {
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否拒绝申请？" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"提示" message:@"" preferredStyle:UIAlertControllerStyleAlert];
         [alertC addAction: [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
         [alertC addAction: [UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [NetworkManager setOrderAfterSaleStatusWithID:self.order_return_id operate_type:@"2" refuse_msg:@"" success:^(NSString *message) {
-                [self requestData];
-                if (self.refreshBlock){self.refreshBlock();}
-            } failure:^(NSString *message) {
-                
-            }];
+            UITextField *textField = alertC.textFields.firstObject;
+            if (textField.text.length==0) {
+                [SVProgressHUD showInfoWithStatus:@"请输入拒绝理由"];
+                return;
+            } else {
+                [NetworkManager setOrderAfterSaleStatusWithID:self.order_return_id operate_type:@"2" refuse_msg:textField.text success:^(NSString *message) {
+                    [self requestData];
+                    if (self.refreshBlock){self.refreshBlock();}
+                } failure:^(NSString *message) {
+                    
+                }];
+            }
         }]];
+        [alertC addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = @"请输入拒绝理由";
+        }];
+        
         [self presentViewController:alertC animated:YES completion:nil];
     }
 }

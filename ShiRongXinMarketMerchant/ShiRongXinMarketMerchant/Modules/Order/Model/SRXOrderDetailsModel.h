@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * mobile;
 @property (nonatomic , copy) NSString              * full_address;
 @property (nonatomic , copy) NSString              * remark;
-
+@property (nonatomic , assign) BOOL               is_sure_address;
 @end
 
 
@@ -36,11 +36,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface SRXOrderDOrder_info :NSObject
+@property (nonatomic , copy) NSString              * order_id;
 @property (nonatomic , copy) NSString              * order_sn;
 @property (nonatomic , copy) NSString              * create_time;
 @property (nonatomic , copy) NSString              * pay_type;
 @property (nonatomic , copy) NSString              * pay_time;
-
+@property (nonatomic , copy) NSString              * express_sn;
 @end
 
 

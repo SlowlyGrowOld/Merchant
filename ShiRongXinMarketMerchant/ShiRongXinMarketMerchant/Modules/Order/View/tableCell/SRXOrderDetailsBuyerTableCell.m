@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *full_address;
 @property (weak, nonatomic) IBOutlet UILabel *remark;
 @property (weak, nonatomic) IBOutlet UILabel *mobile;
+@property (weak, nonatomic) IBOutlet UILabel *is_sure_address;
 
 @end
 
@@ -40,6 +41,7 @@
     _mobile.text = info.mobile;
     _full_address.text = info.full_address;
     _remark.text = info.remark;
+    _is_sure_address.hidden = !info.is_sure_address;
 }
 
 - (IBAction)chantBuyerBtnClick:(id)sender {

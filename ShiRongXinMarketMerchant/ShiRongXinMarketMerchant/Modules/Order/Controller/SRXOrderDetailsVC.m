@@ -14,7 +14,7 @@
 
 #import "SRXOrderLogisticsListVC.h"
 #import "SRXOrderGoodsShippedVC.h"
-
+#import "SRXOrderLogisticsDetailsVC.h"
 #import "NetworkManager+Order.h"
 
 @interface SRXOrderDetailsVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -59,10 +59,19 @@
 }
 
 - (IBAction)logisticsBtnClick:(id)sender {
-    SRXOrderLogisticsListVC *vc = [[SRXOrderLogisticsListVC alloc] init];
-    vc.order_id = self.order_id;
-    vc.shop_id = self.shop_id;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (self.details.order_info.express_sn.length==0) {
+        SRXOrderLogisticsListVC *vc = [[SRXOrderLogisticsListVC alloc] init];
+        vc.order_id = self.order_id;
+        vc.shop_id = self.shop_id;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        SRXOrderLogisticsDetailsVC *vc = [[SRXOrderLogisticsDetailsVC alloc] init];
+        vc.shop_id = self.shop_id;
+        vc.order_id = self.order_id;
+        vc.express_sn = self.details.order_info.express_sn;
+        vc.order_type = @"1";
+        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+    }
 }
 - (IBAction)sendGoodsBtnClick:(id)sender {
     UIStoryboard *order = [UIStoryboard storyboardWithName:@"Order" bundle:Nil];

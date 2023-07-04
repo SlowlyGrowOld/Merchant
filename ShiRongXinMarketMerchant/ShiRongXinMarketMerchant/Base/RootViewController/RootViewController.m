@@ -37,10 +37,11 @@
 //    self.navigationController.navigationBar.translucent = NO;
 //    //当导航栏不透明的时候，self.view的布局要不要延伸到Bar的下面铺满屏幕，默认为NO。
 //    self.extendedLayoutIncludesOpaqueBars = NO;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:nil];
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+//                                                                             style:UIBarButtonItemStylePlain
+//                                                                            target:self
+//                                                                            action:nil];
+    [self addNavigationItemWithImageNames:@[@"back_black"] isLeft:YES target:self action:@selector(backBtnClicked) tags:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

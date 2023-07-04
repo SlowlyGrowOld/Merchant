@@ -47,7 +47,7 @@
                                 <constraint firstAttribute="width" constant="44" id="o67-mo-nG7"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" image="back_gray"/>
+                            <state key="normal" image="back_black"/>
                             <connections>
                                 <action selector="backBtnClick:" destination="-1" eventType="touchUpInside" id="bTB-Ov-QWZ"/>
                             </connections>
@@ -398,7 +398,7 @@
         </view>
     </objects>
     <resources>
-        <image name="back_gray" width="20" height="20"/>
+        <image name="back_black" width="10" height="16"/>
         <image name="chat_nav_order" width="16" height="20"/>
         <image name="chat_nav_tag" width="17" height="19"/>
         <image name="close_icon_29" width="28.5" height="28.5"/>

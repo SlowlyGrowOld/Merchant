@@ -61,6 +61,7 @@
     _address.text = model.full_address;
     _user_remark.text = model.remark;
     _order_remark.text = model.admin_note;
+    _address_status.hidden = !model.is_sure_address;
 
     self.tableView.datas = model.order_goods;
     self.tableViewConsH.constant = model.order_goods.count * 80;
@@ -153,20 +154,17 @@
 
 - (IBAction)lookLogistcsBtnClick:(id)sender {
     
-//    if (self.model.goods_count>1) {
-//        SRXOrderLogisticsListVC *vc = [[SRXOrderLogisticsListVC alloc] init];
-//        vc.order_id = self.model.order_id;
-//        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
-//    } else {
-//        SRXOrderLogisticsDetailsVC *vc = [[SRXOrderLogisticsDetailsVC alloc] init];
-//        vc.order_id = self.model.order_id;
-//        vc.express_sn = self.model.express_sn;
-//        vc.order_type = @"1";
-//        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
-//    }
-    SRXOrderLogisticsListVC *vc = [[SRXOrderLogisticsListVC alloc] init];
-    vc.order_id = self.model.order_id;
-    [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+    if (self.model.express_sn.length==0) {
+        SRXOrderLogisticsListVC *vc = [[SRXOrderLogisticsListVC alloc] init];
+        vc.order_id = self.model.order_id;
+        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+    } else {
+        SRXOrderLogisticsDetailsVC *vc = [[SRXOrderLogisticsDetailsVC alloc] init];
+        vc.order_id = self.model.order_id;
+        vc.express_sn = self.model.express_sn;
+        vc.order_type = @"1";
+        [[UIViewController jk_currentNavigatonController] pushViewController:vc animated:YES];
+    }
 }
 
 - (IBAction)erpBtnClick:(id)sender {

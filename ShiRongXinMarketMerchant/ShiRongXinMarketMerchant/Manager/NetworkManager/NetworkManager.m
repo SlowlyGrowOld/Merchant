@@ -209,7 +209,9 @@
         if ([response[@"msg"] isEqualToString:@"未设置支付密码"]) {
             
         }else {
-            [SVProgressHUD showErrorWithStatus:response[@"msg"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD showErrorWithStatus:response[@"msg"]];
+            });
         }
         !failure?:failure(response[@"msg"]);
         return;

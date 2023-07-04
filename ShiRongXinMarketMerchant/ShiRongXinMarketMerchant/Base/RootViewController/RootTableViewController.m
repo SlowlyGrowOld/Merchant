@@ -31,10 +31,11 @@
     //是否显示返回按钮
     self.isShowLiftBack = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:nil];
+//    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+//                                                                             style:UIBarButtonItemStylePlain
+//                                                                            target:self
+//                                                                            action:nil];
+    [self addNavigationItemWithImageNames:@[@"back_black"] isLeft:YES target:self action:@selector(backBtnClicked) tags:nil];
     self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 -(void)showNoDataImage
@@ -203,5 +204,49 @@
     }
 }
 
+/**
+   导航栏添加图标按钮
+ 
+ @param imageNames 图标数组
+ @param isLeft 是否是左边 非左即右
+ @param target 目标
+ @param action 点击方法
+ @param tags tags数组 回调区分用
+ */
+- (void)addNavigationItemWithImageNames:(NSArray *)imageNames isLeft:(BOOL)isLeft target:(id)target action:(SEL)action tags:(NSArray *)tags
+{
+    NSMutableArray * items = [[NSMutableArray alloc] init];
+    NSInteger i = 0;
+    for (NSString * imageName in imageNames) {
+        UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+        btn.frame = CGRectMake(0, 0, 30, 30);
+        [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 
+        // 左边向左边10, 右边向右边10 mark byKing
+        if (isLeft) {
+            [btn setContentEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
+        }else{
+            [btn setContentEdgeInsets:UIEdgeInsetsMake(0, 10, 0, -10)];
+        }
+
+        btn.tag = [tags[i++] integerValue];
+        UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        [items addObject:item];
+    }
+    if (isLeft) {
+        self.navigationItem.leftBarButtonItems = items;
+    } else {
+        self.navigationItem.rightBarButtonItems = items;
+    }
+}
+
+- (void)backBtnClicked
+{
+    if (self.presentingViewController) { // 有模态出自己的控制器
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
 @end

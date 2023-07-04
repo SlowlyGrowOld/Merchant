@@ -40,6 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy) NSString              * shipping_status;
 @property (nonatomic , assign) NSInteger              order_status;
 @property (nonatomic , assign) NSInteger              goods_count;
+@property (nonatomic , assign) BOOL              is_sure_address;
+@property (nonatomic , copy) NSString              * express_sn;
 @property (nonatomic , copy) NSString              * admin_note;
 @property (nonatomic , copy) NSString              * avatar;
 @property (nonatomic , copy) NSString              * nickname;

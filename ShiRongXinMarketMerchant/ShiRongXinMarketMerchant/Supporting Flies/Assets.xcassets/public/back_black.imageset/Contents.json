@@ -5,12 +5,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "back_search@2x-1.png",
+      "filename" : "back_black@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "back_search@3x.png",
+      "filename" : "back_black@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
