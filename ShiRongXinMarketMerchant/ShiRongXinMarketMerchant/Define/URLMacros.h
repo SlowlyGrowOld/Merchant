@@ -8,7 +8,7 @@
 
 
 //线上服务器
-#define OnlineBaseURL @"http://app.goeasy.vip/"
+#define OnlineBaseURL @"https://chat.goeasy.vip/"
 //测试服务器
 //#define TestBaseURL @"http://srx.mrye.xin/"
 
@@ -26,4 +26,4 @@
 
 //WebSocket
 #define kDebugWebSockerServer_ip @"wss://webman.go-easy.cn/wss"
-#define kWebSockerServer_ip @"wss://chatgoeasy.vip/wss"
+#define kWebSockerServer_ip @"wss://chat.goeasy.vip/wss"

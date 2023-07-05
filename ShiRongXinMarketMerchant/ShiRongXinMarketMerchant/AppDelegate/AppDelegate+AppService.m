@@ -31,6 +31,18 @@
     if (@available(iOS 11.0, *)){
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
+    
+#ifdef DEBUG
+    NSString *onlineOrTest = [kUserDefaults stringForKey:SwitchServiceOnlineOrTest];
+    if ([onlineOrTest isEqualToString:@"1"]) {//正式线
+        [UserAccount sharedAccount].isOnline = YES;
+    }else {
+        [UserAccount sharedAccount].isOnline = NO;
+    }
+#else
+    [UserAccount sharedAccount].isOnline = YES;
+#endif
+    
     //加载个人信息
     NSString *loginModelJsonString = [kUserDefaults stringForKey:UserDefaultkeyLoginModel];
     if (loginModelJsonString) [UserManager saveUserWithLoginMode:[UserInfo mj_objectWithKeyValues:loginModelJsonString]];
@@ -47,16 +59,6 @@
     [SVProgressHUD setBackgroundColor:kHRGBAlpha(0, 0, 0, .6)];
     [SVProgressHUD setForegroundColor:UIColor.whiteColor];
 
-#ifdef DEBUG
-    NSString *onlineOrTest = [kUserDefaults stringForKey:SwitchServiceOnlineOrTest];
-    if ([onlineOrTest isEqualToString:@"1"]) {//正式线
-        [UserAccount sharedAccount].isOnline = YES;
-    }else {
-        [UserAccount sharedAccount].isOnline = NO;
-    }
-#else
-    [UserAccount sharedAccount].isOnline = YES;
-#endif
 }
 
 - (void)initIQKeyboard{

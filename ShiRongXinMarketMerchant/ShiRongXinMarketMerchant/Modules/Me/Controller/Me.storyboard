@@ -71,7 +71,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="店铺名称店铺名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAh-fq-BUw">
-                                                    <rect key="frame" x="64" y="18" width="114.49999999999997" height="17"/>
+                                                    <rect key="frame" x="64" y="18" width="114.5" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -449,13 +449,30 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlC-NP-tig">
+                                                            <rect key="frame" x="349" y="0.0" width="55" height="47"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="55" id="L0u-9d-Ghe"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" title="筛选" image="income_filter">
+                                                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="filterIncomeBtnClick:" destination="jfz-1b-hM5" eventType="touchUpInside" id="1IY-R9-Sqt"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstItem="uY8-FE-jWu" firstAttribute="top" secondItem="ACb-1p-TLi" secondAttribute="top" constant="15" id="6jT-kq-GoV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JlC-NP-tig" secondAttribute="trailing" id="9Cj-Fz-U3N"/>
                                                         <constraint firstAttribute="bottom" secondItem="wgn-Tb-uAv" secondAttribute="bottom" id="HRp-c2-Pm8"/>
                                                         <constraint firstItem="wgn-Tb-uAv" firstAttribute="leading" secondItem="ACb-1p-TLi" secondAttribute="leading" id="JO2-tY-fKs"/>
                                                         <constraint firstItem="uY8-FE-jWu" firstAttribute="leading" secondItem="ACb-1p-TLi" secondAttribute="leading" constant="10" id="YUQ-Ej-yJ1"/>
+                                                        <constraint firstItem="JlC-NP-tig" firstAttribute="centerY" secondItem="uY8-FE-jWu" secondAttribute="centerY" id="ppq-zb-6EJ"/>
+                                                        <constraint firstItem="JlC-NP-tig" firstAttribute="top" secondItem="ACb-1p-TLi" secondAttribute="top" id="rZI-4C-fCh"/>
                                                         <constraint firstAttribute="trailing" secondItem="wgn-Tb-uAv" secondAttribute="trailing" id="xhA-o9-gIo"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -552,6 +569,7 @@
                     </tableView>
                     <connections>
                         <outlet property="avatar" destination="gXh-nc-aBZ" id="wYF-4j-mj8"/>
+                        <outlet property="filterBtn" destination="JlC-NP-tig" id="hRI-gN-jnE"/>
                         <outlet property="incomeCollectionView" destination="wgn-Tb-uAv" id="w4L-DD-pAO"/>
                         <outlet property="nameLb" destination="4g8-La-jwh" id="4bg-E7-SFA"/>
                         <outlet property="orderCollectionView" destination="cxC-9n-tj5" id="K2K-lI-eMU"/>
@@ -1382,6 +1400,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="income_filter" width="10" height="10"/>
         <image name="logo" width="90" height="90"/>
         <image name="me_head_bg" width="375" height="237"/>
         <image name="me_set" width="18" height="17"/>

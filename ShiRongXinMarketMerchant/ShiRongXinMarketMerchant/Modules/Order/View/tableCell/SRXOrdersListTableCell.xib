@@ -179,8 +179,8 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="216" height="49"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货人" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6T-x1-CuQ">
-                                                        <rect key="frame" x="10" y="18.5" width="31" height="12"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <rect key="frame" x="10" y="18" width="34" height="13.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -189,7 +189,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="Zwm-sq-BiF"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -208,8 +208,8 @@
                                                 <rect key="frame" x="0.0" y="61" width="216" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA0-y8-aqK">
-                                                        <rect key="frame" x="10" y="19" width="41" height="12"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <rect key="frame" x="10" y="18.5" width="45" height="13.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -218,7 +218,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="FiT-gF-N8Q"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -237,8 +237,8 @@
                                                 <rect key="frame" x="0.0" y="123" width="216" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客户留言" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9y6-wp-3H6">
-                                                        <rect key="frame" x="10" y="19" width="41" height="12"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <rect key="frame" x="10" y="18.5" width="45" height="13.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -247,7 +247,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="MH0-Jx-t8W"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>

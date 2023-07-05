@@ -209,7 +209,10 @@
 - (void)congifArrayData {
     for (MonthModel *item in self.dayModelArray) {
         if ([item isKindOfClass:[MonthModel class]]) {
-            if (self.lowDate && self.highDate) {
+            if (!self.lowDate && !self.highDate){
+                item.isSelectedDay = NO;
+                item.isLocation = 2;
+            }else if (self.lowDate && self.highDate) {
                 if ([item.dateValue compare:self.lowDate]==NSOrderedDescending && [item.dateValue compare:self.highDate]==NSOrderedAscending) {
                     item.isSelectedDay = YES;
                     item.isLocation = 0;

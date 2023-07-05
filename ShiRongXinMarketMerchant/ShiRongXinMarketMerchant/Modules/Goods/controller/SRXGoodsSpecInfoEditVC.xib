@@ -149,7 +149,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="tsa-iC-I9h"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sqR-CP-Izg">
                                                     <rect key="frame" x="326" y="16" width="52" height="18"/>
@@ -198,7 +198,7 @@
                                                         <constraint firstAttribute="width" constant="136" id="GsZ-S2-Cfl"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agd-rK-jl7">
                                                     <rect key="frame" x="326" y="16" width="52" height="18"/>
@@ -247,7 +247,7 @@
                                                         <constraint firstAttribute="width" constant="136" id="urT-Ds-Ohx"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5O-af-lYP">
                                                     <rect key="frame" x="326" y="16" width="52" height="18"/>
@@ -311,7 +311,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="jaV-OR-F0s"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-58-ljM">
                                                     <rect key="frame" x="326" y="16" width="52" height="18"/>
@@ -360,7 +360,7 @@
                                                         <constraint firstAttribute="width" constant="136" id="LIS-kN-fj2"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRG-C4-UcV">
                                                     <rect key="frame" x="326" y="16" width="52" height="18"/>
@@ -424,7 +424,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="Jrq-Wn-G05"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cT1-oS-7ej">
                                                     <rect key="frame" x="326" y="16" width="52" height="18"/>
@@ -473,7 +473,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="jke-Aa-deb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 </textField>
                                                 <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDE-oU-mbB">
                                                     <rect key="frame" x="326" y="16" width="52" height="18"/>

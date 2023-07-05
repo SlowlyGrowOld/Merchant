@@ -10,6 +10,7 @@
 #import "SRXMeCollectionView.h"
 #import "NetworkManager+Me.h"
 #import "SRXSetInfoTableVC.h"
+#import "SRXCreateTimeFilterView.h"
 
 @interface SRXMeVC ()
 @property (weak, nonatomic) IBOutlet SRXMeCollectionView *orderCollectionView;
@@ -20,10 +21,28 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLb;
 @property (weak, nonatomic) IBOutlet UILabel *shop_name;
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
-
+@property (weak, nonatomic) IBOutlet UIButton *filterBtn;
+@property (nonatomic, strong) SRXCreateTimeFilterView *timeFilter;
+@property (nonatomic, copy) NSString *start_date;
+@property (nonatomic, copy) NSString *end_date;
 @end
 
 @implementation SRXMeVC
+
+- (SRXCreateTimeFilterView *)timeFilter {
+    if (!_timeFilter) {
+        _timeFilter = [[NSBundle mainBundle] loadNibNamed:@"SRXCreateTimeFilterView" owner:nil options:nil].firstObject;
+        _timeFilter.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+        _timeFilter.parameters = [SRXGoodsListParameter new];
+        MJWeakSelf;
+        _timeFilter.closeBlock = ^(SRXGoodsListParameter * _Nullable parameters) {
+            weakSelf.start_date = parameters.start_time;
+            weakSelf.end_date = parameters.end_time;
+            [weakSelf requestData];
+        };
+    }
+    return _timeFilter;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +51,7 @@
     self.tableView.backgroundColor = CViewBgColor;
     [self.shopSwitch settingRadius:14 corner:UIRectCornerTopLeft|UIRectCornerBottomLeft];
     [self.shopSwitch setImagePosition:LXMImagePositionRight spacing:4];
+    [self.filterBtn setImagePosition:LXMImagePositionRight spacing:4];
     
     self.orderCollectionView.type = SRXMeCollectionTypeImage;
     self.orderCollectionView.jumpType = SRXMeCollectionJumpTypeMyOrder;
@@ -60,11 +80,19 @@
         [self.tableView.mj_header endRefreshing];
     }];
     
-    [NetworkManager getIncomeInfoWithShop_id:[UserManager sharedUserManager].curUserInfo.shop_id start_date:nil end_date:nil success:^(SRXIncomeInfo * _Nonnull info) {
+    [NetworkManager getIncomeInfoWithShop_id:[UserManager sharedUserManager].curUserInfo.shop_id start_date:self.start_date end_date:self.end_date success:^(SRXIncomeInfo * _Nonnull info) {
         self.incomeCollectionView.datas = @[[SRXMeCollectionModel configWithTitle:@"积分抵扣" content:info.integral_num],[SRXMeCollectionModel configWithTitle:@"微信支付" content:info.wechat_pay],[SRXMeCollectionModel configWithTitle:@"支付宝" content:info.ali_pay],[SRXMeCollectionModel configWithTitle:@"余额" content:info.balance_pay],[SRXMeCollectionModel configWithTitle:@"优惠卷" content:info.coupon_pay],[SRXMeCollectionModel configWithTitle:@"运费" content:info.shipping_pay]];
     } failure:^(NSString *message) {
         
     }];
+}
+
+- (IBAction)filterIncomeBtnClick:(id)sender {
+    if (self.timeFilter.superview) {
+        [self.timeFilter dismiss];
+    } else {
+        [[UIApplication sharedApplication].keyWindow addSubview:self.timeFilter];
+    }
 }
 
 #pragma mark - Table view data source

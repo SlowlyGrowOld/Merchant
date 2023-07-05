@@ -35,6 +35,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self requstRedDot];
 }
 
 
@@ -107,7 +108,7 @@
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     //    NSLog(@"选中 %ld",tabBarController.selectedIndex);
-    
+    [self requstRedDot];
 }
 
 -(void)setRedDotWithIndex:(NSInteger)index isShow:(BOOL)isShow{
@@ -117,6 +118,16 @@
         [self.tabBar setBadgeStyle:kCustomBadgeStyleNone value:0 atIndex:index];
     }
     
+}
+
+
+- (void)requstRedDot {
+    [[NetworkManager sharedClient] getWithURLString:@"shop/get_unread_num" parameters:nil isNeedSVP:NO success:^(NSDictionary *messageDic) {
+        NSString *number = messageDic[@"data"];
+        [self.tabBar setBadgeStyle:kCustomBadgeStyleNumber value:number.intValue atIndex:1];
+    } failure:^(NSString *error) {
+        
+    }];
 }
 
 - (BOOL)shouldAutorotate {

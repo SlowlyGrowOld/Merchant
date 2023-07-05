@@ -19,5 +19,5 @@
  @param isShow 是显示还是隐藏
  */
 -(void)setRedDotWithIndex:(NSInteger)index isShow:(BOOL)isShow;
-
+- (void)requstRedDot;
 @end

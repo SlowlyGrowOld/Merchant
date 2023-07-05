@@ -84,11 +84,11 @@ static NSString * const kBadgeTop = @"kBadgeTop";
         redNum.center = CGPointMake(itemWidth*(i+0.5)+tabIconWidth/2-10, badgeTop);
         redNum.layer.cornerRadius = redNum.bounds.size.height/2;
         redNum.clipsToBounds = YES;
-        redNum.backgroundColor = MainColor;;
+        redNum.backgroundColor = UIColorHex(0xE61010);
         redNum.hidden = YES;
 
         redNum.textAlignment = NSTextAlignmentCenter;
-        redNum.font = [UIFont systemFontOfSize:12];
+        redNum.font = [UIFont systemFontOfSize:10];
         redNum.textColor = [UIColor whiteColor];
         
         [self addSubview:redNum];

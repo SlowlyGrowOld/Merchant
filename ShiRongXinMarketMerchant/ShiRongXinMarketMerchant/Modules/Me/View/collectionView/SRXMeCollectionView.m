@@ -37,7 +37,6 @@
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     layout.sectionInset = UIEdgeInsetsMake(0, 3, 0, 3);
-    layout.itemSize = CGSizeMake((kScreenWidth-16)/4, 60);
     
     self.collectionViewLayout = layout;
     self.delegate = self;
@@ -70,6 +69,10 @@
         cell.contentLb.text = model.content;
         return cell;
     }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return self.type == SRXMeCollectionTypeImage?CGSizeMake((kScreenWidth-16)/4, 60):CGSizeMake((kScreenWidth-16)/3, 60);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

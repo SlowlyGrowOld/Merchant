@@ -152,7 +152,7 @@
     };
     [self.menuBgView addSubview:self.menuView];
     
-    self.pageContentView = [[QiPageContentView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, kScreenHeight - TopHeight - 44) childViewController:self.vcs];
+    self.pageContentView = [[QiPageContentView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, kScreenHeight - kAppDelegate.mainTabBar.tabBar.size.height - TopHeight - 44) childViewController:self.vcs];
     self.pageContentView.canScroll = NO;
     self.pageContentView.canAnimated = NO;
     [self.containerView addSubview:self.pageContentView];
