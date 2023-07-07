@@ -39,6 +39,11 @@
             self.tableViewConsH.constant = modelList.count*70;
         }
         [self.tableView reloadData];
+        if (modelList.count==0) {
+            [self dismissViewControllerAnimated:YES completion:^{
+                [SVProgressHUD showInfoWithStatus:@"暂无店铺数据"];
+            }];
+        }
     } failure:^(NSString *message) {
         
     }];

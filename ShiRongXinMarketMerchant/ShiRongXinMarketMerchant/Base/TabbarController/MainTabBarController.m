@@ -36,6 +36,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self requstRedDot];
+    [JHWebSocketManager shareInstance].receiveBlock = ^(NSDictionary * _Nonnull dic) {
+        if ([dic[@"msg_type"] isEqualToString:@"login"]) {
+        }else {
+            [self requstRedDot];
+        }
+    };
 }
 
 
@@ -108,7 +114,7 @@
 
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     //    NSLog(@"选中 %ld",tabBarController.selectedIndex);
-    [self requstRedDot];
+//    [self requstRedDot];
 }
 
 -(void)setRedDotWithIndex:(NSInteger)index isShow:(BOOL)isShow{

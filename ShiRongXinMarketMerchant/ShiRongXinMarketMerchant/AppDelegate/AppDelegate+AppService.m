@@ -40,7 +40,7 @@
         [UserAccount sharedAccount].isOnline = NO;
     }
 #else
-    [UserAccount sharedAccount].isOnline = NO;
+    [UserAccount sharedAccount].isOnline = YES;
 #endif
     
     //加载个人信息

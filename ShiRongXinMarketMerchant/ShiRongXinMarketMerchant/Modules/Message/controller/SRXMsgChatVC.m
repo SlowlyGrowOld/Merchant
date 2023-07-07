@@ -496,7 +496,8 @@
     message.who_send = @"shop";
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    [dateFormatter setTimeZone:timeZone];
     message.send_time = [dateFormatter stringFromDate:[NSDate date]];
     message.user_id = self.item.user_id;
     message.avatar = [UserManager sharedUserManager].curUserInfo.avatar;
