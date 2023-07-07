@@ -1,8 +1,8 @@
 //
-//  SRXShopSwtichTableCell.m
+//  SRXShopSwitchTableCell.m
 //  ShiRongXinMarketMerchant
 //
-//  Created by 王先生 on 2023/4/19.
+//  Created by 王先生 on 2023/7/7.
 //  Copyright © 2023 Alucardulad. All rights reserved.
 //
 
@@ -28,7 +28,7 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 

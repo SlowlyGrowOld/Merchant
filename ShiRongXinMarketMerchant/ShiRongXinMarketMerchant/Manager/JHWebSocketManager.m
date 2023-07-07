@@ -34,7 +34,7 @@ static JHWebSocketManager *manager = nil;
    self.isNetWork = [notification.object boolValue];
     
     if (self.isNetWork) {//有网络
-        if (self.socket.readyState != SR_OPEN) {
+        if (self.socket.readyState != SR_OPEN && [UserManager sharedUserManager].curUserInfo._id.length>0) {
             self.socket = nil;
             [self reConnect];
         }
@@ -178,7 +178,7 @@ static JHWebSocketManager *manager = nil;
     //每隔一段时间重连一次
     //规定64不在重连,2的指数级
     BOOL isNet = [[NSUserDefaults standardUserDefaults] boolForKey:KNotificationNetWorkState];
-    if (!isNet) {
+    if (!isNet || [UserManager sharedUserManager].curUserInfo._id.length==0) {
         return;
     }
     if (self.socket.readyState == SR_OPEN) {

@@ -1,17 +1,17 @@
 //
-//  SRXShopSwitchTableCell.h
+//  SRXShopSwitchTableVC.h
 //  ShiRongXinMarketMerchant
 //
 //  Created by 王先生 on 2023/7/7.
 //  Copyright © 2023 Alucardulad. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "SRXShopDataItem.h"
+#import "JHBaseTableViewController.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SRXShopSwitchTableCell : UITableViewCell
-@property (nonatomic, strong) SRXShopDataItem *item;
+@interface SRXShopSwitchTableVC : JHBaseTableViewController
+
 @end
 
 NS_ASSUME_NONNULL_END

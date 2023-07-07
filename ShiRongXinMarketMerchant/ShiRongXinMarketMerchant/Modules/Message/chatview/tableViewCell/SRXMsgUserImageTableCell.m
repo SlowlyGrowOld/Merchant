@@ -48,6 +48,8 @@
     [_image sd_setImageWithURL:[NSURL URLWithString:model.params] placeholderImage:model.image completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (!image) {
             self.hintLb.hidden = model.image?YES:NO;
+        }else {
+            self.hintLb.hidden = YES;
         }
     }];
     self.activityView.hidden = YES;

@@ -42,6 +42,8 @@
     [_image sd_setImageWithURL:[NSURL URLWithString:model.params] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
         if (!image) {
             self.hintLb.hidden = NO;
+        }else {
+            self.hintLb.hidden = YES;
         }
     }];
 }

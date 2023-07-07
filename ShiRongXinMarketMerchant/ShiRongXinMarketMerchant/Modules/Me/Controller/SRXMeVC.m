@@ -11,6 +11,7 @@
 #import "NetworkManager+Me.h"
 #import "SRXSetInfoTableVC.h"
 #import "SRXCreateTimeFilterView.h"
+#import "SRXShopSwitchTableVC.h"
 
 @interface SRXMeVC ()
 @property (weak, nonatomic) IBOutlet SRXMeCollectionView *orderCollectionView;
@@ -93,6 +94,11 @@
     } else {
         [[UIApplication sharedApplication].keyWindow addSubview:self.timeFilter];
     }
+}
+
+- (IBAction)switchShopBtnClick:(id)sender {
+    SRXShopSwitchTableVC *vc = [[SRXShopSwitchTableVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Table view data source

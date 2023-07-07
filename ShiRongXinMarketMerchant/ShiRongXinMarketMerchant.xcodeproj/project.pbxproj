@@ -27,8 +27,6 @@
 		110ABCAC29EE8176002D562C /* SRXPhoneBindVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 110ABCAB29EE8176002D562C /* SRXPhoneBindVC.m */; };
 		110ABCAF29EE818F002D562C /* SRXPasswordUpdateVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 110ABCAE29EE818F002D562C /* SRXPasswordUpdateVC.m */; };
 		110ABCB229EE8275002D562C /* SRXSmsAuthenticationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 110ABCB129EE8275002D562C /* SRXSmsAuthenticationVC.m */; };
-		110BD8A329EF8BF700540D57 /* SRXShopSwitchTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 110BD8A229EF8BF700540D57 /* SRXShopSwitchTableCell.m */; };
-		110BD8A629EF8C3E00540D57 /* SRXShopSwitchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 110BD8A529EF8C3E00540D57 /* SRXShopSwitchTableViewController.m */; };
 		111314B12A36BAC0001A77B7 /* SRXMessageSetTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314B02A36BAC0001A77B7 /* SRXMessageSetTableVC.m */; };
 		111314B42A36E69F001A77B7 /* SRXChatRecommentGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314B32A36E69F001A77B7 /* SRXChatRecommentGoodsVC.m */; };
 		111314B72A36E6BF001A77B7 /* SRXChatCheckOrdersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314B62A36E6BF001A77B7 /* SRXChatCheckOrdersVC.m */; };
@@ -42,6 +40,9 @@
 		111314CB2A36F623001A77B7 /* SRXMsgSetAllReadVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 111314C92A36F623001A77B7 /* SRXMsgSetAllReadVC.xib */; };
 		111314CE2A36F8EC001A77B7 /* SRXChatFastTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314CD2A36F8EC001A77B7 /* SRXChatFastTextVC.m */; };
 		111314D12A370D92001A77B7 /* SRXMessageSetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 111314D02A370D92001A77B7 /* SRXMessageSetModel.m */; };
+		1115F2662A57A30C00EBA03D /* SRXShopSwitchTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1115F2652A57A30C00EBA03D /* SRXShopSwitchTableVC.m */; };
+		1115F26A2A57A50D00EBA03D /* SRXShopSwitchTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1115F2682A57A50D00EBA03D /* SRXShopSwitchTableCell.m */; };
+		1115F26B2A57A50D00EBA03D /* SRXShopSwitchTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1115F2692A57A50D00EBA03D /* SRXShopSwitchTableCell.xib */; };
 		1118AEDE29F0E356003C994A /* Order.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1118AEDD29F0E356003C994A /* Order.storyboard */; };
 		1118AEE229F0E6CF003C994A /* SRXOrdersCenterPageC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1118AEE129F0E6CF003C994A /* SRXOrdersCenterPageC.m */; };
 		1118AEE629F1308D003C994A /* SRXOrdersListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1118AEE429F1308D003C994A /* SRXOrdersListTableCell.m */; };
@@ -685,10 +686,6 @@
 		110ABCAE29EE818F002D562C /* SRXPasswordUpdateVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXPasswordUpdateVC.m; sourceTree = "<group>"; };
 		110ABCB029EE8275002D562C /* SRXSmsAuthenticationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXSmsAuthenticationVC.h; sourceTree = "<group>"; };
 		110ABCB129EE8275002D562C /* SRXSmsAuthenticationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXSmsAuthenticationVC.m; sourceTree = "<group>"; };
-		110BD8A129EF8BF700540D57 /* SRXShopSwitchTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXShopSwitchTableCell.h; sourceTree = "<group>"; };
-		110BD8A229EF8BF700540D57 /* SRXShopSwitchTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXShopSwitchTableCell.m; sourceTree = "<group>"; };
-		110BD8A429EF8C3E00540D57 /* SRXShopSwitchTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXShopSwitchTableViewController.h; sourceTree = "<group>"; };
-		110BD8A529EF8C3E00540D57 /* SRXShopSwitchTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXShopSwitchTableViewController.m; sourceTree = "<group>"; };
 		111314AF2A36BAC0001A77B7 /* SRXMessageSetTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageSetTableVC.h; sourceTree = "<group>"; };
 		111314B02A36BAC0001A77B7 /* SRXMessageSetTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageSetTableVC.m; sourceTree = "<group>"; };
 		111314B22A36E69F001A77B7 /* SRXChatRecommentGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXChatRecommentGoodsVC.h; sourceTree = "<group>"; };
@@ -711,6 +708,11 @@
 		111314CD2A36F8EC001A77B7 /* SRXChatFastTextVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXChatFastTextVC.m; sourceTree = "<group>"; };
 		111314CF2A370D92001A77B7 /* SRXMessageSetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXMessageSetModel.h; sourceTree = "<group>"; };
 		111314D02A370D92001A77B7 /* SRXMessageSetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXMessageSetModel.m; sourceTree = "<group>"; };
+		1115F2642A57A30C00EBA03D /* SRXShopSwitchTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXShopSwitchTableVC.h; sourceTree = "<group>"; };
+		1115F2652A57A30C00EBA03D /* SRXShopSwitchTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXShopSwitchTableVC.m; sourceTree = "<group>"; };
+		1115F2672A57A50D00EBA03D /* SRXShopSwitchTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXShopSwitchTableCell.h; sourceTree = "<group>"; };
+		1115F2682A57A50D00EBA03D /* SRXShopSwitchTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXShopSwitchTableCell.m; sourceTree = "<group>"; };
+		1115F2692A57A50D00EBA03D /* SRXShopSwitchTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SRXShopSwitchTableCell.xib; sourceTree = "<group>"; };
 		1118AEDD29F0E356003C994A /* Order.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Order.storyboard; sourceTree = "<group>"; };
 		1118AEE029F0E6CF003C994A /* SRXOrdersCenterPageC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXOrdersCenterPageC.h; sourceTree = "<group>"; };
 		1118AEE129F0E6CF003C994A /* SRXOrdersCenterPageC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXOrdersCenterPageC.m; sourceTree = "<group>"; };
@@ -1867,8 +1869,9 @@
 		110BD8A029EF8BBF00540D57 /* tableCell */ = {
 			isa = PBXGroup;
 			children = (
-				110BD8A129EF8BF700540D57 /* SRXShopSwitchTableCell.h */,
-				110BD8A229EF8BF700540D57 /* SRXShopSwitchTableCell.m */,
+				1115F2672A57A50D00EBA03D /* SRXShopSwitchTableCell.h */,
+				1115F2682A57A50D00EBA03D /* SRXShopSwitchTableCell.m */,
+				1115F2692A57A50D00EBA03D /* SRXShopSwitchTableCell.xib */,
 			);
 			path = tableCell;
 			sourceTree = "<group>";
@@ -2630,8 +2633,8 @@
 				110ABCB129EE8275002D562C /* SRXSmsAuthenticationVC.m */,
 				110ABCA429EE7A35002D562C /* SRXSetInfoUpdateSuccessVC.h */,
 				110ABCA529EE7A35002D562C /* SRXSetInfoUpdateSuccessVC.m */,
-				110BD8A429EF8C3E00540D57 /* SRXShopSwitchTableViewController.h */,
-				110BD8A529EF8C3E00540D57 /* SRXShopSwitchTableViewController.m */,
+				1115F2642A57A30C00EBA03D /* SRXShopSwitchTableVC.h */,
+				1115F2652A57A30C00EBA03D /* SRXShopSwitchTableVC.m */,
 				11C5FFB02A1DAFEB00850951 /* SRXTextFieldAlertVC.h */,
 				11C5FFB12A1DAFEB00850951 /* SRXTextFieldAlertVC.m */,
 				11EE16612A2090A0008BE57F /* SRXTextFieldAlertVC.xib */,
@@ -4244,6 +4247,7 @@
 				18CCFE4B23C6F5120009732E /* MBHUD_Warn@2x.png in Resources */,
 				11C3F8ED2910ACE500E15BB5 /* chat_receive_voice4.png in Resources */,
 				18CCFE4A23C6F5120009732E /* MBHUD_Warn@3x.png in Resources */,
+				1115F26B2A57A50D00EBA03D /* SRXShopSwitchTableCell.xib in Resources */,
 				18CCFE4923C6F5120009732E /* MBHUD_Error@2x.png in Resources */,
 				11E0897129FA11CC00335DCC /* Goods.storyboard in Resources */,
 				116644282A39992400F846B2 /* SRXMsgOrderGoodsTableCell.xib in Resources */,
@@ -4542,7 +4546,6 @@
 				11C4DE2429F4D42700A15C7D /* SRXOrderLogisticsListVC.m in Sources */,
 				18652EF223F4457F005E8EEB /* UILabel+LCInit.m in Sources */,
 				116643DA2A39971600F846B2 /* SRXMsgShopOrderTableCell.m in Sources */,
-				110BD8A329EF8BF700540D57 /* SRXShopSwitchTableCell.m in Sources */,
 				805A7E0424B5B36800D99F39 /* FLAnimatedImage.m in Sources */,
 				119992BD29F7BEC500DDEE44 /* SRXShopDataItem.m in Sources */,
 				110ABCAF29EE818F002D562C /* SRXPasswordUpdateVC.m in Sources */,
@@ -4588,6 +4591,7 @@
 				18CCFE1E23C6F5120009732E /* UIButton+Gradient.m in Sources */,
 				111314CE2A36F8EC001A77B7 /* SRXChatFastTextVC.m in Sources */,
 				18CCFE3D23C6F5120009732E /* YBPopupMenu.m in Sources */,
+				1115F2662A57A30C00EBA03D /* SRXShopSwitchTableVC.m in Sources */,
 				62DCF1D0275DED9300B8C734 /* GradientButton.m in Sources */,
 				18652EF323F4457F005E8EEB /* UIImage+LCFillet.m in Sources */,
 				18CCFE1623C6F5120009732E /* UITextView+PlaceHolder.m in Sources */,
@@ -4740,7 +4744,6 @@
 				11F2500F290BCAF900E03964 /* DeviceManagerBase+Microphone.m in Sources */,
 				5DD013F823FE943A00FC4060 /* UIWindow+JKHierarchy.m in Sources */,
 				11C5FFB72A1DB9B200850951 /* NetworkManager+Common.m in Sources */,
-				110BD8A629EF8C3E00540D57 /* SRXShopSwitchTableViewController.m in Sources */,
 				11D7E5DC28894CB400FA19F5 /* YBIBVideoActionBar.m in Sources */,
 				118E72A42A24C316009A28BE /* SRXGoodsInfoEditSaleVC.m in Sources */,
 				18CCFE1523C6F5120009732E /* UIButton+Category.m in Sources */,
@@ -4872,6 +4875,7 @@
 				80341F2E242DE54300DED907 /* JPVideoPlayerCachePath.m in Sources */,
 				11C01E9228324D63000F2528 /* SRXPullTableView.m in Sources */,
 				11EE16662A20912E008BE57F /* SRXGoodsSpecAddTableCell.m in Sources */,
+				1115F26A2A57A50D00EBA03D /* SRXShopSwitchTableCell.m in Sources */,
 				11F362952A41941E0035F67D /* DCCollectionHeaderLayout.m in Sources */,
 				18CCFE1F23C6F5120009732E /* UIImage+Gradient.m in Sources */,
 				5DD013FD23FE943A00FC4060 /* UIImage+JKDirection.m in Sources */,

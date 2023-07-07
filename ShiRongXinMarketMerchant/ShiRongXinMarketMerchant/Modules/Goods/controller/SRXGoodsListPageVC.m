@@ -10,7 +10,7 @@
 #import "QiPageContentView.h"
 #import "JKScrollView.h"
 #import "SRXGoodsListTableVC.h"
-#import "SRXShopSwitchTableViewController.h"
+#import "SRXShopSwitchTableVC.h"
 #import "SRXGoodsInfoEditPageVC.h"
 
 #import "SRXGoodsMoreFilterView.h"
@@ -270,8 +270,7 @@
 }
 
 - (IBAction)switchShopBtnClick:(id)sender {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Me" bundle:nil];
-    SRXShopSwitchTableViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SRXShopSwitchTableViewController"];
+    SRXShopSwitchTableVC *vc = [[SRXShopSwitchTableVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
